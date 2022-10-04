@@ -28,17 +28,36 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.post('/', (req, res) => {
   console.log('hello world')
 })
+
+// ========== ZACH ROUTES ========== //
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
   .then((response) => {
-    console.log('DATA IN SERVER ROUTE \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
     console.log('ERR ================== \n', err)
-    
   })
 })
+app.get('/productOverview/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/:' + req.params.id, options)
+  .then((response) => {
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
+})
+app.get('/productOverview/styles/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/:' + req.params.id + '/styles', options)
+  .then((response) => {
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
+})
+// ========== ZACH ROUTES ========== //
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

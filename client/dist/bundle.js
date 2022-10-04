@@ -391,17 +391,45 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ProductOverview);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      productList: []
+    };
+    _this.getAllProductInfo = _this.getAllProductInfo.bind(_assertThisInitialized(_this));
+    _this.getProductInfo = _this.getProductInfo.bind(_assertThisInitialized(_this));
+    _this.getProductStyles = _this.getProductStyles.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ProductOverview, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview').then(function (data) {
         console.log('DATA IN ProductOverview COMPONENT \n', data);
+
+        _this2.setState({
+          productList: data
+        });
       })["catch"](function (err) {
         console.log('ERR IN COMPONENTDIDMOUNT \n', err);
+      });
+    }
+  }, {
+    key: "getAllProductInfo",
+    value: function getAllProductInfo() {}
+  }, {
+    key: "getProductInfo",
+    value: function getProductInfo(id) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/:' + id).then(function (response) {})["catch"](function (err) {
+        console.log('ERR ================== \n', err);
+      });
+    }
+  }, {
+    key: "getProductStyles",
+    value: function getProductStyles(id) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/styles/:' + id).then(function (response) {})["catch"](function (err) {
+        console.log('ERR ================== \n', err);
       });
     }
   }, {

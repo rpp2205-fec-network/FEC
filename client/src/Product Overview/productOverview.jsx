@@ -8,8 +8,11 @@ import axios from 'axios';
 export default class ProductOverview extends React.Component {
     constructor(props) {
         super(props)
+        //default value of an id taken from the API, so that the rest of the code works.
         this.state = {
-            productList: []
+            productList: [
+                {id: 71701}
+            ]
         }
         this.getAllProductInfo = this.getAllProductInfo.bind(this);
         this.getProductInfo = this.getProductInfo.bind(this);
@@ -17,26 +20,29 @@ export default class ProductOverview extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/productOverview')
+        return this.getAllProductInfo()
         .then((data) => {
-            console.log('DATA IN ProductOverview COMPONENT \n', data)
             this.setState({
                 productList: data
-            })         
+            })
+        })
+    }
+
+    //all client-side routing done in the main component
+    getAllProductInfo() {
+        return axios.get('/productOverview')
+        .then((response) => {
+            return response.data;
         })
         .catch((err) => {
             console.log('ERR IN COMPONENTDIDMOUNT \n', err)
         })
     }
 
-    getAllProductInfo() {
-
-    }
-
     getProductInfo(id) {
-        axios.get('/productOverview/:' + id)
+        return axios.get('/productOverview/' + id)
         .then((response) => {
-
+            return response.data;
         })
         .catch((err) => {
             console.log('ERR ================== \n', err)
@@ -44,9 +50,9 @@ export default class ProductOverview extends React.Component {
     }
 
     getProductStyles(id) {
-        axios.get('/productOverview/styles/:' + id)
+        return axios.get('/productOverview/styles/' + id)
         .then((response) => {
-
+            return response.data.results;
         })
         .catch((err) => {
             console.log('ERR ================== \n', err)
@@ -58,9 +64,9 @@ export default class ProductOverview extends React.Component {
         return (
             <div>
                 <h2>Product Overview</h2>
-                <ImageGallery />
-                <ProductInformation />
-                <StyleSelector />
+                <ImageGallery onLoad={this.getProductStyles} productId={this.state.productList[0].id}/>
+                <ProductInformation onLoad={this.getProductInfo} productId={this.state.productList[0].id}/>
+                <StyleSelector onLoad={this.getProductStyles} productId={this.state.productList[0].id}/>
                 <AddToCart />
                 <h2>End of Product Overview</h2>
             </div>

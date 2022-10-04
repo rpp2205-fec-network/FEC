@@ -30,6 +30,7 @@ app.post('/', (req, res) => {
 })
 
 // ========== ZACH ROUTES ========== //
+// Get All Products
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
   .then((response) => {
@@ -39,8 +40,10 @@ app.get('/productOverview', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
+
+// Get One Particular Product
 app.get('/productOverview/:id', (req, res) => {
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/:' + req.params.id, options)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.params.id, options)
   .then((response) => {
     res.json(response.data);
   })
@@ -48,13 +51,15 @@ app.get('/productOverview/:id', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
+
+//Get One Particular Product's styles
 app.get('/productOverview/styles/:id', (req, res) => {
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/:' + req.params.id + '/styles', options)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.params.id + '/styles', options)
   .then((response) => {
     res.json(response.data);
   })
   .catch((err) => {
-    console.log('ERR ================== \n', err)
+    console.log('ERR ================== \n')
   })
 })
 // ========== ZACH ROUTES ========== //

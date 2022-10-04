@@ -56,10 +56,9 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
       quantity: 1
     }; //binds the functions to this component for the 'this' value
 
-    _this.changeData.bind(_assertThisInitialized(_this));
-
-    _this.onSubmit.bind(_assertThisInitialized(_this));
-
+    _this.onchangeData = _this.changeData.bind(_assertThisInitialized(_this));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.onStar = _this.onStar.bind(_assertThisInitialized(_this));
     return _this;
   } //Dynamically changes selected option
 
@@ -75,6 +74,11 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
     key: "onSubmit",
     value: function onSubmit(e) {
       console.log('ADD TO CART CLICKED');
+    }
+  }, {
+    key: "onStar",
+    value: function onStar(e) {
+      console.log('Starred');
     }
   }, {
     key: "render",
@@ -110,6 +114,10 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
           type: "button",
           value: "Add To Bag          +",
           onClick: this.onSubmit
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          type: "button",
+          value: "Pretend an image of a star is here",
+          onClick: this.onStar
         })]
       });
     }
@@ -174,8 +182,6 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props); //default empty info, first style when data DOES load.
 
     _this.state = {
-      styleInfo: [],
-      currentStyle: 0,
       currentPhoto: 0
     };
     return _this;
@@ -183,21 +189,11 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
 
 
   _createClass(ImageGallery, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      return this.props.onLoad(this.props.productId).then(function (data) {
-        _this2.setState({
-          styleInfo: data
-        });
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var styleInfo = this.state.styleInfo;
-      var currentStyle = this.state.currentStyle;
+      console.log('PROPS', this.props);
+      var styleInfo = this.props.styleInfo;
+      var currentStyle = this.props.currentStyle;
       var currentPhoto = this.state.currentPhoto; //if there are no photos, load this
 
       if (styleInfo.length === 0 || styleInfo[currentStyle].photos.length === 0) {
@@ -205,9 +201,11 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
           children: "NO IMAGES FOUND"
         }); //else load photos based on current selections
       } else {
-        console.log('STYLEPHOTOS IN SECOND RETURN', this.state.stylePhotos);
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos);
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: "Image Gallery"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               className: "selectedImage",
               src: styleInfo[currentStyle].photos[currentPhoto].url
@@ -217,7 +215,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
                 src: image.thumbnail_url
               }, styleInfo[currentStyle].photos.indexOf(image));
             })]
-          })
+          })]
         });
       }
     }
@@ -280,42 +278,31 @@ var ProductInformation = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ProductInformation);
 
     _this = _super.call(this, props);
-    _this.state = {
-      productInfo: []
-    };
+    _this.state = {};
     return _this;
   } //load product information
 
 
   _createClass(ProductInformation, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      return this.props.onLoad(this.props.productId).then(function (data) {
-        _this2.setState({
-          productInfo: data
-        });
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
+      var productInfo = this.props.productInfo;
+      console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-          children: "ProductInformation Placeholder"
+          children: "Product Information"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           children: "Reviews Info"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: "Category"
+          children: productInfo.category
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+          children: productInfo.name
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: "Title"
+          children: productInfo.default_price
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
+          children: productInfo.slogan
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: "Price"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: "Product Overview"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: "Star Button"
+          children: productInfo.description
         })]
       });
     }
@@ -378,37 +365,44 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, StyleSelector);
 
     _this = _super.call(this, props);
-    _this.state = {
-      styleInfo: []
-    };
+    _this.state = {};
+
+    _this.onSelectStyle.bind(_assertThisInitialized(_this));
+
     return _this;
   }
 
   _createClass(StyleSelector, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      return this.props.onLoad(this.props.productId).then(function (data) {
-        _this2.setState({
-          styleInfo: data
-        });
-      });
+    key: "onSelectStyle",
+    value: function onSelectStyle(e) {
+      console.log('Clicked');
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-          children: "StyleSelector Placeholder"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: this.state.styleInfo.map(function (style) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              children: style.name
-            }, style.style_id);
-          })
-        })]
-      });
+      var _this2 = this;
+
+      var styleInfo = this.props.styleInfo;
+
+      if (styleInfo.length === 0) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: "NO STYLE INFO FOUND"
+        }); //else load photos based on current selections
+      } else {
+        console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo);
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: "StyleSelector"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: styleInfo.map(function (style) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                onClick: _this2.onSelectStyle,
+                children: style.name
+              }, style.style_id);
+            })
+          })]
+        });
+      }
     }
   }]);
 
@@ -482,9 +476,13 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props); //default value of an id taken from the API, so that the rest of the code works.
 
     _this.state = {
-      productList: [{
-        id: 71701
-      }]
+      // productList: [
+      //     {id: 71701}
+      // ],
+      currentProduct: {},
+      styleInfo: [],
+      currentProductId: 71701,
+      currentStyle: 0
     };
     _this.getAllProductInfo = _this.getAllProductInfo.bind(_assertThisInitialized(_this));
     _this.getProductInfo = _this.getProductInfo.bind(_assertThisInitialized(_this));
@@ -497,9 +495,21 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      return this.getAllProductInfo().then(function (data) {
+      // return this.getAllProductInfo()
+      // .then((data) => {
+      //     this.setState({
+      //         productList: data
+      //     })
+      // })
+      return this.getProductInfo(71701).then(function (data) {
         _this2.setState({
-          productList: data
+          currentProduct: data
+        });
+      }).then(function () {
+        return _this2.getProductStyles(71701);
+      }).then(function (data) {
+        _this2.setState({
+          styleInfo: data
         });
       });
     } //all client-side routing done in the main component
@@ -516,19 +526,22 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductInfo",
     value: function getProductInfo(id) {
+      console.log('PRODUCT INFO ID', id);
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/' + id).then(function (response) {
         return response.data;
       })["catch"](function (err) {
-        console.log('ERR ================== \n', err);
+        throw err;
       });
     }
   }, {
     key: "getProductStyles",
     value: function getProductStyles(id) {
+      console.log('PRODUCT STYLES ID', id);
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/styles/' + id).then(function (response) {
         return response.data.results;
       })["catch"](function (err) {
-        console.log('ERR ================== \n', err);
+        // throw err
+        console.log('ERR');
       });
     }
   }, {
@@ -539,13 +552,15 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
           children: "Product Overview"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
           onLoad: this.getProductStyles,
-          productId: this.state.productList[0].id
+          styleInfo: this.state.styleInfo,
+          currentStyle: this.state.currentStyle
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
           onLoad: this.getProductInfo,
-          productId: this.state.productList[0].id
+          productInfo: this.state.currentProduct
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
           onLoad: this.getProductStyles,
-          productId: this.state.productList[0].id
+          styleInfo: this.state.styleInfo,
+          currentStyle: this.state.currentStyle
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           children: "End of Product Overview"
         })]

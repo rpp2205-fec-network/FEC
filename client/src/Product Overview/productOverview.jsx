@@ -10,9 +10,13 @@ export default class ProductOverview extends React.Component {
         super(props)
         //default value of an id taken from the API, so that the rest of the code works.
         this.state = {
-            productList: [
-                {id: 71701}
-            ]
+            // productList: [
+            //     {id: 71701}
+            // ],
+            currentProduct: {},
+            styleInfo: [],
+            currentProductId: 71701,
+            currentStyle: 0
         }
         this.getAllProductInfo = this.getAllProductInfo.bind(this);
         this.getProductInfo = this.getProductInfo.bind(this);
@@ -20,10 +24,24 @@ export default class ProductOverview extends React.Component {
     }
 
     componentDidMount() {
-        return this.getAllProductInfo()
+        // return this.getAllProductInfo()
+        // .then((data) => {
+        //     this.setState({
+        //         productList: data
+        //     })
+        // })
+        return this.getProductInfo(71701)
         .then((data) => {
             this.setState({
-                productList: data
+              currentProduct: data  
+            })
+        })
+        .then(() => {
+            return this.getProductStyles(71701)
+        })
+        .then((data) => {
+            this.setState({
+                styleInfo: data
             })
         })
     }
@@ -40,23 +58,25 @@ export default class ProductOverview extends React.Component {
     }
 
     getProductInfo(id) {
+        console.log('PRODUCT INFO ID', id)
         return axios.get('/productOverview/' + id)
         .then((response) => {
             return response.data;
         })
         .catch((err) => {
-            console.log('ERR ================== \n', err)
+            throw err
         })
     }
 
     getProductStyles(id) {
+        console.log('PRODUCT STYLES ID', id)
         return axios.get('/productOverview/styles/' + id)
         .then((response) => {
             return response.data.results;
         })
         .catch((err) => {
-            console.log('ERR ================== \n', err)
-
+            // throw err
+            console.log('ERR')
         })
     }
 
@@ -64,9 +84,9 @@ export default class ProductOverview extends React.Component {
         return (
             <div>
                 <h2>Product Overview</h2>
-                <ImageGallery onLoad={this.getProductStyles} productId={this.state.productList[0].id}/>
-                <ProductInformation onLoad={this.getProductInfo} productId={this.state.productList[0].id}/>
-                <StyleSelector onLoad={this.getProductStyles} productId={this.state.productList[0].id}/>
+                <ImageGallery onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
+                <ProductInformation onLoad={this.getProductInfo} productInfo={this.state.currentProduct}/>
+                <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
                 <AddToCart />
                 <h2>End of Product Overview</h2>
             </div>

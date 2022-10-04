@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import QuestionsAnswers from './Questions & Answers/Questions&Answers.jsx';
+import ProductOverview from './Product Overview/productOverview.jsx'
 import Lists from './RelatedProducts/Lists.jsx'
 
 class App extends React.Component {
@@ -8,12 +10,15 @@ class App extends React.Component {
     this.state = {}
 }
 
+
 render() {
   return (
     <div>
-      <div>Hello World</div>
-      <Lists/>
-    </div>
+    Hello World
+    <ProductOverview />
+    < QuestionsAnswers />
+    <Lists/>
+  </div>
   )
 }
 }

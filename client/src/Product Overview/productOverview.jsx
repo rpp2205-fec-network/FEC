@@ -3,6 +3,7 @@ import ImageGallery from './components/imageGallery.jsx'
 import ProductInformation from './components/productInformation.jsx'
 import StyleSelector from './components/styleSelector.jsx'
 import AddToCart from './components/addToCart.jsx'
+import axios from 'axios';
 
 export default class ProductOverview extends React.Component {
     constructor(props) {
@@ -13,7 +14,13 @@ export default class ProductOverview extends React.Component {
     }
 
     componentDidMount() {
-        
+        axios.get('/productOverview')
+        .then((data) => {
+            console.log('DATA IN ProductOverview COMPONENT \n', data)
+        })
+        .catch((err) => {
+            console.log('ERR IN COMPONENTDIDMOUNT \n', err)
+        })
     }
 
     render() {

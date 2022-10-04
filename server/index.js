@@ -64,5 +64,20 @@ app.get('/productOverview/styles/:id', (req, res) => {
 })
 // ========== ZACH ROUTES ========== //
 
+app.get('/getCategories', function(req, res) {
+  let sampleData = [
+    {
+      category: 'getCategory YEEZY',
+      images: 'getCategory YEEZY',
+      description: 'getCategory YEEZY',
+      price: 1000,
+      size: 'Kanye'
+    }
+  ];
+  res.status(201).send(sampleData)
+})
+
+
+
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

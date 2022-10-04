@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import QuestionsAnswers from './Questions & Answers/Questions&Answers.jsx';
 import ProductOverview from './Product Overview/productOverview.jsx'
 
 class App extends React.Component {
@@ -12,9 +13,10 @@ class App extends React.Component {
 render() {
   return (
     <div>
-      Hello World
-      <ProductOverview />
-    </div>
+    Hello World
+    <ProductOverview />
+    < QuestionsAnswers />
+  </div>
   )
 }
 }

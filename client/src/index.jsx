@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import ReviewIndex from './Reviews/ReviewIndex.jsx'
+import QuestionsAnswers from './Questions & Answers/Questions&Answers.jsx';
+import ProductOverview from './Product Overview/productOverview.jsx'
+import Reviews from './Reviews/ReviewIndex.jsx'
 
 class App extends React.Component {
   constructor(props){
@@ -11,9 +13,11 @@ class App extends React.Component {
 render() {
   return (
     <div>
-      Hello World
-      <ReviewIndex />
-    </div>
+    Hello World
+    <ProductOverview /> <br/><br/><hr/><br/><br/>
+    <QuestionsAnswers /> <br/><br/><hr/><br/><br/>
+    <Reviews /> <br/><br/><hr/><br/><br/>
+  </div>
   )
 }
 }

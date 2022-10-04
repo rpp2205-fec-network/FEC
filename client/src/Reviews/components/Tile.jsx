@@ -1,17 +1,24 @@
 import React from 'react';
 
-class Tile extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {}
-  }
-
-  render () {
+const Tile = (props) => {
     return (
-      <div>HII</div>
+    <div>
+      Different tiles here
+    </div>
     )
-
   }
-}
-
 export default Tile;
+
+// export default class Tile extends React.Component {
+//   constructor(props){
+//     super(props);
+//     this.state = {}
+// }
+
+// render() {
+//   return (
+//     <div>
+//     </div>
+//   )
+// }
+// }

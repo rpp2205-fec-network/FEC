@@ -4,7 +4,10 @@ import Tile from './Tile.jsx'
 const List = (props) => {
     return (
     <div>
-      HIIIIII
+      <Tile/>
+      List to be here<br/>
+      <button>More Reviews</button>
+      <button>Add A Review</button>
     </div>
     )
   }

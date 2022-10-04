@@ -8,19 +8,19 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {}
-}
+  }
 
 
-render() {
-  return (
-    <div>
-    Hello World
-    <ProductOverview />
-    < QuestionsAnswers />
-    <Lists/>
-  </div>
-  )
-}
+  render() {
+    return (
+      <div>
+      Hello World
+      <ProductOverview />
+      < QuestionsAnswers />
+      <Lists/>
+    </div>
+    )
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

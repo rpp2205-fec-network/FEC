@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import ReviewIndex from './Reviews/ReviewIndex.jsx'
 
 class App extends React.Component {
   constructor(props){
@@ -9,7 +10,10 @@ class App extends React.Component {
 
 render() {
   return (
-    <div>Hello World</div>
+    <div>
+      Hello World
+      <ReviewIndex />
+    </div>
   )
 }
 }

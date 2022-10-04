@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import QuestionsAnswers from './Questions & Answers/Questions&Answers.jsx';
+import ProductOverview from './Product Overview/productOverview.jsx'
 
 class App extends React.Component {
   constructor(props){
@@ -8,14 +9,14 @@ class App extends React.Component {
     this.state = {}
 }
 
+
 render() {
   return (
     <div>
-    <div>Hello World</div>
-    <div>
-      <QuestionsAnswers />
-    </div>
-    </div>
+    Hello World
+    <ProductOverview />
+    < QuestionsAnswers />
+  </div>
   )
 }
 }

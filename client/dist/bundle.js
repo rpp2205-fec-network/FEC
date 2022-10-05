@@ -804,6 +804,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
  // using example product data for rendering before state for currentItem
+// Main List component holds both product recommendation list and outfit list
 
 
 
@@ -829,6 +830,30 @@ var Lists = /*#__PURE__*/function (_React$Component) {
       },
       recList: [],
       outfitList: [{
+        category: 'socks',
+        images: 'socksOne',
+        description: 'socksTwo',
+        price: 10,
+        size: 10
+      }, {
+        category: 'pants',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
+        category: 'shirt',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
+        category: 'underwear',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
         category: 'socks',
         images: 'socksOne',
         description: 'socksTwo',
@@ -951,12 +976,14 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
     function element() {
       var outfitMap = this.props.outfitLists.map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          id: "outfit",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             children: [item.category, ",", item.price]
           })
         }, index);
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        id: "outfitScroll",
         children: outfitMap
       });
     }
@@ -1055,11 +1082,18 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     key: "element",
     value: function element() {
       if (this.state.productList.length > 0) {
-        return this.state.productList.map(function (item, index) {
-          console.log(item);
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            children: [item.category, item.price]
+        var recMap = this.state.productList.map(function (item, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "productRec",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              id: "productRecInfo",
+              children: [item.category, ",", item.price]
+            })
           }, index);
+        });
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "productRecScroll",
+          children: recMap
         });
       }
     } // run async pull request to populate current state of products

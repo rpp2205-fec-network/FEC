@@ -24,15 +24,17 @@ export default class Recommend extends React.Component {
   // render items in state and display each as a div
   element() {
     if (this.state.productList.length > 0) {
-      return this.state.productList.map((item, index) => {
-        console.log(item)
+      let recMap = this.state.productList.map((item, index) => {
         return (
-          <div key={index}>
-            {item.category}
-            {item.price}
+          <div key={index} id='productRec'>
+            <div id='productRecInfo'>{item.category},{item.price}</div>
           </div>
         )
       })
+
+      return (
+        <div id='productRecScroll'>{recMap}</div>
+      )
     }
   }
 

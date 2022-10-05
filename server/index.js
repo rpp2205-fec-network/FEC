@@ -36,7 +36,7 @@ app.get('/productOverview', (req, res) => {
   })
   .catch((err) => {
     console.log('ERR ================== \n', err)
-    
+
   })
 })
 
@@ -49,6 +49,18 @@ app.get('/getCategories', function(req, res) {
       description: 'getCategory YEEZY',
       price: 1000,
       size: 'Kanye'
+    }, {
+      category: 'test2 if this was longer then what',
+      images: 'test2',
+      description: 'dafs',
+      price: 1000,
+      size: 'not Kanye'
+    }, {
+      category: 'test23',
+      images: 'kjasdlfjaslejmflwj',
+      description: 'dafs',
+      price: 1000,
+      size: 'maybe Kanye'
     }
   ];
   res.status(201).send(sampleData)

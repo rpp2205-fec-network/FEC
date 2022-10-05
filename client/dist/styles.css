@@ -50,3 +50,15 @@ main {
   padding: 16px;
   margin: auto;
 }
+
+/* ZACH CSS */
+
+.selectedImage {
+  width: 200px;
+  height: auto;
+}
+.unselectedImage {
+  width: 50px;
+  height: auto;
+}
+

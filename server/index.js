@@ -28,18 +28,41 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.post('/', (req, res) => {
   console.log('hello world')
 })
+
+// ========== ZACH ROUTES ========== //
+// Get All Products
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
   .then((response) => {
-    console.log('DATA IN SERVER ROUTE \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
     console.log('ERR ================== \n', err)
-    
   })
 })
 
+// Get One Particular Product
+app.get('/productOverview/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.params.id, options)
+  .then((response) => {
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
+})
+
+//Get One Particular Product's styles
+app.get('/productOverview/styles/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.params.id + '/styles', options)
+  .then((response) => {
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n')
+  })
+})
+// ========== ZACH ROUTES ========== //
 
 app.get('/getCategories', function(req, res) {
   let sampleData = [

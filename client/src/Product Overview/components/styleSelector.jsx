@@ -22,7 +22,7 @@ export default class StyleSelector extends React.Component {
         } else {
             console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo)
             return (
-                <div>
+                <div className="styleSelector">
                     <h3>StyleSelector</h3>
                     <div>
                         {styleInfo.map((style) => {

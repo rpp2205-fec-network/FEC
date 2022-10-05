@@ -84,6 +84,7 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "addToCart",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
           children: "AddToCart Placeholder"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
@@ -182,7 +183,8 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props); //default empty info, first style when data DOES load.
 
     _this.state = {
-      currentPhoto: 0
+      currentPhoto: 0,
+      currentFirstOption: 0
     };
     return _this;
   } //load style data and photo data
@@ -194,26 +196,36 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
       console.log('PROPS', this.props);
       var styleInfo = this.props.styleInfo;
       var currentStyle = this.props.currentStyle;
-      var currentPhoto = this.state.currentPhoto; //if there are no photos, load this
+      var currentPhoto = this.state.currentPhoto;
+      var selectionWheelPhotos = []; //if there are no photos, load this
 
       if (styleInfo.length === 0 || styleInfo[currentStyle].photos.length === 0) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "imageGallery",
           children: "NO IMAGES FOUND"
         }); //else load photos based on current selections
       } else {
+        for (var i = this.state.currentFirstOption; i < this.state.currentFirstOption + 5; i++) {
+          selectionWheelPhotos.push({
+            id: i,
+            thumbnail_url: styleInfo[currentStyle].photos[i].thumbnail_url
+          });
+        }
+
         console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos);
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "imageGallery",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
             children: "Image Gallery"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               className: "selectedImage",
               src: styleInfo[currentStyle].photos[currentPhoto].url
-            }), styleInfo[currentStyle].photos.map(function (image) {
+            }), selectionWheelPhotos.map(function (image) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
                 className: "unselectedImage",
                 src: image.thumbnail_url
-              }, styleInfo[currentStyle].photos.indexOf(image));
+              }, image.id);
             })]
           })]
         });
@@ -289,6 +301,7 @@ var ProductInformation = /*#__PURE__*/function (_React$Component) {
       var productInfo = this.props.productInfo;
       console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "productInformation",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
           children: "Product Information"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -391,6 +404,7 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
       } else {
         console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo);
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "styleSelector",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
             children: "StyleSelector"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {

@@ -29,7 +29,7 @@ export default class AddToCart extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="addToCart">
                 <h3>AddToCart Placeholder</h3>
                 <select name="size" value={this.state.size} onChange={this.changeData}>
                     <option>Extra Small</option>

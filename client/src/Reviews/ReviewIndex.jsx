@@ -12,6 +12,7 @@ render() {
   return (
     <div>
       <p>RATINGS & REVIEWS</p>
+      <p>testing</p>
       <List />
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Answer = (props) => (
-  <div>All answers shown here</div>
+  <div>Answers</div>
 )
 
 export default Answer;

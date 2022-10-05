@@ -2,12 +2,23 @@ import React from 'react';
 import AddAnswer from './AddAnswer.jsx';
 import Answer from './Answer.jsx';
 
-const Question = (props) => (
-  <div>
-  <div>One question rendered here</div>
-  < AddAnswer />
-  < Answer />
-  </div>
-)
+class Question extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      question: this.props.question
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        {this.state.question.question_body}
+      < AddAnswer />
+      < Answer />
+      </div>
+    )
+  }
+}
 
 export default Question;

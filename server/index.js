@@ -31,12 +31,12 @@ app.post('/', (req, res) => {
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
   .then((response) => {
-    console.log('DATA IN SERVER ROUTE \n', response.data);
+    //console.log('DATA IN SERVER ROUTE \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
     console.log('ERR ================== \n', err)
-    
+
   })
 })
 
@@ -52,6 +52,15 @@ app.get('/getCategories', function(req, res) {
     }
   ];
   res.status(201).send(sampleData)
+})
+
+app.get('/getQuestions', function(req, res) {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
+  .then((questions) => {
+    console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    res.json(questions.data)
+  })
+  .catch(err => console.log(err))
 })
 
 

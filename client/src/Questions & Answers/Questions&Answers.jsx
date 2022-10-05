@@ -15,7 +15,9 @@ class QuestionsAnswers extends React.Component {
   render () {
     return (
       <div>
-      <div>Questions and Answers</div>
+      <div>
+        <h1>Questions and Answers</h1>
+        </div>
       < SearchQuestions />
       < QuestionsList />
       < AddQuestion />

@@ -51,6 +51,7 @@ main {
   margin: auto;
 }
 
+<<<<<<< HEAD
 #outfitScroll {
   background-color: lightgray;
   height: 175px;
@@ -86,5 +87,16 @@ main {
   height: 135px;
   margin: 20px;
   white-space: nowrap;
+=======
+/* ZACH CSS */
+
+.selectedImage {
+  width: 200px;
+  height: auto;
+}
+.unselectedImage {
+  width: 50px;
+  height: auto;
+>>>>>>> main
 }
 

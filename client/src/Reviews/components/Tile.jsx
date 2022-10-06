@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Tile = (props) => {
+  console.log('TILE PROP TEST', props)
     return (
     <div>
       Different tiles here

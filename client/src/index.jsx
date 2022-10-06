@@ -15,10 +15,9 @@ class App extends React.Component {
 render() {
   return (
     <div>
-    Hello World
-    <ProductOverview /> <br/><br/><hr/><br/><br/>
+    {/* <ProductOverview /> <br/><br/><hr/><br/><br/>
     <Lists /> <br/><br/><hr/><br/><br/>
-    <QuestionsAnswers /> <br/><br/><hr/><br/><br/>
+    <QuestionsAnswers /> <br/><br/><hr/><br/><br/> */}
     <Reviews /> <br/><br/><hr/><br/><br/>
 
   </div>

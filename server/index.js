@@ -31,12 +31,12 @@ app.post('/', (req, res) => {
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
   .then((response) => {
-    console.log('DATA IN SERVER ROUTE \n', response.data);
+    //console.log('DATA IN SERVER ROUTE \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
     console.log('ERR ================== \n', err)
-    
+
   })
 })
 
@@ -55,6 +55,20 @@ app.get('/getCategories', function(req, res) {
 })
 
 
+// ============== CHELSEA ROUTES START ============== //
+
+app.get('/reviews/', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71701', options)
+  .then((response) => {
+    console.log('DATA IN REVIEWS GET \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
+})
+
+// ============== CHELSEA ROUTES END ============== //
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

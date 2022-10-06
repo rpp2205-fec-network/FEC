@@ -64,7 +64,7 @@ app.get('/productOverview/styles/:id', (req, res) => {
 })
 // ========== ZACH ROUTES ========== //
 
-app.get('/getCategories', function(req, res) {
+app.get('/getCategories', function(req, res,) {
   let sampleData = [
     {
       category: 'getCategory YEEZY',

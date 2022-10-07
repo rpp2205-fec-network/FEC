@@ -9,7 +9,9 @@ class QuestionsList extends React.Component {
     this.state = {
       product_id: '',
       questions: [],
+      sortedQuestions: []
     }
+    this.sortQuestions = this.sortQuestions.bind(this);
   }
 
   componentDidMount() {
@@ -21,14 +23,23 @@ class QuestionsList extends React.Component {
         questions: questions.data.results,
       })
     })
+    .then((questions) => {
+      this.sortQuestions()
+    })
     .catch(err => console.log(err));
+  }
+
+  sortQuestions() {
+    var questionsCopy = this.state.questions.slice();
+    questionsCopy.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
+    this.setState({sortedQuestions: questionsCopy})
   }
 
   render () {
     return (
       <div>
         <div>
-        {this.state.questions.map(question =>
+        {this.state.sortedQuestions.map(question =>
           <Question key={question.question_id} question_id={question.question_id} question={question} />
         )}
         </div>

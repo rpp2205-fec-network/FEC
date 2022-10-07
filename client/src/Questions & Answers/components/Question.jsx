@@ -7,27 +7,38 @@ class Question extends React.Component {
     super(props);
     this.state = {
       question: this.props.question,
-      answers: []
+      answers: [],
+      sortedAnswers: []
     }
     this.getAnswersList = this.getAnswersList.bind(this);
+    this.sortAnswers = this.sortAnswers.bind(this);
   }
 
   componentDidMount () {
     this.getAnswersList()
   }
 
+
   getAnswersList() {
     var answersList = Object.values(this.state.question.answers)
     console.log('ANSSERS VALUES', answersList)
-    this.setState({answers: answersList})
+    this.setState({answers: answersList}, function() {
+      this.sortAnswers();
+    })
+  }
+
+  sortAnswers () {
+    var answersCopy = this.state.answers.slice();
+    answersCopy.sort((a, b) => b.helpfulness - a.helpfulness);
+    this.setState({sortedAnswers: answersCopy})
   }
 
   render () {
     return (
       <div>
        Q: {this.state.question.question_body}
-        < AddAnswer />
-        < Answer answers={this.state.answers}/>
+        < AddAnswer helpfulCount={this.state.question.question_helpfulness}/>
+        < Answer answers={this.state.sortedAnswers}/>
       </div>
     )
   }

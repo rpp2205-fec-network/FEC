@@ -77,6 +77,8 @@ app.get('/getCategories', function(req, res) {
   res.status(201).send(sampleData)
 })
 
+// ========== BECCA ROUTES START ========== //
+
 app.get('/getQuestions', function(req, res) {
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
   .then((questions) => {
@@ -86,7 +88,11 @@ app.get('/getQuestions', function(req, res) {
   .catch(err => console.log(err))
 })
 
+// app.get('/getAnswers', function(req, res) {
+//   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/:question_id/answers`, options)
+// })
 
+// ========== BECCA ROUTES END ========== //
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

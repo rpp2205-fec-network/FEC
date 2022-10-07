@@ -14,7 +14,7 @@ class QuestionsAnswers extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id="QAwidget">
       <div>
         <h1>Questions and Answers</h1>
         </div>

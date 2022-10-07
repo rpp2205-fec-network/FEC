@@ -62,3 +62,7 @@ main {
   height: auto;
 }
 
+/* BECCA CSS */
+li{
+  list-style-type: none;
+ }

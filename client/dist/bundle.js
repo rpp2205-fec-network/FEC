@@ -641,6 +641,7 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        id: "QAwidget",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
             children: "Questions and Answers"
@@ -673,9 +674,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var AddAnswer = function AddAnswer(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Add answer"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      type: "button",
+      value: "Add answer"
+    }), "| Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      type: "button",
+      value: "Yes"
+    })]
   });
 };
 
@@ -702,8 +710,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var AddQuestion = function AddQuestion(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-      children: "Add a question button"
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      type: "button",
+      value: "Add a question +"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
       children: "End of Questions widget"
     })]
@@ -730,9 +739,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Answer = function Answer(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Answers"
+    children: props.answers.map(function (answer, index) {
+      if (index === 0) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+          target: "_blank",
+          children: [" A: ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: ["by ", answer.answerer_name, ", ", answer.date, " | Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "button",
+              value: "Yes"
+            }), "(", answer.helpfulness, ") | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "button",
+              value: "Report"
+            })]
+          })]
+        }, answer.id);
+      } else {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+          target: "_blank",
+          children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: ["by ", answer.answerer_name, ", ", answer.date, " | Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "button",
+              value: "Yes"
+            }), "(", answer.helpfulness, ") | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "button",
+              value: "Report"
+            })]
+          })]
+        }, answer.id);
+      }
+    })
   });
 };
 
@@ -795,16 +833,34 @@ var Question = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      question: _this.props.question
+      question: _this.props.question,
+      answers: []
     };
+    _this.getAnswersList = _this.getAnswersList.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Question, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getAnswersList();
+    }
+  }, {
+    key: "getAnswersList",
+    value: function getAnswersList() {
+      var answersList = Object.values(this.state.question.answers);
+      console.log('ANSSERS VALUES', answersList);
+      this.setState({
+        answers: answersList
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [this.state.question.question_body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Answer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+        children: ["Q: ", this.state.question.question_body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Answer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          answers: this.state.answers
+        })]
       });
     }
   }]);
@@ -900,16 +956,15 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: "Questions list will go here"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           children: this.state.questions.map(function (question) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
               question_id: question.question_id,
               question: question
             }, question.question_id);
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: "More questions button"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "button",
+          value: "More answered questions"
         })]
       });
     }

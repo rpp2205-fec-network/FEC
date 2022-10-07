@@ -18,22 +18,21 @@ class QuestionsList extends React.Component {
       console.log('Current product questions data', questions.data)
       this.setState({
         product_id: questions.data.product_id,
-        questions: questions.data.results
+        questions: questions.data.results,
       })
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   }
 
   render () {
     return (
       <div>
-      <div>Questions list will go here</div>
         <div>
         {this.state.questions.map(question =>
           <Question key={question.question_id} question_id={question.question_id} question={question} />
         )}
         </div>
-      <div>More questions button</div>
+        <input type="button" value="More answered questions"></input>
       </div>
     )
   }

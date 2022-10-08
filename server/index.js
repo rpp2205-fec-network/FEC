@@ -28,32 +28,74 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.post('/', (req, res) => {
   console.log('hello world')
 })
+
+// ========== ZACH ROUTES START ========== //
+// Get All Products
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
   .then((response) => {
-    console.log('DATA IN SERVER ROUTE \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
     console.log('ERR ================== \n', err)
-
   })
 })
 
-
-app.get('/getCategories', function(req, res) {
-  let sampleData = [
-    {
-      category: 'getCategory YEEZY',
-      images: 'getCategory YEEZY',
-      description: 'getCategory YEEZY',
-      price: 1000,
-      size: 'Kanye'
-    }
-  ];
-  res.status(201).send(sampleData)
+// Get One Particular Product
+app.get('/productOverview/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.params.id, options)
+  .then((response) => {
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
 })
 
+//Get One Particular Product's styles
+app.get('/productOverview/styles/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.params.id + '/styles', options)
+  .then((response) => {
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n')
+  })
+})
+// ========== ZACH ROUTES END ========== //
+
+
+// ============ KEN ROUTES START ============= //
+app.get('/relatedProducts', function(req, res) {
+  //console.log(req.query)
+  let arr = [];
+  let result = [];
+  //console.log(req.query.id, 'kenTest1')
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.query.id + '/related', options)
+  .then((response) => {
+
+    //console.log('response', response.data)
+    //arr.push(response)
+    let loop = response.data.map((item) => {
+      return axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + item, options)
+      .then((data) => {
+        return data.data
+      })
+      .catch((err) => {
+        console.log('ERR in /productOverview/related second GET')
+      })
+    })
+    Promise.all(loop).then((data) => {
+      //console.log(data, 'inside promise') // working
+      res.status(200).send(data)
+    })
+  })
+  .catch((err) => {
+    console.log('ERR in /productOverview/related')
+  })
+  // res.status(201).send(sampleData)
+})
+// ============ KEN ROUTES END ============= //
 
 // ============== CHELSEA ROUTES START ============== //
 
@@ -67,8 +109,6 @@ app.get('/reviews/', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
-
-//71701
 
 // ============== CHELSEA ROUTES END ============== //
 

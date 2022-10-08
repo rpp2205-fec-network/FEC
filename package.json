@@ -6,7 +6,8 @@
     "server-dev": "npx nodemon --watch server server/index.js",
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "test": "jest"
   },
   "license": "Unlicensed",
   "dependencies": {
@@ -26,6 +27,7 @@
     "webpack": "^5.41.0"
   },
   "devDependencies": {
+    "jest": "^29.1.2",
     "webpack-cli": "^4.10.0"
   }
 }

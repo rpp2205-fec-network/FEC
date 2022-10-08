@@ -65,3 +65,50 @@ main {
   overflow-y: auto;
 }
 /* =================== CHELSEA'S CSS END =================== */
+
+#outfitScroll {
+  background-color: lightgray;
+  height: 175px;
+  width: 750px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+#outfit {
+  background-color: rgb(182, 177, 177);
+  border: 1px solid black;
+  width: 135px;
+  height: 135px;
+  margin: 20px;
+  display: inline-block;
+}
+
+#productRecScroll {
+  background-color: lightgray;
+  height: 175px;
+  width: 750px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+}
+
+#productRec {
+  display: inline-block;
+  background-color: rgb(182, 177, 177);
+  outline: 1px solid black;
+  width: 135px;
+  height: 135px;
+  margin: 20px;
+  white-space: nowrap;
+/* ZACH CSS */
+
+.selectedImage {
+  width: 200px;
+  height: auto;
+}
+.unselectedImage {
+  width: 50px;
+  height: auto;
+}
+

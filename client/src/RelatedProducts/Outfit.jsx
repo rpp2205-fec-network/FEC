@@ -9,7 +9,7 @@ export default class Outfit extends React.Component {
   element() {
     let outfitMap = this.props.outfitLists.map((item, index) => {
       return (
-        <div key={index}>
+        <div key={index} id='outfit'>
             {/* <button onClick={this.props.removeOutfits}></button> */}
             <div>{item.category},{item.price}</div>
           </div>
@@ -17,7 +17,7 @@ export default class Outfit extends React.Component {
     })
 
     return (
-      <div>{outfitMap}</div>
+      <div id='outfitScroll'>{outfitMap}</div>
     )
   }
 

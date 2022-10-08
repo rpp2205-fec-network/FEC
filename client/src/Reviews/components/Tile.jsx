@@ -2,7 +2,7 @@ import React from 'react';
 // import '../../../dist/styles.css';
 
 const Tile = (props) => {
-  console.log('TILE PROP TEST', props.review)
+  //console.log('TILE PROP TEST', props.review)
     return (
     <div className="tile">
         Rating: {props.review.rating} <br/>

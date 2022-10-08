@@ -1160,8 +1160,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews/').then(function (data) {
-        console.log('DATA IN Reviews COMPONENT \n', data.data.results);
-
+        //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
         _this2.setState({
           reviews: data.data.results
         });
@@ -1340,7 +1339,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Tile = function Tile(props) {
-  console.log('TILE PROP TEST', props.review);
+  //console.log('TILE PROP TEST', props.review)
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "tile",
     children: ["Rating: ", props.review.rating, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Title: ", props.review.summary, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]

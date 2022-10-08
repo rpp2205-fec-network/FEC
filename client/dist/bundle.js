@@ -66,19 +66,16 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
   _createClass(AddToCart, [{
     key: "changeData",
     value: function changeData(e) {
-      var name = e.target.name;
-      console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value);
+      var name = e.target.name; //console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value)
     } //Handles onClick for addToCart button
 
   }, {
     key: "onSubmit",
-    value: function onSubmit(e) {
-      console.log('ADD TO CART CLICKED');
+    value: function onSubmit(e) {//console.log('ADD TO CART CLICKED')
     }
   }, {
     key: "onStar",
-    value: function onStar(e) {
-      console.log('Starred');
+    value: function onStar(e) {//console.log('Starred')
     }
   }, {
     key: "render",
@@ -191,7 +188,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
   _createClass(ImageGallery, [{
     key: "render",
     value: function render() {
-      console.log('PROPS', this.props);
+      //console.log('PROPS', this.props)
       var styleInfo = this.props.styleInfo;
       var currentStyle = this.props.currentStyle;
       var currentPhoto = this.state.currentPhoto; //if there are no photos, load this
@@ -201,7 +198,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
           children: "NO IMAGES FOUND"
         }); //else load photos based on current selections
       } else {
-        console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos);
+        //console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos)
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
             children: "Image Gallery"
@@ -286,8 +283,8 @@ var ProductInformation = /*#__PURE__*/function (_React$Component) {
   _createClass(ProductInformation, [{
     key: "render",
     value: function render() {
-      var productInfo = this.props.productInfo;
-      console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo);
+      var productInfo = this.props.productInfo; //console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo)
+
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
           children: "Product Information"
@@ -374,8 +371,7 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
 
   _createClass(StyleSelector, [{
     key: "onSelectStyle",
-    value: function onSelectStyle(e) {
-      console.log('Clicked');
+    value: function onSelectStyle(e) {//console.log('Clicked')
     }
   }, {
     key: "render",
@@ -389,7 +385,7 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
           children: "NO STYLE INFO FOUND"
         }); //else load photos based on current selections
       } else {
-        console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo);
+        //console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo)
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
             children: "StyleSelector"
@@ -526,7 +522,7 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductInfo",
     value: function getProductInfo(id) {
-      console.log('PRODUCT INFO ID', id);
+      //console.log('PRODUCT INFO ID', id)
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/' + id).then(function (response) {
         return response.data;
       })["catch"](function (err) {
@@ -536,7 +532,7 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductStyles",
     value: function getProductStyles(id) {
-      console.log('PRODUCT STYLES ID', id);
+      //console.log('PRODUCT STYLES ID', id)
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/styles/' + id).then(function (response) {
         return response.data.results;
       })["catch"](function (err) {
@@ -1208,7 +1204,9 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      productList: []
+      productList: [],
+      productIdList: [],
+      hardcode: 71701
     };
     return _this;
   } // pull all related products from server with this category and return an array of mapped items
@@ -1221,8 +1219,13 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_1___default()({
         method: 'get',
-        url: '/getCategories'
+        url: '/testKen',
+        params: {
+          id: this.state.hardcode
+        }
       }).then(function (response) {
+        console.log(response);
+
         _this2.setState({
           productList: response.data
         });

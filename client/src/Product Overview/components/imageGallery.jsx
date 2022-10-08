@@ -10,9 +10,9 @@ export default class ImageGallery extends React.Component {
     }
 
     //load style data and photo data
-    
+
     render() {
-        console.log('PROPS', this.props)
+        //console.log('PROPS', this.props)
         var styleInfo = this.props.styleInfo;
         var currentStyle = this.props.currentStyle;
         var currentPhoto = this.state.currentPhoto;
@@ -23,7 +23,7 @@ export default class ImageGallery extends React.Component {
             )
         //else load photos based on current selections
         } else {
-            console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos)
+            //console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos)
             return (
                 <div>
                     <h3>Image Gallery</h3>

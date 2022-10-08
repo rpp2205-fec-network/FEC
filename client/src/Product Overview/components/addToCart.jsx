@@ -16,16 +16,16 @@ export default class AddToCart extends React.Component {
     //Dynamically changes selected option
     changeData(e) {
         var name = e.target.name
-        console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value)
+        //console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value)
     }
 
     //Handles onClick for addToCart button
     onSubmit(e) {
-        console.log('ADD TO CART CLICKED')
+        //console.log('ADD TO CART CLICKED')
     }
 
     onStar(e) {
-        console.log('Starred')
+        //console.log('Starred')
     }
     render() {
         return (

@@ -5,7 +5,9 @@ export default class Recommend extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productList: []
+      productList: [],
+      productIdList: [],
+      hardcode: 71701
     }
   }
 
@@ -13,8 +15,12 @@ export default class Recommend extends React.Component {
   pull() {
     axios({
       method: 'get',
-      url: '/getCategories'
+      url: '/testKen',
+      params: {
+        id: this.state.hardcode
+      }
     }).then((response) => {
+      console.log(response)
       this.setState({
         productList: response.data
       })

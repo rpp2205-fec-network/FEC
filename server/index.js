@@ -64,31 +64,33 @@ app.get('/productOverview/styles/:id', (req, res) => {
 })
 // ========== ZACH ROUTES ========== //
 
-app.get('/getCategories', function(req, res) {
-  let sampleData = [
-    {
-      category: 'getCategory YEEZY',
-      images: 'getCategory YEEZY',
-      description: 'getCategory YEEZY',
-      price: 1000,
-      size: 'Kanye'
-    }, {
-      category: 'test2 if this was longer then what',
-      images: 'test2',
-      description: 'dafs',
-      price: 1000,
-      size: 'not Kanye'
-    }, {
-      category: 'test23',
-      images: 'kjasdlfjaslejmflwj',
-      description: 'dafs',
-      price: 1000,
-      size: 'maybe Kanye'
-    }
-  ];
-  res.status(201).send(sampleData)
-})
 
+// ============ KEN ROUTES ============= //
+app.get('/testKen', function(req, res) {
+  //console.log(req.query)
+  let arr = [];
+  let result = [];
+  console.log(req.query.id, 'kenTest1')
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.query.id + '/related', options)
+  .then((response) => {
+
+    console.log('response', response.data)
+    arr.push(response)
+    arr.forEach((item) => {
+      item = item.toString();
+      axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + item, options)
+      .then((data) => {
+        console.log('test')
+        result.push(data)
+      })
+    })
+  })
+  .catch((err) => {
+    console.log('ERR in /productOverview/related')
+  })
+  // res.status(201).send(sampleData)
+})
+// ============ KEN ROUTEA ============= //
 
 
 app.listen(process.env.PORT);

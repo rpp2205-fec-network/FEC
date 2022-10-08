@@ -9,7 +9,7 @@ export default class StyleSelector extends React.Component {
     }
 
     onSelectStyle(e) {
-        console.log('Clicked')
+        //console.log('Clicked')
     }
 
     render() {
@@ -20,7 +20,7 @@ export default class StyleSelector extends React.Component {
             )
         //else load photos based on current selections
         } else {
-            console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo)
+            //console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo)
             return (
                 <div>
                     <h3>StyleSelector</h3>

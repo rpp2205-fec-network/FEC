@@ -23,7 +23,6 @@ export default class Recommend extends React.Component {
         id: this.state.hardcode
       }
     }).then((response) => {
-      //console.log(response)
       let setDisplay = [response.data[0], response.data[1]]
 
       this.setState({

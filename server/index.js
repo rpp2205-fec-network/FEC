@@ -31,7 +31,7 @@ app.post('/', (req, res) => {
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
   .then((response) => {
-    //console.log('DATA IN SERVER ROUTE \n', response.data);
+    console.log('DATA IN SERVER ROUTE \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
@@ -67,6 +67,8 @@ app.get('/reviews/', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
+
+//71701
 
 // ============== CHELSEA ROUTES END ============== //
 

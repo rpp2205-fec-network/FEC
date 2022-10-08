@@ -18,9 +18,8 @@ render() {
     {/* <ProductOverview /> <br/><br/><hr/><br/><br/>
     <Lists /> <br/><br/><hr/><br/><br/>
     <QuestionsAnswers /> <br/><br/><hr/><br/><br/> */}
-    <Reviews /> <br/><br/><hr/><br/><br/>
-
-  </div>
+    <Reviews />
+    </div>
   )
 }
 }

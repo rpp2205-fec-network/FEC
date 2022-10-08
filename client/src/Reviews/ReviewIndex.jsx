@@ -20,10 +20,10 @@ getReviews() {
   axios.get('/reviews/')
   .then((data) => {
       console.log('DATA IN Reviews COMPONENT \n', data.data.results)
-      this.setState({reviews: [data.data.results]})
+      this.setState({reviews: data.data.results})
   })
   .catch((err) => {
-      console.log('ERR IN COMPONENTDIDMOUNT \n', err)
+      console.log('ERR IN GET REVIEWS \n', err)
   })
 }
 
@@ -31,7 +31,9 @@ render() {
   return (
     <div>
       <p>RATINGS & REVIEWS</p>
-      <List reviews={this.state.reviews}/>
+      <List
+      reviews={this.state.reviews}
+      />
     </div>
   )
 }

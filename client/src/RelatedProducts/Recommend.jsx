@@ -15,7 +15,7 @@ export default class Recommend extends React.Component {
   pull() {
     axios({
       method: 'get',
-      url: '/testKen',
+      url: '/relatedProducts',
       params: {
         id: this.state.hardcode
       }
@@ -24,6 +24,7 @@ export default class Recommend extends React.Component {
       this.setState({
         productList: response.data
       })
+      console.log(this.state.productList)
     })
   }
 
@@ -33,7 +34,13 @@ export default class Recommend extends React.Component {
       let recMap = this.state.productList.map((item, index) => {
         return (
           <div key={index} id='productRec'>
-            <div id='productRecInfo'>{item.category},{item.price}</div>
+            <div id='productRecInfo'>
+              <div id='productRecInfoImage'></div>
+              <div id='productRecInfoCategory'>{item.category}</div>
+              <div id='productRecInfoName'>{item.name}</div>
+              <div id='productRecInfoPrice'>{item.price}</div>
+              <div id='productRecInfoStar'>STAR IMAGE THINGY</div>
+            </div>
           </div>
         )
       })

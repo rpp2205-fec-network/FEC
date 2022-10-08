@@ -66,23 +66,28 @@ app.get('/productOverview/styles/:id', (req, res) => {
 
 
 // ============ KEN ROUTES ============= //
-app.get('/testKen', function(req, res) {
+app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
   let arr = [];
   let result = [];
-  console.log(req.query.id, 'kenTest1')
+  //console.log(req.query.id, 'kenTest1')
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.query.id + '/related', options)
   .then((response) => {
 
-    console.log('response', response.data)
-    arr.push(response)
-    arr.forEach((item) => {
-      item = item.toString();
-      axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + item, options)
+    //console.log('response', response.data)
+    //arr.push(response)
+    let loop = response.data.map((item) => {
+      return axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + item, options)
       .then((data) => {
-        console.log('test')
-        result.push(data)
+        return data.data
       })
+      .catch((err) => {
+        console.log('ERR in /productOverview/related second GET')
+      })
+    })
+    Promise.all(loop).then((data) => {
+      //console.log(data, 'inside promise') // working
+      res.status(200).send(data)
     })
   })
   .catch((err) => {

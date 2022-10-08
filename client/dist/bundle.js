@@ -1219,7 +1219,7 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_1___default()({
         method: 'get',
-        url: '/testKen',
+        url: '/relatedProducts',
         params: {
           id: this.state.hardcode
         }
@@ -1229,6 +1229,8 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
         _this2.setState({
           productList: response.data
         });
+
+        console.log(_this2.state.productList);
       });
     } // render items in state and display each as a div
 
@@ -1241,7 +1243,21 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
             id: "productRec",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               id: "productRecInfo",
-              children: [item.category, ",", item.price]
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoImage"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoCategory",
+                children: item.category
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoName",
+                children: item.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoPrice",
+                children: item.price
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoStar",
+                children: "STAR IMAGE THINGY"
+              })]
             })
           }, index);
         });

@@ -2,7 +2,7 @@ import React from "react";
 
 export default class ProductInformation extends React.Component {
     constructor(props) {
-        super(props); 
+        super(props);
         this.state = {
         }
     }
@@ -11,7 +11,7 @@ export default class ProductInformation extends React.Component {
 
     render() {
         var productInfo = this.props.productInfo
-        console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo)
+        //console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo)
         return (
             <div>
                 <h3>Product Information</h3>

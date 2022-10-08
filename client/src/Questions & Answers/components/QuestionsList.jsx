@@ -37,13 +37,14 @@ class QuestionsList extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id="questionsView">
         <div>
         {this.state.sortedQuestions.map(question =>
           <Question key={question.question_id} question_id={question.question_id} question={question} />
         )}
         </div>
         <input type="button" value="More answered questions"></input>
+        <input type="button" value="Add a question +"></input>
       </div>
     )
   }

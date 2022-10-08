@@ -10,16 +10,10 @@ class Answer extends React.Component {
 
   render () {
     return (
-      <div>{this.props.answers.map((answer, index) => {
-        if (index === 0) {
-          return <li key={answer.id} target="_blank"> A: {answer.body}
-          <div>by {answer.answerer_name}, {answer.date} | Helpful? <input type="button" value="Yes"/>({answer.helpfulness}) | <input type="button" value="Report"/></div>
+      <div id="answerContent"> {this.props.answers.map((answer, index) => {
+          return <li key={answer.id} target="_blank" id="answerText">  {answer.body}
+          <div id="answererInfo">by {answer.answerer_name}, {answer.date} | Helpful? <input type="button" value="Yes"/>({answer.helpfulness}) | <input type="button" value="Report"/></div>
           </li>
-        } else {
-          return <li key={answer.id} target="_blank">  {answer.body}
-          <div>by {answer.answerer_name}, {answer.date} | Helpful? <input type="button" value="Yes"/>({answer.helpfulness}) | <input type="button" value="Report"/></div>
-          </li>
-        }
       })}</div>
     )
   }

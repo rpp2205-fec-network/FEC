@@ -66,3 +66,34 @@ main {
 li{
   list-style-type: none;
  }
+
+ #searchquestions {
+   padding: 20px;
+   border: 5px solid grey;
+ }
+
+ #questionsView {
+   padding-top: 20px;
+   padding-bottom: 20px;
+ }
+
+ #addQuestion {
+   float: left;
+ }
+
+ #individualQuestion {
+   padding-bottom: 30px;
+ }
+
+ #addAnswer {
+   float: right;
+   font-size: small;
+ }
+
+ #answererInfo {
+   font-size: small ;
+ }
+
+ #answerText {
+   padding-bottom: 15px;
+ }

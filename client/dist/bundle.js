@@ -1206,7 +1206,10 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       productList: [],
       productIdList: [],
-      hardcode: 71701
+      hardcode: 71701,
+      display: [],
+      displayCount: 2,
+      currentPosition: 0
     };
     return _this;
   } // pull all related products from server with this category and return an array of mapped items
@@ -1224,10 +1227,12 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
           id: this.state.hardcode
         }
       }).then(function (response) {
-        console.log(response);
+        //console.log(response)
+        var setDisplay = [response.data[0], response.data[1]];
 
         _this2.setState({
-          productList: response.data
+          productList: response.data,
+          display: setDisplay
         });
 
         console.log(_this2.state.productList);
@@ -1236,36 +1241,66 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
 
   }, {
     key: "element",
-    value: function element() {
-      if (this.state.productList.length > 0) {
-        var recMap = this.state.productList.map(function (item, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            id: "productRec",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              id: "productRecInfo",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                id: "productRecInfoImage"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                id: "productRecInfoCategory",
-                children: item.category
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                id: "productRecInfoName",
-                children: item.name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                id: "productRecInfoPrice",
-                children: item.price
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                id: "productRecInfoStar",
-                children: "STAR IMAGE THINGY"
-              })]
-            })
-          }, index);
-        });
+    value: function element(input) {
+      var recMap = input.map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "productRecScroll",
+          id: "productRec",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            id: "productRecInfo",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              id: "productRecInfoImage",
+              children: "IMAGE HERE"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              id: "productRecInfoCategory",
+              children: item.category
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              id: "productRecInfoName",
+              children: item.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              id: "productRecInfoPrice",
+              children: ["$", item.default_price]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              id: "productRecInfoStar",
+              children: "STAR IMAGE THINGY"
+            })]
+          })
+        }, index);
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           children: recMap
-        });
-      }
+        })
+      });
+    } //right arrow function
+
+  }, {
+    key: "rightArrow",
+    value: function rightArrow() {
+      var current = this.state.currentPosition + 1;
+      var arr = this.state.display;
+      arr.shift(); //console.log(current)
+
+      arr.push(this.state.productList[this.state.displayCount - 1 + current]); //console.log(arr)
+
+      this.setState({
+        display: arr,
+        currentPosition: current
+      });
+    } //left arrow function
+
+  }, {
+    key: "leftArrow",
+    value: function leftArrow() {
+      var current = this.state.currentPosition - 1;
+      var arr = this.state.display;
+      arr.pop();
+      console.log(current);
+      arr.unshift(this.state.productList[current]);
+      console.log(arr);
+      this.setState({
+        display: arr,
+        currentPosition: current
+      });
     } // run async pull request to populate current state of products
 
   }, {
@@ -1276,8 +1311,17 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: this.element()
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        id: "productRecScroll",
+        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          id: "leftArrow",
+          onClick: this.leftArrow.bind(this),
+          children: "<"
+        }), this.element(this.state.display), this.state.currentPosition + this.state.displayCount >= this.state.productList.length ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          id: "rightArrow",
+          onClick: this.rightArrow.bind(this),
+          children: ">"
+        })]
       });
     }
   }]);

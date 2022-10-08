@@ -74,9 +74,16 @@ app.get('/relatedProducts', function(req, res) {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.query.id + '/related', options)
   .then((response) => {
 
-    //console.log('response', response.data)
-    //arr.push(response)
-    let loop = response.data.map((item) => {
+    // removing duplicates from product list
+    let noDuplicates = [];
+    response.data.forEach((item) => {
+      if (!noDuplicates.includes(item)) {
+        noDuplicates.push(item)
+      }
+    })
+
+    // making an array of promises to return an array of results
+    let loop = noDuplicates.map((item) => {
       return axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + item, options)
       .then((data) => {
         return data.data
@@ -85,8 +92,9 @@ app.get('/relatedProducts', function(req, res) {
         console.log('ERR in /productOverview/related second GET')
       })
     })
+
+    // running array of promises async
     Promise.all(loop).then((data) => {
-      //console.log(data, 'inside promise') // working
       res.status(200).send(data)
     })
   })

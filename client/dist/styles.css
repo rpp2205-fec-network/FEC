@@ -51,7 +51,6 @@ main {
   margin: auto;
 }
 
-<<<<<<< HEAD
 #outfitScroll {
   background-color: lightgray;
   height: 175px;
@@ -72,31 +71,43 @@ main {
 
 #productRecScroll {
   background-color: lightgray;
-  height: 175px;
-  width: 750px;
+  height: 375px;
+  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-
+  display: inline-flex;
 }
 
 #productRec {
   display: inline-block;
   background-color: rgb(182, 177, 177);
   outline: 1px solid black;
-  width: 135px;
-  height: 135px;
+  height: 350px;
+  width: 250px;
   margin: 20px;
   white-space: nowrap;
-=======
-/* ZACH CSS */
-
-.selectedImage {
-  width: 200px;
-  height: auto;
-}
-.unselectedImage {
-  width: 50px;
-  height: auto;
->>>>>>> main
 }
 
+#productRecInfo > #productRecInfoImage {
+  background-color: rgb(161, 161, 161);
+  height:240px;
+  width: 100%;
+}
+
+#productRecInfo > #productRecInfoCategory {
+  border-radius: 20px;
+  background-color: white;
+  display: auto;
+  padding:5px;
+  display: inline-flex;
+}
+
+#productRecInfo > #productRecInfoName {
+  font-weight: bold;
+  font-size:larger;
+}
+
+#productRecInfo > #productRecInfoPrice {
+  font-weight: normal;
+  font-size: smaller;
+}

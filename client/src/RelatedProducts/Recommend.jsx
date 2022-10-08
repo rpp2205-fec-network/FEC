@@ -25,7 +25,7 @@ export default class Recommend extends React.Component {
   element() {
     if (this.state.productList.length > 0) {
       return this.state.productList.map((item, index) => {
-        console.log(item)
+        // console.log(item)
         return (
           <div key={index}>
             {item.category}

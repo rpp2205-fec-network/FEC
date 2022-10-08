@@ -20,7 +20,6 @@ export default class StyleSelector extends React.Component {
             )
         //else load photos based on current selections
         } else {
-            console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo)
             return (
                 <div className="styleSelector">
                     <h3>StyleSelector</h3>

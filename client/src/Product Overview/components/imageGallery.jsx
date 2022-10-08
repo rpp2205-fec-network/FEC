@@ -6,19 +6,90 @@ export default class ImageGallery extends React.Component {
         //default empty info, first style when data DOES load.
         this.state = {
             currentPhoto: 0,
-            currentFirstOption: 0
+            currentFirstOption: 0,
+            view: 'default'
+        }
+        this.onCycleThumbnail = this.onCycleThumbnail.bind(this);
+        this.onSelectThumbnail = this.onSelectThumbnail.bind(this);
+        this.onCycleMainImage = this.onCycleMainImage.bind(this);
+        this.onChangeView = this.onChangeView.bind(this);
+    }
+
+    //should move to next main image, and set the top thumbnail image to the same one.
+    onCycleMainImage(e) {
+        var max = this.props.styleInfo[this.props.currentStyle].photos.length
+        if (e.target.name === 'rightButton') {
+            if (this.state.currentPhoto < max - 1) {
+                this.setState({
+                    currentFirstOption: this.state.currentPhoto + 1,
+                    currentPhoto: this.state.currentPhoto + 1,
+                }) 
+            } else {
+                console.log('Already at right most image')
+            }
+        } else if (e.target.name === 'leftButton') {
+            if (this.state.currentPhoto > 0) {
+                this.setState({
+                    currentFirstOption: this.state.currentPhoto - 1,
+                    currentPhoto: this.state.currentPhoto - 1,
+                })
+            } else {
+                console.log('Already at left most image')
+            }
+        }
+    }
+    //should move the thumbnail carousel up and down
+    onCycleThumbnail(e) {
+        var max = this.props.styleInfo[this.props.currentStyle].photos.length
+        console.log('MAX', max)
+        if (e.target.name === 'upButton') {
+            if (this.state.currentFirstOption > 0) {
+                this.setState({
+                    currentFirstOption: this.state.currentFirstOption - 1
+                })
+            } else {
+                console.log('Already at highest value')
+            }
+        } else if (e.target.name === 'downButton') {
+            if (this.state.currentFirstOption < max - 1) {
+                this.setState({
+                    currentFirstOption: this.state.currentFirstOption + 1
+                }) 
+            } else {
+                console.log('Already at lowest value')
+            }
+        } 
+    }
+    //should move the thumbnail carousel so that the selected one is at the top, and make the main image the same
+    onSelectThumbnail(e) {
+        var newImageId = parseInt(e.target.id)
+        console.log('NEW IMAGE ID', e.target.id);
+        this.setState({
+            currentPhoto: newImageId,
+            currentFirstOption: newImageId
+        })
+    }
+
+    //changes view style between default and expanded mode
+    onChangeView() {
+        if (this.state.view === 'default') {
+            console.log('Switching to expanded')
+            this.setState({
+                view: 'expanded'
+            })
+        } else {
+            console.log('Switching to default')
+            this.setState({
+                view: 'default'
+            })
         }
     }
 
-    //load style data and photo data
-    
     render() {
-        console.log('PROPS', this.props)
         var styleInfo = this.props.styleInfo;
         var currentStyle = this.props.currentStyle;
         var currentPhoto = this.state.currentPhoto;
-        var selectionWheelPhotos = [];
-        
+        var selectionWheelPhotos = [];        
         //if there are no photos, load this
         if ((styleInfo.length === 0) || (styleInfo[currentStyle].photos.length === 0)) {
             return (
@@ -26,26 +97,41 @@ export default class ImageGallery extends React.Component {
             )
         //else load photos based on current selections
         } else {
-            for (var i = this.state.currentFirstOption; i < this.state.currentFirstOption + 5; i++) {
+            var max = this.props.styleInfo[this.props.currentStyle].photos.length;
+            if ((max - this.state.currentFirstOption) > 7) {
+                var iterator = 7
+            } else {
+                var iterator = max - this.state.currentFirstOption;
+            }
+            for (var i = this.state.currentFirstOption; i < this.state.currentFirstOption + iterator; i++) {
                 selectionWheelPhotos.push({
                     id: i,
                     thumbnail_url: styleInfo[currentStyle].photos[i].thumbnail_url
                 })
             }
-            console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos)
             return (
-                <div className="imageGallery">
-                    <h3>Image Gallery</h3>
-                    <div>
-                        <img className="selectedImage" src={styleInfo[currentStyle].photos[currentPhoto].url}></img>
+                <div className="image_gallery">
+                    <input type="button" value="Enter Fullscreen" onClick={this.onChangeView}></input>
+                    <aside className="thumbnails_list">
+                        <input name="upButton" className="thumnail_button" type="button" value="^" onClick={this.onCycleThumbnail}></input>
+                       
                         {selectionWheelPhotos.map((image) => {
                             return (
-                                <img className="unselectedImage" key={image.id} src={image.thumbnail_url}></img>
+                                <a key={image.id}>
+                                    <img className="thumbnail_img" id={image.id} src={image.thumbnail_url} onClick={this.onSelectThumbnail} ></img>
+                                </a>
                             )
                         })
                         }
                         
-                    </div>
+                        <input name="downButton" className="thumnail_button" type="button" value="v" onClick={this.onCycleThumbnail}></input>
+                        
+                    </aside>
+                    <main className="selected_image">
+                        <input name="leftButton" className="main_image_button" type="button" value="<" onClick={this.onCycleMainImage}></input>
+                        <img className="selected_image" src={styleInfo[currentStyle].photos[currentPhoto].url}></img>
+                        <input name="rightButton" className="main_image_button" type="button" value=">" onClick={this.onCycleMainImage}></input>
+                    </main>
                 </div>
             )
         }

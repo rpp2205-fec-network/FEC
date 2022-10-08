@@ -11,7 +11,6 @@ export default class ProductInformation extends React.Component {
 
     render() {
         var productInfo = this.props.productInfo
-        console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo)
         return (
             <div className="productInformation">
                 <h3>Product Information</h3>

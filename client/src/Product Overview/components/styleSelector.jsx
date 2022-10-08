@@ -9,7 +9,7 @@ export default class StyleSelector extends React.Component {
     }
 
     onSelectStyle(e) {
-        console.log('Clicked')
+        //console.log('Clicked')
     }
 
     render() {

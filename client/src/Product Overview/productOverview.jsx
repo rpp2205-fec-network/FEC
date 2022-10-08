@@ -33,7 +33,7 @@ export default class ProductOverview extends React.Component {
         return this.getProductInfo(71701)
         .then((data) => {
             this.setState({
-              currentProduct: data  
+              currentProduct: data
             })
         })
         .then(() => {

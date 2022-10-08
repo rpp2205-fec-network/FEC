@@ -3,6 +3,7 @@ import Recommend from './Recommend.jsx';
 import Outfit from './Outfit.jsx';
 
 // using example product data for rendering before state for currentItem
+// Main List component holds both product recommendation list and outfit list
 
 export default class Lists extends React.Component {
   constructor(props) {
@@ -17,6 +18,30 @@ export default class Lists extends React.Component {
       },
       recList: [],
       outfitList: [{
+        category: 'socks',
+        images: 'socksOne',
+        description: 'socksTwo',
+        price: 10,
+        size: 10
+      }, {
+        category: 'pants',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
+        category: 'shirt',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
+        category: 'underwear',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
         category: 'socks',
         images: 'socksOne',
         description: 'socksTwo',
@@ -67,7 +92,7 @@ export default class Lists extends React.Component {
         </div>
         <div>
           Your Outfit
-          <Outfit outfitLists={this.state.outfitList} removeOutfits={this.removeOutfit.bind(this)}/>
+          <Outfit outfitLists={this.state.outfitList} removeOutfits={this.removeOutfit.bind(this)} />
         </div>
       </div>
     )

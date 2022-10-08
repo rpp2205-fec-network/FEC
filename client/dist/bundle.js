@@ -66,19 +66,16 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
   _createClass(AddToCart, [{
     key: "changeData",
     value: function changeData(e) {
-      var name = e.target.name;
-      console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value);
+      var name = e.target.name; //console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value)
     } //Handles onClick for addToCart button
 
   }, {
     key: "onSubmit",
-    value: function onSubmit(e) {
-      console.log('ADD TO CART CLICKED');
+    value: function onSubmit(e) {//console.log('ADD TO CART CLICKED')
     }
   }, {
     key: "onStar",
-    value: function onStar(e) {
-      console.log('Starred');
+    value: function onStar(e) {//console.log('Starred')
     }
   }, {
     key: "render",
@@ -508,8 +505,7 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
 
   _createClass(StyleSelector, [{
     key: "onSelectStyle",
-    value: function onSelectStyle(e) {
-      console.log('Clicked');
+    value: function onSelectStyle(e) {//console.log('Clicked')
     }
   }, {
     key: "render",
@@ -1087,6 +1083,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
  // using example product data for rendering before state for currentItem
+// Main List component holds both product recommendation list and outfit list
 
 
 
@@ -1112,6 +1109,30 @@ var Lists = /*#__PURE__*/function (_React$Component) {
       },
       recList: [],
       outfitList: [{
+        category: 'socks',
+        images: 'socksOne',
+        description: 'socksTwo',
+        price: 10,
+        size: 10
+      }, {
+        category: 'pants',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
+        category: 'shirt',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
+        category: 'underwear',
+        images: 'needs image url in state',
+        description: 'red shoes with the steve madden heel',
+        price: 250,
+        size: 10
+      }, {
         category: 'socks',
         images: 'socksOne',
         description: 'socksTwo',
@@ -1234,12 +1255,14 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
     function element() {
       var outfitMap = this.props.outfitLists.map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          id: "outfit",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             children: [item.category, ",", item.price]
           })
         }, index);
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        id: "outfitScroll",
         children: outfitMap
       });
     }
@@ -1313,7 +1336,9 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      productList: []
+      productList: [],
+      productIdList: [],
+      hardcode: 71701
     };
     return _this;
   } // pull all related products from server with this category and return an array of mapped items
@@ -1326,11 +1351,18 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_1___default()({
         method: 'get',
-        url: '/getCategories'
+        url: '/relatedProducts',
+        params: {
+          id: this.state.hardcode
+        }
       }).then(function (response) {
+        console.log(response);
+
         _this2.setState({
           productList: response.data
         });
+
+        console.log(_this2.state.productList);
       });
     } // render items in state and display each as a div
 
@@ -1340,9 +1372,31 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
       if (this.state.productList.length > 0) {
         return this.state.productList.map(function (item, index) {
           // console.log(item)
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            children: [item.category, item.price]
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "productRec",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              id: "productRecInfo",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoImage"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoCategory",
+                children: item.category
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoName",
+                children: item.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoPrice",
+                children: item.price
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                id: "productRecInfoStar",
+                children: "STAR IMAGE THINGY"
+              })]
+            })
           }, index);
+        });
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "productRecScroll",
+          children: recMap
         });
       }
     } // run async pull request to populate current state of products

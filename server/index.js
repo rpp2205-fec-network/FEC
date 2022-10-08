@@ -64,19 +64,38 @@ app.get('/productOverview/styles/:id', (req, res) => {
 })
 // ========== ZACH ROUTES ========== //
 
-app.get('/getCategories', function(req, res) {
-  let sampleData = [
-    {
-      category: 'getCategory YEEZY',
-      images: 'getCategory YEEZY',
-      description: 'getCategory YEEZY',
-      price: 1000,
-      size: 'Kanye'
-    }
-  ];
-  res.status(201).send(sampleData)
-})
 
+// ============ KEN ROUTES ============= //
+app.get('/relatedProducts', function(req, res) {
+  //console.log(req.query)
+  let arr = [];
+  let result = [];
+  //console.log(req.query.id, 'kenTest1')
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.query.id + '/related', options)
+  .then((response) => {
+
+    //console.log('response', response.data)
+    //arr.push(response)
+    let loop = response.data.map((item) => {
+      return axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + item, options)
+      .then((data) => {
+        return data.data
+      })
+      .catch((err) => {
+        console.log('ERR in /productOverview/related second GET')
+      })
+    })
+    Promise.all(loop).then((data) => {
+      //console.log(data, 'inside promise') // working
+      res.status(200).send(data)
+    })
+  })
+  .catch((err) => {
+    console.log('ERR in /productOverview/related')
+  })
+  // res.status(201).send(sampleData)
+})
+// ============ KEN ROUTEA ============= //
 
 
 app.listen(process.env.PORT);

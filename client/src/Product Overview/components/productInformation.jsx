@@ -2,7 +2,7 @@ import React from "react";
 
 export default class ProductInformation extends React.Component {
     constructor(props) {
-        super(props); 
+        super(props);
         this.state = {
         }
     }

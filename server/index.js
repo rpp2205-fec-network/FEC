@@ -29,7 +29,7 @@ app.post('/', (req, res) => {
   console.log('hello world')
 })
 
-// ========== ZACH ROUTES ========== //
+// ========== ZACH ROUTES START ========== //
 // Get All Products
 app.get('/productOverview', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products', options)
@@ -62,10 +62,10 @@ app.get('/productOverview/styles/:id', (req, res) => {
     console.log('ERR ================== \n')
   })
 })
-// ========== ZACH ROUTES ========== //
+// ========== ZACH ROUTES END ========== //
 
 
-// ============ KEN ROUTES ============= //
+// ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
   let arr = [];
@@ -103,8 +103,22 @@ app.get('/relatedProducts', function(req, res) {
   })
   // res.status(201).send(sampleData)
 })
-// ============ KEN ROUTEA ============= //
+// ============ KEN ROUTES END ============= //
 
+// ============== CHELSEA ROUTES START ============== //
+
+app.get('/reviews/', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71701', options)
+  .then((response) => {
+    console.log('DATA IN REVIEWS GET \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
+})
+
+// ============== CHELSEA ROUTES END ============== //
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

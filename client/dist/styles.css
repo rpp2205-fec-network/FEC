@@ -60,9 +60,13 @@ main {
 }
 
 .scrollableReviews {
-  height: 160px;
+  height: 500px;
   margin: 0em;
   overflow-y: auto;
+}
+
+.userAndDate {
+  float:right;
 }
 /* =================== CHELSEA'S CSS END =================== */
 

@@ -87,11 +87,29 @@ main {
 
 .bodyButton {
   background-color: white;
+  font-size: 9px;
+  border: 1px solid black;
 }
 
 .bodyButton:hover {
   transition-duration: 0.4s;
-  background-color: lightgray;
+  background-color: rgb(210, 223, 234);
+}
+
+.reviewPhoto {
+  /* border-radius: 50%; */
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  overflow-y:hidden;
+  white-space:nowrap;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+.photoContainer {
+  display: flex;
+  display: -webkit-flex;
 }
 
 .response {

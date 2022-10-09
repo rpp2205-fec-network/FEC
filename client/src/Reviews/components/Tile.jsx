@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Ratings from 'react-ratings-declarative';
 import { format } from 'date-fns'
 
@@ -45,26 +45,34 @@ class Tile extends React.Component {
       </Ratings>
 
       {/* ================= USER & DATE ================= */}
+      <div>
       <div className='userAndDate'>
         {this.props.review.reviewer_name}, {format(new Date(this.props.review.date), 'MMMM dd, yyyy')}
       </div>
-      <br/>
+      </div>
       {/* ================= SUMMARY ================= */}
-        <b className='summary'>{this.props.review.summary}</b><br/>
+        <div><b className='summary'>{this.props.review.summary}</b></div>
 
       {/* ================= BODY ================= */}
-        <div className='bodyText'>{this.props.review.body.slice(0, this.state.bodyCharactersToShow)}<br/>
+        <div><div className='bodyText'>{this.props.review.body.slice(0, this.state.bodyCharactersToShow)}
         {this.props.review.body.length > 250 ?
-        <button className='bodyButton' onClick={this.toggleBody}>
+        <div><button className='bodyButton' onClick={this.toggleBody}>
           {(this.state.expanded && this.props.review.body.length > 250) ? (
-            <span>Show Less</span>
+            <div>Show Less</div>
           ) : (
-            <span>Show more</span>
+            <div>Show more</div>
           )}
-          </button> : null
+          </button></div> : null
           }
+        </div></div>
 
-        <br/></div>
+      {/* ================= PHOTOS (BODY) ================= */}
+      <div className='photoContainer'>
+      {this.props.review.photos.slice(0, 5).map((photo) =>
+        <img className='reviewPhoto' key={photo.url} src={photo.url} alt={photo.id}/>
+      )
+      }
+      </div>
 
       {/* ================= RESPONSE ================= */}
       {this.props.review.response !== null ?
@@ -83,17 +91,3 @@ class Tile extends React.Component {
   }
 }
 export default Tile;
-
-// export default class Tile extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {}
-// }
-
-// render() {
-//   return (
-//     <div>
-//     </div>
-//   )
-// }
-// }

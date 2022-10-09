@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Ratings from 'react-ratings-declarative';
 import { format } from 'date-fns'
 
@@ -7,17 +7,29 @@ class Tile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      bodyCharactersToShow: 250,
+      expanded: false
     }
     this.helpfulCounter = this.helpfulCounter.bind(this);
+    this.toggleBody = this.toggleBody.bind(this);
   }
 
   helpfulCounter = () => {
     this.props.review.helpfulness + 1
   }
 
+  toggleBody() {
+    if (this.state.expanded === true) {
+      this.setState({bodyCharactersToShow: 250, expanded: false})
+    } else {
+      this.setState({bodyCharactersToShow: this.props.review.body.length, expanded: true})
+    }
+  }
+
   render() {
     return (
     <div className="tile">
+
       {/* ================= RATINGS ================= */}
       <Ratings
         rating={this.props.review.rating}
@@ -41,11 +53,22 @@ class Tile extends React.Component {
         <b className='summary'>{this.props.review.summary}</b><br/>
 
       {/* ================= BODY ================= */}
-        <div className='bodyText'>{this.props.review.body}  <br/></div>
+        <div className='bodyText'>{this.props.review.body.slice(0, this.state.bodyCharactersToShow)}<br/>
+        {this.props.review.body.length > 250 ?
+        <button className='bodyButton' onClick={this.toggleBody}>
+          {(this.state.expanded && this.props.review.body.length > 250) ? (
+            <span>Show Less</span>
+          ) : (
+            <span>Show more</span>
+          )}
+          </button> : null
+          }
+
+        <br/></div>
 
       {/* ================= RESPONSE ================= */}
       {this.props.review.response !== null ?
-        <div className='response'><b>Response:</b> <div>{this.props.review.response.slice(1, this.props.review.response.length - 1)}</div></div> : null }
+        <div className='response'><b>Response from seller:</b> <div>{this.props.review.response.slice(1, this.props.review.response.length - 1)}</div></div> : null }
 
       {/* ================= RECOMMENDED OR NAH? ================= */}
         { this.props.review.recommend ?

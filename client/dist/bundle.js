@@ -1588,12 +1588,31 @@ var Tile = /*#__PURE__*/function (_React$Component) {
       _this.props.review.helpfulness + 1;
     });
 
-    _this.state = {};
+    _this.state = {
+      bodyCharactersToShow: 250,
+      expanded: false
+    };
     _this.helpfulCounter = _this.helpfulCounter.bind(_assertThisInitialized(_this));
+    _this.toggleBody = _this.toggleBody.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Tile, [{
+    key: "toggleBody",
+    value: function toggleBody() {
+      if (this.state.expanded === true) {
+        this.setState({
+          bodyCharactersToShow: 250,
+          expanded: false
+        });
+      } else {
+        this.setState({
+          bodyCharactersToShow: this.props.review.body.length,
+          expanded: true
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -1612,11 +1631,19 @@ var Tile = /*#__PURE__*/function (_React$Component) {
           children: this.props.review.summary
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "bodyText",
-          children: [this.props.review.body, "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
+          children: [this.props.review.body.slice(0, this.state.bodyCharactersToShow), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "bodyButton",
+            onClick: this.toggleBody,
+            children: this.state.expanded && this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: "Show Less"
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              children: "Show more"
+            })
+          }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
         }), this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "response",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
-            children: "Response:"
+            children: "Response from seller:"
           }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             children: this.props.review.response.slice(1, this.props.review.response.length - 1)
           })]

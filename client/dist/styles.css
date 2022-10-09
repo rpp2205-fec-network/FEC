@@ -85,6 +85,15 @@ main {
   font-size: 12px;
 }
 
+.bodyButton {
+  background-color: white;
+}
+
+.bodyButton:hover {
+  transition-duration: 0.4s;
+  background-color: lightgray;
+}
+
 .response {
   background-color: rgb(227, 226, 226);
   font-size: 10px;

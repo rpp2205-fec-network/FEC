@@ -60,7 +60,7 @@ class List extends React.Component {
               )
           }
             </button>
-          <button>Add A Review</button>
+          <button>Add A Review +</button>
         </div>
       )
     }

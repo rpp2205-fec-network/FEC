@@ -2,12 +2,25 @@ import React from 'react';
 import Ratings from 'react-ratings-declarative';
 import { format } from 'date-fns'
 
-const Tile = (props) => {
+class Tile extends React.Component {
   //console.log('TILE PROP TEST', props.review)
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+    this.helpfulCounter = this.helpfulCounter.bind(this);
+  }
+
+  helpfulCounter = () => {
+    this.props.review.helpfulness + 1
+  }
+
+  render() {
     return (
     <div className="tile">
+      {/* ================= RATINGS ================= */}
       <Ratings
-        rating={props.review.rating}
+        rating={this.props.review.rating}
         widgetRatedColors="black"
         widgetDimensions="15px"
         widgetSpacings="1px"
@@ -18,15 +31,30 @@ const Tile = (props) => {
         <Ratings.Widget />
         <Ratings.Widget />
       </Ratings>
+
+      {/* ================= USER & DATE ================= */}
       <div className='userAndDate'>
-        {props.review.reviewer_name}, {format(new Date(props.review.date), 'MMMM dd, yyyy')}
+        {this.props.review.reviewer_name}, {format(new Date(this.props.review.date), 'MMMM dd, yyyy')}
       </div>
       <br/>
-        <b>{props.review.summary}</b><br/>
-        {props.review.body} <br/>
+      {/* ================= SUMMARY ================= */}
+        <b className='summary'>{this.props.review.summary}</b><br/>
+
+      {/* ================= BODY ================= */}
+        <div className='bodyText'>{this.props.review.body}  <br/></div>
+
+      {/* ================= RECOMMENDED OR NAH? ================= */}
+        { this.props.review.recommend ?
+          <div className='recommend'>&#x2713; I recommend this product</div> : null }
+
+      {/* ================= REVIEW HELPFUL ================= */}
+      <div className="helpful">
+      Helpful? <u className="helpfulYes" onClick={this.helpfulCounter}>Yes</u> &#40;{this.props.review.helpfulness}&#41; | <u>Report</u>
+      </div>
     </div>
     )
   }
+}
 export default Tile;
 
 // export default class Tile extends React.Component {

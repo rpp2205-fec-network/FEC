@@ -53,8 +53,9 @@ main {
 
 /* =================== CHELSEA'S CSS BEGIN =================== */
 
+/* List */
 .tile {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   padding-bottom: 2mm;
   margin-bottom: 5mm;
 }
@@ -64,9 +65,27 @@ main {
   margin: 0em;
   overflow-y: auto;
 }
-
+/* Tile */
 .userAndDate {
   float:right;
+  font-size: 12px;
+}
+
+.summary {
+  font-size: 14px;
+}
+
+.bodyText {
+  font-size: 12px;
+}
+
+.helpful {
+ font-size: 10px;
+}
+
+.recommend {
+  float: right;
+  font-size: 10px;
 }
 /* =================== CHELSEA'S CSS END =================== */
 

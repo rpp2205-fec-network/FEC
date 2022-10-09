@@ -53,6 +53,12 @@ main {
 
 /* =================== CHELSEA'S CSS BEGIN =================== */
 
+/* Title */
+.reviewsTitle {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
 /* List */
 .tile {
   border-bottom: 1px solid black;
@@ -77,6 +83,13 @@ main {
 
 .bodyText {
   font-size: 12px;
+}
+
+.response {
+  background-color: rgb(227, 226, 226);
+  font-size: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .helpful {

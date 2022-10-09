@@ -1378,6 +1378,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "reviewsTitle",
           children: "RATINGS & REVIEWS"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
           reviews: this.state.reviews
@@ -1612,7 +1613,14 @@ var Tile = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "bodyText",
           children: [this.props.review.body, "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
-        }), this.props.review.recommend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "response",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
+            children: "Response:"
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            children: this.props.review.response.slice(1, this.props.review.response.length - 1)
+          })]
+        }) : null, this.props.review.recommend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "recommend",
           children: "\u2713 I recommend this product"
         }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -1621,7 +1629,7 @@ var Tile = /*#__PURE__*/function (_React$Component) {
             className: "helpfulYes",
             onClick: this.helpfulCounter,
             children: "Yes"
-          }), " (", this.props.review.helpfulness, ") | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("u", {
+          }), " (", this.props.review.helpfulness, ") \u2002 | \u2002 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("u", {
             children: "Report"
           })]
         })]

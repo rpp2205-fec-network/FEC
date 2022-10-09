@@ -43,13 +43,17 @@ class Tile extends React.Component {
       {/* ================= BODY ================= */}
         <div className='bodyText'>{this.props.review.body}  <br/></div>
 
+      {/* ================= RESPONSE ================= */}
+      {this.props.review.response !== null ?
+        <div className='response'><b>Response:</b> <div>{this.props.review.response.slice(1, this.props.review.response.length - 1)}</div></div> : null }
+
       {/* ================= RECOMMENDED OR NAH? ================= */}
         { this.props.review.recommend ?
           <div className='recommend'>&#x2713; I recommend this product</div> : null }
 
       {/* ================= REVIEW HELPFUL ================= */}
       <div className="helpful">
-      Helpful? <u className="helpfulYes" onClick={this.helpfulCounter}>Yes</u> &#40;{this.props.review.helpfulness}&#41; | <u>Report</u>
+      Helpful? <u className="helpfulYes" onClick={this.helpfulCounter}>Yes</u> &#40;{this.props.review.helpfulness}&#41; &ensp; | &ensp; <u>Report</u>
       </div>
     </div>
     )

@@ -30,7 +30,7 @@ getReviews() {
 render() {
   return (
     <div>
-      <p>RATINGS & REVIEWS</p>
+      <p className='reviewsTitle'>RATINGS & REVIEWS</p>
       <List
       reviews={this.state.reviews}
       />

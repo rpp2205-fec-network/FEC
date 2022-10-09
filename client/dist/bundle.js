@@ -1505,13 +1505,15 @@ var List = /*#__PURE__*/function (_React$Component) {
               }, review.review_id);
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "reviewsListButton reviewsToggleButton",
             onClick: this.showMoreOrCollapse,
             children: this.state.fullyExpanded && this.state.itemsToShow >= this.props.reviews.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              children: " Collapse "
+              children: "Collapse"
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               children: "More Reviews"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "reviewsListButton",
             children: "Add A Review +"
           })]
         });
@@ -1590,10 +1592,12 @@ var Tile = /*#__PURE__*/function (_React$Component) {
 
     _this.state = {
       bodyCharactersToShow: 250,
-      expanded: false
+      expanded: false,
+      modalOpen: false
     };
     _this.helpfulCounter = _this.helpfulCounter.bind(_assertThisInitialized(_this));
     _this.toggleBody = _this.toggleBody.bind(_assertThisInitialized(_this));
+    _this.toggleModal = _this.toggleModal.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1613,8 +1617,25 @@ var Tile = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "toggleModal",
+    value: function toggleModal() {
+      console.log('show pic');
+
+      if (this.state.modalOpen === true) {
+        this.setState({
+          modalOpen: false
+        });
+      } else {
+        this.setState({
+          modalOpen: true
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "tile",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1651,11 +1672,24 @@ var Tile = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "photoContainer",
           children: this.props.review.photos.slice(0, 5).map(function (photo) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              className: "reviewPhoto",
-              src: photo.url,
-              alt: photo.id
-            }, photo.url);
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                className: "reviewPhoto",
+                onClick: _this2.toggleModal,
+                src: photo.url,
+                alt: photo.id
+              }, photo.url), _this2.state.modalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dialog", {
+                  className: "modalPhoto",
+                  open: true,
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                    onClick: _this2.toggleModal,
+                    src: photo.url,
+                    alt: photo.id
+                  }, photo.url)
+                })
+              })]
+            });
           })
         }), this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "response",

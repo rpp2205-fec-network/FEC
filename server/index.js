@@ -109,8 +109,10 @@ app.get('/reviews/', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
+//
 //71701 - original
 //71719 - response from internal
+//71720 - response from internal, pictures
 // ============== CHELSEA ROUTES END ============== //
 
 app.listen(process.env.PORT);

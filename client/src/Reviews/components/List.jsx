@@ -52,15 +52,15 @@ class List extends React.Component {
           review={review}/>
           )}
           </div>
-          <button onClick={this.showMoreOrCollapse}>
+          <button className="reviewsListButton reviewsToggleButton" onClick={this.showMoreOrCollapse}>
             {(this.state.fullyExpanded && this.state.itemsToShow >= this.props.reviews.length) ? (
-              <span> Collapse </span>
+              <span>Collapse</span>
               ) : (
                 <span>More Reviews</span>
               )
           }
             </button>
-          <button>Add A Review +</button>
+          <button className="reviewsListButton">Add A Review +</button>
         </div>
       )
     }

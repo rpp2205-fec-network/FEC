@@ -8,10 +8,12 @@ class Tile extends React.Component {
     super(props);
     this.state = {
       bodyCharactersToShow: 250,
-      expanded: false
+      expanded: false,
+      modalOpen: false
     }
     this.helpfulCounter = this.helpfulCounter.bind(this);
     this.toggleBody = this.toggleBody.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   helpfulCounter = () => {
@@ -23,6 +25,15 @@ class Tile extends React.Component {
       this.setState({bodyCharactersToShow: 250, expanded: false})
     } else {
       this.setState({bodyCharactersToShow: this.props.review.body.length, expanded: true})
+    }
+  }
+
+  toggleModal() {
+    console.log('show pic')
+    if (this.state.modalOpen === true) {
+      this.setState({modalOpen: false})
+    } else {
+      this.setState({modalOpen: true})
     }
   }
 
@@ -69,9 +80,18 @@ class Tile extends React.Component {
       {/* ================= PHOTOS (BODY) ================= */}
       <div className='photoContainer'>
       {this.props.review.photos.slice(0, 5).map((photo) =>
-        <img className='reviewPhoto' key={photo.url} src={photo.url} alt={photo.id}/>
-      )
+        <div>
+        <img className='reviewPhoto' onClick={this.toggleModal} key={photo.url} src={photo.url} alt={photo.id}/>
+        {this.state.modalOpen && (
+          <div>
+          <dialog className='modalPhoto' open>
+          <img onClick={this.toggleModal} key={photo.url} src={photo.url} alt={photo.id}/>
+          </dialog>
+          </div>
+        )
       }
+        </div>
+      )}
       </div>
 
       {/* ================= RESPONSE ================= */}

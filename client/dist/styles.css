@@ -62,7 +62,7 @@ main {
 /* List */
 .tile {
   border-bottom: 1px solid black;
-  padding-bottom: 2mm;
+  padding-bottom: 5mm;
   margin-bottom: 5mm;
 }
 
@@ -71,6 +71,23 @@ main {
   margin: 0em;
   overflow-y: auto;
 }
+
+.reviewsListButton {
+  background-color: white;
+  font-size: 15px;
+  border: 1px solid black;
+  padding: 12px 28px;
+}
+
+.reviewsToggleButton {
+  margin-right: 5px;
+}
+
+.reviewsListButton:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
 /* Tile */
 .userAndDate {
   float:right;
@@ -105,11 +122,20 @@ main {
   white-space:nowrap;
   margin-right: 10px;
   margin-top: 4px;
+  margin-bottom: 8px;
 }
 
 .photoContainer {
   display: flex;
   display: -webkit-flex;
+}
+
+.modalPhoto {
+  width: 500px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
 }
 
 .response {

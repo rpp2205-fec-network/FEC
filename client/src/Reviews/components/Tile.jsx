@@ -19,9 +19,7 @@ const Tile = (props) => {
         <Ratings.Widget />
       </Ratings>
       <div className='userAndDate'>
-        {props.review.reviewer_name},
-        {/* {format(props.review.date, 'MMMM do Y')} */}
-        {props.review.date}
+        {props.review.reviewer_name}, {format(new Date(props.review.date), 'MMMM dd, yyyy')}
       </div>
       <br/>
         <b>{props.review.summary}</b><br/>

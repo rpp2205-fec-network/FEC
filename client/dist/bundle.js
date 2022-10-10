@@ -618,6 +618,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
 var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
   _inherits(QuestionsAnswers, _React$Component);
 
@@ -629,11 +631,48 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, QuestionsAnswers);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      product_id: '',
+      questions: [],
+      sortedQuestions: []
+    };
+    _this.sortQuestions = _this.sortQuestions.bind(_assertThisInitialized(_this));
+    _this.getQuestions = _this.getQuestions.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(QuestionsAnswers, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getQuestions();
+    }
+  }, {
+    key: "getQuestions",
+    value: function getQuestions() {
+      var _this2 = this;
+
+      axios.get('/getQuestions').then(function (questions) {
+        //console.log('Current product questions data', questions.data)
+        _this2.setState({
+          product_id: questions.data.product_id,
+          questions: questions.data.results
+        });
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
+    key: "sortQuestions",
+    value: function sortQuestions() {
+      var questionsCopy = this.state.questions.slice();
+      questionsCopy.sort(function (a, b) {
+        return b.question_helpfulness - a.question_helpfulness;
+      });
+      this.setState({
+        sortedQuestions: questionsCopy
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -642,7 +681,9 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
             children: "Questions and Answers"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          questions: this.state.questions
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       });
     }
   }]);
@@ -978,62 +1019,71 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       product_id: '',
-      questions: [],
-      sortedQuestions: []
+      showAllItems: false
     };
-    _this.sortQuestions = _this.sortQuestions.bind(_assertThisInitialized(_this));
+    _this.showMore = _this.showMore.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(QuestionsList, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      axios.get('/getQuestions').then(function (questions) {
-        console.log('Current product questions data', questions.data);
-
-        _this2.setState({
-          product_id: questions.data.product_id,
-          questions: questions.data.results
-        });
-      }).then(function (questions) {
-        _this2.sortQuestions();
-      })["catch"](function (err) {
-        return console.log(err);
-      });
-    }
-  }, {
-    key: "sortQuestions",
-    value: function sortQuestions() {
-      var questionsCopy = this.state.questions.slice();
-      questionsCopy.sort(function (a, b) {
-        return b.question_helpfulness - a.question_helpfulness;
-      });
-      this.setState({
-        sortedQuestions: questionsCopy
+    key: "showMore",
+    value: function showMore() {
+      this.state.showAllItems === false ? this.setState({
+        showAllItems: true
+      }) : this.setState({
+        showAllItems: false
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        id: "questionsView",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: this.state.sortedQuestions.map(function (question) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-              question_id: question.question_id,
-              question: question
-            }, question.question_id);
+      if (this.state.showAllItems === false && this.props.questions.length > 0) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          id: "questionsView",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: this.props.questions.slice(0, 2).map(function (question) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                question_id: question.question_id,
+                question: question
+              }, question.question_id);
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "button",
+            value: "More answered questions",
+            onClick: this.showMore
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "button",
+            value: "Add a question +"
+          })]
+        });
+      } else if (this.state.showAllItems === true) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          id: "questionsView",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: this.props.questions.map(function (question) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                question_id: question.question_id,
+                question: question
+              }, question.question_id);
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "button",
+            value: "Show Less",
+            onClick: this.showMore
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "button",
+            value: "Add a question +"
+          })]
+        });
+      } else if (this.state.showAllItems === false && this.props.questions.length === 0) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          id: "questionsView",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "button",
+            value: "Add a question +"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "button",
-          value: "More answered questions"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "button",
-          value: "Add a question +"
-        })]
-      });
+        });
+      }
     }
   }]);
 

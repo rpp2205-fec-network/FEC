@@ -8,45 +8,47 @@ class QuestionsList extends React.Component {
     super(props);
     this.state = {
       product_id: '',
-      questions: [],
-      sortedQuestions: []
+      showAllItems: false
     }
-    this.sortQuestions = this.sortQuestions.bind(this);
+    this.showMore = this.showMore.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('/getQuestions')
-    .then((questions) => {
-      console.log('Current product questions data', questions.data)
-      this.setState({
-        product_id: questions.data.product_id,
-        questions: questions.data.results,
-      })
-    })
-    .then((questions) => {
-      this.sortQuestions()
-    })
-    .catch(err => console.log(err));
-  }
-
-  sortQuestions() {
-    var questionsCopy = this.state.questions.slice();
-    questionsCopy.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
-    this.setState({sortedQuestions: questionsCopy})
+  showMore () {
+    this.state.showAllItems === false ? this.setState({showAllItems: true}) : this.setState({showAllItems: false})
   }
 
   render () {
-    return (
-      <div id="questionsView">
-        <div>
-        {this.state.sortedQuestions.map(question =>
-          <Question key={question.question_id} question_id={question.question_id} question={question} />
-        )}
+    if (this.state.showAllItems === false && this.props.questions.length > 0) {
+      return (
+        <div id="questionsView">
+          <div>
+          {this.props.questions.slice(0, 2).map(question =>
+            <Question key={question.question_id} question_id={question.question_id} question={question} />
+          )}
+          </div>
+          <input type="button" value="More answered questions" onClick={this.showMore}></input>
+          <input type="button" value="Add a question +"></input>
         </div>
-        <input type="button" value="More answered questions"></input>
+      )
+    } else if (this.state.showAllItems === true) {
+      return (
+        <div id="questionsView">
+          <div>
+          {this.props.questions.map(question =>
+            <Question key={question.question_id} question_id={question.question_id} question={question} />
+          )}
+          </div>
+          <input type="button" value="Show Less" onClick={this.showMore}></input>
+          <input type="button" value="Add a question +"></input>
+        </div>
+      )
+    } else if (this.state.showAllItems === false && this.props.questions.length === 0) {
+      return (
+        <div id="questionsView">
         <input type="button" value="Add a question +"></input>
       </div>
-    )
+      )
+    }
   }
 }
 

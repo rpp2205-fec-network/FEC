@@ -51,6 +51,21 @@ main {
   margin: auto;
 }
 
+/* =================== CHELSEA'S CSS BEGIN =================== */
+
+.tile {
+  border: 1px solid black;
+  padding-bottom: 2mm;
+  margin-bottom: 5mm;
+}
+
+.scrollableReviews {
+  height: 160px;
+  margin: 0em;
+  overflow-y: auto;
+}
+/* =================== CHELSEA'S CSS END =================== */
+
 #outfitScroll {
   background-color: lightgray;
   height: 175px;

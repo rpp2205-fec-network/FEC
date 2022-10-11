@@ -1337,7 +1337,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _onHover_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./onHover.jsx */ "./client/src/RelatedProducts/onHover.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1353,6 +1354,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Recommend = /*#__PURE__*/function (_React$Component) {
   _inherits(Recommend, _React$Component);
   var _super = _createSuper(Recommend);
@@ -1363,7 +1365,10 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       productList: [],
       productIdList: [],
-      hardcode: 71701
+      hardcode: 71701,
+      display: [],
+      displayCount: 2,
+      currentPosition: 0
     };
     return _this;
   }
@@ -1380,48 +1385,84 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
           id: this.state.hardcode
         }
       }).then(function (response) {
-        console.log(response);
+        var setDisplay = [response.data[0], response.data[1]];
         _this2.setState({
-          productList: response.data
+          productList: response.data,
+          display: setDisplay
         });
-        console.log(_this2.state.productList);
+        //console.log(this.state.productList)
       });
     }
 
     // render items in state and display each as a div
   }, {
     key: "element",
-    value: function element() {
-      if (this.state.productList.length > 0) {
-        return this.state.productList.map(function (item, index) {
-          // console.log(item)
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    value: function element(input) {
+      var recMap = input.map(function (item, index) {
+        return (
+          /*#__PURE__*/
+          // <div id='productRecScroll'>{recMap}</div>
+          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             id: "productRec",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               id: "productRecInfo",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                id: "productRecInfoImage"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                id: "productRecInfoImage",
+                children: "IMAGE HERE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 id: "productRecInfoCategory",
                 children: item.category
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 id: "productRecInfoName",
                 children: item.name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 id: "productRecInfoPrice",
-                children: item.price
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                children: ["$", item.default_price]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 id: "productRecInfoStar",
                 children: "STAR IMAGE THINGY"
               })]
             })
-          }, index);
-        });
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "productRecScroll",
+          }, index)
+        );
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           children: recMap
-        });
-      }
+        })
+      });
+    }
+
+    //right arrow function
+  }, {
+    key: "rightArrow",
+    value: function rightArrow() {
+      var current = this.state.currentPosition + 1;
+      var arr = this.state.display;
+      arr.shift();
+      //console.log(current)
+      arr.push(this.state.productList[this.state.displayCount - 1 + current]);
+      //console.log(arr)
+      this.setState({
+        display: arr,
+        currentPosition: current
+      });
+    }
+
+    //left arrow function
+  }, {
+    key: "leftArrow",
+    value: function leftArrow() {
+      var current = this.state.currentPosition - 1;
+      var arr = this.state.display;
+      arr.pop();
+      console.log(current);
+      arr.unshift(this.state.productList[current]);
+      console.log(arr);
+      this.setState({
+        display: arr,
+        currentPosition: current
+      });
     }
 
     // run async pull request to populate current state of products
@@ -1433,14 +1474,53 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: this.element()
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        id: "productRecScroll",
+        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          id: "leftArrow",
+          onClick: this.leftArrow.bind(this),
+          children: "<"
+        }), this.element(this.state.display), this.state.currentPosition + this.state.displayCount >= this.state.productList.length ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          id: "rightArrow",
+          onClick: this.rightArrow.bind(this),
+          children: ">"
+        })]
       });
     }
   }]);
   return Recommend;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
+
+/***/ }),
+
+/***/ "./client/src/RelatedProducts/onHover.jsx":
+/*!************************************************!*\
+  !*** ./client/src/RelatedProducts/onHover.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ hover)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function hover(props) {
+  var x, y;
+  window.addEventListener("mousemove", function (e) {
+    x, y = [e.clientX, e.clientY];
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    id: "compare",
+    display: this.css,
+    children: "HAHAHAHAHAHAHAHAHAHAHAHAAH"
+  });
+}
 
 /***/ }),
 

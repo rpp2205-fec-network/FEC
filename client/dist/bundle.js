@@ -1461,7 +1461,8 @@ var List = /*#__PURE__*/function (_React$Component) {
     value: function showMoreOrCollapse() {
       if (this.state.fullyExpanded === true) {
         this.setState({
-          itemsToShow: 2
+          itemsToShow: 2,
+          fullyExpanded: false
         });
       } else {
         this.setState({
@@ -1679,8 +1680,8 @@ var Tile = /*#__PURE__*/function (_React$Component) {
                 src: photo.url,
                 alt: photo.id
               }, photo.url), _this2.state.modalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "modalPhoto",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dialog", {
-                  className: "modalPhoto",
                   open: true,
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                     onClick: _this2.toggleModal,

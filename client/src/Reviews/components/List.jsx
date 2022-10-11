@@ -14,7 +14,7 @@ class List extends React.Component {
 
   showMoreOrCollapse() {
     if (this.state.fullyExpanded === true) {
-      this.setState({itemsToShow: 2})
+      this.setState({itemsToShow: 2, fullyExpanded: false})
     } else {
       this.setState({itemsToShow: this.state.itemsToShow + 2})
 

@@ -123,11 +123,13 @@ main {
   margin-right: 10px;
   margin-top: 4px;
   margin-bottom: 8px;
+  outline: none;
 }
 
 .photoContainer {
   display: flex;
   display: -webkit-flex;
+  outline: none;
 }
 
 .modalPhoto {
@@ -136,6 +138,9 @@ main {
   justify-content: center;
   align-items: center;
   outline: 0;
+  outline: none;
+  position: absolute;
+  z-index: 100;
 }
 
 .response {

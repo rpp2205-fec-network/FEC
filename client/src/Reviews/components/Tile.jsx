@@ -83,8 +83,8 @@ class Tile extends React.Component {
         <div>
         <img className='reviewPhoto' onClick={this.toggleModal} key={photo.url} src={photo.url} alt={photo.id}/>
         {this.state.modalOpen && (
-          <div>
-          <dialog className='modalPhoto' open>
+          <div className='modalPhoto'>
+          <dialog open>
           <img onClick={this.toggleModal} key={photo.url} src={photo.url} alt={photo.id}/>
           </dialog>
           </div>

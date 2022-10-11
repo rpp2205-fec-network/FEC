@@ -101,14 +101,53 @@ main {
   height: 135px;
   margin: 20px;
   white-space: nowrap;
+}
 /* ZACH CSS */
 
-.selectedImage {
-  width: 200px;
+/* IMAGE GALLERY */
+
+.image_gallery {
+  width: 700px;
   height: auto;
+  text-align: left;
+  background-color: #cccccc;
 }
-.unselectedImage {
-  width: 50px;
+.thumbnails_list {
+  display: table-cell;
+  width: 100px;
+}
+.thumbnail_img {
+  width: 60px;
+  height: 60px;
+  margin: 10px auto;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 4px solid transparent;
+}
+
+.selected_image {
+  display: table-cell;
+  width: 400px;
   height: auto;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
+
+/* ADD TO CART */
+.addToCart {
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font: 500 100%/1.5 system-ui;
+
+}
+
+/* ================================ */
+
 

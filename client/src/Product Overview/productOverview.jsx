@@ -58,7 +58,6 @@ export default class ProductOverview extends React.Component {
     }
 
     getProductInfo(id) {
-        //console.log('PRODUCT INFO ID', id)
         return axios.get('/productOverview/' + id)
         .then((response) => {
             return response.data;
@@ -69,7 +68,6 @@ export default class ProductOverview extends React.Component {
     }
 
     getProductStyles(id) {
-        //console.log('PRODUCT STYLES ID', id)
         return axios.get('/productOverview/styles/' + id)
         .then((response) => {
             return response.data.results;

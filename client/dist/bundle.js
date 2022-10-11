@@ -81,9 +81,8 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-          children: "AddToCart Placeholder"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+        className: "addToCart",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
           name: "size",
           value: this.state.size,
           onChange: this.changeData,
@@ -179,38 +178,173 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props); //default empty info, first style when data DOES load.
 
     _this.state = {
-      currentPhoto: 0
+      currentPhoto: 0,
+      currentFirstOption: 0,
+      view: 'default'
     };
+    _this.onCycleThumbnail = _this.onCycleThumbnail.bind(_assertThisInitialized(_this));
+    _this.onSelectThumbnail = _this.onSelectThumbnail.bind(_assertThisInitialized(_this));
+    _this.onCycleMainImage = _this.onCycleMainImage.bind(_assertThisInitialized(_this));
+    _this.onChangeView = _this.onChangeView.bind(_assertThisInitialized(_this));
     return _this;
-  } //load style data and photo data
+  } //should move to next main image, and set the top thumbnail image to the same one.
 
 
   _createClass(ImageGallery, [{
+    key: "onCycleMainImage",
+    value: function onCycleMainImage(e) {
+      var max = this.props.styleInfo[this.props.currentStyle].photos.length;
+
+      if (e.target.name === 'rightButton') {
+        if (this.state.currentPhoto < max - 1) {
+          this.setState({
+            currentFirstOption: this.state.currentPhoto + 1,
+            currentPhoto: this.state.currentPhoto + 1
+          });
+        } else {
+          console.log('Already at right most image');
+        }
+      } else if (e.target.name === 'leftButton') {
+        if (this.state.currentPhoto > 0) {
+          this.setState({
+            currentFirstOption: this.state.currentPhoto - 1,
+            currentPhoto: this.state.currentPhoto - 1
+          });
+        } else {
+          console.log('Already at left most image');
+        }
+      }
+    } //should move the thumbnail carousel up and down
+
+  }, {
+    key: "onCycleThumbnail",
+    value: function onCycleThumbnail(e) {
+      var max = this.props.styleInfo[this.props.currentStyle].photos.length;
+      console.log('MAX', max);
+
+      if (e.target.name === 'upButton') {
+        if (this.state.currentFirstOption > 0) {
+          this.setState({
+            currentFirstOption: this.state.currentFirstOption - 1
+          });
+        } else {
+          console.log('Already at highest value');
+        }
+      } else if (e.target.name === 'downButton') {
+        if (this.state.currentFirstOption < max - 1) {
+          this.setState({
+            currentFirstOption: this.state.currentFirstOption + 1
+          });
+        } else {
+          console.log('Already at lowest value');
+        }
+      }
+    } //should move the thumbnail carousel so that the selected one is at the top, and make the main image the same
+
+  }, {
+    key: "onSelectThumbnail",
+    value: function onSelectThumbnail(e) {
+      var newImageId = parseInt(e.target.id);
+      console.log('NEW IMAGE ID', e.target.id);
+      this.setState({
+        currentPhoto: newImageId,
+        currentFirstOption: newImageId
+      });
+    } //changes view style between default and expanded mode
+
+  }, {
+    key: "onChangeView",
+    value: function onChangeView() {
+      if (this.state.view === 'default') {
+        console.log('Switching to expanded');
+        this.setState({
+          view: 'expanded'
+        });
+      } else {
+        console.log('Switching to default');
+        this.setState({
+          view: 'default'
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      //console.log('PROPS', this.props)
+      var _this2 = this;
+
       var styleInfo = this.props.styleInfo;
       var currentStyle = this.props.currentStyle;
-      var currentPhoto = this.state.currentPhoto; //if there are no photos, load this
+      var currentPhoto = this.state.currentPhoto;
+      var selectionWheelPhotos = []; //if there are no photos, load this
 
       if (styleInfo.length === 0 || styleInfo[currentStyle].photos.length === 0) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "imageGallery",
           children: "NO IMAGES FOUND"
         }); //else load photos based on current selections
       } else {
-        //console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos)
+        var max = this.props.styleInfo[this.props.currentStyle].photos.length;
+
+        if (max - this.state.currentFirstOption > 7) {
+          var iterator = 7;
+        } else {
+          var iterator = max - this.state.currentFirstOption;
+        }
+
+        for (var i = this.state.currentFirstOption; i < this.state.currentFirstOption + iterator; i++) {
+          selectionWheelPhotos.push({
+            id: i,
+            thumbnail_url: styleInfo[currentStyle].photos[i].thumbnail_url
+          });
+        }
+
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-            children: "Image Gallery"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-              className: "selectedImage",
+          className: "image_gallery",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "button",
+            value: "Enter Fullscreen",
+            onClick: this.onChangeView
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("aside", {
+            className: "thumbnails_list",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "upButton",
+              className: "thumnail_button",
+              type: "button",
+              value: "^",
+              onClick: this.onCycleThumbnail
+            }), selectionWheelPhotos.map(function (image) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                  className: "thumbnail_img",
+                  id: image.id,
+                  src: image.thumbnail_url,
+                  onClick: _this2.onSelectThumbnail
+                })
+              }, image.id);
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "downButton",
+              className: "thumnail_button",
+              type: "button",
+              value: "v",
+              onClick: this.onCycleThumbnail
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("main", {
+            className: "selected_image",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "leftButton",
+              className: "main_image_button",
+              type: "button",
+              value: "<",
+              onClick: this.onCycleMainImage
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+              className: "selected_image",
               src: styleInfo[currentStyle].photos[currentPhoto].url
-            }), styleInfo[currentStyle].photos.map(function (image) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-                className: "unselectedImage",
-                src: image.thumbnail_url
-              }, styleInfo[currentStyle].photos.indexOf(image));
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "rightButton",
+              className: "main_image_button",
+              type: "button",
+              value: ">",
+              onClick: this.onCycleMainImage
             })]
           })]
         });
@@ -283,9 +417,9 @@ var ProductInformation = /*#__PURE__*/function (_React$Component) {
   _createClass(ProductInformation, [{
     key: "render",
     value: function render() {
-      var productInfo = this.props.productInfo; //console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo)
-
+      var productInfo = this.props.productInfo;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "productInformation",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
           children: "Product Information"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -385,8 +519,8 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
           children: "NO STYLE INFO FOUND"
         }); //else load photos based on current selections
       } else {
-        //console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo)
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "styleSelector",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
             children: "StyleSelector"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -522,7 +656,6 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductInfo",
     value: function getProductInfo(id) {
-      //console.log('PRODUCT INFO ID', id)
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/' + id).then(function (response) {
         return response.data;
       })["catch"](function (err) {
@@ -532,7 +665,6 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductStyles",
     value: function getProductStyles(id) {
-      //console.log('PRODUCT STYLES ID', id)
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/styles/' + id).then(function (response) {
         return response.data.results;
       })["catch"](function (err) {
@@ -1238,7 +1370,8 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     key: "element",
     value: function element() {
       if (this.state.productList.length > 0) {
-        var recMap = this.state.productList.map(function (item, index) {
+        return this.state.productList.map(function (item, index) {
+          // console.log(item)
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             id: "productRec",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {

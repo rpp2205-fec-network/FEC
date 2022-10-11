@@ -49,13 +49,6 @@ export default class Recommend extends React.Component {
         </div>
       )
     })
-
-    return (
-      <div>
-        <div>{recMap}</div>
-      </div>
-
-    )
   }
 
   //right arrow function

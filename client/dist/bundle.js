@@ -81,9 +81,8 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-          children: "AddToCart Placeholder"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+        className: "addToCart",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
           name: "size",
           value: this.state.size,
           onChange: this.changeData,
@@ -179,38 +178,173 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props); //default empty info, first style when data DOES load.
 
     _this.state = {
-      currentPhoto: 0
+      currentPhoto: 0,
+      currentFirstOption: 0,
+      view: 'default'
     };
+    _this.onCycleThumbnail = _this.onCycleThumbnail.bind(_assertThisInitialized(_this));
+    _this.onSelectThumbnail = _this.onSelectThumbnail.bind(_assertThisInitialized(_this));
+    _this.onCycleMainImage = _this.onCycleMainImage.bind(_assertThisInitialized(_this));
+    _this.onChangeView = _this.onChangeView.bind(_assertThisInitialized(_this));
     return _this;
-  } //load style data and photo data
+  } //should move to next main image, and set the top thumbnail image to the same one.
 
 
   _createClass(ImageGallery, [{
+    key: "onCycleMainImage",
+    value: function onCycleMainImage(e) {
+      var max = this.props.styleInfo[this.props.currentStyle].photos.length;
+
+      if (e.target.name === 'rightButton') {
+        if (this.state.currentPhoto < max - 1) {
+          this.setState({
+            currentFirstOption: this.state.currentPhoto + 1,
+            currentPhoto: this.state.currentPhoto + 1
+          });
+        } else {
+          console.log('Already at right most image');
+        }
+      } else if (e.target.name === 'leftButton') {
+        if (this.state.currentPhoto > 0) {
+          this.setState({
+            currentFirstOption: this.state.currentPhoto - 1,
+            currentPhoto: this.state.currentPhoto - 1
+          });
+        } else {
+          console.log('Already at left most image');
+        }
+      }
+    } //should move the thumbnail carousel up and down
+
+  }, {
+    key: "onCycleThumbnail",
+    value: function onCycleThumbnail(e) {
+      var max = this.props.styleInfo[this.props.currentStyle].photos.length;
+      console.log('MAX', max);
+
+      if (e.target.name === 'upButton') {
+        if (this.state.currentFirstOption > 0) {
+          this.setState({
+            currentFirstOption: this.state.currentFirstOption - 1
+          });
+        } else {
+          console.log('Already at highest value');
+        }
+      } else if (e.target.name === 'downButton') {
+        if (this.state.currentFirstOption < max - 1) {
+          this.setState({
+            currentFirstOption: this.state.currentFirstOption + 1
+          });
+        } else {
+          console.log('Already at lowest value');
+        }
+      }
+    } //should move the thumbnail carousel so that the selected one is at the top, and make the main image the same
+
+  }, {
+    key: "onSelectThumbnail",
+    value: function onSelectThumbnail(e) {
+      var newImageId = parseInt(e.target.id);
+      console.log('NEW IMAGE ID', e.target.id);
+      this.setState({
+        currentPhoto: newImageId,
+        currentFirstOption: newImageId
+      });
+    } //changes view style between default and expanded mode
+
+  }, {
+    key: "onChangeView",
+    value: function onChangeView() {
+      if (this.state.view === 'default') {
+        console.log('Switching to expanded');
+        this.setState({
+          view: 'expanded'
+        });
+      } else {
+        console.log('Switching to default');
+        this.setState({
+          view: 'default'
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      //console.log('PROPS', this.props)
+      var _this2 = this;
+
       var styleInfo = this.props.styleInfo;
       var currentStyle = this.props.currentStyle;
-      var currentPhoto = this.state.currentPhoto; //if there are no photos, load this
+      var currentPhoto = this.state.currentPhoto;
+      var selectionWheelPhotos = []; //if there are no photos, load this
 
       if (styleInfo.length === 0 || styleInfo[currentStyle].photos.length === 0) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "imageGallery",
           children: "NO IMAGES FOUND"
         }); //else load photos based on current selections
       } else {
-        //console.log('STYLEPHOTOS IN SECOND RETURN', this.props.stylePhotos)
+        var max = this.props.styleInfo[this.props.currentStyle].photos.length;
+
+        if (max - this.state.currentFirstOption > 7) {
+          var iterator = 7;
+        } else {
+          var iterator = max - this.state.currentFirstOption;
+        }
+
+        for (var i = this.state.currentFirstOption; i < this.state.currentFirstOption + iterator; i++) {
+          selectionWheelPhotos.push({
+            id: i,
+            thumbnail_url: styleInfo[currentStyle].photos[i].thumbnail_url
+          });
+        }
+
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-            children: "Image Gallery"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-              className: "selectedImage",
+          className: "image_gallery",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "button",
+            value: "Enter Fullscreen",
+            onClick: this.onChangeView
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("aside", {
+            className: "thumbnails_list",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "upButton",
+              className: "thumnail_button",
+              type: "button",
+              value: "^",
+              onClick: this.onCycleThumbnail
+            }), selectionWheelPhotos.map(function (image) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                  className: "thumbnail_img",
+                  id: image.id,
+                  src: image.thumbnail_url,
+                  onClick: _this2.onSelectThumbnail
+                })
+              }, image.id);
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "downButton",
+              className: "thumnail_button",
+              type: "button",
+              value: "v",
+              onClick: this.onCycleThumbnail
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("main", {
+            className: "selected_image",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "leftButton",
+              className: "main_image_button",
+              type: "button",
+              value: "<",
+              onClick: this.onCycleMainImage
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+              className: "selected_image",
               src: styleInfo[currentStyle].photos[currentPhoto].url
-            }), styleInfo[currentStyle].photos.map(function (image) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-                className: "unselectedImage",
-                src: image.thumbnail_url
-              }, styleInfo[currentStyle].photos.indexOf(image));
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              name: "rightButton",
+              className: "main_image_button",
+              type: "button",
+              value: ">",
+              onClick: this.onCycleMainImage
             })]
           })]
         });
@@ -283,9 +417,9 @@ var ProductInformation = /*#__PURE__*/function (_React$Component) {
   _createClass(ProductInformation, [{
     key: "render",
     value: function render() {
-      var productInfo = this.props.productInfo; //console.log('PRODUCT INFO IN SMALL COMPONENT', productInfo)
-
+      var productInfo = this.props.productInfo;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "productInformation",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
           children: "Product Information"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -385,8 +519,8 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
           children: "NO STYLE INFO FOUND"
         }); //else load photos based on current selections
       } else {
-        //console.log('STYLEINFO IN STYLESELECTOR \n', styleInfo)
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "styleSelector",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
             children: "StyleSelector"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -522,7 +656,6 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductInfo",
     value: function getProductInfo(id) {
-      //console.log('PRODUCT INFO ID', id)
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/' + id).then(function (response) {
         return response.data;
       })["catch"](function (err) {
@@ -532,7 +665,6 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductStyles",
     value: function getProductStyles(id) {
-      //console.log('PRODUCT STYLES ID', id)
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/styles/' + id).then(function (response) {
         return response.data.results;
       })["catch"](function (err) {
@@ -1493,7 +1625,8 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     key: "element",
     value: function element() {
       if (this.state.productList.length > 0) {
-        var recMap = this.state.productList.map(function (item, index) {
+        return this.state.productList.map(function (item, index) {
+          // console.log(item)
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             id: "productRec",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -1558,6 +1691,109 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_List_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/List.jsx */ "./client/src/Reviews/components/List.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+var ReviewIndex = /*#__PURE__*/function (_React$Component) {
+  _inherits(ReviewIndex, _React$Component);
+
+  var _super = _createSuper(ReviewIndex);
+
+  function ReviewIndex(props) {
+    var _this;
+
+    _classCallCheck(this, ReviewIndex);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      reviews: []
+    };
+    _this.getReviews = _this.getReviews.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ReviewIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getReviews();
+    }
+  }, {
+    key: "getReviews",
+    value: function getReviews() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews/').then(function (data) {
+        //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
+        _this2.setState({
+          reviews: data.data.results
+        });
+      })["catch"](function (err) {
+        console.log('ERR IN GET REVIEWS \n', err);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: "RATINGS & REVIEWS"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          reviews: this.state.reviews
+        })]
+      });
+    }
+  }]);
+
+  return ReviewIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+
+
+/***/ }),
+
+/***/ "./client/src/Reviews/components/List.jsx":
+/*!************************************************!*\
+  !*** ./client/src/Reviews/components/List.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _Tile_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Tile.jsx */ "./client/src/Reviews/components/Tile.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -1587,67 +1823,90 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var ReviewIndex = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReviewIndex, _React$Component);
+var List = /*#__PURE__*/function (_React$Component) {
+  _inherits(List, _React$Component);
 
-  var _super = _createSuper(ReviewIndex);
+  var _super = _createSuper(List);
 
-  function ReviewIndex(props) {
+  function List(props) {
     var _this;
 
-    _classCallCheck(this, ReviewIndex);
+    _classCallCheck(this, List);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      itemsToShow: 2,
+      fullyExpanded: false
+    };
+    _this.showMoreOrCollapse = _this.showMoreOrCollapse.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(ReviewIndex, [{
+  _createClass(List, [{
+    key: "showMoreOrCollapse",
+    value: function showMoreOrCollapse() {
+      if (this.state.fullyExpanded === true) {
+        this.setState({
+          itemsToShow: 2
+        });
+      } else {
+        this.setState({
+          itemsToShow: this.state.itemsToShow + 2
+        });
+
+        if (this.state.itemsToShow + 2 >= this.props.reviews.length) {
+          this.setState({
+            itemsToShow: this.props.reviews.length,
+            fullyExpanded: true
+          });
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-          children: "RATINGS & REVIEWS"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
-      });
+      if (this.props.reviews.length === 0) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            children: "Add A Review"
+          })
+        });
+      } else if (this.props.reviews.length <= 2) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [this.props.reviews.slice(0, this.state.itemsToShow).map(function (review) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tile_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              review: review
+            }, review.review_id);
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            children: "Add A Review"
+          })]
+        });
+      } else {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "scrollableReviews",
+            children: this.props.reviews.slice(0, this.state.itemsToShow).map(function (review) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tile_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                review: review
+              }, review.review_id);
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            onClick: this.showMoreOrCollapse,
+            children: this.state.fullyExpanded && this.state.itemsToShow >= this.props.reviews.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: " Collapse "
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "More Reviews"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            children: "Add A Review"
+          })]
+        });
+      }
     }
   }]);
 
-  return ReviewIndex;
+  return List;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-
-
-/***/ }),
-
-/***/ "./client/src/Reviews/components/List.jsx":
-/*!************************************************!*\
-  !*** ./client/src/Reviews/components/List.jsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Tile_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tile.jsx */ "./client/src/Reviews/components/Tile.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var List = function List(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Tile_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {}), "List to be here", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      children: "More Reviews"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      children: "Add A Review"
-    })]
-  });
-};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List);
 
@@ -1666,12 +1925,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+ // import '../../../dist/styles.css';
+
 
 
 
 var Tile = function Tile(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "Different tiles here"
+  //console.log('TILE PROP TEST', props.review)
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "tile",
+    children: ["Rating: ", props.review.rating, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Title: ", props.review.summary, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
   });
 };
 
@@ -12819,7 +13082,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: ["Hello World", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Questions_Answers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Questions_Answers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       });
     }
   }]);

@@ -1,9 +1,12 @@
 import React from 'react';
+// import '../../../dist/styles.css';
 
 const Tile = (props) => {
+  //console.log('TILE PROP TEST', props.review)
     return (
-    <div>
-      Different tiles here
+    <div className="tile">
+        Rating: {props.review.rating} <br/>
+        Title: {props.review.summary} <br/>
     </div>
     )
   }

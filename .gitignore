@@ -1,2 +1,3 @@
 ## Ignore API KEY ##
 client/src/config/config.js
+client/src/RelatedProducts/onHover.jsx

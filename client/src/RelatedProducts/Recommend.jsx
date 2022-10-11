@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Hover from './onHover.jsx'
 
 export default class Recommend extends React.Component {
   constructor(props) {
@@ -37,9 +38,9 @@ export default class Recommend extends React.Component {
   element(input) {
     let recMap = input.map((item, index) => {
       return (
-        <div key={index} id='productRec'>
+        <div key={index} id='productRec' >
           <div id='productRecInfo'>
-            <div id='productRecInfoImage'>IMAGE HERE</div>
+            <div id='productRecInfoImage' onMouseMove={Hover} value={this.state.hovers}>IMAGE HERE</div>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
@@ -84,6 +85,8 @@ export default class Recommend extends React.Component {
       currentPosition: current
     })
   }
+
+
 
   // run async pull request to populate current state of products
   componentDidMount() {

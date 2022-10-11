@@ -65,6 +65,22 @@ app.get('/productOverview/styles/:id', (req, res) => {
 // ========== ZACH ROUTES END ========== //
 
 
+// ========== BECCA ROUTES START ========== //
+
+app.get('/getQuestions', function(req, res) {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
+  .then((questions) => {
+    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    res.json(questions.data)
+  })
+  .catch(err => console.log(err))
+})
+
+
+// ========== BECCA ROUTES END ========== //
+
+
+// ============ KEN ROUTES ============= //
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)

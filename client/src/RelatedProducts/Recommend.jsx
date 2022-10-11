@@ -30,7 +30,7 @@ export default class Recommend extends React.Component {
         productList: response.data,
         display: setDisplay
       })
-      console.log(this.state.productList)
+      //console.log(this.state.productList)
     })
   }
 
@@ -38,9 +38,10 @@ export default class Recommend extends React.Component {
   element(input) {
     let recMap = input.map((item, index) => {
       return (
-        <div key={index} id='productRec' >
+        // <div id='productRecScroll'>{recMap}</div>
+        <div key={index} id='productRec'>
           <div id='productRecInfo'>
-            <div id='productRecInfoImage' onMouseMove={Hover} value={this.state.hovers}>IMAGE HERE</div>
+            <div id='productRecInfoImage'>IMAGE HERE</div>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
@@ -48,7 +49,15 @@ export default class Recommend extends React.Component {
           </div>
         </div>
       )
+
     })
+
+    return (
+      <div>
+        <div>{recMap}</div>
+      </div>
+
+    )
   }
 
   //right arrow function

@@ -1594,7 +1594,8 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       bodyCharactersToShow: 250,
       expanded: false,
-      modalOpen: false
+      modalOpen: false,
+      clickedPhotoURL: ''
     };
     _this.helpfulCounter = _this.helpfulCounter.bind(_assertThisInitialized(_this));
     _this.toggleBody = _this.toggleBody.bind(_assertThisInitialized(_this));
@@ -1619,8 +1620,11 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "toggleModal",
-    value: function toggleModal() {
-      console.log('show pic');
+    value: function toggleModal(photoURL) {
+      this.setState({
+        clickedPhotoURL: photoURL
+      });
+      console.log(this.state.clickedPhotoURL);
 
       if (this.state.modalOpen === true) {
         this.setState({
@@ -1673,26 +1677,28 @@ var Tile = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "photoContainer",
           children: this.props.review.photos.slice(0, 5).map(function (photo) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                 className: "reviewPhoto",
-                onClick: _this2.toggleModal,
+                onClick: function onClick() {
+                  return _this2.toggleModal(photo.url);
+                },
                 src: photo.url,
                 alt: photo.id
-              }, photo.url), _this2.state.modalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "modalPhoto",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dialog", {
-                  open: true,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                    onClick: _this2.toggleModal,
-                    src: photo.url,
-                    alt: photo.id
-                  }, photo.url)
-                })
-              })]
-            });
+              }, photo.id)
+            }, photo.id);
           })
-        }), this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }), this.state.modalOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "modalPhoto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dialog", {
+            open: true,
+            className: "specificModalPhoto",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+              onClick: this.toggleModal,
+              src: this.state.clickedPhotoURL
+            })
+          })
+        }) : null, this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "response",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
             children: "Response from seller:"

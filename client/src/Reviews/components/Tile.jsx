@@ -9,7 +9,8 @@ class Tile extends React.Component {
     this.state = {
       bodyCharactersToShow: 250,
       expanded: false,
-      modalOpen: false
+      modalOpen: false,
+      clickedPhotoURL: ''
     }
     this.helpfulCounter = this.helpfulCounter.bind(this);
     this.toggleBody = this.toggleBody.bind(this);
@@ -28,8 +29,9 @@ class Tile extends React.Component {
     }
   }
 
-  toggleModal() {
-    console.log('show pic')
+  toggleModal(photoURL) {
+    this.setState({clickedPhotoURL: photoURL})
+    console.log(this.state.clickedPhotoURL)
     if (this.state.modalOpen === true) {
       this.setState({modalOpen: false})
     } else {
@@ -79,20 +81,38 @@ class Tile extends React.Component {
 
       {/* ================= PHOTOS (BODY) ================= */}
       <div className='photoContainer'>
-      {this.props.review.photos.slice(0, 5).map((photo) =>
-        <div>
-        <img className='reviewPhoto' onClick={this.toggleModal} key={photo.url} src={photo.url} alt={photo.id}/>
-        {this.state.modalOpen && (
-          <div className='modalPhoto'>
-          <dialog open>
-          <img onClick={this.toggleModal} key={photo.url} src={photo.url} alt={photo.id}/>
-          </dialog>
+        {this.props.review.photos.slice(0, 5).map((photo) =>
+          <div key={photo.id}>
+            <img className='reviewPhoto' onClick={() => this.toggleModal(photo.url)} key={photo.id} src={photo.url} alt={photo.id}/>
           </div>
-        )
-      }
-        </div>
-      )}
+        )}
       </div>
+
+      {
+      this.state.modalOpen ? (
+            <div className='modalPhoto'>
+              <dialog open className='specificModalPhoto'>
+                <img onClick={this.toggleModal} src={this.state.clickedPhotoURL}/>
+              </dialog>
+            </div>
+          ) : null
+      }
+
+      {/* <div className='photoContainer'>
+        {this.props.review.photos.slice(0, 5).map((photo) =>
+          <div key={photo.id}>
+          <img className='reviewPhoto' onClick={this.toggleModal} key={photo.id} src={photo.url} alt={photo.id}/>
+          {this.state.modalOpen && (
+            <div className='modalPhoto'>
+              <dialog open>
+                <img onClick={this.toggleModal} key={photo.id} src={photo.url} alt={photo.id}/>
+              </dialog>
+            </div>
+          )
+          }
+          </div>
+        )}
+      </div> */}
 
       {/* ================= RESPONSE ================= */}
       {this.props.review.response !== null ?

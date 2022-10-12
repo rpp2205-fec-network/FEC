@@ -133,30 +133,16 @@ main {
 
 }
 
-.modalPhoto {
-  width: 500px;
-  height: auto;
-  z-index: 100;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  position: absolute;
-
-  margin-left: 450px;
-  margin-top: -100px;
-  margin-bottom: relative;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 .specificModalPhoto {
   width: 500px;
   height: auto;
   z-index: 100;
-  justify-content: center;
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  bottom: 50%;
+  margin: -35px 0 0 -35px;
+  /* justify-content: center;
   align-items: center;
   outline: none;
   position: absolute;
@@ -168,7 +154,7 @@ main {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .response {

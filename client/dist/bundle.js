@@ -1689,14 +1689,10 @@ var Tile = /*#__PURE__*/function (_React$Component) {
             }, photo.id);
           })
         }), this.state.modalOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "modalPhoto",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("dialog", {
-            open: true,
-            className: "specificModalPhoto",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              onClick: this.toggleModal,
-              src: this.state.clickedPhotoURL
-            })
+          className: "specificModalPhoto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            onClick: this.toggleModal,
+            src: this.state.clickedPhotoURL
           })
         }) : null, this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "response",

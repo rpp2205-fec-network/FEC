@@ -88,14 +88,11 @@ class Tile extends React.Component {
         )}
       </div>
 
-      {
-      this.state.modalOpen ? (
-            <div className='modalPhoto'>
-              <dialog open className='specificModalPhoto'>
-                <img onClick={this.toggleModal} src={this.state.clickedPhotoURL}/>
-              </dialog>
-            </div>
-          ) : null
+      {this.state.modalOpen ? (
+        <div className='specificModalPhoto'>
+          <img onClick={this.toggleModal} src={this.state.clickedPhotoURL}/>
+        </div>
+        ) : null
       }
 
       {/* <div className='photoContainer'>

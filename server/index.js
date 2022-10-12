@@ -76,6 +76,17 @@ app.get('/getQuestions', function(req, res) {
   .catch(err => console.log(err))
 })
 
+app.put('/putHelpful', function(req, res) {
+  console.log(req.body);
+  var answerId = req.body.id;
+  return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/helpful`, {}, options)
+  .then((response) => {
+    console.log('Updated')
+    res.status(204);
+  })
+  .catch(err => console.log(err))
+})
+
 
 // ========== BECCA ROUTES END ========== //
 
@@ -118,7 +129,7 @@ app.get('/relatedProducts', function(req, res) {
 app.get('/reviews/', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71701', options)
   .then((response) => {
-    console.log('DATA IN REVIEWS GET \n', response.data);
+    //console.log('DATA IN REVIEWS GET \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {

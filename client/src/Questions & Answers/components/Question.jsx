@@ -29,7 +29,15 @@ class Question extends React.Component {
 
   sortAnswers () {
     var answersCopy = this.state.answers.slice();
-    answersCopy.sort((a, b) => b.helpfulness - a.helpfulness);
+    //answersCopy.sort((a, b) => b.helpfulness - a.helpfulness ||);
+    //answersCopy.sort((a, b) => a === "Seller" ? -1 : b === "Seller" ? 1 : a>b ? 1 : -1);
+    answersCopy.sort((a, b) => {
+      if (a.answerer_name === 'Seller' || b.answerer_name === 'Seller') {
+        return -1;
+      } else {
+        return b.helpfulness - a.helpfulness
+      }
+    })
     this.setState({sortedAnswers: answersCopy})
   }
 

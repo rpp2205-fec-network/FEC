@@ -20,7 +20,7 @@ class QuestionsList extends React.Component {
   render () {
     if (this.state.showAllItems === false && this.props.questions.length > 0) {
       return (
-        <div id="questionsView">
+        <div id="questionsViewDefault">
           <div>
           {this.props.questions.slice(0, 2).map(question =>
             <Question key={question.question_id} question_id={question.question_id} question={question} />
@@ -32,14 +32,17 @@ class QuestionsList extends React.Component {
       )
     } else if (this.state.showAllItems === true) {
       return (
-        <div id="questionsView">
-          <div>
+        <div>
+          <div id="questionsViewAll">
           {this.props.questions.map(question =>
             <Question key={question.question_id} question_id={question.question_id} question={question} />
           )}
           </div>
+
+          <div>
           <input type="button" value="Show Less" onClick={this.showMore}></input>
           <input type="button" value="Add a question +"></input>
+          </div>
         </div>
       )
     } else if (this.state.showAllItems === false && this.props.questions.length === 0) {

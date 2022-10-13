@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
-import Hover from './onHover.jsx'
+import Popup from './Popup.jsx'
 
 export default class Recommend extends React.Component {
   constructor(props) {
@@ -11,7 +11,8 @@ export default class Recommend extends React.Component {
       hardcode: 71701,
       display: [],
       displayCount: 2,
-      currentPosition: 0
+      currentPosition: 0,
+      popup: false
     }
   }
 
@@ -25,13 +26,22 @@ export default class Recommend extends React.Component {
       }
     }).then((response) => {
       let setDisplay = [response.data[0], response.data[1]]
-
       this.setState({
         productList: response.data,
         display: setDisplay
       })
-      //console.log(this.state.productList)
+    }).then(() => {
+      this.state.productList.forEach((item) => {
+        axios.get('/productOverview/styles/' + item.id)
+        .then((response) => {
+          item.image = response.data.results[0].photos[0].thumbnail_url
+        })
+      })
     })
+
+      //console.log(this.state.productList)
+
+
   }
 
   // render items in state and display each as a div
@@ -41,7 +51,7 @@ export default class Recommend extends React.Component {
         // <div id='productRecScroll'>{recMap}</div>
         <div key={index} id='productRec'>
           <div id='productRecInfo'>
-            <div id='productRecInfoImage'>IMAGE HERE</div>
+            <img id='productRecInfoImage' src={item.image} onClick={Popup}></img>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
@@ -49,9 +59,7 @@ export default class Recommend extends React.Component {
           </div>
         </div>
       )
-
     })
-
     return (
       <div>
         <div>{recMap}</div>
@@ -79,9 +87,7 @@ export default class Recommend extends React.Component {
     let current = this.state.currentPosition - 1;
     let arr = this.state.display;
     arr.pop();
-    console.log(current)
     arr.unshift(this.state.productList[current])
-    console.log(arr)
     this.setState({
       display: arr,
       currentPosition: current

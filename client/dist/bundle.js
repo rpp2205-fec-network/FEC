@@ -1322,6 +1322,45 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./client/src/RelatedProducts/Popup.jsx":
+/*!**********************************************!*\
+  !*** ./client/src/RelatedProducts/Popup.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Popup)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Popup() {
+  console.log('here');
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+      children: "Popup - GeeksforGeeks"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(Popup, {
+      trigger: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        children: " Click to open popup "
+      }),
+      position: "right center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: "GeeksforGeeks"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        children: "Click here"
+      })]
+    })]
+  });
+}
+;
+
+/***/ }),
+
 /***/ "./client/src/RelatedProducts/Recommend.jsx":
 /*!**************************************************!*\
   !*** ./client/src/RelatedProducts/Recommend.jsx ***!
@@ -1337,7 +1376,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _onHover_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./onHover.jsx */ "./client/src/RelatedProducts/onHover.jsx");
+/* harmony import */ var _Popup_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Popup.jsx */ "./client/src/RelatedProducts/Popup.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1368,7 +1407,8 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
       hardcode: 71701,
       display: [],
       displayCount: 2,
-      currentPosition: 0
+      currentPosition: 0,
+      popup: false
     };
     return _this;
   }
@@ -1390,8 +1430,15 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
           productList: response.data,
           display: setDisplay
         });
-        //console.log(this.state.productList)
+      }).then(function () {
+        _this2.state.productList.forEach(function (item) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/styles/' + item.id).then(function (response) {
+            item.image = response.data.results[0].photos[0].thumbnail_url;
+          });
+        });
       });
+
+      //console.log(this.state.productList)
     }
 
     // render items in state and display each as a div
@@ -1406,9 +1453,10 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
             id: "productRec",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               id: "productRecInfo",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 id: "productRecInfoImage",
-                children: "IMAGE HERE"
+                src: item.image,
+                onClick: _Popup_jsx__WEBPACK_IMPORTED_MODULE_2__["default"]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 id: "productRecInfoCategory",
                 children: item.category
@@ -1456,9 +1504,7 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
       var current = this.state.currentPosition - 1;
       var arr = this.state.display;
       arr.pop();
-      console.log(current);
       arr.unshift(this.state.productList[current]);
-      console.log(arr);
       this.setState({
         display: arr,
         currentPosition: current
@@ -1491,36 +1537,6 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
   return Recommend;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
-
-/***/ }),
-
-/***/ "./client/src/RelatedProducts/onHover.jsx":
-/*!************************************************!*\
-  !*** ./client/src/RelatedProducts/onHover.jsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ hover)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function hover(props) {
-  var x, y;
-  window.addEventListener("mousemove", function (e) {
-    x, y = [e.clientX, e.clientY];
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    id: "compare",
-    display: this.css,
-    children: "HAHAHAHAHAHAHAHAHAHAHAHAAH"
-  });
-}
 
 /***/ }),
 

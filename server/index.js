@@ -139,12 +139,15 @@ app.get('/reviews', (req, res) => {
   })
 })
 
-//1254460
-//
-
 app.put('/reviewHelpful', (req, res) => {
   console.log('REQQQQQQQ', req.body.params.review_id)
-  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?${req.body.params.review_id}/helpful`, options)
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.body.params.review_id}/helpful`,
+    headers: {
+      "Authorization": API_KEY
+    }
+  })
     .then((response) => {
       console.log('SUCCESS ADDING HELPFUL \n', response)
       res.status(204).send(response);

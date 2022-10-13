@@ -1,25 +1,38 @@
 import React from 'react';
 import Ratings from 'react-ratings-declarative';
-import { format } from 'date-fns'
-
+import { format } from 'date-fns';
+import axios from "axios";
 class Tile extends React.Component {
-  //console.log('TILE PROP TEST', props.review)
   constructor(props) {
     super(props);
     this.state = {
       bodyCharactersToShow: 250,
       expanded: false,
       modalOpen: false,
-      clickedPhotoURL: ''
+      clickedPhotoURL: '',
+      clickedHelpfulID: ''
     }
-    this.helpfulCounter = this.helpfulCounter.bind(this);
     this.toggleBody = this.toggleBody.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.clickHelpful = this.clickHelpful.bind(this);
   }
 
-  helpfulCounter = () => {
-    this.props.review.helpfulness + 1
+  clickHelpful = (id) => {
+    // console.log('clicked')
+    axios.put('/reviewHelpful', {
+      params: {
+        review_id: id
+      }
+    })
+      .then((data) => {
+        console.log('Success sending helpful put to server', data)
+
+      })
+      .catch((err) => {
+        console.log('Err sending helpful put to server', err)
+      })
   }
+
 
   toggleBody() {
     if (this.state.expanded === true) {
@@ -31,7 +44,6 @@ class Tile extends React.Component {
 
   toggleModal(photoURL) {
     this.setState({clickedPhotoURL: photoURL})
-    console.log(this.state.clickedPhotoURL)
     if (this.state.modalOpen === true) {
       this.setState({modalOpen: false})
     } else {
@@ -63,6 +75,7 @@ class Tile extends React.Component {
         {this.props.review.reviewer_name}, {format(new Date(this.props.review.date), 'MMMM dd, yyyy')}
       </div>
       </div>
+
       {/* ================= SUMMARY ================= */}
         <div><b className='summary'>{this.props.review.summary}</b></div>
 
@@ -95,22 +108,6 @@ class Tile extends React.Component {
         ) : null
       }
 
-      {/* <div className='photoContainer'>
-        {this.props.review.photos.slice(0, 5).map((photo) =>
-          <div key={photo.id}>
-          <img className='reviewPhoto' onClick={this.toggleModal} key={photo.id} src={photo.url} alt={photo.id}/>
-          {this.state.modalOpen && (
-            <div className='modalPhoto'>
-              <dialog open>
-                <img onClick={this.toggleModal} key={photo.id} src={photo.url} alt={photo.id}/>
-              </dialog>
-            </div>
-          )
-          }
-          </div>
-        )}
-      </div> */}
-
       {/* ================= RESPONSE ================= */}
       {this.props.review.response !== null ?
         <div className='response'><b>Response from seller:</b> <div>{this.props.review.response.slice(1, this.props.review.response.length - 1)}</div></div> : null }
@@ -121,7 +118,8 @@ class Tile extends React.Component {
 
       {/* ================= REVIEW HELPFUL ================= */}
       <div className="helpful">
-      Helpful? <u className="helpfulYes" onClick={this.helpfulCounter}>Yes</u> &#40;{this.props.review.helpfulness}&#41; &ensp; | &ensp; <u>Report</u>
+        {/* {console.log('props!!!', this.props.review.review_id)} */}
+      Helpful? <u className="helpfulYes" onClick={() => this.clickHelpful(this.props.review.review_id)} >Yes</u> &#40;{this.props.review.helpfulness}&#41; &ensp; | &ensp; <u>Report</u>
       </div>
     </div>
     )

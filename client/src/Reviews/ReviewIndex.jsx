@@ -17,7 +17,7 @@ componentDidMount() {
 }
 
 getReviews() {
-  axios.get('/reviews/')
+  axios.get('/reviews')
   .then((data) => {
       console.log('DATA IN Reviews COMPONENT \n', data.data.results)
       this.setState({reviews: data.data.results})

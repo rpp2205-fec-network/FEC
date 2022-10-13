@@ -68,6 +68,8 @@ main {
 
 .scrollableReviews {
   height: 500px;
+  width: auto;
+  overflow: hidden;
   margin: 0em;
   overflow-y: auto;
 }

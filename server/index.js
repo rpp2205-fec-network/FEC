@@ -99,7 +99,7 @@ app.get('/relatedProducts', function(req, res) {
 
 // ============== CHELSEA ROUTES START ============== //
 
-app.get('/reviews/', (req, res) => {
+app.get('/reviews', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71720', options)
   .then((response) => {
     console.log('DATA IN REVIEWS GET \n', response.data);
@@ -109,10 +109,22 @@ app.get('/reviews/', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
-//
-//71701 - original
-//71719 - response from internal
-//71720 - response from internal, pictures
+
+//1254460
+//${req.body.params.review_id}
+
+app.put('/reviewHelpful', (req, res) => {
+  console.log('REQQQQQQQ', req.body)
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?1254460/helpful`, options)
+    .then((response) => {
+      console.log('SUCCESS ADDING HELPFUL \n', response)
+      res.status(204).send(response);
+    })
+    .catch((err) => {
+      console.log('ERR ADDING HELPFUL ================== \n', err)
+    })
+})
+
 // ============== CHELSEA ROUTES END ============== //
 
 app.listen(process.env.PORT);

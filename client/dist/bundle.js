@@ -1363,7 +1363,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     value: function getReviews() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews/').then(function (data) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews').then(function (data) {
         console.log('DATA IN Reviews COMPONENT \n', data.data.results);
 
         _this2.setState({
@@ -1542,8 +1542,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1574,12 +1576,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Tile = /*#__PURE__*/function (_React$Component) {
   _inherits(Tile, _React$Component);
 
   var _super = _createSuper(Tile);
 
-  //console.log('TILE PROP TEST', props.review)
   function Tile(props) {
     var _this;
 
@@ -1587,19 +1589,29 @@ var Tile = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "helpfulCounter", function () {
-      _this.props.review.helpfulness + 1;
+    _defineProperty(_assertThisInitialized(_this), "clickHelpful", function (id) {
+      // console.log('clicked')
+      axios__WEBPACK_IMPORTED_MODULE_2___default().put('/reviewHelpful', {
+        params: {
+          review_id: id
+        }
+      }).then(function (data) {
+        console.log('Success sending helpful put to server', data);
+      })["catch"](function (err) {
+        console.log('Err sending helpful put to server', err);
+      });
     });
 
     _this.state = {
       bodyCharactersToShow: 250,
       expanded: false,
       modalOpen: false,
-      clickedPhotoURL: ''
+      clickedPhotoURL: '',
+      clickedHelpfulID: ''
     };
-    _this.helpfulCounter = _this.helpfulCounter.bind(_assertThisInitialized(_this));
     _this.toggleBody = _this.toggleBody.bind(_assertThisInitialized(_this));
     _this.toggleModal = _this.toggleModal.bind(_assertThisInitialized(_this));
+    _this.clickHelpful = _this.clickHelpful.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1624,7 +1636,6 @@ var Tile = /*#__PURE__*/function (_React$Component) {
       this.setState({
         clickedPhotoURL: photoURL
       });
-      console.log(this.state.clickedPhotoURL);
 
       if (this.state.modalOpen === true) {
         this.setState({
@@ -1641,44 +1652,44 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "tile",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
           rating: this.props.review.rating,
           widgetRatedColors: "black",
           widgetDimensions: "15px",
           widgetSpacings: "1px",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "userAndDate",
-            children: [this.props.review.reviewer_name, ", ", (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(this.props.review.date), 'MMMM dd, yyyy')]
+            children: [this.props.review.reviewer_name, ", ", (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(this.props.review.date), 'MMMM dd, yyyy')]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
             className: "summary",
             children: this.props.review.summary
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "bodyText",
-            children: [this.props.review.body.slice(0, this.state.bodyCharactersToShow), this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            children: [this.props.review.body.slice(0, this.state.bodyCharactersToShow), this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                 className: "bodyButton",
                 onClick: this.toggleBody,
-                children: this.state.expanded && this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                children: this.state.expanded && this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   children: "Show Less"
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   children: "Show more"
                 })
               })
             }) : null]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "photoContainer",
           children: this.props.review.photos.slice(0, 5).map(function (photo) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 className: "reviewPhoto",
                 onClick: function onClick() {
                   return _this2.toggleModal(photo.url);
@@ -1688,29 +1699,31 @@ var Tile = /*#__PURE__*/function (_React$Component) {
               }, photo.id)
             }, photo.id);
           })
-        }), this.state.modalOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), this.state.modalOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "specificModalPhoto",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
             onClick: this.toggleModal,
             src: this.state.clickedPhotoURL
           })
-        }) : null, this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }) : null, this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "response",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
             children: "Response from seller:"
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             children: this.props.review.response.slice(1, this.props.review.response.length - 1)
           })]
-        }) : null, this.props.review.recommend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }) : null, this.props.review.recommend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "recommend",
           children: "\u2713 I recommend this product"
-        }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "helpful",
-          children: ["Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("u", {
+          children: ["Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("u", {
             className: "helpfulYes",
-            onClick: this.helpfulCounter,
+            onClick: function onClick() {
+              return _this2.clickHelpful(_this2.props.review.review_id);
+            },
             children: "Yes"
-          }), " (", this.props.review.helpfulness, ") \u2002 | \u2002 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("u", {
+          }), " (", this.props.review.helpfulness, ") \u2002 | \u2002 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("u", {
             children: "Report"
           })]
         })]

@@ -1,6 +1,7 @@
 import React from 'react';
 import AddAnswer from './AddAnswer.jsx';
 import Answer from './Answer.jsx';
+const axios = require('axios');
 
 class Question extends React.Component {
   constructor(props) {
@@ -20,17 +21,18 @@ class Question extends React.Component {
 
 
   getAnswersList() {
-    var answersList = Object.values(this.state.question.answers)
-    console.log('ANSSERS VALUES', answersList)
-    this.setState({answers: answersList}, function() {
-      this.sortAnswers();
+    axios.get('/getAnswers', {params: {id: this.state.question.question_id }})
+    .then((result) => {
+      var currentAnswers = result.data.results;
+      this.setState({answers: currentAnswers}, function() {
+        this.sortAnswers();
+      })
     })
+    .catch(err => console.log(err))
   }
 
   sortAnswers () {
     var answersCopy = this.state.answers.slice();
-    //answersCopy.sort((a, b) => b.helpfulness - a.helpfulness ||);
-    //answersCopy.sort((a, b) => a === "Seller" ? -1 : b === "Seller" ? 1 : a>b ? 1 : -1);
     answersCopy.sort((a, b) => {
       if (a.answerer_name === 'Seller' || b.answerer_name === 'Seller') {
         return -1;

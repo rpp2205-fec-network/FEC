@@ -677,7 +677,7 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     value: function getQuestions() {
       var _this2 = this;
       axios.get('/getQuestions').then(function (questions) {
-        //console.log('Current product questions data', questions.data)
+        console.log('Current product questions data', questions.data);
         _this2.setState({
           product_id: questions.data.product_id,
           questions: questions.data.results
@@ -813,9 +813,11 @@ var Answer = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Answer);
     _this = _super.call(this, props);
     _this.state = {
-      helpfulClicked: false
+      helpfulClicked: false,
+      showAllItems: false
     };
     _this.wasHelpful = _this.wasHelpful.bind(_assertThisInitialized(_this));
+    _this.showCollapseAnswers = _this.showCollapseAnswers.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(Answer, [{
@@ -823,7 +825,6 @@ var Answer = /*#__PURE__*/function (_React$Component) {
     value: function wasHelpful(e, answer) {
       var _this2 = this;
       e.preventDefault();
-      //var addHelpfulPoint = function() {answer.helpfulness ++;}
       axios.put('/putHelpful', {
         id: answer.id
       }).then(function (response) {
@@ -836,36 +837,92 @@ var Answer = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "showCollapseAnswers",
+    value: function showCollapseAnswers(e) {
+      e.preventDefault();
+      this.state.showAllItems === false ? this.setState({
+        showAllItems: true
+      }) : this.setState({
+        showAllItems: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        id: "answerContent",
-        children: [" ", this.props.answers.map(function (answer, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-            target: "_blank",
-            id: "answerText",
-            children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              id: "answererInfo",
-              children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                style: {
-                  fontWeight: 'bold'
-                },
-                children: answer.answerer_name
-              }) : answer.answerer_name, ",", answer.date, " | Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                type: "button",
-                value: "Yes",
-                onClick: function onClick(e) {
-                  return _this3.wasHelpful(e, answer);
-                }
-              }), "(", answer.helpfulness, ") |", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                type: "button",
-                value: "Report"
-              })]
-            })]
-          }, answer.id);
-        })]
-      });
+      if (this.state.showAllItems === false) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            id: "answerContent",
+            children: [" ", this.props.answers.slice(0, 2).map(function (answer, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                target: "_blank",
+                id: "answerText",
+                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                  id: "answererInfo",
+                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                    style: {
+                      fontWeight: 'bold'
+                    },
+                    children: answer.answerer_name
+                  }) : answer.answerer_name, ",", answer.date, " | Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    type: "button",
+                    value: "Yes",
+                    onClick: function onClick(e) {
+                      return _this3.wasHelpful(e, answer);
+                    }
+                  }), "(", answer.helpfulness, ") |", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    type: "button",
+                    value: "Report"
+                  })]
+                })]
+              }, answer.answer_id);
+            }), " "]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "button",
+            value: "Load more answers",
+            onClick: function onClick(e) {
+              return _this3.showCollapseAnswers(e);
+            }
+          })]
+        });
+      } else {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            id: "allAnswerContent",
+            children: [" ", this.props.answers.map(function (answer, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+                target: "_blank",
+                id: "answerText",
+                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                  id: "answererInfo",
+                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                    style: {
+                      fontWeight: 'bold'
+                    },
+                    children: answer.answerer_name
+                  }) : answer.answerer_name, ",", answer.date, " | Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    type: "button",
+                    value: "Yes",
+                    onClick: function onClick(e) {
+                      return _this3.wasHelpful(e, answer);
+                    }
+                  }), "(", answer.helpfulness, ") |", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+                    type: "button",
+                    value: "Report"
+                  })]
+                })]
+              }, answer.answer_id);
+            }), " "]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "button",
+            value: "Collapse answers",
+            onClick: function onClick(e) {
+              return _this3.showCollapseAnswers(e);
+            }
+          })]
+        });
+      }
     }
   }]);
   return Answer;
@@ -906,6 +963,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var Question = /*#__PURE__*/function (_React$Component) {
   _inherits(Question, _React$Component);
   var _super = _createSuper(Question);
@@ -930,20 +988,26 @@ var Question = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getAnswersList",
     value: function getAnswersList() {
-      var answersList = Object.values(this.state.question.answers);
-      console.log('ANSSERS VALUES', answersList);
-      this.setState({
-        answers: answersList
-      }, function () {
-        this.sortAnswers();
+      var _this2 = this;
+      axios.get('/getAnswers', {
+        params: {
+          id: this.state.question.question_id
+        }
+      }).then(function (result) {
+        var currentAnswers = result.data.results;
+        _this2.setState({
+          answers: currentAnswers
+        }, function () {
+          this.sortAnswers();
+        });
+      })["catch"](function (err) {
+        return console.log(err);
       });
     }
   }, {
     key: "sortAnswers",
     value: function sortAnswers() {
       var answersCopy = this.state.answers.slice();
-      //answersCopy.sort((a, b) => b.helpfulness - a.helpfulness ||);
-      //answersCopy.sort((a, b) => a === "Seller" ? -1 : b === "Seller" ? 1 : a>b ? 1 : -1);
       answersCopy.sort(function (a, b) {
         if (a.answerer_name === 'Seller' || b.answerer_name === 'Seller') {
           return -1;

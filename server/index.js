@@ -76,8 +76,17 @@ app.get('/getQuestions', function(req, res) {
   .catch(err => console.log(err))
 })
 
+app.get('/getAnswers', function(req, res) {
+  var answerId = req.query.id;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${answerId}/answers?count=100`, options)
+  .then((answers) => {
+    res.json(answers.data)
+  })
+  .catch(err => console.log(err))
+})
+
 app.put('/putHelpful', function(req, res) {
-  console.log(req.body);
+  //console.log(req.body);
   var answerId = req.body.id;
   return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/helpful`, {}, options)
   .then((response) => {

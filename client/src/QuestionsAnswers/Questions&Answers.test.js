@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 
 import '@testing-library/jest-dom';
 import QuestionsAnswers from './Questions&Answers.jsx';
-//import QuestionsList from './components/QuestionsList.jsx';
+import QuestionsList from './components/QuestionsList.jsx';
 
 test('test runs', async () => {
     expect(1 + 1).toEqual(2)
@@ -15,14 +15,15 @@ test('Questions & Answers main page should render', async () => {
 
     expect(screen.getByRole('heading')).toHaveTextContent(/Questions and Answers/);
     expect(screen.getByText(/Search for answers.../)).toBeInTheDocument();
-    // expect(screen.getByRole('button', { value: "Add a question +" })).toBeInTheDocument();
-    // expect(screen.getByRole('input', { value: "More answered questions" })).toBeInTheDocument();
 
 })
 
 
 // test('Questions list should render', async () => {
-//     render(<QuestionsList questions={this.state.questions}/>)
+//     render(<QuestionsList />)
 
-//     expect(screen.getByRole('button', { name: "Add a question +" })).toBeInTheDocument();
+//     await screen.findByRole('button' , { name: 'Add a question + '});
+
+//     expect(screen.getByRole('button' ,{ name: "Add a question +" })).toBeInTheDocument();
+// expect(screen.getByRole('input', { value: "More answered questions" })).toBeInTheDocument();
 // })

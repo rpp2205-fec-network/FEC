@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Question from './Question.jsx';
-const axios = require('axios')
+const axios = require('axios');
 
 class QuestionsList extends React.Component {
   constructor(props) {

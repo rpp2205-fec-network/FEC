@@ -133,9 +133,9 @@ li{
  #questionsViewAll {
    padding-top: 20px;
    padding-bottom: 20px;
-   height: 500px;
+   /* height: 500px;
    margin: 0em;
-   overflow-y: auto;
+   overflow-y: auto; */
  }
 
  #addQuestion {
@@ -144,6 +144,12 @@ li{
 
  #individualQuestion {
    padding-bottom: 30px;
+ }
+
+ #allAnswerContent {
+    height: 300px;
+    margin: 0em;
+    overflow-y: auto;
  }
 
  #addAnswer {

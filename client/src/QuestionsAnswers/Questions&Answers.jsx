@@ -24,7 +24,7 @@ class QuestionsAnswers extends React.Component {
   getQuestions () {
     axios.get('/getQuestions')
     .then((questions) => {
-      //console.log('Current product questions data', questions.data)
+      console.log('Current product questions data', questions.data)
       this.setState({
         product_id: questions.data.product_id,
         questions: questions.data.results,

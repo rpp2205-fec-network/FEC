@@ -65,6 +65,22 @@ app.get('/productOverview/styles/:id', (req, res) => {
 // ========== ZACH ROUTES END ========== //
 
 
+// ========== BECCA ROUTES START ========== //
+
+app.get('/getQuestions', function(req, res) {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
+  .then((questions) => {
+    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    res.json(questions.data)
+  })
+  .catch(err => console.log(err))
+})
+
+
+// ========== BECCA ROUTES END ========== //
+
+
+// ============ KEN ROUTES ============= //
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
@@ -74,9 +90,16 @@ app.get('/relatedProducts', function(req, res) {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + req.query.id + '/related', options)
   .then((response) => {
 
-    //console.log('response', response.data)
-    //arr.push(response)
-    let loop = response.data.map((item) => {
+    // removing duplicates from product list
+    let noDuplicates = [];
+    response.data.forEach((item) => {
+      if (!noDuplicates.includes(item)) {
+        noDuplicates.push(item)
+      }
+    })
+
+    // making an array of promises to return an array of results
+    let loop = noDuplicates.map((item) => {
       return axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/' + item, options)
       .then((data) => {
         return data.data
@@ -85,8 +108,9 @@ app.get('/relatedProducts', function(req, res) {
         console.log('ERR in /productOverview/related second GET')
       })
     })
+
+    // running array of promises async
     Promise.all(loop).then((data) => {
-      //console.log(data, 'inside promise') // working
       res.status(200).send(data)
     })
   })
@@ -102,7 +126,7 @@ app.get('/relatedProducts', function(req, res) {
 app.get('/reviews', (req, res) => {
   axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71720', options)
   .then((response) => {
-    console.log('DATA IN REVIEWS GET \n', response.data);
+    //console.log('DATA IN REVIEWS GET \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {

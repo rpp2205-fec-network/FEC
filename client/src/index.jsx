@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import QuestionsAnswers from './Questions & Answers/Questions&Answers.jsx';
+import QuestionsAnswers from './QuestionsAnswers/Questions&Answers.jsx';
 import ProductOverview from './Product Overview/productOverview.jsx'
 import Reviews from './Reviews/ReviewIndex.jsx';
 import Lists from './RelatedProducts/Lists.jsx';

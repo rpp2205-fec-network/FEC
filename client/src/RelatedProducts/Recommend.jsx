@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Hover from './onHover.jsx'
+// import Hover from './onHover.jsx'
 
 export default class Recommend extends React.Component {
   constructor(props) {

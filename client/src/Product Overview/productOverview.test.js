@@ -1,7 +1,11 @@
-import { render } from '@testing-library/react'
-
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import ProductOverview from './productOverview.jsx';
 
-test('test runs', async () => {
-    expect(1 + 1).toEqual(2)
-})
+describe('Product Overview', function () {
+  it('should render Product Overview', async () => {
+    render(<ProductOverview />);
+    expect(screen.getByText('Product Overview')).toBeDefined();
+  });
+});

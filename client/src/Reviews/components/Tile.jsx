@@ -10,15 +10,28 @@ class Tile extends React.Component {
       expanded: false,
       modalOpen: false,
       clickedPhotoURL: '',
-      clickedHelpfulID: ''
+      clickedHelpfulID: '',
+      helpfulIncrease: this.props.review.helpfulness,
+      helpfulOnce: false
     }
     this.toggleBody = this.toggleBody.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.clickHelpful = this.clickHelpful.bind(this);
   }
 
+  componentDidUpdate(previousProp, previousState, snapshot) {
+    {console.warn('previousProp', previousState)
+      if (previousState.helpfulIncrease === this.state.helpfulIncrease) {
+
+      }
+    }
+  }
+
   clickHelpful = (id) => {
-    // console.log('clicked')
+    console.log('clicked', id, this.state.helpfulIncrease)
+    if (this.state.helpfulOnce === false) {
+      this.setState({helpfulIncrease: this.props.review.helpfulness + 1, helpfulOnce: true})
+
     axios.put('/reviewHelpful', {
       params: {
         review_id: id
@@ -26,11 +39,11 @@ class Tile extends React.Component {
     })
       .then((data) => {
         console.log('Success sending helpful put to server', data)
-
       })
       .catch((err) => {
         console.log('Err sending helpful put to server', err)
       })
+    }
   }
 
 

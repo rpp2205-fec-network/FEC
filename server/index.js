@@ -29,6 +29,8 @@ app.post('/', (req, res) => {
   console.log('hello world')
 })
 
+// ------------------------------------------------------------------------------------------------------------------- //
+
 // ========== ZACH ROUTES START ========== //
 // Get All Products
 app.get('/productOverview', (req, res) => {
@@ -64,6 +66,7 @@ app.get('/productOverview/styles/:id', (req, res) => {
 })
 // ========== ZACH ROUTES END ========== //
 
+// ------------------------------------------------------------------------------------------------------------------- //
 
 // ========== BECCA ROUTES START ========== //
 
@@ -79,8 +82,8 @@ app.get('/getQuestions', function(req, res) {
 
 // ========== BECCA ROUTES END ========== //
 
+// ------------------------------------------------------------------------------------------------------------------- //
 
-// ============ KEN ROUTES ============= //
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
@@ -121,6 +124,8 @@ app.get('/relatedProducts', function(req, res) {
 })
 // ============ KEN ROUTES END ============= //
 
+// ------------------------------------------------------------------------------------------------------------------- //
+
 // ============== CHELSEA ROUTES START ============== //
 
 app.get('/reviews', (req, res) => {
@@ -135,11 +140,11 @@ app.get('/reviews', (req, res) => {
 })
 
 //1254460
-//${req.body.params.review_id}
+//
 
 app.put('/reviewHelpful', (req, res) => {
-  console.log('REQQQQQQQ', req.body)
-  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?1254460/helpful`, options)
+  console.log('REQQQQQQQ', req.body.params.review_id)
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?${req.body.params.review_id}/helpful`, options)
     .then((response) => {
       console.log('SUCCESS ADDING HELPFUL \n', response)
       res.status(204).send(response);

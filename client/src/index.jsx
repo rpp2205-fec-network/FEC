@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import QuestionsAnswers from './Questions & Answers/Questions&Answers.jsx';
 import ProductOverview from './Product Overview/productOverview.jsx'
 import Reviews from './Reviews/ReviewIndex.jsx';
@@ -15,13 +15,13 @@ class App extends React.Component {
 render() {
   return (
     <div>
-    <ProductOverview /> <br/><br/><hr/><br/><br/>
+    {/* <ProductOverview /> <br/><br/><hr/><br/><br/>
     <Lists /> <br/><br/><hr/><br/><br/>
-    <QuestionsAnswers /> <br/><br/><hr/><br/><br/>
+    <QuestionsAnswers /> <br/><br/><hr/><br/><br/> */}
     <Reviews />
     </div>
   )
 }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+createRoot(document.getElementById('root')).render(<App />)

@@ -26,7 +26,7 @@ class QuestionsList extends React.Component {
             <Question key={question.question_id} question_id={question.question_id} question={question} />
           )}
           </div>
-          <input type="button" value="More answered questions" onClick={this.showMore}></input>
+          {this.props.questions.length > 2 ?<input type="button" value="More answered questions" onClick={this.showMore}></input> : null}
           <input type="button" value="Add a question +"></input>
         </div>
       )

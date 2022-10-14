@@ -19,26 +19,16 @@ class Tile extends React.Component {
     this.clickHelpful = this.clickHelpful.bind(this);
   }
 
-  componentDidUpdate(previousProp, previousState, snapshot) {
-    {console.warn('previousProp', previousState)
-      if (previousState.helpfulIncrease === this.state.helpfulIncrease) {
-
-      }
-    }
-  }
-
   clickHelpful = (id) => {
     console.log('clicked', id, this.state.helpfulIncrease)
     if (this.state.helpfulOnce === false) {
-      this.setState({helpfulIncrease: this.props.review.helpfulness + 1, helpfulOnce: true})
 
     axios.put('/reviewHelpful', {
-      params: {
-        review_id: id
-      }
+      review_id: id
     })
       .then((data) => {
         console.log('Success sending helpful put to server', data)
+        this.setState({helpfulIncrease: this.props.review.helpfulness + 1, helpfulOnce: true})
       })
       .catch((err) => {
         console.log('Err sending helpful put to server', err)
@@ -132,7 +122,7 @@ class Tile extends React.Component {
       {/* ================= REVIEW HELPFUL ================= */}
       <div className="helpful">
         {/* {console.log('props!!!', this.props.review.review_id)} */}
-      Helpful? <u className="helpfulYes" onClick={() => this.clickHelpful(this.props.review.review_id)} >Yes</u> &#40;{this.props.review.helpfulness}&#41; &ensp; | &ensp; <u>Report</u>
+      Helpful? <u className="helpfulYes" onClick={() => this.clickHelpful(this.props.review.review_id)}>Yes</u> &#40;{this.state.helpfulIncrease}&#41; &ensp; | &ensp; <u>Report</u>
       </div>
     </div>
     )

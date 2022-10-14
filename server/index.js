@@ -140,21 +140,21 @@ app.get('/reviews', (req, res) => {
 })
 
 app.put('/reviewHelpful', (req, res) => {
-  console.log('REQQQQQQQ', req.body.params.review_id)
+  console.log('REQQQQQQQ', req.body.review_id)
   axios({
     method: 'put',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.body.params.review_id}/helpful`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.body.review_id}/helpful`,
     headers: {
       "Authorization": API_KEY
     }
   })
-    .then((response) => {
-      console.log('SUCCESS ADDING HELPFUL \n', response)
-      res.status(204).send(response);
-    })
-    .catch((err) => {
-      console.log('ERR ADDING HELPFUL ================== \n', err)
-    })
+  .then((response) => {
+    console.log('SUCCESS ADDING HELPFUL \n', response)
+    res.status(204).send(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ADDING HELPFUL ================== \n', err)
+  })
 })
 
 // ============== CHELSEA ROUTES END ============== //

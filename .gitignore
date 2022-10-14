@@ -1,2 +1,3 @@
 ## Ignore API KEY ##
 client/src/config/config.js
+node_modules

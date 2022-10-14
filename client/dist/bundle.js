@@ -947,12 +947,19 @@ var AnswerHelpfulAndReport = function AnswerHelpfulAndReport(_ref) {
     e.preventDefault();
     setHelpful(answer.helpfulness += 1);
     setDisable(true);
-    axios.put('/putHelpful', {
+    axios.put('/putAnswerHelpful', {
       id: answer.answer_id
     }).then(function (response) {
       console.log('+1 helpful');
     })["catch"](function (err) {
       return console.log('could not be helpful');
+    });
+  };
+  var reportAnswer = function reportAnswer(e) {
+    e.preventDefault();
+    setReport(true);
+    axios.put('/reportAnswer', {
+      id: answer.answer_id
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -962,9 +969,12 @@ var AnswerHelpfulAndReport = function AnswerHelpfulAndReport(_ref) {
       disabled: disable,
       onClick: wasHelpful,
       children: "Yes"
-    }), " (", answer.helpfulness, ") | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-      type: "button",
-      value: "Report"
+    }), " (", answer.helpfulness, ") | ", !report ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      type: "submit",
+      onClick: reportAnswer,
+      children: "Report"
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      children: "Reported"
     })]
   });
 };

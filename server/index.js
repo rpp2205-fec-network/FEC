@@ -85,12 +85,23 @@ app.get('/getAnswers', function(req, res) {
   .catch(err => console.log(err))
 })
 
-app.put('/putHelpful', function(req, res) {
+app.put('/putAnswerHelpful', function(req, res) {
   //console.log(req.body);
   var answerId = req.body.id;
   return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/helpful`, {}, options)
   .then((response) => {
     console.log('Updated')
+    res.status(204);
+  })
+  .catch(err => console.log(err))
+})
+
+app.put('/reportAnswer', function(req, res) {
+  console.log('REPORT ANSWER ID', req.body.id)
+  var answerId = req.body.id;
+  return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/report`, {}, options)
+  .then((response) => {
+    console.log('Reported')
     res.status(204);
   })
   .catch(err => console.log(err))

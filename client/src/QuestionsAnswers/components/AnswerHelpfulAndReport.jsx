@@ -11,17 +11,23 @@ const AnswerHelpfulAndReport = ({answer}) => {
     e.preventDefault();
     setHelpful(answer.helpfulness += 1)
     setDisable(true);
-    axios.put('/putHelpful', {id: answer.answer_id})
+    axios.put('/putAnswerHelpful', {id: answer.answer_id})
     .then((response) => {
       console.log('+1 helpful')
     })
     .catch(err => console.log('could not be helpful'))
   }
 
+  const reportAnswer = (e) => {
+    e.preventDefault();
+    setReport(true);
+    axios.put('/reportAnswer', {id: answer.answer_id})
+  }
+
   return (
     <div className="answerHelpfulAndReport">
       | Helpful? <button type="submit" disabled={disable} onClick={wasHelpful}>Yes</button> ({answer.helpfulness})
-      | <input type="button" value="Report"/>
+      | {!report ? <button type="submit" onClick={reportAnswer}>Report</button> : <span>Reported</span>}
     </div>
   )
 }

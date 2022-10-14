@@ -165,6 +165,10 @@ li{
    padding-bottom: 15px;
  }
 
+ .answerHelpfulAndReport {
+   display: inline-block;
+ }
+
 
 /* ADD TO CART */
 .addToCart {

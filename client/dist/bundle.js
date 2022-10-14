@@ -681,6 +681,8 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
         _this2.setState({
           product_id: questions.data.product_id,
           questions: questions.data.results
+        }, function () {
+          this.sortQuestions();
         });
       })["catch"](function (err) {
         return console.log(err);
@@ -707,7 +709,7 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
             children: "Questions and Answers"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          questions: this.state.questions
+          questions: this.state.sortedQuestions
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       });
     }
@@ -789,7 +791,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnswerHelpfulAndReport.jsx */ "./client/src/QuestionsAnswers/components/AnswerHelpfulAndReport.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -804,6 +807,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var Answer = /*#__PURE__*/function (_React$Component) {
   _inherits(Answer, _React$Component);
@@ -813,30 +817,13 @@ var Answer = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Answer);
     _this = _super.call(this, props);
     _this.state = {
-      helpfulClicked: false,
+      helpfulClicked: {},
       showAllItems: false
     };
-    _this.wasHelpful = _this.wasHelpful.bind(_assertThisInitialized(_this));
     _this.showCollapseAnswers = _this.showCollapseAnswers.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(Answer, [{
-    key: "wasHelpful",
-    value: function wasHelpful(e, answer) {
-      var _this2 = this;
-      e.preventDefault();
-      axios.put('/putHelpful', {
-        id: answer.id
-      }).then(function (response) {
-        console.log('That was helpful!');
-        _this2.setState({
-          helpfulClicked: true
-        });
-      })["catch"](function (err) {
-        return console.log('could not be helpful');
-      });
-    }
-  }, {
     key: "showCollapseAnswers",
     value: function showCollapseAnswers(e) {
       e.preventDefault();
@@ -849,76 +836,62 @@ var Answer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
       if (this.state.showAllItems === false) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             id: "answerContent",
             children: [" ", this.props.answers.slice(0, 2).map(function (answer, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   id: "answererInfo",
-                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     style: {
                       fontWeight: 'bold'
                     },
                     children: answer.answerer_name
-                  }) : answer.answerer_name, ",", answer.date, " | Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    type: "button",
-                    value: "Yes",
-                    onClick: function onClick(e) {
-                      return _this3.wasHelpful(e, answer);
-                    }
-                  }), "(", answer.helpfulness, ") |", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    type: "button",
-                    value: "Report"
+                  }) : answer.answerer_name, ",", answer.date, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                    answer: answer
                   })]
                 })]
               }, answer.answer_id);
             }), " "]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          }), this.props.answers.length > 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "button",
             value: "Load more answers",
             onClick: function onClick(e) {
-              return _this3.showCollapseAnswers(e);
+              return _this2.showCollapseAnswers(e);
             }
-          })]
+          }) : '']
         });
       } else {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             id: "allAnswerContent",
             children: [" ", this.props.answers.map(function (answer, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   id: "answererInfo",
-                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     style: {
                       fontWeight: 'bold'
                     },
                     children: answer.answerer_name
-                  }) : answer.answerer_name, ",", answer.date, " | Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    type: "button",
-                    value: "Yes",
-                    onClick: function onClick(e) {
-                      return _this3.wasHelpful(e, answer);
-                    }
-                  }), "(", answer.helpfulness, ") |", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-                    type: "button",
-                    value: "Report"
+                  }) : answer.answerer_name, ",", answer.date, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                    answer: answer
                   })]
                 })]
               }, answer.answer_id);
             }), " "]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "button",
             value: "Collapse answers",
             onClick: function onClick(e) {
-              return _this3.showCollapseAnswers(e);
+              return _this2.showCollapseAnswers(e);
             }
           })]
         });
@@ -928,6 +901,74 @@ var Answer = /*#__PURE__*/function (_React$Component) {
   return Answer;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Answer);
+
+/***/ }),
+
+/***/ "./client/src/QuestionsAnswers/components/AnswerHelpfulAndReport.jsx":
+/*!***************************************************************************!*\
+  !*** ./client/src/QuestionsAnswers/components/AnswerHelpfulAndReport.jsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var AnswerHelpfulAndReport = function AnswerHelpfulAndReport(_ref) {
+  var answer = _ref.answer;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(answer.helpfulness),
+    _useState2 = _slicedToArray(_useState, 2),
+    helpful = _useState2[0],
+    setHelpful = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    report = _useState4[0],
+    setReport = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    disable = _useState6[0],
+    setDisable = _useState6[1];
+  var wasHelpful = function wasHelpful(e) {
+    e.preventDefault();
+    setHelpful(answer.helpfulness += 1);
+    setDisable(true);
+    axios.put('/putHelpful', {
+      id: answer.answer_id
+    }).then(function (response) {
+      console.log('+1 helpful');
+    })["catch"](function (err) {
+      return console.log('could not be helpful');
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "answerHelpfulAndReport",
+    children: ["| Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      type: "submit",
+      disabled: disable,
+      onClick: wasHelpful,
+      children: "Yes"
+    }), " (", answer.helpfulness, ") | ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      type: "button",
+      value: "Report"
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AnswerHelpfulAndReport);
 
 /***/ }),
 

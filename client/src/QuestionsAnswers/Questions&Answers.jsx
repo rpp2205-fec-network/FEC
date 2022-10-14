@@ -28,6 +28,8 @@ class QuestionsAnswers extends React.Component {
       this.setState({
         product_id: questions.data.product_id,
         questions: questions.data.results,
+      }, function () {
+        this.sortQuestions();
       })
     })
     .catch(err => console.log(err));
@@ -46,7 +48,7 @@ class QuestionsAnswers extends React.Component {
         <h1>Questions and Answers</h1>
         </div>
       < SearchQuestions />
-      < QuestionsList questions={this.state.questions}/>
+      < QuestionsList questions={this.state.sortedQuestions}/>
       < AddQuestion />
       </div>
     )

@@ -11,7 +11,7 @@ class SearchQuestions extends React.Component {
 
   render () {
     return (
-      <div>Have a question? Search for answers</div>
+      <div id="searchquestions">Have a question? Search for answers...</div>
     )
   }
 }

@@ -2,22 +2,24 @@ import React from "react";
 
 export default class ProductInformation extends React.Component {
     constructor(props) {
-        super(props); 
+        super(props);
         this.state = {
-
         }
     }
 
+    //load product information
+
     render() {
+        var productInfo = this.props.productInfo
         return (
-            <div>
-                <h3>ProductInformation Placeholder</h3>
+            <div className="productInformation">
+                <h3>Product Information</h3>
                 <div>Reviews Info</div>
-                <div>Category</div>
-                <div>Title</div>
-                <div>Price</div>
-                <div>Product Overview</div>
-                <div>Star Button</div>
+                <div>{productInfo.category}</div>
+                <h2>{productInfo.name}</h2>
+                <div>{productInfo.default_price}</div>
+                <h5>{productInfo.slogan}</h5>
+                <div>{productInfo.description}</div>
             </div>
         );
     }

@@ -4,17 +4,34 @@ export default class StyleSelector extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
         }
+        this.onSelectStyle.bind(this);
+    }
+
+    onSelectStyle(e) {
+        //console.log('Clicked')
     }
 
     render() {
-        return (
-            <div>
-                <h3>StyleSelector Placeholder</h3>
-                <div>Style Option 1</div>
-                <div>Style Option 2</div>
-            </div>
-        )
+        var styleInfo = this.props.styleInfo
+        if ((styleInfo.length === 0)) {
+            return (
+                <div>NO STYLE INFO FOUND</div>
+            )
+        //else load photos based on current selections
+        } else {
+            return (
+                <div className="styleSelector">
+                    <h3>StyleSelector</h3>
+                    <div>
+                        {styleInfo.map((style) => {
+                            return (
+                                <button onClick={this.onSelectStyle} key={style.style_id}>{style.name}</button>
+                            )
+                        })}
+                    </div>
+                </div>
+            )
+        }
     }
 }

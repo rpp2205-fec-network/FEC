@@ -1550,7 +1550,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     key: "getReviews",
     value: function getReviews() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews').then(function (data) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews/').then(function (data) {
         //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
         _this2.setState({
           reviews: data.data.results
@@ -1564,7 +1564,6 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-          className: "reviewsTitle",
           children: "RATINGS & REVIEWS"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
           reviews: this.state.reviews

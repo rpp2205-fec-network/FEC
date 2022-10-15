@@ -2,4 +2,4 @@
 client/src/config/config.js
 client/dist/bundle.js
 client/dist/bundle.js.map
-node_modules
+/node_modules

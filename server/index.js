@@ -124,7 +124,7 @@ app.get('/relatedProducts', function(req, res) {
 // ============== CHELSEA ROUTES START ============== //
 
 app.get('/reviews/', (req, res) => {
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71701', options)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71720', options)
   .then((response) => {
     //console.log('DATA IN REVIEWS GET \n', response.data);
     res.json(response.data);

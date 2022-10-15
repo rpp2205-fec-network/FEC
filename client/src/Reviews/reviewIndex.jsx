@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
 import Ratings from './components/Ratings.jsx';
-import Sort from './components/Sort.jsx';
 import axios from "axios";
 
 export default class ReviewIndex extends React.Component {
@@ -18,10 +17,10 @@ componentDidMount() {
   this.getReviews()
 }
 
-getReviews() {
-  axios.get('/reviews')
+getReviews(sort = 'relevant') {
+  axios.get(`/reviews/71720/${sort}`)
   .then((data) => {
-      //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
+      console.log('DATA IN Reviews COMPONENT \n', data)
       this.setState({reviews: data.data.results})
   })
   .catch((err) => {
@@ -38,9 +37,15 @@ render() {
             <Ratings />
         </div>
         <div className='Reviews'>
-          <Sort
-          reviews={this.state.reviews}
-          />
+          <div>
+          {this.state.reviews.length} reviews, sorted by <span>
+            <select className='dropdown' onChange={this.handleDropdown}>
+              <option className='dropdownSelect' value='relevance'>relevance</option>
+              <option className='dropdownSelect' value='helpful'>helpful</option>
+              <option className='dropdownSelect' value='newest'>newest</option>
+            </select>
+            </span>
+          </div>
           <List
           reviews={this.state.reviews}
           />

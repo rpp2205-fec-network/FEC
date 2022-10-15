@@ -29,8 +29,6 @@ app.post('/', (req, res) => {
   console.log('hello world')
 })
 
-// ------------------------------------------------------------------------------------------------------------------- //
-
 // ========== ZACH ROUTES START ========== //
 // Get All Products
 app.get('/productOverview', (req, res) => {
@@ -66,7 +64,6 @@ app.get('/productOverview/styles/:id', (req, res) => {
 })
 // ========== ZACH ROUTES END ========== //
 
-// ------------------------------------------------------------------------------------------------------------------- //
 
 // ========== BECCA ROUTES START ========== //
 
@@ -82,8 +79,8 @@ app.get('/getQuestions', function(req, res) {
 
 // ========== BECCA ROUTES END ========== //
 
-// ------------------------------------------------------------------------------------------------------------------- //
 
+// ============ KEN ROUTES ============= //
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
@@ -124,12 +121,10 @@ app.get('/relatedProducts', function(req, res) {
 })
 // ============ KEN ROUTES END ============= //
 
-// ------------------------------------------------------------------------------------------------------------------- //
-
 // ============== CHELSEA ROUTES START ============== //
 
-app.get('/reviews', (req, res) => {
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71720', options)
+app.get('/reviews/', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71701', options)
   .then((response) => {
     //console.log('DATA IN REVIEWS GET \n', response.data);
     res.json(response.data);

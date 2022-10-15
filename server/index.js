@@ -124,13 +124,31 @@ app.get('/relatedProducts', function(req, res) {
 // ============== CHELSEA ROUTES START ============== //
 
 app.get('/reviews/', (req, res) => {
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71701', options)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=71720', options)
   .then((response) => {
     //console.log('DATA IN REVIEWS GET \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
     console.log('ERR ================== \n', err)
+  })
+})
+
+app.put('/reviewHelpful', (req, res) => {
+  console.log('REQQQQQQQ', req.body.review_id)
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.body.review_id}/helpful`,
+    headers: {
+      "Authorization": API_KEY
+    }
+  })
+  .then((response) => {
+    console.log('SUCCESS ADDING HELPFUL \n', response)
+    res.status(204).send(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ADDING HELPFUL ================== \n', err)
   })
 })
 

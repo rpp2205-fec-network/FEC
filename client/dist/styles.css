@@ -274,7 +274,12 @@ li{
 
 
 /* IMAGE GALLERY */
-
+.selected_style {
+  border-color: red;
+}
+.unselected_style {
+  background-color: lightblue;
+}
 .image_gallery {
   width: 700px;
   height: auto;

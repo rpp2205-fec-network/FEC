@@ -53,6 +53,17 @@ main {
 
 /* =================== CHELSEA'S CSS BEGIN =================== */
 
+/* Main */
+.Ratings {
+  float: left;
+  width: 20%;
+}
+
+.Reviews {
+  float: left;
+  width: 80%;
+}
+
 /* Title */
 .reviewsTitle {
   font-size: 12px;
@@ -72,6 +83,8 @@ main {
   overflow: hidden;
   margin: 0em;
   overflow-y: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .reviewsListButton {
@@ -132,16 +145,15 @@ main {
   display: flex;
   display: -webkit-flex;
   outline: none;
-
 }
 
 .specificModalPhoto {
-  width: 500px;
-  height: auto;
+  width: 250px;
+  max-height: 100px;
   z-index: 100;
   position: absolute;
-  top: 260%;
-  left: 40%;
+  top: 250%;
+  left: 45%;
   bottom: 50%;
   margin: -35px 0 0 -35px;
 }
@@ -161,6 +173,17 @@ main {
   float: right;
   font-size: 10px;
 }
+
+/* Dropdown */
+.dropdown {
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.dropdownSelect {
+  border-bottom: 1px solid black;
+}
+
 /* =================== CHELSEA'S CSS END =================== */
 
 /* Kens CSS */

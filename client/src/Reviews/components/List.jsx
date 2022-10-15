@@ -14,7 +14,7 @@ class List extends React.Component {
 
   showMoreOrCollapse() {
     if (this.state.fullyExpanded === true) {
-      this.setState({itemsToShow: 2})
+      this.setState({itemsToShow: 2, fullyExpanded: false})
     } else {
       this.setState({itemsToShow: this.state.itemsToShow + 2})
 
@@ -52,15 +52,15 @@ class List extends React.Component {
           review={review}/>
           )}
           </div>
-          <button onClick={this.showMoreOrCollapse}>
+          <button className="reviewsListButton reviewsToggleButton" onClick={this.showMoreOrCollapse}>
             {(this.state.fullyExpanded && this.state.itemsToShow >= this.props.reviews.length) ? (
-              <span> Collapse </span>
+              <span onClick={this.showMoreOrCollapse}>Collapse</span>
               ) : (
-                <span>More Reviews</span>
+                <span onClick={this.showMoreOrCollapse}>More Reviews</span>
               )
           }
             </button>
-          <button>Add A Review</button>
+          <button className="reviewsListButton">Add A Review +</button>
         </div>
       )
     }

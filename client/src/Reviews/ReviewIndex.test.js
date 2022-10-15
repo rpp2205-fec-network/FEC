@@ -1,7 +1,11 @@
-import { render } from '@testing-library/react'
-
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import Reviews from './ReviewIndex.jsx';
 
-test('test runs', async () => {
-    expect(1 + 1).toEqual(2)
-})
+describe('Ratings and Reviews - main component', function () {
+  it('should render Ratings & Reviews', async () => {
+    render(<Reviews />);
+    expect(screen.getByText('RATINGS & REVIEWS')).toBeDefined();
+  });
+});

@@ -163,6 +163,7 @@ main {
 }
 /* =================== CHELSEA'S CSS END =================== */
 
+/* Kens CSS */
 #outfitScroll {
   background-color: lightgray;
   height: 175px;
@@ -205,6 +206,27 @@ main {
   height:240px;
   width: 100%;
 }
+
+#productRecInfo > #productRecInfoPrice {
+  font-weight: normal;
+  font-size: smaller;
+}
+
+#compareBox {
+  background-color: rgb(244, 231, 214);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 25%;
+  pointer-events: none;
+}
+
+#compareName {
+  font-weight: bold;
+  font-size: large;
+}
+
+/* idk whose this is? */
 
 .selected_image {
   display: table-cell;
@@ -294,7 +316,6 @@ li{
 
 }
 
-#productRecInfo > #productRecInfoPrice {
-  font-weight: normal;
-  font-size: smaller;
-}
+
+
+

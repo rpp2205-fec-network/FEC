@@ -1173,43 +1173,64 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       product_id: '',
-      showAllItems: false
+      itemsShown: 2,
+      showAllItems: false,
+      totalQuestions: _this.props.questions.length
     };
     _this.showMore = _this.showMore.bind(_assertThisInitialized(_this));
+    _this.collapse = _this.collapse.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(QuestionsList, [{
     key: "showMore",
     value: function showMore() {
-      this.state.showAllItems === false ? this.setState({
-        showAllItems: true
-      }) : this.setState({
-        showAllItems: false
+      if (this.state.itemsShown >= this.props.questions.length) {
+        this.setState({
+          showAllItems: true
+        });
+      } else if (this.state.itemsShown < this.props.questions.length && (this.props.questions.length - this.state.itemsShown === 1 || this.props.questions.length - this.state.itemsShown === 0)) {
+        this.setState({
+          showAllItems: true
+        });
+      } else if (this.state.itemsShown < this.props.questions.length) {
+        this.setState({
+          itemsShown: this.state.itemsShown + 2
+        });
+      }
+    }
+  }, {
+    key: "collapse",
+    value: function collapse() {
+      this.setState({
+        showAllItems: false,
+        itemsShown: 2
       });
     }
   }, {
     key: "render",
     value: function render() {
-      if (this.state.showAllItems === false && this.props.questions.length > 0) {
+      if (!this.state.showAllItems && this.props.questions.length > 0) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          id: "questionsViewDefault",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            children: this.props.questions.slice(0, 2).map(function (question) {
+            id: "questionsViewDefault",
+            children: this.props.questions.slice(0, this.state.itemsShown).map(function (question) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 question_id: question.question_id,
                 question: question
               }, question.question_id);
             })
-          }), this.props.questions.length > 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "button",
-            value: "More answered questions",
-            onClick: this.showMore
-          }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "button",
-            value: "Add a question +"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "button",
+              value: "More answered questions",
+              onClick: this.showMore
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "button",
+              value: "Add a question +"
+            })]
           })]
         });
-      } else if (this.state.showAllItems === true) {
+      } else if (this.state.showAllItems) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             id: "questionsViewAll",
@@ -1223,14 +1244,14 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "button",
               value: "Show Less",
-              onClick: this.showMore
+              onClick: this.collapse
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "button",
               value: "Add a question +"
             })]
           })]
         });
-      } else if (this.state.showAllItems === false && this.props.questions.length === 0) {
+      } else if (this.props.questions.length === 0) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           id: "questionsView",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {

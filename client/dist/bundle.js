@@ -431,13 +431,15 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, StyleSelector);
     _this = _super.call(this, props);
     _this.state = {};
-    _this.onSelectStyle.bind(_assertThisInitialized(_this));
+    _this.onSelectStyle = _this.onSelectStyle.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(StyleSelector, [{
     key: "onSelectStyle",
     value: function onSelectStyle(e) {
       //console.log('Clicked')
+      var id = parseInt(e.target.id);
+      this.props.onChangeStyle(id);
     }
   }, {
     key: "render",
@@ -458,6 +460,7 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
             children: styleInfo.map(function (style) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                 onClick: _this2.onSelectStyle,
+                id: style.style_id,
                 children: style.name
               }, style.style_id);
             })
@@ -531,6 +534,7 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     _this.getAllProductInfo = _this.getAllProductInfo.bind(_assertThisInitialized(_this));
     _this.getProductInfo = _this.getProductInfo.bind(_assertThisInitialized(_this));
     _this.getProductStyles = _this.getProductStyles.bind(_assertThisInitialized(_this));
+    _this.changeStyle = _this.changeStyle.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(ProductOverview, [{
@@ -586,6 +590,20 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "changeStyle",
+    value: function changeStyle(styleID) {
+      for (var i = 0; i < this.state.styleInfo.length; i++) {
+        console.log('IN CHANGE STYLE', i, styleID, this.state.styleInfo[i].style_id);
+        if (styleID === this.state.styleInfo[i].style_id) {
+          this.setState({
+            currentStyle: i
+          });
+          console.log('Changed to', i);
+          break;
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -601,7 +619,8 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
           onLoad: this.getProductStyles,
           styleInfo: this.state.styleInfo,
-          currentStyle: this.state.currentStyle
+          currentStyle: this.state.currentStyle,
+          onChangeStyle: this.changeStyle
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
           children: "End of Product Overview"
         })]

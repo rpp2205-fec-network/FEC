@@ -5,11 +5,13 @@ export default class StyleSelector extends React.Component {
         super(props)
         this.state = {
         }
-        this.onSelectStyle.bind(this);
+        this.onSelectStyle = this.onSelectStyle.bind(this);
     }
 
     onSelectStyle(e) {
         //console.log('Clicked')
+        var id = parseInt(e.target.id);
+        this.props.onChangeStyle(id);
     }
 
     render() {
@@ -26,7 +28,7 @@ export default class StyleSelector extends React.Component {
                     <div>
                         {styleInfo.map((style) => {
                             return (
-                                <button onClick={this.onSelectStyle} key={style.style_id}>{style.name}</button>
+                                <button onClick={this.onSelectStyle} id={style.style_id} key={style.style_id}>{style.name}</button>
                             )
                         })}
                     </div>

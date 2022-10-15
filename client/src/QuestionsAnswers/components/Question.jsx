@@ -46,7 +46,7 @@ class Question extends React.Component {
   render () {
     return (
       <div id="individualQuestion">
-        < AddAnswer helpfulCount={this.state.question.question_helpfulness}/>
+        < AddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question}/>
        <h3 id="question">Q: {this.state.question.question_body}</h3>
         <div id="answer"> <h3>A: </h3>
         < Answer answers={this.state.sortedAnswers}/>

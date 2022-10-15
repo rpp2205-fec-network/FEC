@@ -1679,7 +1679,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     key: "getReviews",
     value: function getReviews() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews/').then(function (data) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/reviews').then(function (data) {
         //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
         _this2.setState({
           reviews: data.data.results
@@ -1693,6 +1693,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "reviewsTitle",
           children: "RATINGS & REVIEWS"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
           reviews: this.state.reviews
@@ -1757,7 +1758,8 @@ var List = /*#__PURE__*/function (_React$Component) {
     value: function showMoreOrCollapse() {
       if (this.state.fullyExpanded === true) {
         this.setState({
-          itemsToShow: 2
+          itemsToShow: 2,
+          fullyExpanded: false
         });
       } else {
         this.setState({
@@ -1800,14 +1802,18 @@ var List = /*#__PURE__*/function (_React$Component) {
               }, review.review_id);
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "reviewsListButton reviewsToggleButton",
             onClick: this.showMoreOrCollapse,
             children: this.state.fullyExpanded && this.state.itemsToShow >= this.props.reviews.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              children: " Collapse "
+              onClick: this.showMoreOrCollapse,
+              children: "Collapse"
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              onClick: this.showMoreOrCollapse,
               children: "More Reviews"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            children: "Add A Review"
+            className: "reviewsListButton",
+            children: "Add A Review +"
           })]
         });
       }
@@ -12702,6 +12708,38 @@ console.info('%cDownload the React DevTools '+'for a better development experien
 
 /***/ }),
 
+/***/ "./node_modules/react-dom/client.js":
+/*!******************************************!*\
+  !*** ./node_modules/react-dom/client.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var m = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+if (false) {} else {
+  var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+  exports.createRoot = function (c, o) {
+    i.usingClientEntryPoint = true;
+    try {
+      return m.createRoot(c, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+  exports.hydrateRoot = function (c, h, o) {
+    i.usingClientEntryPoint = true;
+    try {
+      return m.hydrateRoot(c, h, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+}
+
+/***/ }),
+
 /***/ "./node_modules/react-dom/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/react-dom/index.js ***!
@@ -19306,7 +19344,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _Questions_Answers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Questions & Answers/Questions&Answers.jsx */ "./client/src/Questions & Answers/Questions&Answers.jsx");
 /* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
 /* harmony import */ var _Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reviews/ReviewIndex.jsx */ "./client/src/Reviews/ReviewIndex.jsx");
@@ -19351,7 +19389,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   }]);
   return App;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(App, {}), document.getElementById('root'));
+(0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById('root')).render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(App, {}));
 })();
 
 /******/ })()

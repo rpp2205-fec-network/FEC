@@ -1418,6 +1418,19 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
           axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/styles/' + item.id).then(function (response) {
             item.image = response.data.results[0].photos[0].thumbnail_url;
           });
+          axios__WEBPACK_IMPORTED_MODULE_1___default().get('/relatedPrdouctsReviews/' + item.id).then(function (response) {
+            var arrayOfRatings = [];
+            for (var i = 0; i < response.data.results.length; i++) {
+              arrayOfRatings.push(response.data.results[i].rating);
+            }
+            var average = function average(arrayOfRatings) {
+              return arrayOfRatings.reduce(function (a, b) {
+                return a + b;
+              }) / arrayOfRatings.length;
+            };
+            var avg = average(arrayOfRatings);
+            item.rating = avg;
+          });
         });
       });
     }
@@ -1453,7 +1466,12 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               id: "productRecInfoStar",
               children: "STAR IMAGE THINGY"
-            })]
+            }), function () {
+              var x = 0;
+              // for (var i = 0; i < item.rating; i++) {
+
+              // }
+            }]
           })
         }, index);
       });
@@ -1499,36 +1517,40 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     key: "popupFunc",
     value: function popupFunc(e) {
       // function to return the specific line that includes a check mark, the feature name, and another check mark
+      var key = 0; // counter for key reference in html
       var compareTd = function compareTd(option, feature) {
         if (option === 'option1') {
           // returning check to both sides
+          key++;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
               children: "\u2714"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("td", {
+            }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("td", {
               children: [feature.feature, " : ", feature.value]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
               children: "\u2714"
-            })]
-          });
+            }, key + 2)]
+          }, key + 3);
         } else if (option === 'option2') {
           // returning check to left side only
+          key++;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
               children: "\u2714"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("td", {
+            }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("td", {
               children: [feature.feature, " : ", feature.value]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {})]
-          });
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}, key + 2)]
+          }, key + 3);
         } else if (option === 'option3') {
           // returning check to right side only
+          key++;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("td", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {}, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("td", {
               children: [feature.feature, " : ", feature.value]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
               children: "\u2714"
-            })]
-          });
+            }, key + 2)]
+          }, key + 3);
         }
       };
 
@@ -1540,7 +1562,7 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
         var beginningFullItem = [];
         var endLeft = [];
         var endRight = [];
-        console.log(e.example.features, e.clickedProduct.features);
+        //console.log(e.example.features, e.clickedProduct.features)
         e.example.features.forEach(function (item) {
           e.clickedProduct.features.forEach(function (item2) {
             if (item.feature === item2.feature && item.value === item2.value) {
@@ -1577,18 +1599,20 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
       };
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         id: "compareBox",
-        children: ["Comparing", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-              id: "compareName",
-              children: this.state.example.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-              children: "    "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-              id: "compareName",
-              children: this.state.clickedProduct.name
-            })]
-          }), mapFeatures()]
+        children: ["Comparing", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("table", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tbody", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                id: "compareName",
+                children: this.state.example.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                children: "    "
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+                id: "compareName",
+                children: this.state.clickedProduct.name
+              })]
+            }), mapFeatures()]
+          })
         })]
       });
     }

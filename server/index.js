@@ -80,7 +80,6 @@ app.get('/getQuestions', function(req, res) {
 // ========== BECCA ROUTES END ========== //
 
 
-// ============ KEN ROUTES ============= //
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
@@ -119,6 +118,18 @@ app.get('/relatedProducts', function(req, res) {
   })
   // res.status(201).send(sampleData)
 })
+
+app.get('/relatedPrdouctsReviews/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=' + req.params.id, options)
+  .then((response) => {
+    //console.log('DATA IN REVIEWS GET \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
+})
+
 // ============ KEN ROUTES END ============= //
 
 // ============== CHELSEA ROUTES START ============== //

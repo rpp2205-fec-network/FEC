@@ -47,6 +47,16 @@ export default class Recommend extends React.Component {
         .then((response) => {
           item.image = response.data.results[0].photos[0].thumbnail_url
         })
+        axios.get('/relatedPrdouctsReviews/' + item.id)
+        .then((response) => {
+          let arrayOfRatings = []
+          for (var i = 0; i < response.data.results.length; i++) {
+            arrayOfRatings.push(response.data.results[i].rating)
+          }
+          const average = arrayOfRatings => arrayOfRatings.reduce((a,b) => a + b) / arrayOfRatings.length
+          var avg = average(arrayOfRatings)
+          item.rating = avg;
+        })
       })
     })
   }
@@ -68,6 +78,12 @@ export default class Recommend extends React.Component {
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
             <div id='productRecInfoStar'>STAR IMAGE THINGY</div>
+            {() => {
+              let x = 0;
+              // for (var i = 0; i < item.rating; i++) {
+
+              // }
+            }}
           </div>
         </div>
       )
@@ -110,32 +126,36 @@ export default class Recommend extends React.Component {
   popupFunc(e) {
 
     // function to return the specific line that includes a check mark, the feature name, and another check mark
+    let key = 0; // counter for key reference in html
     let compareTd = function(option, feature) {
       if (option === 'option1') {
         // returning check to both sides
+        key++;
         return (
-          <tr>
-            <td>&#10004;</td>
-            <td>{feature.feature} : {feature.value}</td>
-            <td>&#10004;</td>
+          <tr key={key + 3}>
+            <td key={key}>&#10004;</td>
+            <td key={key + 1}>{feature.feature} : {feature.value}</td>
+            <td key={key + 2}>&#10004;</td>
           </tr>
         )
       } else if (option === 'option2') {
         // returning check to left side only
+        key++;
         return (
-          <tr>
-            <td>&#10004;</td>
-            <td>{feature.feature} : {feature.value}</td>
-            <td></td>
+          <tr key={key + 3}>
+            <td key={key}>&#10004;</td>
+            <td key={key + 1}>{feature.feature} : {feature.value}</td>
+            <td key={key + 2}></td>
           </tr>
         )
       } else if (option === 'option3') {
         // returning check to right side only
+        key++;
         return (
-          <tr>
-            <td></td>
-            <td>{feature.feature} : {feature.value}</td>
-            <td>&#10004;</td>
+          <tr key={key + 3}>
+            <td key={key}></td>
+            <td key={key + 1}>{feature.feature} : {feature.value}</td>
+            <td key={key + 2}>&#10004;</td>
           </tr>
         )
       }
@@ -149,7 +169,7 @@ export default class Recommend extends React.Component {
       let beginningFullItem = [];
       let endLeft = [];
       let endRight = [];
-      console.log(e.example.features, e.clickedProduct.features)
+      //console.log(e.example.features, e.clickedProduct.features)
       e.example.features.forEach((item) => {
         e.clickedProduct.features.forEach((item2) => {
           if (item.feature === item2.feature && item.value === item2.value) {
@@ -189,12 +209,14 @@ export default class Recommend extends React.Component {
       <div id='compareBox'>
         Comparing
         <table>
+          <tbody>
           <tr>
             <td id='compareName'>{this.state.example.name}</td>
             <td>    </td>
             <td id='compareName'>{this.state.clickedProduct.name}</td>
           </tr>
           {mapFeatures()}
+          </tbody>
         </table>
       </div>
     )

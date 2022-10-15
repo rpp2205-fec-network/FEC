@@ -14,13 +14,13 @@ export default class ReviewIndex extends React.Component {
 }
 
 componentDidMount() {
-  this.getReviews()
+  this.getReviews('relevant')
 }
 
-getReviews(sort = 'relevant') {
+getReviews(sort = 'newest') {
   axios.get(`/reviews/71720/${sort}`)
   .then((data) => {
-      console.log('DATA IN Reviews COMPONENT \n', data)
+      console.log('DATA IN Reviews COMPONENT \n', data.data.results)
       this.setState({reviews: data.data.results})
   })
   .catch((err) => {
@@ -39,7 +39,7 @@ render() {
         <div className='Reviews'>
           <div>
           {this.state.reviews.length} reviews, sorted by <span>
-            <select className='dropdown' onChange={this.handleDropdown}>
+            <select className='dropdown' onChange={(e) => this.getReviews(e.target.value)}>
               <option className='dropdownSelect' value='relevance'>relevance</option>
               <option className='dropdownSelect' value='helpful'>helpful</option>
               <option className='dropdownSelect' value='newest'>newest</option>

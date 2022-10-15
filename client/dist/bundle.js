@@ -1675,15 +1675,15 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(ReviewIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.getReviews();
+      this.getReviews('relevant');
     }
   }, {
     key: "getReviews",
     value: function getReviews() {
       var _this2 = this;
-      var sort = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'relevant';
+      var sort = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'newest';
       axios__WEBPACK_IMPORTED_MODULE_4___default().get("/reviews/71720/".concat(sort)).then(function (data) {
-        console.log('DATA IN Reviews COMPONENT \n', data);
+        console.log('DATA IN Reviews COMPONENT \n', data.data.results);
         _this2.setState({
           reviews: data.data.results
         });
@@ -1694,6 +1694,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
           className: "reviewsTitle",
@@ -1709,7 +1710,9 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
               children: [this.state.reviews.length, " reviews, sorted by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
                   className: "dropdown",
-                  onChange: this.handleDropdown,
+                  onChange: function onChange(e) {
+                    return _this3.getReviews(e.target.value);
+                  },
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                     className: "dropdownSelect",
                     value: "relevance",

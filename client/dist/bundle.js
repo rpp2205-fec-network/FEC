@@ -458,11 +458,22 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
             children: "StyleSelector"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             children: styleInfo.map(function (style) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                onClick: _this2.onSelectStyle,
-                id: style.style_id,
-                children: style.name
-              }, style.style_id);
+              console.log(style);
+              if (style === _this2.props.styleInfo[_this2.props.currentStyle]) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                  className: "selected_style",
+                  onClick: _this2.onSelectStyle,
+                  id: style.style_id,
+                  children: style.name
+                }, style.style_id);
+              } else {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                  className: "unselected_style",
+                  onClick: _this2.onSelectStyle,
+                  id: style.style_id,
+                  children: style.name
+                }, style.style_id);
+              }
             })
           })]
         });
@@ -593,12 +604,12 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     key: "changeStyle",
     value: function changeStyle(styleID) {
       for (var i = 0; i < this.state.styleInfo.length; i++) {
-        console.log('IN CHANGE STYLE', i, styleID, this.state.styleInfo[i].style_id);
         if (styleID === this.state.styleInfo[i].style_id) {
-          this.setState({
-            currentStyle: i
-          });
-          console.log('Changed to', i);
+          if (this.state.currentStyle !== i) {
+            this.setState({
+              currentStyle: i
+            });
+          }
           break;
         }
       }

@@ -81,16 +81,17 @@ export default class ProductOverview extends React.Component {
 
     changeStyle(styleID) {
         for (var i = 0; i < this.state.styleInfo.length; i++) {
-            console.log('IN CHANGE STYLE', i, styleID, this.state.styleInfo[i].style_id)
             if (styleID === this.state.styleInfo[i].style_id) {
-                this.setState({
-                    currentStyle: i
-                })
-                console.log('Changed to', i)
+                if (this.state.currentStyle !== i) {
+                    this.setState({
+                        currentStyle: i
+                    })
+                }
                 break;
             }
         }
     }
+
     render() {
         return (
             <div>

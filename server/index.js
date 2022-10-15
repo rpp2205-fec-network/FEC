@@ -68,10 +68,51 @@ app.get('/productOverview/styles/:id', (req, res) => {
 // ========== BECCA ROUTES START ========== //
 
 app.get('/getQuestions', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71798`, options)
   .then((questions) => {
-    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
+  })
+  .catch(err => console.log(err))
+})
+
+app.get('/getAnswers', function(req, res) {
+  var answerId = req.query.id;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${answerId}/answers?count=100`, options)
+  .then((answers) => {
+    res.json(answers.data)
+  })
+  .catch(err => console.log(err))
+})
+
+app.put('/putQuestionHelpful', function(req, res) {
+  var questionId = req.body.id;
+  return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${questionId}/helpful`, {}, options)
+  .then((response) => {
+    console.log('Updated')
+    res.status(204);
+  })
+  .catch(err => console.log(err))
+})
+
+app.put('/putAnswerHelpful', function(req, res) {
+  //console.log(req.body);
+  var answerId = req.body.id;
+  return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/helpful`, {}, options)
+  .then((response) => {
+    console.log('Updated')
+    res.status(204);
+  })
+  .catch(err => console.log(err))
+})
+
+app.put('/reportAnswer', function(req, res) {
+  console.log('REPORT ANSWER ID', req.body.id)
+  var answerId = req.body.id;
+  return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/report`, {}, options)
+  .then((response) => {
+    console.log('Reported')
+    res.status(204);
   })
   .catch(err => console.log(err))
 })

@@ -23,7 +23,7 @@ export default class ImageGallery extends React.Component {
                 this.setState({
                     currentFirstOption: this.state.currentPhoto + 1,
                     currentPhoto: this.state.currentPhoto + 1,
-                }) 
+                })
             } else {
                 console.log('Already at right most image')
             }
@@ -54,11 +54,11 @@ export default class ImageGallery extends React.Component {
             if (this.state.currentFirstOption < max - 1) {
                 this.setState({
                     currentFirstOption: this.state.currentFirstOption + 1
-                }) 
+                })
             } else {
                 console.log('Already at lowest value')
             }
-        } 
+        }
     }
     //should move the thumbnail carousel so that the selected one is at the top, and make the main image the same
     onSelectThumbnail(e) {
@@ -89,7 +89,7 @@ export default class ImageGallery extends React.Component {
         var styleInfo = this.props.styleInfo;
         var currentStyle = this.props.currentStyle;
         var currentPhoto = this.state.currentPhoto;
-        var selectionWheelPhotos = [];        
+        var selectionWheelPhotos = [];
         //if there are no photos, load this
         if ((styleInfo.length === 0) || (styleInfo[currentStyle].photos.length === 0)) {
             return (
@@ -114,7 +114,7 @@ export default class ImageGallery extends React.Component {
                     <input type="button" value="Enter Fullscreen" onClick={this.onChangeView}></input>
                     <aside className="thumbnails_list">
                         <input name="upButton" className="thumnail_button" type="button" value="^" onClick={this.onCycleThumbnail}></input>
-                       
+
                         {selectionWheelPhotos.map((image) => {
                             return (
                                 <a key={image.id}>
@@ -123,9 +123,9 @@ export default class ImageGallery extends React.Component {
                             )
                         })
                         }
-                        
+
                         <input name="downButton" className="thumnail_button" type="button" value="v" onClick={this.onCycleThumbnail}></input>
-                        
+
                     </aside>
                     <main className="selected_image">
                         <input name="leftButton" className="main_image_button" type="button" value="<" onClick={this.onCycleMainImage}></input>

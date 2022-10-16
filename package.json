@@ -8,8 +8,8 @@
     "build": "npx webpack",
     "start": "node server/index.js",
     "test-productOverview": "jest client/src/Product Overview --env=jsdom",
-    "test-questionsAnswers": "jest client/src/Questions & Answers",
     "test-reviews": "jest client/src/Reviews --env=jsdom --coverage",
+    "test-questionsAnswers": "jest client/src/QuestionsAnswers --env=jsdom",
     "test-relatedProducts": "jest client/src/RelatedProducts --env=jsdom"
   },
   "license": "Unlicensed",

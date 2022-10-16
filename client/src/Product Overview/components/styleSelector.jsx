@@ -5,11 +5,13 @@ export default class StyleSelector extends React.Component {
         super(props)
         this.state = {
         }
-        this.onSelectStyle.bind(this);
+        this.onSelectStyle = this.onSelectStyle.bind(this);
     }
 
     onSelectStyle(e) {
         //console.log('Clicked')
+        var id = parseInt(e.target.id);
+        this.props.onChangeStyle(id);
     }
 
     render() {
@@ -25,9 +27,16 @@ export default class StyleSelector extends React.Component {
                     <h3>StyleSelector</h3>
                     <div>
                         {styleInfo.map((style) => {
-                            return (
-                                <button onClick={this.onSelectStyle} key={style.style_id}>{style.name}</button>
-                            )
+                            console.log(style)
+                            if (style === this.props.styleInfo[this.props.currentStyle]) {
+                                return (
+                                    <button className='selected_style'onClick={this.onSelectStyle} id={style.style_id} key={style.style_id}>{style.name}</button>
+                                )
+                            } else {
+                                return (
+                                    <button className='unselected_style'onClick={this.onSelectStyle} id={style.style_id} key={style.style_id}>{style.name}</button>
+                                )
+                            }
                         })}
                     </div>
                 </div>

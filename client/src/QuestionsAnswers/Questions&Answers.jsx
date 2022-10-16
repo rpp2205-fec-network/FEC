@@ -24,10 +24,12 @@ class QuestionsAnswers extends React.Component {
   getQuestions () {
     axios.get('/getQuestions')
     .then((questions) => {
-      //console.log('Current product questions data', questions.data)
+      console.log('Current product questions data', questions.data)
       this.setState({
         product_id: questions.data.product_id,
         questions: questions.data.results,
+      }, function () {
+        this.sortQuestions();
       })
     })
     .catch(err => console.log(err));
@@ -46,7 +48,7 @@ class QuestionsAnswers extends React.Component {
         <h1>Questions and Answers</h1>
         </div>
       < SearchQuestions />
-      < QuestionsList questions={this.state.questions}/>
+      < QuestionsList questions={this.state.sortedQuestions}/>
       < AddQuestion />
       </div>
     )

@@ -51,6 +51,118 @@ main {
   margin: auto;
 }
 
+/* =================== CHELSEA'S CSS BEGIN =================== */
+
+/* Title */
+.reviewsTitle {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* List */
+.tile {
+  border-bottom: 1px solid black;
+  padding-bottom: 5mm;
+  margin-bottom: 5mm;
+}
+
+.scrollableReviews {
+  height: 500px;
+  width: auto;
+  overflow: hidden;
+  margin: 0em;
+  overflow-y: auto;
+}
+
+.reviewsListButton {
+  background-color: white;
+  font-size: 15px;
+  border: 1px solid black;
+  padding: 12px 28px;
+}
+
+.reviewsToggleButton {
+  margin-right: 5px;
+}
+
+.reviewsListButton:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
+/* Tile */
+.userAndDate {
+  float:right;
+  font-size: 12px;
+}
+
+.summary {
+  font-size: 14px;
+}
+
+.bodyText {
+  font-size: 12px;
+}
+
+.bodyButton {
+  background-color: white;
+  font-size: 9px;
+  border: 1px solid black;
+}
+
+.bodyButton:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
+.reviewPhoto {
+  /* border-radius: 50%; */
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  overflow-y:hidden;
+  white-space:nowrap;
+  margin-right: 10px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  outline: none;
+}
+
+.photoContainer {
+  display: flex;
+  display: -webkit-flex;
+  outline: none;
+
+}
+
+.specificModalPhoto {
+  width: 500px;
+  height: auto;
+  z-index: 100;
+  position: absolute;
+  top: 260%;
+  left: 40%;
+  bottom: 50%;
+  margin: -35px 0 0 -35px;
+}
+
+.response {
+  background-color: rgb(227, 226, 226);
+  font-size: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.helpful {
+ font-size: 10px;
+}
+
+.recommend {
+  float: right;
+  font-size: 10px;
+}
+/* =================== CHELSEA'S CSS END =================== */
+
 /* Kens CSS */
 #outfitScroll {
   background-color: lightgray;
@@ -132,9 +244,20 @@ li{
    border: 5px solid grey;
  }
 
- #questionsView {
+ #questionsViewDefault {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 600px;
+  margin: 0em;
+  overflow-y: auto;
+ }
+
+ #questionsViewAll {
    padding-top: 20px;
    padding-bottom: 20px;
+   height: 700px;
+   margin: 0em;
+   overflow-y: auto;
  }
 
  #addQuestion {
@@ -143,6 +266,12 @@ li{
 
  #individualQuestion {
    padding-bottom: 30px;
+ }
+
+ #allAnswerContent {
+    height: 300px;
+    margin: 0em;
+    overflow-y: auto;
  }
 
  #addAnswer {
@@ -158,11 +287,19 @@ li{
    padding-bottom: 15px;
  }
 
+ .answerHelpfulAndReport {
+   display: inline-block;
+ }
 /* ZACH CSS */
 
 
 /* IMAGE GALLERY */
-
+.selected_style {
+  border-color: red;
+}
+.unselected_style {
+  background-color: lightblue;
+}
 .image_gallery {
   width: 700px;
   height: auto;

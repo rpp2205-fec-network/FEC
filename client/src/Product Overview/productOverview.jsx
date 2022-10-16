@@ -21,6 +21,7 @@ export default class ProductOverview extends React.Component {
         this.getAllProductInfo = this.getAllProductInfo.bind(this);
         this.getProductInfo = this.getProductInfo.bind(this);
         this.getProductStyles = this.getProductStyles.bind(this);
+        this.changeStyle = this.changeStyle.bind(this);
     }
 
     componentDidMount() {
@@ -78,13 +79,26 @@ export default class ProductOverview extends React.Component {
         })
     }
 
+    changeStyle(styleID) {
+        for (var i = 0; i < this.state.styleInfo.length; i++) {
+            if (styleID === this.state.styleInfo[i].style_id) {
+                if (this.state.currentStyle !== i) {
+                    this.setState({
+                        currentStyle: i
+                    })
+                }
+                break;
+            }
+        }
+    }
+
     render() {
         return (
             <div>
                 <h2>Product Overview</h2>
                 <ImageGallery onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
                 <ProductInformation onLoad={this.getProductInfo} productInfo={this.state.currentProduct}/>
-                <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
+                <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}  onChangeStyle={this.changeStyle}/>
                 <AddToCart />
                 <h2>End of Product Overview</h2>
             </div>

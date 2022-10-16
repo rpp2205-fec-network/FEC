@@ -1,19 +1,6 @@
 ## Ignore API KEY ##
 client/src/config/config.js
-<<<<<<< HEAD
-client/src/RelatedProducts/onHover.jsx
 client/dist/bundle.js
 client/dist/bundle.js.map
 node_modules
-=======
-<<<<<<< HEAD
-client/src/RelatedProducts/onHover.jsx
-client/dist/bundle.js
-client/dist/bundle.js.map
-/node_modules
-=======
-client/dist/bundle.js
-client/dist/bundle.js.map
 node_modules
->>>>>>> b2910afcea384d9d61ad7c379d62e37e62691428
->>>>>>> main

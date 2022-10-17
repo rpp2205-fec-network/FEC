@@ -122,7 +122,6 @@ app.put('/reportAnswer', function(req, res) {
 // ========== BECCA ROUTES END ========== //
 
 
-// ============ KEN ROUTES ============= //
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
@@ -175,13 +174,42 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
     }
   })
   .then((response) => {
-    console.log('DATA IN REVIEWS GET \n', response);
+    //console.log('DATA IN REVIEWS GET \n', response);
     res.json(response.data);
   })
   .catch((err) => {
-    console.log('ERR ================== \n', err.response.data)
+    console.log('MAIN GET ERR ================== \n', err.response.data)
   })
 })
+
+app.get('/getMetaData/meta/:product_id', function(req, res) {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71720`, options)
+  .then((response) => {
+    console.log('SERVER META DATA \n', response.data)
+    res.json(response.data)
+  })
+  .catch(err => console.log(err))
+})
+
+//${req.params.product_id}
+
+// app.get('/reviews/meta/:product_id', (req, res) => {
+//   console.log('META DATA PARAMS', req.params)
+//   axios({
+//     method: 'get',
+//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71701`,
+//     headers: {
+//       "Authorization": API_KEY
+//     }
+//   })
+//   .then((response) => {
+//     console.log('SERVER META DATA \n', response.data);
+//     res.json(response.data);
+//   })
+//   .catch((err) => {
+//     console.log('META ERR ================== \n', err)
+//   })
+// })
 
 app.put('/reviewHelpful', (req, res) => {
   console.log('REQQQQQQQ', req.body.review_id)

@@ -147,17 +147,25 @@ main {
   display: flex;
   display: -webkit-flex;
   outline: none;
+  place-items: center;
+  margin : 0 auto;
 }
 
 .specificModalPhoto {
   width: 250px;
   max-height: 100px;
   z-index: 100;
-  position: absolute;
-  top: 250%;
-  left: 45%;
-  bottom: 50%;
-  margin: -35px 0 0 -35px;
+  margin:0 auto;
+  display:table;
+  position: fixed;
+  left: 0;
+  right:0;
+  top: 50%;
+  -webkit-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  transform:translateY(-50%);
 }
 
 .response {

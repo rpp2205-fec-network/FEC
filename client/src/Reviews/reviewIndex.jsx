@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
+<<<<<<< HEAD
 import RatingsOverview from './components/RatingsOverview.jsx';
+=======
+>>>>>>> 56a92b61 (Fix merge conflicts)
 import axios from "axios";
 
 export default class ReviewIndex extends React.Component {
@@ -14,11 +17,19 @@ export default class ReviewIndex extends React.Component {
 }
 
 componentDidMount() {
+<<<<<<< HEAD
   this.getReviews('relevant')
 }
 
 getReviews(sort = 'newest') {
   axios.get(`/reviews/71720/${sort}`)
+=======
+  this.getReviews()
+}
+
+getReviews() {
+  axios.get('/reviews/')
+>>>>>>> 56a92b61 (Fix merge conflicts)
   .then((data) => {
       //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
       this.setState({reviews: data.data.results})
@@ -30,6 +41,7 @@ getReviews(sort = 'newest') {
 
 render() {
   return (
+<<<<<<< HEAD
     <div className='reviewsOverview'>
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
       <div className='mainContainer'>
@@ -52,6 +64,13 @@ render() {
           />
         </div>
       </div>
+=======
+    <div>
+      <p>RATINGS & REVIEWS</p>
+      <List
+      reviews={this.state.reviews}
+      />
+>>>>>>> 56a92b61 (Fix merge conflicts)
     </div>
   )
 }

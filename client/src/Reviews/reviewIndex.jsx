@@ -30,14 +30,15 @@ getReviews(sort = 'newest') {
 
 render() {
   return (
-    <div>
+    <div className='reviewsOverview'>
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
       <div className='mainContainer'>
         <div className='Ratings'>
             <RatingsOverview />
         </div>
         <div className='Reviews'>
-          <div>
+
+          <div className='sorting'>
           {this.state.reviews.length} reviews, sorted by <span>
             <select className='dropdown' onChange={(e) => this.getReviews(e.target.value)}>
               <option className='dropdownSelect' value='relevance'>relevance</option>

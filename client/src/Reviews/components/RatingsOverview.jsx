@@ -35,7 +35,8 @@ class RatingsOverview extends React.Component {
           rating3: Number(data.data.ratings[3]),
           rating4: Number(data.data.ratings[4]),
           rating5: Number(data.data.ratings[5]),
-          average: ((5*Number(data.data.ratings[5]) + 4*Number(data.data.ratings[4]) + 3*Number(data.data.ratings[3])+ 2*Number(data.data.ratings[2]) + 1*Number(data.data.ratings[1]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1]))).toFixed(1)
+          average: ((5*Number(data.data.ratings[5]) + 4*Number(data.data.ratings[4]) + 3*Number(data.data.ratings[3])+ 2*Number(data.data.ratings[2]) + 1*Number(data.data.ratings[1]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1]))).toFixed(1),
+          recommended: ((Number(data.data.recommended.true) / (Number(data.data.recommended.false) + Number(data.data.recommended.true)))*100).toFixed(0)
         })
     })
     .catch((err) => {
@@ -48,7 +49,6 @@ class RatingsOverview extends React.Component {
       <div>
         <div className='avgRating'>
         {/* Average Rating */}
-        {/* {((5*this.state.rating5 + 4*this.state.rating4 + 3*this.state.rating3 + 2*this.state.rating2 + 1*this.state.rating1)/(this.state.rating5 + this.state.rating4 + this.state.rating3 + this.state.rating2 + this.state.rating1)).toFixed(1)} */}
         {this.state.average}
         <span className='ratingStar'>
         <Ratings
@@ -63,14 +63,19 @@ class RatingsOverview extends React.Component {
         <Ratings.Widget />
         <Ratings.Widget />
       </Ratings></span>
-
         </div>
+
+        {/* Percentage Recommended */}
+        <div className='percentageRecommended'>
+        {this.state.recommended}% of reviewers recommend this product
+        </div>
+
         {/* Rating Breakdown */}
-        <div>5: {this.state.rating5}</div>
-        <div>4: {this.state.rating4}</div>
-        <div>3: {this.state.rating3}</div>
-        <div>2: {this.state.rating2}</div>
-        <div>1: {this.state.rating1}</div>
+        <div>5 stars: {this.state.rating5}</div>
+        <div>4 stars: {this.state.rating4}</div>
+        <div>3 stars: {this.state.rating3}</div>
+        <div>2 stars: {this.state.rating2}</div>
+        <div>1 stars: {this.state.rating1}</div>
       </div>
     )
 }

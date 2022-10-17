@@ -188,6 +188,13 @@ main {
 .avgRating {
   font-size: 45px;
   font-weight: bold;
+  position: relative;
+}
+
+.ratingStar {
+  margin-left: 6px;
+  position:absolute;
+  top:-15px;
 }
 
 

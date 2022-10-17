@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
-import Ratings from './components/Ratings.jsx';
+import RatingsOverview from './components/RatingsOverview.jsx';
 import axios from "axios";
 
 export default class ReviewIndex extends React.Component {
@@ -34,7 +34,7 @@ render() {
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
       <div className='mainContainer'>
         <div className='Ratings'>
-            <Ratings />
+            <RatingsOverview />
         </div>
         <div className='Reviews'>
           <div>

@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Ratings from 'react-ratings-declarative';
 import axios from 'axios';
 
-class Ratings extends React.Component {
+class RatingsOverview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +12,7 @@ class Ratings extends React.Component {
       rating3: '',
       rating4: '',
       rating5: '',
+      average: '',
       recommended: [],
       characteristics: []
     }
@@ -33,6 +35,7 @@ class Ratings extends React.Component {
           rating3: Number(data.data.ratings[3]),
           rating4: Number(data.data.ratings[4]),
           rating5: Number(data.data.ratings[5]),
+          average: ((5*Number(data.data.ratings[5]) + 4*Number(data.data.ratings[4]) + 3*Number(data.data.ratings[3])+ 2*Number(data.data.ratings[2]) + 1*Number(data.data.ratings[1]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1]))).toFixed(1)
         })
     })
     .catch((err) => {
@@ -45,7 +48,22 @@ class Ratings extends React.Component {
       <div>
         <div className='avgRating'>
         {/* Average Rating */}
-        {((5*this.state.rating5 + 4*this.state.rating4 + 3*this.state.rating3 + 2*this.state.rating2 + 1*this.state.rating1)/(this.state.rating5 + this.state.rating4 + this.state.rating3 + this.state.rating2 + this.state.rating1)).toFixed(1)}
+        {/* {((5*this.state.rating5 + 4*this.state.rating4 + 3*this.state.rating3 + 2*this.state.rating2 + 1*this.state.rating1)/(this.state.rating5 + this.state.rating4 + this.state.rating3 + this.state.rating2 + this.state.rating1)).toFixed(1)} */}
+        {this.state.average}
+        <span className='ratingStar'>
+        <Ratings
+        rating={Number(this.state.average)}
+        widgetRatedColors="black"
+        widgetDimensions="15px"
+        widgetSpacings="1px"
+      >
+        <Ratings.Widget />
+        <Ratings.Widget />
+        <Ratings.Widget />
+        <Ratings.Widget />
+        <Ratings.Widget />
+      </Ratings></span>
+
         </div>
         {/* Rating Breakdown */}
         <div>5: {this.state.rating5}</div>
@@ -58,4 +76,4 @@ class Ratings extends React.Component {
 }
 }
 
-export default Ratings;
+export default RatingsOverview;

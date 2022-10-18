@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
 import RatingsOverview from './components/RatingsOverview.jsx';
 import axios from "axios";
+import ErrorBoundary from "./ReviewErrorBoundary.jsx";
 
 export default class ReviewIndex extends React.Component {
   constructor(props){
@@ -34,7 +35,9 @@ render() {
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
       <div className='mainContainer'>
         <div className='Ratings'>
+          <ErrorBoundary>
             <RatingsOverview />
+          </ErrorBoundary>
         </div>
         <div className='Reviews'>
 
@@ -47,9 +50,11 @@ render() {
             </select>
             </span>
           </div>
+          <ErrorBoundary>
           <List
           reviews={this.state.reviews}
           />
+          </ErrorBoundary>
         </div>
       </div>
     </div>

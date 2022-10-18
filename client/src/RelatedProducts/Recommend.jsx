@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import Star from './starCount.jsx';
 
 export default class Recommend extends React.Component {
   constructor(props) {
@@ -35,35 +36,39 @@ export default class Recommend extends React.Component {
         id: this.state.example.id
       }
     }).then((response) => {
-      //console.log(response.data)
       let setDisplay = [response.data[0], response.data[1]]
+      console.log(setDisplay)
       this.setState({
         productList: response.data,
         display: setDisplay
-      })
-    }).then(() => {
-      this.state.productList.forEach((item) => {
-        axios.get('/productOverview/styles/' + item.id)
-        .then((response) => {
-          item.image = response.data.results[0].photos[0].thumbnail_url
+      }, () => {
+        this.state.productList.forEach((item) => {
+          axios.get('/productOverview/styles/' + item.id)
+          .then((response) => {
+            item.image = response.data.results[0].photos[0].thumbnail_url
+          })
+          axios.get('/relatedPrdouctsReviews/' + item.id)
+          .then((response) => {
+            let arrayOfRatings = []
+            for (var i = 0; i < response.data.results.length; i++) {
+              arrayOfRatings.push(response.data.results[i].rating)
+            }
+            const average = arrayOfRatings => arrayOfRatings.reduce((a,b) => a + b) / arrayOfRatings.length
+            var avg = average(arrayOfRatings)
+
+            item.rating = avg;
+            return item.rating
+          })
         })
-        axios.get('/relatedPrdouctsReviews/' + item.id)
-        .then((response) => {
-          let arrayOfRatings = []
-          for (var i = 0; i < response.data.results.length; i++) {
-            arrayOfRatings.push(response.data.results[i].rating)
-          }
-          const average = arrayOfRatings => arrayOfRatings.reduce((a,b) => a + b) / arrayOfRatings.length
-          var avg = average(arrayOfRatings)
-          item.rating = avg;
-        })
       })
+
     })
   }
 
   // render items in state and display each as a div
   element(input) {
     let recMap = input.map((item, index) => {
+     //console.log(item)
       return (
         <div key={index} id='productRec'>
           <div id='productRecInfo'>
@@ -77,17 +82,14 @@ export default class Recommend extends React.Component {
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
-            <div id='productRecInfoStar'>STAR IMAGE THINGY</div>
-            {() => {
-              let x = 0;
-              // for (var i = 0; i < item.rating; i++) {
+            <div id='productRecInfoStar'>{item.rating}</div>
+            <Star count={item.rating}/>
 
-              // }
-            }}
           </div>
         </div>
       )
     })
+    //console.log(recMap)
     return (
       <div>
         <div>{recMap}</div>
@@ -202,9 +204,6 @@ export default class Recommend extends React.Component {
       //console.log(arrayOfArrays)
       return result;
     }
-
-
-
     return (
       <div id='compareBox'>
         Comparing
@@ -228,7 +227,8 @@ export default class Recommend extends React.Component {
 
   // run async pull request to populate current state of products
   componentDidMount() {
-    this.pull();
+    this.pull()
+
   }
 
 

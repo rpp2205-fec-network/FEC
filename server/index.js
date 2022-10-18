@@ -70,7 +70,7 @@ app.get('/productOverview/styles/:id', (req, res) => {
 app.get('/getQuestions', function(req, res) {
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71798`, options)
   .then((questions) => {
-    console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
   .catch(err => console.log(err))
@@ -121,6 +121,7 @@ app.put('/reportAnswer', function(req, res) {
 // ========== BECCA ROUTES END ========== //
 
 
+// ============ KEN ROUTES ============= //
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
   //console.log(req.query)
@@ -170,7 +171,6 @@ app.get('/relatedPrdouctsReviews/:id', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
-
 // ============ KEN ROUTES END ============= //
 
 // ============== CHELSEA ROUTES START ============== //
@@ -208,3 +208,8 @@ app.put('/reviewHelpful', (req, res) => {
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);
+
+
+
+
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import Recommend from './Recommend.jsx';
 import Outfit from './Outfit.jsx';
-import ListErrorBoundary from './ListErrorBoundary.jsx'
+import ListErrorBoundary from './ListsErrorBoundry.jsx'
 
 // using example product data for rendering before state for currentItem
 // Main List component holds both product recommendation list and outfit list
@@ -90,8 +90,6 @@ export default class Lists extends React.Component {
         <ListErrorBoundary>
           Similar Products
           <Recommend recLists={this.state.currentItem}/>
-        </div>
-        <div>
           Your Outfit
           <Outfit outfitLists={this.state.outfitList} removeOutfits={this.removeOutfit.bind(this)} />
         </ListErrorBoundary>

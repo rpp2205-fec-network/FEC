@@ -46,12 +46,24 @@ h6 {
 }
 
 main {
-  max-width: 840px;
+  max-width: 1000px;
+  /* 840 */
   padding: 16px;
   margin: auto;
 }
 
 /* =================== CHELSEA'S CSS BEGIN =================== */
+
+/* Main */
+.Ratings {
+  float: left;
+  width: 25%;
+}
+
+.Reviews {
+  float: left;
+  width: 75%;
+}
 
 /* Title */
 .reviewsTitle {
@@ -67,11 +79,13 @@ main {
 }
 
 .scrollableReviews {
-  height: 500px;
+  height: 450px;
   width: auto;
   overflow: hidden;
   margin: 0em;
   overflow-y: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .reviewsListButton {
@@ -79,6 +93,7 @@ main {
   font-size: 15px;
   border: 1px solid black;
   padding: 12px 28px;
+  margin-bottom: 40px;
 }
 
 .reviewsToggleButton {
@@ -132,18 +147,25 @@ main {
   display: flex;
   display: -webkit-flex;
   outline: none;
-
+  place-items: center;
+  margin : 0 auto;
 }
 
 .specificModalPhoto {
-  width: 500px;
-  height: auto;
+  width: 250px;
+  max-height: 100px;
   z-index: 100;
-  position: absolute;
-  top: 260%;
-  left: 40%;
-  bottom: 50%;
-  margin: -35px 0 0 -35px;
+  margin:0 auto;
+  display:table;
+  position: fixed;
+  left: 0;
+  right:0;
+  top: 50%;
+  -webkit-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  transform:translateY(-50%);
 }
 
 .response {
@@ -161,6 +183,46 @@ main {
   float: right;
   font-size: 10px;
 }
+
+/* Dropdown */
+.sorting {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.dropdown {
+  -webkit-padding-end: 0;
+  border: none;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}
+
+.dropdownSelect {
+  border-bottom: 1px solid black;
+}
+
+/* Ratings */
+
+.reviewsOverview{
+  margin-right: 30px;
+}
+.avgRating {
+  font-size: 45px;
+  font-weight: bold;
+  position: relative;
+}
+
+.ratingStar {
+  margin-left: 10px;
+  position:absolute;
+  top:-15px;
+}
+
+.percentageRecommended {
+  font-size: 10px;
+}
+
+
 /* =================== CHELSEA'S CSS END =================== */
 
 /* Kens CSS */

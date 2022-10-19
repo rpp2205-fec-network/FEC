@@ -4,6 +4,9 @@ const axios = require('axios');
 
 const AddAnswer = ({show, onClose, question, productId}) => {
   const [modal, setModal] = useState(show);
+  const [body, setBody] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -11,7 +14,24 @@ const AddAnswer = ({show, onClose, question, productId}) => {
   }
 
   const handleChange = (e, field) => {
+    if (field === 'body') {
+      setBody(e.target.value)
+    } else if (field === 'name') {
+      setName(e.target.value)
+    } else if (field === 'email') {
+      setEmail(e.target.value)
+    }
+  }
 
+  const handleSubmit = () => {
+    var question_id = question.question_id;
+    var answer = {
+      body: body,
+      name: name,
+      email: email,
+      photos: []
+    };
+    axios.post('/postAnswer', {question_id, answer});
   }
 
   if (!show) {
@@ -27,7 +47,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
           <textarea type="text" maxLength="1000" required rows={10} cols={50} onChange={(e) => handleChange(e, 'body')}/>
 
         <div><label className="yournickname"> What is your nickname? * </label></div>
-          <input type="text" maxLength="60" placeholder="Example: jack543!" required onChange={(e) => handleChange(e, 'answerer_name')}/>
+          <input type="text" maxLength="60" placeholder="Example: jack543!" required onChange={(e) => handleChange(e, 'name')}/>
           <div><small> For privacy reasons, do not use your full name or email address</small></div>
 
         <div><label className="youremail"> What is your email? * </label></div>
@@ -36,7 +56,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
 
         {/* Option to upload photos will go here */}
 
-        <button>Submit</button>
+        <input type="button" value="Submit"onClick={handleSubmit}></input>
         <button onClick={(e) => handleClose(e)}>Close</button>
       </form>
     )

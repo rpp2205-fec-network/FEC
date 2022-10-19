@@ -222,6 +222,17 @@ main {
   font-size: 10px;
 }
 
+/* Rating Bar 20*/
+
+.ratingsLink {
+  font-size: 12px;
+  overflow: auto;
+}
+.ratingsBar {
+  margin-right: 28px;
+  float: left;
+
+}
 
 /* =================== CHELSEA'S CSS END =================== */
 

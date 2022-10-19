@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Ratings from 'react-ratings-declarative';
 import axios from 'axios';
+import { Line } from 'rc-progress';
 
 class RatingsOverview extends React.Component {
   constructor(props) {
@@ -13,16 +14,20 @@ class RatingsOverview extends React.Component {
       rating4: '',
       rating5: '',
       average: '',
+      totalRatings: '',
+      percent1: '',
+      percent2: '',
+      percent3: '',
+      percent4: '',
+      percent5: '',
       recommended: [],
       characteristics: []
     }
     this.getMetaData = this.getMetaData.bind(this);
-    //this.getAverageRating = this.getAverageRating.bind(this);
   }
 
   componentDidMount() {
     this.getMetaData()
-    //this.getAverageRating()
   }
 
   getMetaData() {
@@ -36,7 +41,13 @@ class RatingsOverview extends React.Component {
           rating4: Number(data.data.ratings[4]),
           rating5: Number(data.data.ratings[5]),
           average: ((5*Number(data.data.ratings[5]) + 4*Number(data.data.ratings[4]) + 3*Number(data.data.ratings[3])+ 2*Number(data.data.ratings[2]) + 1*Number(data.data.ratings[1]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1]))).toFixed(1),
-          recommended: ((Number(data.data.recommended.true) / (Number(data.data.recommended.false) + Number(data.data.recommended.true)))*100).toFixed(0)
+          recommended: ((Number(data.data.recommended.true) / (Number(data.data.recommended.false) + Number(data.data.recommended.true)))*100).toFixed(0),
+          totalRatings: Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1]),
+          percent1: ((Number(data.data.ratings[1]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
+          percent2: ((Number(data.data.ratings[2]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
+          percent3: ((Number(data.data.ratings[3]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
+          percent4: ((Number(data.data.ratings[4]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
+          percent5: ((Number(data.data.ratings[5]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
         })
     })
     .catch((err) => {
@@ -71,11 +82,11 @@ class RatingsOverview extends React.Component {
         </div>
 
         {/* Rating Breakdown */}
-        <div>5 stars: {this.state.rating5}</div>
-        <div>4 stars: {this.state.rating4}</div>
-        <div>3 stars: {this.state.rating3}</div>
-        <div>2 stars: {this.state.rating2}</div>
-        <div>1 stars: {this.state.rating1}</div>
+        <div className='ratingsLink'><div>5 stars <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div></div>
+        <div className='ratingsLink'>4 stars <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'>3 stars <Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'>2 stars <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'>1 stars <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
       </div>
     )
 }

@@ -174,7 +174,7 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
     }
   })
   .then((response) => {
-    //console.log('DATA IN REVIEWS GET \n', response);
+    //console.log('DATA IN REVIEWS GET \n', response.data.results);
     res.json(response.data);
   })
   .catch((err) => {
@@ -183,7 +183,7 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
 })
 
 app.get('/getMetaData/meta/:product_id', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71701`, options)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71720`, options)
   .then((response) => {
     console.log('SERVER META DATA \n', response.data)
     res.json(response.data)

@@ -21,7 +21,7 @@ componentDidMount() {
 getReviews(sort = 'relevant') {
   axios.get(`/reviews/71720/${sort}`)
   .then((data) => {
-      //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
+      console.log('DATA IN Reviews COMPONENT \n', data.data.results)
       this.setState({reviews: data.data.results})
   })
   .catch((err) => {
@@ -39,8 +39,8 @@ render() {
             <RatingsOverview />
           </ErrorBoundary>
         </div>
-        <div className='Reviews'>
 
+        <div className='Reviews'>
           <div className='sorting'>
           {this.state.reviews.length} reviews, sorted by <span>
             <select className='dropdown' onChange={(e) => this.getReviews(e.target.value)}>
@@ -50,6 +50,7 @@ render() {
             </select>
             </span>
           </div>
+
           <ErrorBoundary>
           <List
           reviews={this.state.reviews}

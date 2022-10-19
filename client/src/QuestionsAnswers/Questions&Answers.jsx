@@ -48,7 +48,7 @@ class QuestionsAnswers extends React.Component {
         <h1>Questions and Answers</h1>
         </div>
       < SearchQuestions />
-      < QuestionsList questions={this.state.sortedQuestions}/>
+      < QuestionsList questions={this.state.sortedQuestions} productId={this.state.product_id}/>
       < AddQuestion />
       </div>
     )

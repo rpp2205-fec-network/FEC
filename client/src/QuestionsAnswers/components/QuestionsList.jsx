@@ -37,7 +37,7 @@ class QuestionsList extends React.Component {
         <div>
           <div id="questionsViewDefault">
           {this.props.questions.slice(0, this.state.itemsShown).map(question =>
-            <Question key={question.question_id} question_id={question.question_id} question={question} />
+            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.productId}/>
           )}
           </div>
           <div>
@@ -51,7 +51,7 @@ class QuestionsList extends React.Component {
         <div>
           <div id="questionsViewAll">
           {this.props.questions.map(question =>
-            <Question key={question.question_id} question_id={question.question_id} question={question} />
+            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.productId}/>
           )}
           </div>
 

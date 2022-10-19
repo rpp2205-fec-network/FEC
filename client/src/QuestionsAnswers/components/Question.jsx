@@ -1,5 +1,5 @@
 import React from 'react';
-import AddAnswer from './AddAnswer.jsx';
+import QuestionFunctionality from './QuestionFunctionality.jsx';
 import Answer from './Answer.jsx';
 const axios = require('axios');
 
@@ -46,7 +46,7 @@ class Question extends React.Component {
   render () {
     return (
       <div id="individualQuestion">
-        < AddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question}/>
+        < QuestionFunctionality helpfulCount={this.state.question.question_helpfulness} question={this.state.question} productId={this.props.productId}/>
        <h3 id="question">Q: {this.state.question.question_body}</h3>
         <div id="answer"> <h3>A: </h3>
         < Answer answers={this.state.sortedAnswers}/>

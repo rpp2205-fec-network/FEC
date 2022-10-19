@@ -6,5 +6,7 @@ bundle.js.map
 client/src/RelatedProducts/onHover.jsx
 client/dist/bundle.js
 client/dist/bundle.js.map
+client/dist/bundle.js.map~main
+client/dist/bundle.js~main
 node_modules
 coverage

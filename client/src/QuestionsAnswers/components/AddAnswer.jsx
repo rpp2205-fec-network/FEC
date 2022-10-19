@@ -2,28 +2,26 @@ import React from 'react';
 import { useState } from 'react';
 const axios = require('axios');
 
-const AddAnswer = ({question, helpfulCount}) => {
-  const [disable, setDisable] = useState(false);
-  const [helpful, setHelpful] = useState(question.question_helpfulness);
+const AddAnswer = ({show, onClose, question, productId}) => {
+  const [modal, setModal] = useState(show)
 
-  const wasHelpful = (e) => {
+  const handleClose = (e) => {
     e.preventDefault();
-    setHelpful(question.question_helpfulness += 1);
-    setDisable(true);
-    axios.put('/putQuestionHelpful', {id: question.question_id})
-    .then((response) => {
-      console.log('+1 helpful')
-      //setHelpful(question.question_helpfulness += 1);
-    })
-    .catch(err => console.log('could not be helpful'))
+    onClose(e);
   }
 
-  return (
-    <div id="addAnswer">
-    <input type="button" value="Add answer"></input>
-    | Helpful? ({helpful})<button type="Submit" disabled={disable} onClick={wasHelpful}>Yes</button>
-  </div>
-  )
+  if (!show) {
+    return null;
+  } else {
+    return (
+      <div className="answerModal">
+        <h2>Submit your Answer</h2>
+        {/* <h3>{Product Name will go here}</h3> */}
+        <h4>{question.question_body}</h4>
+        <button onClick={(e) => handleClose(e)}>Close</button>
+      </div>
+    )
   }
+}
 
 export default AddAnswer;

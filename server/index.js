@@ -182,34 +182,32 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
   })
 })
 
-app.get('/getMetaData/meta/:product_id', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71720`, options)
-  .then((response) => {
-    console.log('SERVER META DATA \n', response.data)
-    res.json(response.data)
-  })
-  .catch(err => console.log(err))
-})
-
-//${req.params.product_id}
-
-// app.get('/reviews/meta/:product_id', (req, res) => {
-//   console.log('META DATA PARAMS', req.params)
-//   axios({
-//     method: 'get',
-//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71701`,
-//     headers: {
-//       "Authorization": API_KEY
-//     }
-//   })
+// app.get('/getMetaData', function(req, res) {
+//   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71720`, options)
 //   .then((response) => {
-//     console.log('SERVER META DATA \n', response.data);
-//     res.json(response.data);
+//     console.log('SERVER META DATA \n', response.data)
+//     res.json(response.data)
 //   })
-//   .catch((err) => {
-//     console.log('META ERR ================== \n', err)
-//   })
+//   .catch(err => console.log(err))
 // })
+
+app.get('/meta/:product_id', (req, res) => {
+  console.log('GET META DATA PARAMS', req.params)
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${req.params.product_id}`,
+    headers: {
+      "Authorization": API_KEY
+    }
+  })
+  .then((response) => {
+    console.log('SERVER META DATA \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('META ERR ================== \n', err)
+  })
+})
 
 app.put('/reviewHelpful', (req, res) => {
   console.log('REQQQQQQQ', req.body.review_id)

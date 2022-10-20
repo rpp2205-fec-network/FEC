@@ -234,6 +234,26 @@ main {
 
 }
 
+.floatLeft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+.floatRight {
+ float: left;
+ width: 55%;
+ text-align: right;
+ opacity: 0.5;
+ font-size: 8px;
+ padding-top: 3%;
+ opacity: 0;
+ transition: opacity 0.5s ease;
+}
+
+.floatRight:hover {
+  opacity: 1;
+ }​
+
 /* =================== CHELSEA'S CSS END =================== */
 
 /* Kens CSS */

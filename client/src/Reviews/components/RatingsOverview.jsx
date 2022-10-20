@@ -30,8 +30,8 @@ class RatingsOverview extends React.Component {
     this.getMetaData()
   }
 
-  getMetaData() {
-    axios.get('/getMetaData/meta/:product_id')
+  getMetaData(product_id = '71720') {
+    axios.get(`/meta/${product_id}`)
     .then((data) => {
         //console.log('FRONT END META DATA \n', data.data)
         this.setState({
@@ -82,11 +82,11 @@ class RatingsOverview extends React.Component {
         </div>
 
         {/* Rating Breakdown */}
-        <div className='ratingsLink'><div>5 stars <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div></div>
-        <div className='ratingsLink'>4 stars <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'>3 stars <Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'>2 stars <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'>1 stars <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft'>5 stars </span><span className='floatRight'>{this.state.rating5} rating(s)</span> <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft'>4 stars</span><span className='floatRight'>{this.state.rating4} rating(s)</span> <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft'>3 stars</span><span className='floatRight'>{this.state.rating3} rating(s)</span><Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft'>2 stars</span><span className='floatRight'>{this.state.rating2} rating(s)</span> <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft'>1 stars</span><span className='floatRight'>{this.state.rating1} rating(s)</span> <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
       </div>
     )
 }

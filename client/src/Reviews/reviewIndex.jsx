@@ -9,7 +9,8 @@ export default class ReviewIndex extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      filteredReviews: []
     }
   this.getReviews = this.getReviews.bind(this);
 }

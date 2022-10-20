@@ -99,7 +99,7 @@ export default class ProductOverview extends React.Component {
                 <ImageGallery onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
                 <ProductInformation onLoad={this.getProductInfo} productInfo={this.state.currentProduct}/>
                 <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}  onChangeStyle={this.changeStyle}/>
-                <AddToCart />
+                <AddToCart currentStyleInfo={this.state.styleInfo[this.state.currentStyle]}/>
                 <h2>End of Product Overview</h2>
             </div>
         )

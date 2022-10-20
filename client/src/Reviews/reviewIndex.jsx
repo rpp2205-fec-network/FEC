@@ -53,9 +53,9 @@ render() {
           </div>
 
           <ErrorBoundary>
-          <List
-          reviews={this.state.reviews}
-          />
+            <List
+            reviews={this.state.reviews}
+            />
           </ErrorBoundary>
         </div>
       </div>

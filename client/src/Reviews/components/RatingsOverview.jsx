@@ -21,7 +21,12 @@ class RatingsOverview extends React.Component {
       percent4: '',
       percent5: '',
       recommended: [],
-      characteristics: []
+      size: '',
+      width: '',
+      comfort: '',
+      quality: '',
+      length: '',
+      fit: ''
     }
     this.getMetaData = this.getMetaData.bind(this);
   }
@@ -30,10 +35,10 @@ class RatingsOverview extends React.Component {
     this.getMetaData()
   }
 
-  getMetaData(product_id = '71720') {
+  getMetaData(product_id = '71701') {
     axios.get(`/meta/${product_id}`)
     .then((data) => {
-        //console.log('FRONT END META DATA \n', data.data)
+      console.log('FRONT END META DATA \n', data.data.characteristics)
         this.setState({
           rating1: Number(data.data.ratings[1]),
           rating2: Number(data.data.ratings[2]),
@@ -49,6 +54,36 @@ class RatingsOverview extends React.Component {
           percent4: ((Number(data.data.ratings[4]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
           percent5: ((Number(data.data.ratings[5]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
         })
+        if (data.data.characteristics.Size !== undefined) {
+          this.setState({
+            size: Number((data.data.characteristics.Size.value/5)*100)
+          })
+        }
+        if (data.data.characteristics.Width !== undefined) {
+          this.setState({
+            width: Number((data.data.characteristics.Width.value/5)*100)
+          })
+        }
+        if (data.data.characteristics.Comfort !== undefined) {
+          this.setState({
+            comfort: Number((data.data.characteristics.Comfort.value/5)*100)
+          })
+        }
+        if (data.data.characteristics.Quality !== undefined) {
+          this.setState({
+            quality: Number((data.data.characteristics.Quality.value/5)*100)
+          })
+        }
+        if (data.data.characteristics.Fit !== undefined) {
+          this.setState({
+            fit: Number((data.data.characteristics.Fit.value/5)*100)
+          })
+        }
+        if (data.data.characteristics.Length !== undefined) {
+          this.setState({
+            length: Number((data.data.characteristics.Length.value/5)*100)
+          })
+        }
     })
     .catch((err) => {
         console.log('ERR IN META GET REVIEWS \n', err)
@@ -82,11 +117,23 @@ class RatingsOverview extends React.Component {
         </div>
 
         {/* Rating Breakdown */}
-        <div className='ratingsLink'><span className='floatLeft'>5 stars </span><span className='floatRight'>{this.state.rating5} rating(s)</span> <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft'>5 stars</span><span className='floatRight'>{this.state.rating5} rating(s)</span> <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
         <div className='ratingsLink'><span className='floatLeft'>4 stars</span><span className='floatRight'>{this.state.rating4} rating(s)</span> <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>3 stars</span><span className='floatRight'>{this.state.rating3} rating(s)</span><Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft'>3 stars</span><span className='floatRight'>{this.state.rating3} rating(s)</span> <Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
         <div className='ratingsLink'><span className='floatLeft'>2 stars</span><span className='floatRight'>{this.state.rating2} rating(s)</span> <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
         <div className='ratingsLink'><span className='floatLeft'>1 stars</span><span className='floatRight'>{this.state.rating1} rating(s)</span> <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+
+        {/* Characteristics Breakdown */}
+        <div className='characteristicsBreakdown'>
+          <br/>
+          <div className='characteristics'>Size <Line percent={[this.state.size, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+          <div className='characteristics'>Width <Line percent={[this.state.width, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+          <div className='characteristics'>Comfort <Line percent={[this.state.comfort, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+          <div className='characteristics'>Quality <Line percent={[this.state.quality, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+          <div className='characteristics'>Length <Line percent={[this.state.length, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+          <div className='characteristics'>Fit <Line percent={[this.state.fit, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+        </div>
+
       </div>
     )
 }

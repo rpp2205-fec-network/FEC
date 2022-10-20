@@ -254,6 +254,16 @@ main {
   opacity: 1;
  }​
 
+/* Characteristics Breakdown */
+.characteristicsBreakdown {
+  padding-top: 500px;
+  margin-top: 400px;
+}
+
+.characteristics {
+  font-size: 12px;
+}
+
 /* =================== CHELSEA'S CSS END =================== */
 
 /* Kens CSS */

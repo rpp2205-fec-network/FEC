@@ -38,7 +38,7 @@ class RatingsOverview extends React.Component {
   getMetaData(product_id = '71701') {
     axios.get(`/meta/${product_id}`)
     .then((data) => {
-      console.log('FRONT END META DATA \n', data.data.characteristics)
+      //console.log('FRONT END META DATA \n', data.data.characteristics)
         this.setState({
           rating1: Number(data.data.ratings[1]),
           rating2: Number(data.data.ratings[2]),

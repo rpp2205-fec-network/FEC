@@ -165,7 +165,7 @@ app.get('/relatedProducts', function(req, res) {
 // ============== CHELSEA ROUTES START ============== //
 
 app.get('/reviews/:product_id/:sort', (req, res) => {
-  console.log('GET PARAMS', req.params, req.params.product_id, req.params.sort)
+  //console.log('GET PARAMS', req.params, req.params.product_id, req.params.sort)
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.params.product_id}&sort=${req.params.sort}`,
@@ -186,7 +186,7 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
 })
 
 app.get('/meta/:product_id', (req, res) => {
-  console.log('GET META DATA PARAMS', req.params)
+  //console.log('GET META DATA PARAMS', req.params)
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${req.params.product_id}`,

@@ -317,12 +317,17 @@ main {
 }
 
 #productRecScroll {
-  background-color: lightgray;
+  background-color: white;
   height: 375px;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   display: inline-flex;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -25vw;
+  margin-right: -25vw;
 }
 
 #productRec {

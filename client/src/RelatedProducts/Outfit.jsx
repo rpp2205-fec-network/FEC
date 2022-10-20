@@ -3,6 +3,12 @@ import React from 'react';
 // Outfit only reads current outfit state from main List component
 
 export default class Outfit extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
 
   // element loops through the outfit list and displays each item
   // this will be expanded upon as the incoming data is updated

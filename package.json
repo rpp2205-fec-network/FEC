@@ -10,7 +10,8 @@
     "test-productOverview": "jest client/src/Product Overview --env=jsdom",
     "test-reviews": "jest client/src/Reviews --env=jsdom --coverage",
     "test-questionsAnswers": "jest client/src/QuestionsAnswers --env=jsdom",
-    "test-relatedProducts": "jest client/src/RelatedProducts --env=jsdom"
+    "test-reviews": "jest client/src/Reviews --env=jsdom",
+    "test-relatedProducts": "jest client/src/RelatedProducts --env=jsdom --coverage"
   },
   "license": "Unlicensed",
   "dependencies": {
@@ -24,6 +25,7 @@
     "date-fns": "^2.29.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "html-react-parser": "^3.0.4",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
     "react": "^18.0.0",

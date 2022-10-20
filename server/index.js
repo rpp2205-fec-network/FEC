@@ -171,25 +171,19 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.params.product_id}&sort=${req.params.sort}`,
     headers: {
       "Authorization": API_KEY
+    },
+    params: {
+      count: 500
     }
   })
   .then((response) => {
-    //console.log('DATA IN REVIEWS GET \n', response.data.results);
+    console.log('DATA IN REVIEWS GET \n', response.data.results);
     res.json(response.data);
   })
   .catch((err) => {
     console.log('MAIN GET ERR ================== \n', err.response.data)
   })
 })
-
-// app.get('/getMetaData', function(req, res) {
-//   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71720`, options)
-//   .then((response) => {
-//     console.log('SERVER META DATA \n', response.data)
-//     res.json(response.data)
-//   })
-//   .catch(err => console.log(err))
-// })
 
 app.get('/meta/:product_id', (req, res) => {
   console.log('GET META DATA PARAMS', req.params)

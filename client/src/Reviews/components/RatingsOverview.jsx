@@ -126,12 +126,68 @@ class RatingsOverview extends React.Component {
         {/* Characteristics Breakdown */}
         <div className='characteristicsBreakdown'>
           <br/>
-          <div className='characteristics'>Size <Line percent={[this.state.size, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
-          <div className='characteristics'>Width <Line percent={[this.state.width, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
-          <div className='characteristics'>Comfort <Line percent={[this.state.comfort, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
-          <div className='characteristics'>Quality <Line percent={[this.state.quality, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
-          <div className='characteristics'>Length <Line percent={[this.state.length, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
-          <div className='characteristics'>Fit <Line percent={[this.state.fit, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+          {(this.state.size !== '') ?
+          <div>
+            <div className='characteristics'>Size <Line percent={[this.state.size, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+            <div className='charLabel'>
+              <div className='charLeft'>Too small</div>
+              <div className='charMid'>Perfect</div>
+              <div className='charRight'>Too large</div>
+            </div>
+          </div>
+          : null}
+          {(this.state.width !== '') ?
+          <div>
+            <div className='characteristics'>Width <Line percent={[this.state.width, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+            <div className='charLabel'>
+            <div className='charLeft'>Too narrow</div>
+            <div className='charMid'>Perfect</div>
+            <div className='charRight'>Too wide</div>
+          </div>
+      </div>
+          : null}
+          {(this.state.comfort !== '') ?
+          <div>
+            <div className='characteristics'>Comfort <Line percent={[this.state.comfort, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+            <div className='charLabel'>
+                <div className='charLeft'>Uncomfortable</div>
+                <div className='charMid'>Ok</div>
+                <div className='charRight'>Perfect</div>
+            </div>
+          </div>
+          : null}
+          {(this.state.quality !== '') ?
+          <div>
+            <div className='characteristics'>Quality <Line percent={[this.state.quality, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+            <div className='charLabel'>
+                <div className='charLeft'>Poor</div>
+                <div className='charMid'>What I expected</div>
+                <div className='charRight'>Great</div>
+            </div>
+          </div>
+          : null}
+
+          {(this.state.length !== '') ?
+          <div>
+            <div className='characteristics'>Length <Line percent={[this.state.length, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+            <div className='charLabel'>
+                <div className='charLeft'>Runs short</div>
+                <div className='charMid'>Perfect</div>
+                <div className='charRight'>Runs long</div>
+            </div>
+          </div>
+          : null}
+
+          {this.state.fit !== '' ?
+          <div>
+            <div className='characteristics'>Fit <Line percent={[this.state.fit, .2]} gapPosition="top" strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor={["#D3D3D3", "black"]} className='ratingsBar'/></div>
+            <div className='charLabel'>
+                <div className='charLeft'>Runs tight</div>
+                <div className='charMid'>Perfect</div>
+                <div className='charRight'>Runs long</div>
+            </div>
+          </div>
+            : null}
         </div>
 
       </div>

@@ -15,7 +15,7 @@ body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -220,6 +220,8 @@ main {
 
 .percentageRecommended {
   font-size: 10px;
+  padding-bottom: 6px;
+  padding-top: 8px;
 }
 
 /* Rating Bar 20*/
@@ -229,9 +231,8 @@ main {
   overflow: auto;
 }
 .ratingsBar {
-  margin-right: 28px;
+  margin-right: 32px;
   float: left;
-
 }
 
 .floatLeft {
@@ -258,10 +259,40 @@ main {
 .characteristicsBreakdown {
   padding-top: 500px;
   margin-top: 400px;
+  text-align: left;
+  display: block;
+
 }
 
 .characteristics {
   font-size: 12px;
+
+}
+
+.charLabel {
+  font-size: 9px;
+  color: rgb(81, 79, 79);
+  padding-right: 31px;
+  padding-bottom: 30px;
+
+}
+
+.charLeft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+
+.charMid {
+  float: left;
+  width:33.33333%;
+  text-align:center;
+}
+
+.charRight {
+  float: left;
+  width: 33.3333%;
+  text-align:right;
 }
 
 /* =================== CHELSEA'S CSS END =================== */

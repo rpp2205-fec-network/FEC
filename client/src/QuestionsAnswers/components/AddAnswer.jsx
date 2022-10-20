@@ -31,7 +31,16 @@ const AddAnswer = ({show, onClose, question, productId}) => {
       email: email,
       photos: []
     };
-    axios.post('/postAnswer', {question_id, answer});
+    let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailFormat.test(email) || email === '') {
+      alert('You must enter the following: email')
+    } else if (name === '') {
+      alert('You must enter the following: display name')
+    } else if (body === '') {
+      alert('You must enter the following: answer')
+    } else {
+      axios.post('/postAnswer', {question_id, answer});
+    }
   }
 
   if (!show) {
@@ -51,13 +60,13 @@ const AddAnswer = ({show, onClose, question, productId}) => {
           <div><small> For privacy reasons, do not use your full name or email address</small></div>
 
         <div><label className="youremail"> What is your email? * </label></div>
-          <input type="text" maxLength="60" placeholder="Example: jack@email.com" required onChange={(e) => handleChange(e, 'email')}/>
+          <input type="email" maxLength="60" placeholder="Example: jack@email.com" required onChange={(e) => handleChange(e, 'email')}/>
         <div><small> For authentication reasons, you will not be emailed </small></div>
 
         {/* Option to upload photos will go here */}
 
         <input type="button" value="Submit"onClick={handleSubmit}></input>
-        <button onClick={(e) => handleClose(e)}>Close</button>
+        <input type="button" value="Close" onClick={(e) => handleClose(e)}></input>
       </form>
     )
   }

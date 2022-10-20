@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import Star from './starCount.jsx';
+import Ratings from 'react-ratings-declarative';
+import ActionButton from './ActionButton.jsx';
+import ProductOverview from '../Product Overview/productOverview.jsx'
 
 export default class Recommend extends React.Component {
   constructor(props) {
@@ -8,7 +10,7 @@ export default class Recommend extends React.Component {
     this.state = {
       productList: [],
       productIdList: [],
-      example: {id: 71702,
+      example: {id: 71701,
         campus: 'hr-rpp',
         name: 'Pumped Up Kicks',
         slogan: 'Faster than a just about anything',
@@ -20,7 +22,7 @@ export default class Recommend extends React.Component {
         updated_at: "2022-05-11T19:38:15.373Z"
       },
       display: [],
-      displayCount: 2,
+      displayCount: 3,
       currentPosition: 0,
       clikedProduct: null,
       popup: false
@@ -29,6 +31,7 @@ export default class Recommend extends React.Component {
 
   // pull all related products from server with this category and return an array of mapped items
   pull() {
+    var setDisplay, setProductList,setImage, setRatings;
     axios({
       method: 'get',
       url: '/relatedProducts',
@@ -36,13 +39,10 @@ export default class Recommend extends React.Component {
         id: this.state.example.id
       }
     }).then((response) => {
-      let setDisplay = [response.data[0], response.data[1]]
-      console.log(setDisplay)
-      this.setState({
-        productList: response.data,
-        display: setDisplay
-      }, () => {
-        this.state.productList.forEach((item) => {
+      setDisplay = [response.data[0], response.data[1], response.data[2]]
+      setProductList = response.data;
+        setProductList.forEach((item) => {
+          console.log(item)
           axios.get('/productOverview/styles/' + item.id)
           .then((response) => {
             item.image = response.data.results[0].photos[0].thumbnail_url
@@ -57,11 +57,12 @@ export default class Recommend extends React.Component {
             var avg = average(arrayOfRatings)
 
             item.rating = avg;
-            return item.rating
+            this.setState({
+              productList: setProductList,
+              display: setDisplay
+            })
           })
         })
-      })
-
     })
   }
 
@@ -70,20 +71,30 @@ export default class Recommend extends React.Component {
     let recMap = input.map((item, index) => {
      //console.log(item)
       return (
-        <div key={index} id='productRec'>
-          <div id='productRecInfo'>
-            {/* setting up toggle for popup on image click of the related products image */}
-            <img id='productRecInfoImage' src={item.image} onClick={() => {
+        <div key={index} id='productRec' onClick={ ProductOverview }>
+          <button onClick={() => {
               this.setState({
                 popup: !this.state.popup,
                 clickedProduct: item
               })
-            }}></img>
+            }} style={{position: 'absolute'}}>&#9733;</button>
+          <div id='productRecInfo'>
+            <img id='productRecInfoImage' src={item.image}></img>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
-            <div id='productRecInfoStar'>{item.rating}</div>
-            <Star count={item.rating}/>
+            <Ratings
+              rating={item.rating}
+              widgetRatedColors="black"
+              widgetDimensions="15px"
+              widgetSpacings="1px"
+            >
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+              <Ratings.Widget />
+            </Ratings>
 
           </div>
         </div>

@@ -224,7 +224,7 @@ main {
   padding-top: 8px;
 }
 
-/* Rating Bar 20*/
+/* Rating Bar */
 
 .ratingsLink {
   font-size: 12px;
@@ -240,6 +240,11 @@ main {
   width:33.33333%;
   text-align:left;
 }
+
+.floatLeft:hover {
+  text-decoration: underline;
+}
+
 .floatRight {
  float: left;
  width: 55%;

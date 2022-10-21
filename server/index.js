@@ -74,7 +74,7 @@ app.get('/productOverview/styles/:id', (req, res) => {
 app.get('/getQuestions', function(req, res) {
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
   .then((questions) => {
-    console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
   .catch(err => console.log(err))
@@ -173,21 +173,35 @@ app.get('/relatedProducts', function(req, res) {
   })
   // res.status(201).send(sampleData)
 })
+
+app.get('/relatedPrdouctsReviews/:id', (req, res) => {
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=' + req.params.id, options)
+  .then((response) => {
+    //console.log('DATA IN REVIEWS GET \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR ================== \n', err)
+  })
+})
 // ============ KEN ROUTES END ============= //
 
 // ============== CHELSEA ROUTES START ============== //
 
 app.get('/reviews/:product_id/:sort', (req, res) => {
-  console.log('GET PARAMS', req.params, req.params.product_id, req.params.sort)
+  //console.log('GET PARAMS', req.params, req.params.product_id, req.params.sort)
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.params.product_id}&sort=${req.params.sort}`,
     headers: {
       "Authorization": API_KEY
+    },
+    params: {
+      count: 500
     }
   })
   .then((response) => {
-    //console.log('DATA IN REVIEWS GET \n', response);
+    console.log('DATA IN REVIEWS GET \n', response.data.results);
     res.json(response.data);
   })
   .catch((err) => {
@@ -195,34 +209,23 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
   })
 })
 
-app.get('/getMetaData/meta/:product_id', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71701`, options)
-  .then((response) => {
-    console.log('SERVER META DATA \n', response.data)
-    res.json(response.data)
+app.get('/meta/:product_id', (req, res) => {
+  //console.log('GET META DATA PARAMS', req.params)
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${req.params.product_id}`,
+    headers: {
+      "Authorization": API_KEY
+    }
   })
-  .catch(err => console.log(err))
+  .then((response) => {
+    console.log('SERVER META DATA \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('META ERR ================== \n', err)
+  })
 })
-
-//${req.params.product_id}
-
-// app.get('/reviews/meta/:product_id', (req, res) => {
-//   console.log('META DATA PARAMS', req.params)
-//   axios({
-//     method: 'get',
-//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71701`,
-//     headers: {
-//       "Authorization": API_KEY
-//     }
-//   })
-//   .then((response) => {
-//     console.log('SERVER META DATA \n', response.data);
-//     res.json(response.data);
-//   })
-//   .catch((err) => {
-//     console.log('META ERR ================== \n', err)
-//   })
-// })
 
 app.put('/reviewHelpful', (req, res) => {
   console.log('REQQQQQQQ', req.body.review_id)
@@ -246,3 +249,8 @@ app.put('/reviewHelpful', (req, res) => {
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);
+
+
+
+
+

@@ -15,7 +15,7 @@ body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -220,8 +220,80 @@ main {
 
 .percentageRecommended {
   font-size: 10px;
+  padding-bottom: 6px;
+  padding-top: 8px;
 }
 
+/* Rating Bar 20*/
+
+.ratingsLink {
+  font-size: 12px;
+  overflow: auto;
+}
+.ratingsBar {
+  margin-right: 32px;
+  float: left;
+}
+
+.floatLeft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+.floatRight {
+ float: left;
+ width: 55%;
+ text-align: right;
+ opacity: 0.5;
+ font-size: 8px;
+ padding-top: 3%;
+ opacity: 0;
+ transition: opacity 0.5s ease;
+}
+
+.floatRight:hover {
+  opacity: 1;
+ }​
+
+/* Characteristics Breakdown */
+.characteristicsBreakdown {
+  padding-top: 500px;
+  margin-top: 400px;
+  text-align: left;
+  display: block;
+
+}
+
+.characteristics {
+  font-size: 12px;
+
+}
+
+.charLabel {
+  font-size: 9px;
+  color: rgb(81, 79, 79);
+  padding-right: 31px;
+  padding-bottom: 30px;
+
+}
+
+.charLeft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+
+.charMid {
+  float: left;
+  width:33.33333%;
+  text-align:center;
+}
+
+.charRight {
+  float: left;
+  width: 33.3333%;
+  text-align:right;
+}
 
 /* =================== CHELSEA'S CSS END =================== */
 
@@ -245,12 +317,17 @@ main {
 }
 
 #productRecScroll {
-  background-color: lightgray;
+  background-color: white;
   height: 375px;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   display: inline-flex;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -25vw;
+  margin-right: -25vw;
 }
 
 #productRec {

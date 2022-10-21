@@ -19,7 +19,6 @@ class Question extends React.Component {
     this.getAnswersList()
   }
 
-
   getAnswersList() {
     axios.get('/getAnswers', {params: {id: this.state.question.question_id }})
     .then((result) => {
@@ -33,14 +32,19 @@ class Question extends React.Component {
 
   sortAnswers () {
     var answersCopy = this.state.answers.slice();
-    answersCopy.sort((a, b) => {
-      if ((a.answerer_name === 'Seller' || b.answerer_name === 'Seller')) {
-        return -1;
-      } else {
-        return b.helpfulness - a.helpfulness
+    const sorted = answersCopy.reduce((x, element) => {
+      if (element.answerer_name === 'Seller') {
+        return [element, ...x]
+      }
+      return [...x, element]
+    }, []).sort((a, b) => {
+      if (!a.answerer_name === 'Seller' || !b.answerer_name === 'Seller') {
+        return b.helpfulness - a.helpfulness;
+      } else if (a.answerer_name === 'Seller' && b.answerer_name === 'Seller') {
+        return b.helpfulness - a.helpfulness;
       }
     })
-    this.setState({sortedAnswers: answersCopy})
+    this.setState({sortedAnswers: sorted})
   }
 
   render () {

@@ -100,8 +100,8 @@ const AddAnswer = ({show, onClose, question, productId}) => {
         <div className="uploadImages">{imageURLs.map((imageSrc, index) => <img className="uploadImagePreview" key={index} src={imageSrc} onError={handleError}/>)}</div>
         {images.length < 5 ? <input type="file" accept="image/*" onChange={(e) => onImageChange(e)}/> : null }
 
-        <input type="button" value="Submit"onClick={handleSubmit}></input>
-        <input type="button" value="Close" onClick={(e) => handleClose(e)}></input>
+        <button type="Submit" className="answerSubmit"onClick={handleSubmit}>Submit</button>
+        <button type="Submit" onClick={(e) => handleClose(e)}>Close</button>
         </div>
       </form>
     )

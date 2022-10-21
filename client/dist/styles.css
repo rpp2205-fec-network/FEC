@@ -387,20 +387,40 @@ li{
   cursor: pointer;
  }
 
+ input[type=button] {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  cursor: pointer;
+  margin-right: 20px;
+ }
+
  .bar {
    padding-left: 4px;
    padding-right: 4px;
  }
 
  .uploadImages {
-  height: 80px;
+  height: 180px;
+  padding-top: 20px;
+  padding-bottom: 20px;
  }
 
  .uploadImagePreview {
    float: left;
-   height: 80px;
-   width: 60px
+   height: 140px;
+   width: 100px;
+   padding-left: 10px;
+
  }
+
+ .answerSubmit {
+   display: inline-block;
+   margin-right: 20px;
+ }
+
+
 
 
 /* ZACH CSS */

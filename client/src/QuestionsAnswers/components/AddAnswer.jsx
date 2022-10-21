@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 const axios = require('axios');
+import {AdvancedImage} from '@cloudinary/react';
+import {Cloudinary} from "@cloudinary/url-gen";
 
 const AddAnswer = ({show, onClose, question, productId}) => {
   const [modal, setModal] = useState(show);
@@ -9,11 +11,26 @@ const AddAnswer = ({show, onClose, question, productId}) => {
   const [email, setEmail] = useState('');
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
+  const [cloudImages, setCloudImages] = useState([]);
 
   useEffect(() => {
     if (images.length < 1 || images.length > 5) return;
     var currentImg = images[images.length-1]
-    setImageURLs([...imageURLs, window.URL.createObjectURL(new Blob(currentImg, {type: "image/jpeg"}))])
+    setImageURLs([...imageURLs, window.URL.createObjectURL(new Blob(currentImg, {type: "image/jpeg"}))]);
+    // Now convert local urls to cloudinary urls
+    const cloudImgs = [];
+    images.forEach((img) => {
+      const cld = new Cloudinary({
+        cloud: {
+          cloudName: 'atelier'
+        }
+      });
+      const cloudImage = cld.image(img[0].name);
+      const url = cloudImage.toURL();
+      console.log(url);
+      cloudImgs.push(url)
+    })
+    setCloudImages(cloudImgs);
   }, [images])
 
   const onImageChange = (e) => {

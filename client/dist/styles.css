@@ -340,7 +340,7 @@ li{
  }
 
  #answererInfo {
-   font-size: small ;
+   font-size: small;
  }
 
  #answerText {
@@ -382,10 +382,14 @@ li{
   background: none!important;
   border: none;
   padding: 0!important;
-  /*input has OS specific font-family*/
   color: black;
   text-decoration: underline;
   cursor: pointer;
+ }
+
+ .bar {
+   padding-left: 4px;
+   padding-right: 4px;
  }
 
  .uploadImages {

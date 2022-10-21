@@ -26,8 +26,8 @@ const AnswerHelpfulAndReport = ({answer}) => {
 
   return (
     <div className="answerHelpfulAndReport">
-      | Helpful? <button type="submit" disabled={disable} onClick={wasHelpful}>Yes</button> ({answer.helpfulness})
-      | {!report ? <button type="submit" onClick={reportAnswer}>Report</button> : <span>Reported</span>}
+      <span className="bar">|</span> Helpful? <button type="submit" disabled={disable} onClick={wasHelpful}>Yes</button> ({answer.helpfulness})
+      <span className="bar">|</span> {!report ? <button type="submit" onClick={reportAnswer}>Report</button> : <span>Reported</span>}
     </div>
   )
 }

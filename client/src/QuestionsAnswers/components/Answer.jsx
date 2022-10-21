@@ -25,6 +25,7 @@ class Answer extends React.Component {
         <div id="answerContent"> {this.props.answers.slice(0, 2).map((answer, index) => {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {answer.body}
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
+          <span> </span>
           {format(new Date(answer.date), 'MMMM dd, yyyy')} <AnswerHelpfulAndReport answer={answer}/></div>
           </li>
         })} </div>
@@ -37,6 +38,7 @@ class Answer extends React.Component {
         <div id="allAnswerContent"> {this.props.answers.map((answer, index) => {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {answer.body}
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
+          <span> </span>
           {format(new Date(answer.date), 'MMMM dd, yyyy')}  <AnswerHelpfulAndReport answer={answer}/></div>
           </li>
         })} </div>

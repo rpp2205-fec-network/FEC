@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-const axios = require('axios');
 import {AdvancedImage} from '@cloudinary/react';
 import {Cloudinary} from "@cloudinary/url-gen";
+const axios = require('axios');
 
 const AddAnswer = ({show, onClose, question, productId}) => {
   const [modal, setModal] = useState(show);
@@ -58,7 +58,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
       body: body,
       name: name,
       email: email,
-      photos: []
+      photos: cloudImages
     };
     let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!emailFormat.test(email) || email === '') {
@@ -70,6 +70,10 @@ const AddAnswer = ({show, onClose, question, productId}) => {
     } else {
       axios.post('/postAnswer', {question_id, answer});
     }
+  }
+
+  const handleError = () => {
+    alert('Please select a valid image')
   }
 
   if (!show) {
@@ -93,8 +97,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
           <input type="email" maxLength="60" placeholder="Example: jack@email.com" required onChange={(e) => handleChange(e, 'email')}/>
         <div><small> For authentication reasons, you will not be emailed </small></div>
 
-        {/* Option to upload photos will go here */}
-        <div className="uploadImages">{imageURLs.map((imageSrc, index) => <img className="uploadImagePreview" key={index} src={imageSrc} />)}</div>
+        <div className="uploadImages">{imageURLs.map((imageSrc, index) => <img className="uploadImagePreview" key={index} src={imageSrc} onError={handleError}/>)}</div>
         {images.length < 5 ? <input type="file" accept="image/*" onChange={(e) => onImageChange(e)}/> : null }
 
         <input type="button" value="Submit"onClick={handleSubmit}></input>

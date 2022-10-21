@@ -72,7 +72,7 @@ app.get('/productOverview/styles/:id', (req, res) => {
 // ========== BECCA ROUTES START ========== //
 
 app.get('/getQuestions', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71798`, options)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
   .then((questions) => {
     console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
@@ -100,7 +100,6 @@ app.put('/putQuestionHelpful', function(req, res) {
 })
 
 app.put('/putAnswerHelpful', function(req, res) {
-  //console.log(req.body);
   var answerId = req.body.id;
   return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/helpful`, {}, options)
   .then((response) => {

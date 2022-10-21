@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionFunctionality from './QuestionFunctionality.jsx';
+import QuestionHelpfulAddAnswer from './QuestionHelpfulAddAnswer.jsx';
 import Answer from './Answer.jsx';
 const axios = require('axios');
 
@@ -34,7 +34,7 @@ class Question extends React.Component {
   sortAnswers () {
     var answersCopy = this.state.answers.slice();
     answersCopy.sort((a, b) => {
-      if (a.answerer_name === 'Seller' || b.answerer_name === 'Seller') {
+      if ((a.answerer_name === 'Seller' || b.answerer_name === 'Seller')) {
         return -1;
       } else {
         return b.helpfulness - a.helpfulness
@@ -46,7 +46,7 @@ class Question extends React.Component {
   render () {
     return (
       <div id="individualQuestion">
-        < QuestionFunctionality helpfulCount={this.state.question.question_helpfulness} question={this.state.question} productId={this.props.productId}/>
+        < QuestionHelpfulAddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question} productId={this.props.productId}/>
        <h3 id="question">Q: {this.state.question.question_body}</h3>
         <div id="answer"> <h3>A: </h3>
         < Answer answers={this.state.sortedAnswers}/>

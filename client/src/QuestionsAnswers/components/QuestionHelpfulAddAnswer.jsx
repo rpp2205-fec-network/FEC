@@ -3,7 +3,7 @@ import { useState } from 'react';
 import AddAnswer from './AddAnswer.jsx';
 const axios = require('axios');
 
-const QuestionFunctionality = ({question, helpfulCount, productId}) => {
+const QuestionHelpfulAddAnswer = ({question, helpfulCount, productId}) => {
   const [disable, setDisable] = useState(false);
   const [helpful, setHelpful] = useState(question.question_helpfulness);
   const [show, setShow] = useState(false);
@@ -32,4 +32,4 @@ const QuestionFunctionality = ({question, helpfulCount, productId}) => {
   )
 }
 
-export default QuestionFunctionality;
+export default QuestionHelpfulAddAnswer;

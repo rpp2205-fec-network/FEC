@@ -45,10 +45,10 @@ class QuestionsAnswers extends React.Component {
     return (
       <div id="QAwidget">
       <div>
-        <h1>Questions and Answers</h1>
+        <h3>Questions & Answers</h3> <br/>
         </div>
       < SearchQuestions />
-      < QuestionsList questions={this.state.sortedQuestions}/>
+      < QuestionsList questions={this.state.sortedQuestions} productId={this.state.product_id}/>
       < AddQuestion />
       </div>
     )

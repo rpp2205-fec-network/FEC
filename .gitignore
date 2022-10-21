@@ -8,3 +8,4 @@ client/dist/bundle.js
 client/dist/bundle.js.map
 node_modules
 coverage
+node_modules

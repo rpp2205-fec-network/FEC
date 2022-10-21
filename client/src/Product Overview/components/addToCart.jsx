@@ -5,23 +5,21 @@ export default class AddToCart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            size: '-1',
+            size: '',
             quantity: -1,
             totalQuantity: -1,
             quantityArr: [],
             data: [{sku: 'no data', quantity: 'no data', size: 'no data'}],
-            flag: false,
-            currentSku: '-1'
+            currentSku: '-1',
+            sizeSelected: false
         }
         //binds the functions to this component for the 'this' value
         this.changeData = this.changeData.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onStar = this.onStar.bind(this)
-        this.onOptionClick = this.onOptionClick.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('PREVPROPS,', prevProps,'\ncurrentProps', this.props, '\n PrevState', prevState, '\n CurrentState', this.state)
         //if new props are received
         if (prevProps.currentStyleInfo !== this.props.currentStyleInfo) {
             var data = [];  
@@ -30,7 +28,6 @@ export default class AddToCart extends React.Component {
             for (var key in skusArray) {
                 data.push({sku: key, quantity: skusArray[key].quantity, size: skusArray[key].size})
             }
-            console.log('IMPORTANT DATA', this.props.currentStyleInfo.skus, data[0])
             for (var i = 1; i <= this.props.currentStyleInfo.skus[data[0].sku].quantity; i++) {
                 quantityArray.push(i)
             }
@@ -38,7 +35,6 @@ export default class AddToCart extends React.Component {
                 quantityArray.length = 15;
             }
             this.setState({
-                size: this.props.currentStyleInfo.skus[data[0].sku].size,
                 quantity: 1,
                 totalQuantity: this.props.currentStyleInfo.skus[data[0].sku].quantity,
                 quantityArr: quantityArray,
@@ -46,14 +42,22 @@ export default class AddToCart extends React.Component {
                 currentSku: data[0].sku
             })
             //if state is changed by sizeSelector
-        } else if (this.state.flag === true) {
-            console.log('second part of componentDidUpdate')
-            var newQuantityTotal = 0
+        } else if (this.state.currentSku !== prevState.currentSku) {
+            console.log('second part of componentDidUpdate prevState \n', prevState, '\n current State\n', this.state)
+            console.log('sku', this.props.currentStyleInfo.skus[this.state.currentSku])
+            var newQuantityTotal = this.props.currentStyleInfo.skus[this.state.currentSku].quantity
             var newQuantityArray = []
+            for (var i = 1; i <= newQuantityTotal; i++) {
+                newQuantityArray.push(i)
+            }
+            if (newQuantityArray.length > 15) {
+                newQuantityArray.length = 15
+            }
             this.setState({
-                flag: false
+                totalQuantity: newQuantityTotal,
+                quantityArr: newQuantityArray,
+                quantity: 1
             })
-
         }
     }
     //Dynamically changes selected option
@@ -66,13 +70,11 @@ export default class AddToCart extends React.Component {
         if (e.target.name === 'quantity') {
             this.setState({
                 [name]: e.target.value,
-                flag: true
             })
         } else {
             this.setState({
                 [name]: size,
-                flag: true,
-                currentSku: sku
+                currentSku: sku,
             })
         }
         console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value)
@@ -87,32 +89,53 @@ export default class AddToCart extends React.Component {
         //console.log('Starred')
     }
 
-    onOptionClick(sku, size) {
-        console.log('e.target in Option Click', sku, size)
-    }
-
     render() {
-        //loading information for data, so that component can render without data if need be. 
-        console.log('PROPS IN ADDTOCART', this.props);
-        return (
-            <div className="addToCart">
-                Size: <select name="size" onChange={this.changeData} >
-                    {this.state.data.map((item) => {
-                        return (
-                            <option value={`${item.size}, ${item.sku}`} key={item.sku}>{item.size}</option>
-                        )
-                    })}
-                </select>
-                Quantity: <select name="quantity" onChange={this.changeData}>
-                    {this.state.quantityArr.map((number) => {
-                        return (
-                            <option value={number} key={number}>{number}</option>
-                        )
-                    })}
-                </select>
-                <input type="button" value="Add To Bag          +" onClick={this.onSubmit}></input>
-                <input type="button" value="Pretend an image of a star is here" onClick={this.onStar}></input>
-            </div>
-        )
+        //determining whether item is completely out of stock
+        var inStock = this.state.data.map((item) => {
+            if (item.quantity > 0) {
+                return item
+            }
+        });
+        //if items in stock
+        if (inStock.length > 0) {
+            return (
+                <div className="addToCart">
+                    Size: <select name="size" onChange={this.changeData} >
+                        {this.state.data.map((item) => {
+                            console.log('ITEM', item)
+                            if (item.quantity <= 0) {
+                                console.log('Item size of ' + item.size + ' is out of stock')
+                            } else {
+                                return (
+                                    <option value={`${item.size}, ${item.sku}`} key={item.sku}>{item.size}</option>
+                                )
+                            }
+                        })}
+                    </select>
+                    Quantity: <select name="quantity" disabled={!this.state.size} onChange={this.changeData}>
+                        {this.state.quantityArr.map((number) => {
+                            return (
+                                <option value={number} key={number}>{number}</option>
+                            )
+                        })}
+                    </select>
+                    <input type="button" value="Add To Bag          +" onClick={this.onSubmit}></input>
+                    <input type="button" value="Pretend an image of a star is here" onClick={this.onStar}></input>
+                </div>
+            )
+        } else {
+            return (
+                <div className="addToCart">
+                    Size: <select name="size" onChange={this.changeData} disabled={true}>
+                    OUT OF STOCK
+                    </select>
+                    Quantity: <select name="quantity" onChange={this.changeData} disabled={true}>
+                    -
+                    </select>
+                    <input type="button" value="Add To Bag          +" onClick={this.onSubmit}></input>
+                    <input type="button" value="Pretend an image of a star is here" onClick={this.onStar}></input>
+                </div>
+            )
+        }
     }
 }

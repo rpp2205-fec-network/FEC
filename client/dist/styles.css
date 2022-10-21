@@ -374,6 +374,29 @@ li{
     float: left;
  }
 
+ .answerModalContent {
+   padding: 20px;
+ }
+
+ button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*input has OS specific font-family*/
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+ }
+
+ .uploadImages {
+  height: 80px;
+ }
+
+ .uploadImagePreview {
+   float: left;
+   height: 80px;
+   width: 60px
+ }
 
 
 /* ZACH CSS */

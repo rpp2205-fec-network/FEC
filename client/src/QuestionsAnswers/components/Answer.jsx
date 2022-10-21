@@ -1,7 +1,7 @@
 import React from 'react';
 import AnswerHelpfulAndReport from './AnswerHelpfulAndReport.jsx';
+import { format } from 'date-fns';
 const axios = require('axios');
-
 
 class Answer extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Answer extends React.Component {
         <div id="answerContent"> {this.props.answers.slice(0, 2).map((answer, index) => {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {answer.body}
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
-          {answer.date} <AnswerHelpfulAndReport answer={answer}/></div>
+          {format(new Date(answer.date), 'MMMM dd, yyyy')} <AnswerHelpfulAndReport answer={answer}/></div>
           </li>
         })} </div>
           {this.props.answers.length > 2 ?<input type="button" value="Load more answers" onClick={(e) => this.showCollapseAnswers(e)}/> : ''}
@@ -37,7 +37,7 @@ class Answer extends React.Component {
         <div id="allAnswerContent"> {this.props.answers.map((answer, index) => {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {answer.body}
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
-          {answer.date} <AnswerHelpfulAndReport answer={answer}/></div>
+          {format(new Date(answer.date), 'MMMM dd, yyyy')}  <AnswerHelpfulAndReport answer={answer}/></div>
           </li>
         })} </div>
           <input type="button" value="Collapse answers" onClick={(e) => this.showCollapseAnswers(e)}/>

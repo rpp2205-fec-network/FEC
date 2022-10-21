@@ -25,7 +25,7 @@ const QuestionFunctionality = ({question, helpfulCount, productId}) => {
 
   return (
     <div id="addAnswer">
-    <input type="button" value="Add answer" onClick={showModal}></input>
+    <button type="Submit" onClick={showModal}>Add answer </button>
     <AddAnswer show={show} onClose={showModal} question={question} productId={productId}/>
     | Helpful? ({helpful})<button type="Submit" disabled={disable} onClick={wasHelpful}>Yes</button>
   </div>

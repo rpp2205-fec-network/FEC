@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 const axios = require('axios');
 
 const AddAnswer = ({show, onClose, question, productId}) => {
@@ -7,6 +7,18 @@ const AddAnswer = ({show, onClose, question, productId}) => {
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [images, setImages] = useState([]);
+  const [imageURLs, setImageURLs] = useState([]);
+
+  useEffect(() => {
+    if (images.length < 1 || images.length > 5) return;
+    var currentImg = images[images.length-1]
+    setImageURLs([...imageURLs, window.URL.createObjectURL(new Blob(currentImg, {type: "image/jpeg"}))])
+  }, [images])
+
+  const onImageChange = (e) => {
+    setImages(prevState => [...prevState, e.target.files])
+  }
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -48,6 +60,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
   } else {
     return (
       <form className="answerModal">
+        <div className="answerModalContent">
         <h2>Submit your Answer</h2>
         {/* <h3>{Product Name will go here}</h3> */}
         <h4>{question.question_body}</h4>
@@ -64,9 +77,12 @@ const AddAnswer = ({show, onClose, question, productId}) => {
         <div><small> For authentication reasons, you will not be emailed </small></div>
 
         {/* Option to upload photos will go here */}
+        <div className="uploadImages">{imageURLs.map((imageSrc, index) => <img className="uploadImagePreview" key={index} src={imageSrc} />)}</div>
+        {images.length < 5 ? <input type="file" accept="image/*" onChange={(e) => onImageChange(e)}/> : null }
 
         <input type="button" value="Submit"onClick={handleSubmit}></input>
         <input type="button" value="Close" onClick={(e) => handleClose(e)}></input>
+        </div>
       </form>
     )
   }

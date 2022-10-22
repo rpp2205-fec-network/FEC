@@ -124,13 +124,13 @@ class RatingsOverview extends React.Component {
         {/* Rating Breakdown */}
         <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}>5 stars</span>
           <span className='floatRight'>{this.state.rating5} rating(s)</span> <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>4 stars</span>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 4 stars</span>
           <span className='floatRight'>{this.state.rating4} rating(s)</span> <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>3 stars</span>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 3 stars</span>
           <span className='floatRight'>{this.state.rating3} rating(s)</span> <Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>2 stars</span>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 2 stars</span>
           <span className='floatRight'>{this.state.rating2} rating(s)</span> <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>1 stars</span>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 1 stars</span>
           <span className='floatRight'>{this.state.rating1} rating(s)</span> <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
 
         {/* Characteristics Breakdown */}

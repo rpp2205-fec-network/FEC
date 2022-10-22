@@ -10,8 +10,7 @@ export default class ReviewIndex extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      filteredReviews: {5: [], 4: [], 3: [], 2: [], 1: [],},
-      combinedArray: [],
+      filteredReviews: {5: [], 4: [], 3: [], 2: [], 1: []},
       filterClicked: false
     }
   this.getReviews = this.getReviews.bind(this);
@@ -19,38 +18,35 @@ export default class ReviewIndex extends React.Component {
 }
 
 filterByRating(starRating) {
-  //takes in the number. if doesn't exist, add. does exist, remove
-  if (this.state.filteredReviews[starRating] !== []) {
-    this.setState(prevState => ({
-      ...prevState.reviews,
-      ...prevState.filterClicked,
-      filteredReviews: {...prevState.filteredReviews, starRating: []}
-      })
-    )
-  } else {
-    //console.log("rating", starRating)
-    //take this rating, and push any ratings into filteredReviews array
-    //console.log("reviews", this.state.reviews)
-    var result = this.state.reviews.filter(review => review.rating === starRating)
-    this.setState(prevState => ({
-      ...prevState.reviews,
-      filterClicked: true,
-      filteredReviews: {...prevState.filteredReviews, starRating: result}
-      })
-    )
-    console.log('this.state.filteredReviews', this.state.filteredReviews)
+  console.log("rating", typeof starRating)
+  console.log("reviewss", this.state.filteredReviews[starRating.toString()])
+
+  if (this.state.filteredReviews[5] === [] &&
+    this.state.filteredReviews[4] === [] &&
+    this.state.filteredReviews[3] === [] &&
+    this.state.filteredReviews[2] === [] &&
+    this.state.filteredReviews[1] === []
+  ) {
+    this.setState({filterClicked: false})
   }
 
-  this.setState({combinedArray: Object.values(this.state.filteredReviews)})
-
-    if (this.state.filteredReviews[5] === [] &&
-      this.state.filteredReviews[4] === [] &&
-      this.state.filteredReviews[3] === [] &&
-      this.state.filteredReviews[2] === [] &&
-      this.state.filteredReviews[1] === []
-    ) {
-      this.setState({filterClicked: false})
-}
+  if (this.state.filteredReviews[starRating].length === 0) {
+    console.log('this.state.reviews', typeof this.state.reviews[0].rating)
+    var result = this.state.reviews.filter(review => review.rating === starRating)
+    console.log('result', result)
+    this.setState({
+      filterClicked: true,
+      filteredReviews: {...this.state.filteredReviews, [starRating]: result}
+      })
+    console.log('this.state.filteredReviews', this.state.filteredReviews)
+  } else {
+      //if the clicked rating isn't empty, then reset that number to an empty array
+      this.setState({
+        filterClicked: false,
+        filteredReviews: {...this.state.filteredReviews, [starRating]: []}
+        }
+      )
+  }
 }
 
 componentDidMount() {
@@ -70,8 +66,8 @@ getReviews(sort = 'relevant') {
 
 render() {
   //run a func that goes thru obj concats array, send this to List
-  //const finalArrays = Object.values(this.state.filteredReviews)
-  //console.log('final', finalArrays)
+  const finalArrays = this.state.filteredReviews[5].concat(this.state.filteredReviews[4], this.state.filteredReviews[3], this.state.filteredReviews[2], this.state.filteredReviews[1])
+  console.log('final Combined array', finalArrays)
   return (
     <div className='reviewsOverview'>
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
@@ -103,7 +99,7 @@ render() {
           <ErrorBoundary>
             {this.state.filterClicked === true ?
               <List
-                reviews={this.state.combinedArray}
+                reviews={finalArrays}
               /> :
               <List
                 reviews={this.state.reviews}

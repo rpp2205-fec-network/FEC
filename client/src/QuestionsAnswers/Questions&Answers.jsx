@@ -24,7 +24,7 @@ class QuestionsAnswers extends React.Component {
   getQuestions () {
     axios.get('/getQuestions')
     .then((questions) => {
-      console.log('Current product questions data', questions.data)
+      //console.log('Current product questions data', questions.data)
       this.setState({
         product_id: questions.data.product_id,
         questions: questions.data.results,
@@ -45,10 +45,10 @@ class QuestionsAnswers extends React.Component {
     return (
       <div id="QAwidget">
       <div>
-        <h1>Questions and Answers</h1>
+        <h3>Questions & Answers</h3> <br/>
         </div>
       < SearchQuestions />
-      < QuestionsList questions={this.state.sortedQuestions}/>
+      < QuestionsList questions={this.state.sortedQuestions} productId={this.state.product_id}/>
       < AddQuestion />
       </div>
     )

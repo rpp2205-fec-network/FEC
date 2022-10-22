@@ -101,7 +101,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
         {images.length < 5 ? <input type="file" accept="image/*" onChange={(e) => onImageChange(e)}/> : null }
 
         <button type="Submit" className="answerSubmit"onClick={handleSubmit}>Submit</button>
-        <button type="Submit" onClick={(e) => handleClose(e)}>Close</button>
+        <button type="Submit" className="QAbutton" onClick={(e) => handleClose(e)}>Close</button>
         </div>
       </form>
     )

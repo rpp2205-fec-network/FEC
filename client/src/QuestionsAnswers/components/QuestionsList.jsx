@@ -38,7 +38,6 @@ class QuestionsList extends React.Component {
   }
 
   render () {
-    console.log('questions!!!!!!', this.props.questions)
     if (!this.state.showAllItems && this.props.questions.length > 0) {
       return (
         <div>

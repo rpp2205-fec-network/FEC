@@ -47,7 +47,6 @@ h6 {
 
 main {
   max-width: 1000px;
-  /* 840 */
   padding: 16px;
   margin: auto;
 }
@@ -94,6 +93,8 @@ main {
   border: 1px solid black;
   padding: 12px 28px;
   margin-bottom: 40px;
+  font-style: normal;
+  text-decoration: none;
 }
 
 .reviewsToggleButton {
@@ -123,6 +124,7 @@ main {
   background-color: white;
   font-size: 9px;
   border: 1px solid black;
+  text-decoration: none;
 }
 
 .bodyButton:hover {
@@ -316,7 +318,8 @@ main {
   float: right;
   margin-top: 6px;
   padding-left: 10px;
-  padding-right: 9px
+  padding-right: 9px;
+  text-decoration: none;
 }
 
 .removeAllFilters:hover {
@@ -484,14 +487,14 @@ li{
    padding: 20px;
  }
 
- button {
+ /* button {
   background: none!important;
   border: none;
   padding: 0!important;
   color: black;
   text-decoration: underline;
   cursor: pointer;
- }
+ } */
 
  input[type=button] {
   background: none!important;

@@ -10,6 +10,7 @@ class List extends React.Component {
       fullyExpanded: false
     }
     this.showMoreOrCollapse = this.showMoreOrCollapse.bind(this);
+    this.addReview = this.addReview.bind(this);
   }
 
   showMoreOrCollapse() {
@@ -24,11 +25,15 @@ class List extends React.Component {
     }
   }
 
+  addReview(e) {
+    console.log('clicked!')
+  }
+
   render() {
     if (this.props.reviews.length === 0) {
       return (
         <div>
-          <button>Add A Review</button>
+          <button onClick={this.addReview}>Add A Review</button>
         </div>
       )
     } else if (this.props.reviews.length <= 2) {
@@ -39,7 +44,7 @@ class List extends React.Component {
           key={review.review_id}
           review={review}/>
           )}
-          <button>Add A Review</button>
+          <button onClick={this.addReview}>Add A Review</button>
         </div>
       )
     } else {
@@ -60,7 +65,7 @@ class List extends React.Component {
               )
           }
             </button>
-          <button className="reviewsListButton">Add A Review +</button>
+          <button className="reviewsListButton" onClick={this.addReview}>Add A Review +</button>
         </div>
       )
     }

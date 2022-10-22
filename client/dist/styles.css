@@ -224,7 +224,7 @@ main {
   padding-top: 8px;
 }
 
-/* Rating Bar 20*/
+/* Rating Bar */
 
 .ratingsLink {
   font-size: 12px;
@@ -240,6 +240,11 @@ main {
   width:33.33333%;
   text-align:left;
 }
+
+.floatLeft:hover {
+  text-decoration: underline;
+}
+
 .floatRight {
  float: left;
  width: 55%;
@@ -261,12 +266,10 @@ main {
   margin-top: 400px;
   text-align: left;
   display: block;
-
 }
 
 .characteristics {
   font-size: 12px;
-
 }
 
 .charLabel {
@@ -274,7 +277,6 @@ main {
   color: rgb(81, 79, 79);
   padding-right: 31px;
   padding-bottom: 30px;
-
 }
 
 .charLeft {
@@ -293,6 +295,33 @@ main {
   float: left;
   width: 33.3333%;
   text-align:right;
+}
+
+/* Ratings Filters */
+
+.filterApplied {
+  padding-left: 4px;
+  font-size: 9px;
+  font-weight: normal;
+}
+
+.filtersText {
+  margin-left: 4px;
+}
+
+.removeAllFilters {
+  background-color: white;
+  border: 1px solid black;
+  margin-left: 4px;
+  float: right;
+  margin-top: 6px;
+  padding-left: 10px;
+  padding-right: 9px
+}
+
+.removeAllFilters:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
 }
 
 /* =================== CHELSEA'S CSS END =================== */

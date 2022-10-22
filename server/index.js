@@ -201,7 +201,7 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
     }
   })
   .then((response) => {
-    console.log('DATA IN REVIEWS GET \n', response.data.results);
+    //console.log('DATA IN REVIEWS GET \n', response.data.results);
     res.json(response.data);
   })
   .catch((err) => {

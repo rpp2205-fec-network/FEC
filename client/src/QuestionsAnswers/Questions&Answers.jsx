@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchQuestions from './components/SearchQuestions.jsx';
 import QuestionsList from './components/QuestionsList.jsx';
+import ErrorBoundary from './QuestionsAnswersErrorBoundary.jsx';
 const axios = require('axios')
 
 class QuestionsAnswers extends React.Component {
@@ -46,8 +47,12 @@ class QuestionsAnswers extends React.Component {
       <div>
         <h3>Questions & Answers</h3> <br/>
         </div>
-      < SearchQuestions />
-      < QuestionsList questions={this.state.sortedQuestions} product_id={this.state.product_id}/>
+        <SearchQuestions />
+        <div>
+        <ErrorBoundary>
+        <QuestionsList questions={this.state.sortedQuestions} product_id={this.state.product_id}/>
+        </ErrorBoundary>
+        </div>
       </div>
     )
   }

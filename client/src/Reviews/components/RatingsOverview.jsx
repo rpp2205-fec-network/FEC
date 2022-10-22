@@ -41,8 +41,8 @@ class RatingsOverview extends React.Component {
     this.getMetaData()
   }
 
-  getMetaData(product_id = '71701') {
-    axios.get(`/meta/${product_id}`)
+  getMetaData() {
+    axios.get(`/meta/${this.props.product_id}/`)
     .then((data) => {
       //console.log('FRONT END META DATA \n', data.data.characteristics)
         this.setState({
@@ -130,7 +130,7 @@ class RatingsOverview extends React.Component {
           <span className='floatRight'>{this.state.rating3} rating(s)</span> <Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
         <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 2 stars</span>
           <span className='floatRight'>{this.state.rating2} rating(s)</span> <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 1 stars</span>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 1 star</span>
           <span className='floatRight'>{this.state.rating1} rating(s)</span> <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
 
         {/* Characteristics Breakdown */}

@@ -17,6 +17,8 @@ export default class ReviewIndex extends React.Component {
   this.filterByRating = this.filterByRating.bind(this);
 }
 
+
+
 filterByRating(starRating) {
   console.log("rating", typeof starRating)
   console.log("reviewss", this.state.filteredReviews[starRating.toString()])
@@ -29,24 +31,24 @@ filterByRating(starRating) {
   ) {
     this.setState({filterClicked: false})
   }
-
   if (this.state.filteredReviews[starRating].length === 0) {
-    console.log('this.state.reviews', typeof this.state.reviews[0].rating)
+    //console.log('this.state.reviews', typeof this.state.reviews[0].rating)
     var result = this.state.reviews.filter(review => review.rating === starRating)
-    console.log('result', result)
+    //console.log('result', result)
     this.setState({
       filterClicked: true,
       filteredReviews: {...this.state.filteredReviews, [starRating]: result}
       })
-    console.log('this.state.filteredReviews', this.state.filteredReviews)
+    //console.log('this.state.filteredReviews', this.state.filteredReviews)
   } else {
       //if the clicked rating isn't empty, then reset that number to an empty array
       this.setState({
-        filterClicked: false,
+        filterClicked: true,
         filteredReviews: {...this.state.filteredReviews, [starRating]: []}
         }
       )
   }
+
 }
 
 componentDidMount() {
@@ -54,7 +56,8 @@ componentDidMount() {
 }
 
 getReviews(sort = 'relevant') {
-  axios.get(`/reviews/71720/${sort}`)
+  //axios.get(`/reviews/${this.props.product_id}/${sort}`)
+  axios.get(`/reviews/71717/${sort}`)
   .then((data) => {
     //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
     this.setState({reviews: data.data.results})
@@ -74,7 +77,10 @@ render() {
       <div className='mainContainer'>
         <div className='Ratings'>
           <ErrorBoundary>
-            <RatingsOverview filterByRating={this.filterByRating}/>
+            <RatingsOverview
+            filterByRating={this.filterByRating}
+            product_id={this.props.product_id}
+            />
           </ErrorBoundary>
         </div>
 

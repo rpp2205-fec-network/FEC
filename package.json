@@ -7,16 +7,18 @@
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
     "start": "node server/index.js",
-    "test-productOverview": "jest client/src/Product Overview --env=jsdom",
-    "test-reviews": "jest client/src/Reviews --env=jsdom",
-    "test-questionsAnswers": "jest client/src/QuestionsAnswers --env=jsdom",
-    "test-relatedProducts": "jest client/src/RelatedProducts --env=jsdom --coverage"
+    "test-productOverview": "jest client/src/Product Overview --env=jsdom --coverage",
+    "test-reviews": "jest client/src/Reviews --env=jsdom --coverage",
+    "test-relatedProducts": "jest client/src/RelatedProducts --env=jsdom --coverage",
+    "test-questionsAnswers": "jest client/src/QuestionsAnswers --env=jsdom --coverage"
   },
   "license": "Unlicensed",
   "dependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
+    "@cloudinary/react": "^1.5.0",
+    "@cloudinary/url-gen": "^1.8.6",
     "@types/date-fns": "^2.6.0",
     "axios": "^0.21.4",
     "babel-loader": "^8.2.2",

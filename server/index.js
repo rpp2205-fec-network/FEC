@@ -4,6 +4,7 @@ const express = require("express");
 const { get } = require("http");
 const path = require("path");
 const API_KEY = require("../client/src/config/config.js");
+var bodyParser = require('body-parser');
 // const sessionHandler = require("./middleware/session-handler");
 // const logger = require("./middleware/logger");
 
@@ -15,6 +16,8 @@ const app = express();
 
 // Needed to receive json data
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.json())
 
 // Logs the time, session_id, method, and url of incoming requests.
 //app.use(logger);
@@ -69,7 +72,7 @@ app.get('/productOverview/styles/:id', (req, res) => {
 // ========== BECCA ROUTES START ========== //
 
 app.get('/getQuestions', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71798`, options)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
   .then((questions) => {
     //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
@@ -97,7 +100,6 @@ app.put('/putQuestionHelpful', function(req, res) {
 })
 
 app.put('/putAnswerHelpful', function(req, res) {
-  //console.log(req.body);
   var answerId = req.body.id;
   return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/helpful`, {}, options)
   .then((response) => {
@@ -116,6 +118,17 @@ app.put('/reportAnswer', function(req, res) {
     res.status(204);
   })
   .catch(err => console.log(err))
+})
+
+app.post('/postAnswer', function(req, res) {
+  var questionId = req.body.question_id;
+  var body = req.body.answer;
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${questionId}/answers`, body, options)
+  .then((response) => {
+    console.log('CREATED')
+    res.status(201);
+  })
+  .catch(err => console.log(err.response.data))
 })
 
 

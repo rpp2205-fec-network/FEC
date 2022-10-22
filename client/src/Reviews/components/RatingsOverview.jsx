@@ -199,7 +199,6 @@ class RatingsOverview extends React.Component {
           </div>
             : null}
         </div>
-
       </div>
     )
 }

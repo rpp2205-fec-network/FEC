@@ -17,20 +17,10 @@ export default class ReviewIndex extends React.Component {
   this.filterByRating = this.filterByRating.bind(this);
 }
 
-
-
 filterByRating(starRating) {
   console.log("rating", typeof starRating)
-  console.log("reviewss", this.state.filteredReviews[starRating.toString()])
+  console.log("reviewss", this.state.filteredReviews[5])
 
-  if (this.state.filteredReviews[5] === [] &&
-    this.state.filteredReviews[4] === [] &&
-    this.state.filteredReviews[3] === [] &&
-    this.state.filteredReviews[2] === [] &&
-    this.state.filteredReviews[1] === []
-  ) {
-    this.setState({filterClicked: false})
-  }
   if (this.state.filteredReviews[starRating].length === 0) {
     //console.log('this.state.reviews', typeof this.state.reviews[0].rating)
     var result = this.state.reviews.filter(review => review.rating === starRating)
@@ -42,13 +32,24 @@ filterByRating(starRating) {
     //console.log('this.state.filteredReviews', this.state.filteredReviews)
   } else {
       //if the clicked rating isn't empty, then reset that number to an empty array
-      this.setState({
-        filterClicked: true,
-        filteredReviews: {...this.state.filteredReviews, [starRating]: []}
-        }
-      )
-  }
 
+      if (this.state.filteredReviews[5] === [] &&
+        this.state.filteredReviews[4] === [] &&
+        this.state.filteredReviews[3] === [] &&
+        this.state.filteredReviews[2] === [] &&
+        this.state.filteredReviews[1] === []
+      ) {
+        this.setState({filterClicked: false})
+      } else {
+        this.setState({
+          filterClicked: true,
+          filteredReviews: {...this.state.filteredReviews, [starRating]: []}
+          }
+        )
+
+      }
+
+  }
 }
 
 componentDidMount() {
@@ -68,9 +69,11 @@ getReviews(sort = 'relevant') {
 }
 
 render() {
-  //run a func that goes thru obj concats array, send this to List
-  const finalArrays = this.state.filteredReviews[5].concat(this.state.filteredReviews[4], this.state.filteredReviews[3], this.state.filteredReviews[2], this.state.filteredReviews[1])
-  console.log('final Combined array', finalArrays)
+  var finalArrays = this.state.filteredReviews[5].concat(this.state.filteredReviews[4], this.state.filteredReviews[3], this.state.filteredReviews[2], this.state.filteredReviews[1])
+  var count = 0
+  for (var key in this.state.filteredReviews) {
+    count += this.state.filteredReviews[key].length
+  }
   return (
     <div className='reviewsOverview'>
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
@@ -93,9 +96,9 @@ render() {
               <option className='dropdownSelect' value='newest'>newest</option>
             </select>
 
-                {this.state.filterClicked ? <span className='filterApplied'>
+                {this.state.filterClicked && count !== 0 ? <span className='filterApplied'>
                   <span className='filtersText'>[ Filter(s) has been applied ]</span>
-                  <button className='removeAllFilters' onClick={() => this.setState({filterClicked: false})}>Remove all filters</button>
+                  <button className='removeAllFilters' onClick={() => this.setState({filterClicked: false, filteredReviews: {5: [], 4: [], 3: [], 2: [], 1: []}})}>Remove all filters</button>
                   </span>
                 : null}
 
@@ -103,12 +106,12 @@ render() {
           </div>
 
           <ErrorBoundary>
-            {this.state.filterClicked === true ?
+            {count === 0 ?
               <List
-                reviews={finalArrays}
+              reviews={this.state.reviews}
               /> :
               <List
-                reviews={this.state.reviews}
+              reviews={finalArrays}
               />
             }
           </ErrorBoundary>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchQuestions from './components/SearchQuestions.jsx';
 import QuestionsList from './components/QuestionsList.jsx';
-import AddQuestion from './components/AddQuestion.jsx';
 const axios = require('axios')
 
 class QuestionsAnswers extends React.Component {
@@ -11,7 +10,8 @@ class QuestionsAnswers extends React.Component {
     this.state = {
       product_id: '',
       questions: [],
-      sortedQuestions: []
+      sortedQuestions: [],
+      showQuestionModal: false
     };
     this.sortQuestions = this.sortQuestions.bind(this);
     this.getQuestions = this.getQuestions.bind(this);
@@ -49,7 +49,6 @@ class QuestionsAnswers extends React.Component {
         </div>
       < SearchQuestions />
       < QuestionsList questions={this.state.sortedQuestions} productId={this.state.product_id}/>
-      < AddQuestion />
       </div>
     )
   }

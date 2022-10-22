@@ -28,11 +28,13 @@ class RatingsOverview extends React.Component {
       fit: ''
     }
     this.getMetaData = this.getMetaData.bind(this);
-    this.filterStars = this.filterStars.bind(this);
+    this.filterRatingsClick = this.filterRatingsClick.bind(this);
   }
 
-  filterStars() {
-    console.log('clicked!')
+  filterRatingsClick(e) {
+    var ratingNum = Number(e.target.innerText.substr(0, 1))
+    console.log('clicked on ratings!', ratingNum)
+    this.props.filterByRating(ratingNum)
   }
 
   componentDidMount() {
@@ -120,7 +122,7 @@ class RatingsOverview extends React.Component {
         </div>
 
         {/* Rating Breakdown */}
-        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterStars}>5 stars</span>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}>5 stars</span>
           <span className='floatRight'>{this.state.rating5} rating(s)</span> <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
         <div className='ratingsLink'><span className='floatLeft'>4 stars</span>
           <span className='floatRight'>{this.state.rating4} rating(s)</span> <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>

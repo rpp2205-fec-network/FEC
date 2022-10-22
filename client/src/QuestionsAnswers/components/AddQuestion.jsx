@@ -23,6 +23,24 @@ const AddQuestion = ({show, onClose, product_id}) => {
     }
   }
 
+  const handleSubmit = () => {
+    var question = {
+      body: body,
+      name: name,
+      email: email,
+      product_id: Number(product_id)
+    };
+    let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailFormat.test(email) || email === '') {
+      alert('You must enter the following: email')
+    } else if (name === '') {
+      alert('You must enter the following: display name')
+    } else if (body === '') {
+      alert('You must enter the following: answer')
+    } else {
+      axios.post('/postQuestion', {question});
+    }
+  }
 
   if (!show) {
     return null;
@@ -44,7 +62,7 @@ const AddQuestion = ({show, onClose, product_id}) => {
           <input type="email" maxLength="60" placeholder="Why did you like the product or not?" required onChange={(e) => handleChange(e, 'email')}/>
         <div><small> For authentication reasons, you will not be emailed </small></div>
 
-        <button type="Submit" className="questionSubmit" >Submit</button>
+        <button type="Submit" className="questionSubmit" onClick={handleSubmit}>Submit</button>
         <button type="Submit" onClick={(e) => handleClose(e)}>Close</button>
         </div>
       </form>

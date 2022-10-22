@@ -38,18 +38,19 @@ class QuestionsList extends React.Component {
   }
 
   render () {
+    console.log('questions!!!!!!', this.props.questions)
     if (!this.state.showAllItems && this.props.questions.length > 0) {
       return (
         <div>
           <div id="questionsViewDefault">
           {this.props.questions.slice(0, this.state.itemsShown).map(question =>
-            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.productId}/>
+            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.product_id}/>
           )}
           </div>
           <div>
           {<input type="button" value="More answered questions" className="moreAnsweredQuestions" onClick={this.showMore}></input>}
           <input type="button" value="Add a question +" className="addQuestionButton" onClick={this.showModal}></input>
-          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.state.product_id}/>
+          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id}/>
           </div>
         </div>
       )
@@ -58,14 +59,14 @@ class QuestionsList extends React.Component {
         <div>
           <div id="questionsViewAll">
           {this.props.questions.map(question =>
-            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.productId}/>
+            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.product_id}/>
           )}
           </div>
 
           <div>
           <input type="button" value="Show Less" className="moreAnsweredQuestions" onClick={this.collapse}></input>
           <input type="button" value="Add a question +" className="addQuestionButton" onClick={this.showModal}></input>
-          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.state.product_id}/>
+          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id}/>
           </div>
         </div>
       )

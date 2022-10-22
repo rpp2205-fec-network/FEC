@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
 import RatingsOverview from './components/RatingsOverview.jsx';
 import axios from "axios";
+import ErrorBoundary from "./ReviewErrorBoundary.jsx";
 
 export default class ReviewIndex extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      filteredReviews: []
     }
   this.getReviews = this.getReviews.bind(this);
 }
@@ -34,10 +36,12 @@ render() {
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
       <div className='mainContainer'>
         <div className='Ratings'>
+          <ErrorBoundary>
             <RatingsOverview />
+          </ErrorBoundary>
         </div>
-        <div className='Reviews'>
 
+        <div className='Reviews'>
           <div className='sorting'>
           {this.state.reviews.length} reviews, sorted by <span>
             <select className='dropdown' onChange={(e) => this.getReviews(e.target.value)}>
@@ -47,9 +51,12 @@ render() {
             </select>
             </span>
           </div>
-          <List
-          reviews={this.state.reviews}
-          />
+
+          <ErrorBoundary>
+            <List
+            reviews={this.state.reviews}
+            />
+          </ErrorBoundary>
         </div>
       </div>
     </div>

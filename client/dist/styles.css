@@ -559,6 +559,19 @@ li{
   margin-right: 20px;
  }
 
+ .modalCloseSubmit {
+   float: right;
+   padding-top: 20px;
+ }
+
+ .yourquestion, .youranswer, .yournickname, .youremail {
+   margin-top: 15px;
+ }
+
+ .labels {
+   font-size: x-small;
+ }
+
 
 /* ZACH CSS */
 

@@ -86,16 +86,22 @@ const AddAnswer = ({show, onClose, question, productId}) => {
         {/* <h3>{Product Name will go here}</h3> */}
         <h4>{question.question_body}</h4>
 
-        <div><label className="youranswer"> Your Answer * </label></div>
-          <textarea type="text" maxLength="1000" required rows={10} cols={50} onChange={(e) => handleChange(e, 'body')}/>
+        <div className="youranswer">
+          <div><label> Your Answer * </label></div>
+          <textarea type="text" maxLength="1000" required rows={10} cols={50} onChange={(e) => handleChange(e, 'body')}/> <br></br>
+        </div>
 
-        <div><label className="yournickname"> What is your nickname? * </label></div>
-          <input type="text" maxLength="60" placeholder="Example: jack543!" required onChange={(e) => handleChange(e, 'name')}/>
-          <div><small> For privacy reasons, do not use your full name or email address</small></div>
+        <div className="yournickname">
+          <div><label> What is your nickname? * </label></div>
+          <textarea type="text" maxLength="60" placeholder="Example: jack543!" required rows={1} cols={50} onChange={(e) => handleChange(e, 'name')}/>
+          <div><label className="labels"> For privacy reasons, do not use your full name or email address</label></div>
+        </div>
 
-        <div><label className="youremail"> What is your email? * </label></div>
-          <input type="email" maxLength="60" placeholder="Example: jack@email.com" required onChange={(e) => handleChange(e, 'email')}/>
-        <div><small> For authentication reasons, you will not be emailed </small></div>
+        <div className="youremail">
+          <div><label> What is your email? * </label></div>
+          <textarea type="email" maxLength="60" placeholder="Example: jack@email.com" required rows={1} cols={50} onChange={(e) => handleChange(e, 'email')}/>
+          <div><label className="labels"> For authentication reasons, you will not be emailed </label></div>
+        </div>
 
         <div className="uploadImages">{imageURLs.map((imageSrc, index) => <img className="uploadImagePreview" key={index} src={imageSrc} onError={handleError}/>)}</div>
         {images.length < 5 ? <input type="file" accept="image/*" onChange={(e) => onImageChange(e)}/> : null }

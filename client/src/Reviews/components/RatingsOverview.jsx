@@ -14,7 +14,6 @@ class RatingsOverview extends React.Component {
       rating4: '',
       rating5: '',
       average: '',
-      totalRatings: '',
       percent1: '',
       percent2: '',
       percent3: '',
@@ -29,14 +28,21 @@ class RatingsOverview extends React.Component {
       fit: ''
     }
     this.getMetaData = this.getMetaData.bind(this);
+    this.filterRatingsClick = this.filterRatingsClick.bind(this);
+  }
+
+  filterRatingsClick(e) {
+    var ratingNum = Number(e.target.innerText.substr(0, 1))
+    console.log('clicked on ratings!', ratingNum)
+    this.props.filterByRating(ratingNum)
   }
 
   componentDidMount() {
     this.getMetaData()
   }
 
-  getMetaData(product_id = '71701') {
-    axios.get(`/meta/${product_id}`)
+  getMetaData() {
+    axios.get(`/meta/${this.props.product_id}/`)
     .then((data) => {
       //console.log('FRONT END META DATA \n', data.data.characteristics)
         this.setState({
@@ -47,7 +53,6 @@ class RatingsOverview extends React.Component {
           rating5: Number(data.data.ratings[5]),
           average: ((5*Number(data.data.ratings[5]) + 4*Number(data.data.ratings[4]) + 3*Number(data.data.ratings[3])+ 2*Number(data.data.ratings[2]) + 1*Number(data.data.ratings[1]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1]))).toFixed(1),
           recommended: ((Number(data.data.recommended.true) / (Number(data.data.recommended.false) + Number(data.data.recommended.true)))*100).toFixed(0),
-          totalRatings: Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1]),
           percent1: ((Number(data.data.ratings[1]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
           percent2: ((Number(data.data.ratings[2]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
           percent3: ((Number(data.data.ratings[3]))/(Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3])+ Number(data.data.ratings[2]) + Number(data.data.ratings[1])))*100,
@@ -117,11 +122,16 @@ class RatingsOverview extends React.Component {
         </div>
 
         {/* Rating Breakdown */}
-        <div className='ratingsLink'><span className='floatLeft'>5 stars</span><span className='floatRight'>{this.state.rating5} rating(s)</span> <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>4 stars</span><span className='floatRight'>{this.state.rating4} rating(s)</span> <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>3 stars</span><span className='floatRight'>{this.state.rating3} rating(s)</span> <Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>2 stars</span><span className='floatRight'>{this.state.rating2} rating(s)</span> <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
-        <div className='ratingsLink'><span className='floatLeft'>1 stars</span><span className='floatRight'>{this.state.rating1} rating(s)</span> <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}>5 stars</span>
+          <span className='floatRight'>{this.state.rating5} rating(s)</span> <Line percent={(this.state.percent5)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 4 stars</span>
+          <span className='floatRight'>{this.state.rating4} rating(s)</span> <Line percent={(this.state.percent4)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 3 stars</span>
+          <span className='floatRight'>{this.state.rating3} rating(s)</span> <Line percent={(this.state.percent3)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 2 stars</span>
+          <span className='floatRight'>{this.state.rating2} rating(s)</span> <Line percent={(this.state.percent2)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
+        <div className='ratingsLink'><span className='floatLeft' onClick={this.filterRatingsClick}> 1 star</span>
+          <span className='floatRight'>{this.state.rating1} rating(s)</span> <Line percent={(this.state.percent1)} strokeLinecap={'square'} strokeWidth={4} trailWidth={4} trailColor="#D3D3D3" strokeColor="black" className='ratingsBar'/></div>
 
         {/* Characteristics Breakdown */}
         <div className='characteristicsBreakdown'>
@@ -189,7 +199,6 @@ class RatingsOverview extends React.Component {
           </div>
             : null}
         </div>
-
       </div>
     )
 }

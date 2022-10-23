@@ -412,6 +412,52 @@ li{
    border: 5px solid grey;
  }
 
+ .addQuestionButton {
+  display: inline-block;
+  position: absolute;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.questionModal {
+  overflow: auto;
+  background-color: whitesmoke;
+  z-index: 1;
+  margin:0 auto;
+  position: fixed;
+  width: 600px;
+  height: 800px;
+  left: 0;
+  right:0;
+  top: 50%;
+  clear: left;
+  -webkit-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
+
+.questionModalContent {
+  padding: 20px;
+}
+
+.questionSubmit {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 20px;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
  #questionsViewDefault {
   padding-top: 20px;
   height: 520px;
@@ -426,16 +472,16 @@ li{
    overflow-y: auto;
  }
 
- #addQuestion {
-   float: left;
- }
-
  #individualQuestion {
    padding-bottom: 30px;
  }
 
+ #answerContent {
+   height: 100px;
+ }
+
  #allAnswerContent {
-    height: 300px;
+    height: 200px;
     margin: 0em;
     overflow-y: auto;
  }
@@ -484,24 +530,6 @@ li{
    padding: 20px;
  }
 
- button {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  color: black;
-  text-decoration: underline;
-  cursor: pointer;
- }
-
- input[type=button] {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  color: black;
-  cursor: pointer;
-  margin-right: 20px;
- }
-
  .bar {
    padding-left: 4px;
    padding-right: 4px;
@@ -524,9 +552,54 @@ li{
  .answerSubmit {
    display: inline-block;
    margin-right: 20px;
+   background: none!important;
+   background: none!important;
+   border: none;
+   padding: 0!important;
+   color: black;
+   text-decoration: underline;
+   cursor: pointer;
  }
 
+ .QAbutton {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+ }
 
+ .QAinputbutton {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  cursor: pointer;
+  margin-right: 20px;
+ }
+
+ .moreAnsweredQuestions {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  cursor: pointer;
+  margin-right: 20px;
+ }
+
+ .modalCloseSubmit {
+   float: right;
+   padding-top: 20px;
+ }
+
+ .yourquestion, .youranswer, .yournickname, .youremail {
+   margin-top: 15px;
+ }
+
+ .labels {
+   font-size: x-small;
+ }
 
 
 /* ZACH CSS */

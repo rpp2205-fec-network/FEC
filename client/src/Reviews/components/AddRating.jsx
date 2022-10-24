@@ -17,7 +17,16 @@ class AddRating extends React.Component {
   render() {
     return(
       <div className='addReviewForm'>
-        <span onClick={this.props.addReviewOrCollapse}>X</span>
+        <span className='closingX' onClick={this.props.addReviewOrCollapse}> x </span>
+        <span className='reviewFormTitle'>
+          Write your review
+          <div className='reviewFormSubtitle'>
+            About the
+          </div>
+        </span>
+        <form className='reviewFormBody'>
+        How many stars?
+        </form>
       </div>
     )
   }

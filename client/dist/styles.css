@@ -339,20 +339,56 @@ main {
 /* Add Review Form */
 .addReviewForm {
   border: solid black 1px;
-  padding: 100px;
+  padding: 200px 400px 220px 400px;
   z-index: 100;
-  /*
-  margin: auto;
-  position: relative; */
-  width: 200px;
-  height: 200px;
+  /* width: 200px;
+  height: 200px; */
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 8%;
+  top: 11%;
   display: inline-block;
   vertical-align: top;
-  margin-top: -100px;
-  margin-left: -100px;
+  /* margin-top: -100px;
+  margin-left: -100px; */
+  background-color: white;
+}
+
+.closingX {
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
+  padding: 0px 7px 1px 6px;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+}
+
+.closingX:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
+.reviewFormTitle {
+  text-align: center;
+  top: 0;
+  left: 40%;
+  position: absolute;
+  padding: 8px;
+}
+
+.reviewFormSubtitle {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.reviewFormBody {
+  text-align: left;
+  top: 24px;
+  left: 0;
+  position: absolute;
+  padding: 8px;
+  font-size: 12px;
 }
 
 /* =================== CHELSEA'S CSS END =================== */

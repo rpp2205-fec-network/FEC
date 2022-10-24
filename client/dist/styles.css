@@ -391,6 +391,26 @@ main {
   font-size: 12px;
 }
 
+.submitButtonSpace {
+  padding-top: 4px;
+}
+
+.submitReviewButton {
+  background-color: white;
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-decoration: none;
+  text-align: center;
+  left: 354px;
+  position: absolute;
+}
+
+.submitReviewButton:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
 /* =================== CHELSEA'S CSS END =================== */
 
 /* Kens CSS */

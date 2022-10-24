@@ -5,11 +5,32 @@ class AddRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productName: ''
+      productName: '',
+      rating: '',
+      summary: '',
+      body: '',
+      recommended: '',
+      name: '',
+      email: '',
+      photos: [],
+      characteristcs: {}
     }
     this.handleClose = this.handleClose.bind(this);
     this.getProductName = this.getProductName.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(){
+    event.preventDefault()
+    console.log('submitted!')
+    // axios.post(
+    //   '/glossary',
+    //   {word: this.state.word, definition: this.state.definition}
+    //   )
+    //   .then(this.props.getWords())
+    //   .catch((err)=> console.log('axios submit error', err))
+  }
+
 
   handleClose() {
     this.setState({addReview: false})
@@ -40,8 +61,13 @@ class AddRating extends React.Component {
             About the {this.state.productName}
           </div>
         </span>
+
+        {/* Form body */}
         <form className='reviewFormBody'>
-        How many stars?
+          Rating
+          <div className='submitButtonSpace'>
+          <input className='submitReviewButton' type="submit" value="Submit" onClick={this.handleSubmit}/>
+          </div>
         </form>
       </div>
     )

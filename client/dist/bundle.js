@@ -12,8 +12,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AddToCart)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -143,9 +144,9 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
       });
       //if items in stock
       if (inStock.length > 0) {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "addToCart",
-          children: ["Size: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+          children: ["Size: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
             name: "size",
             onChange: this.changeData,
             children: this.state.data.map(function (item) {
@@ -153,50 +154,50 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
               if (item.quantity <= 0) {
                 console.log('Item size of ' + item.size + ' is out of stock');
               } else {
-                return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
                   value: "".concat(item.size, ", ").concat(item.sku),
                   children: item.size
                 }, item.sku);
               }
             })
-          }), "Quantity: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+          }), "Quantity: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
             name: "quantity",
             disabled: !this.state.size,
             onChange: this.changeData,
             children: this.state.quantityArr.map(function (number) {
-              return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
                 value: number,
                 children: number
               }, number);
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "button",
             value: "Add To Bag          +",
             onClick: this.onSubmit
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "button",
             value: "Pretend an image of a star is here",
             onClick: this.onStar
           })]
         });
       } else {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "addToCart",
-          children: ["Size: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+          children: ["Size: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
             name: "size",
             onChange: this.changeData,
             disabled: true,
             children: "OUT OF STOCK"
-          }), "Quantity: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+          }), "Quantity: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
             name: "quantity",
             onChange: this.changeData,
             disabled: true,
             children: "-"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "button",
             value: "Add To Bag          +",
             onClick: this.onSubmit
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "button",
             value: "Pretend an image of a star is here",
             onClick: this.onStar
@@ -206,7 +207,7 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return AddToCart;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 
 /***/ }),
@@ -504,8 +505,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ StyleSelector)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -544,26 +546,26 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
       var styleInfo = this.props.styleInfo;
       if (styleInfo.length === 0) {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           children: "NO STYLE INFO FOUND"
         });
         //else load photos based on current selections
       } else {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "styleSelector",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
             children: "StyleSelector"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             children: styleInfo.map(function (style) {
               if (style === _this2.props.styleInfo[_this2.props.currentStyle]) {
-                return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                   className: "selected_style",
                   onClick: _this2.onSelectStyle,
                   id: style.style_id,
                   children: style.name
                 }, style.style_id);
               } else {
-                return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                   className: "unselected_style",
                   onClick: _this2.onSelectStyle,
                   id: style.style_id,
@@ -577,7 +579,7 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return StyleSelector;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 
 /***/ }),
@@ -593,7 +595,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ProductOverview)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/imageGallery.jsx */ "./client/src/Product Overview/components/imageGallery.jsx");
 /* harmony import */ var _components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/productInformation.jsx */ "./client/src/Product Overview/components/productInformation.jsx");
 /* harmony import */ var _components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/styleSelector.jsx */ "./client/src/Product Overview/components/styleSelector.jsx");
@@ -601,7 +604,7 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./productOverviewErrorBoundary.jsx */ "./client/src/Product Overview/productOverviewErrorBoundary.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -707,23 +710,23 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-        children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
             children: "Product Overview"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
             onLod: this.getProductStyles,
             styleInfo: this.state.styleInfo,
             currentStyle: this.state.currentStyle
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
             onLoad: this.getProductInfo,
             productInfo: this.state.currentProduct
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
             onLoad: this.getProductStyles,
             styleInfo: this.state.styleInfo,
             currentStyle: this.state.currentStyle,
             onChangeStyle: this.changeStyle
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
             children: "End of Product Overview"
           })]
         })
@@ -731,7 +734,7 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return ProductOverview;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 
 /***/ }),
@@ -747,8 +750,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ProductOverviewErrorBoundary)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -791,14 +795,14 @@ var ProductOverviewErrorBoundary = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (this.state.errorInfo) {
         // Error path
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
             children: "Something went wrong."
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("details", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("details", {
             style: {
               whiteSpace: 'pre-wrap'
             },
-            children: [this.state.error && this.state.error.toString(), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), this.state.errorInfo.componentStack]
+            children: [this.state.error && this.state.error.toString(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), this.state.errorInfo.componentStack]
           })]
         });
       }
@@ -807,7 +811,7 @@ var ProductOverviewErrorBoundary = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return ProductOverviewErrorBoundary;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 
 /***/ }),
@@ -823,12 +827,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/SearchQuestions.jsx */ "./client/src/QuestionsAnswers/components/SearchQuestions.jsx");
-/* harmony import */ var _components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/QuestionsList.jsx */ "./client/src/QuestionsAnswers/components/QuestionsList.jsx");
-/* harmony import */ var _QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuestionsAnswersErrorBoundary.jsx */ "./client/src/QuestionsAnswers/QuestionsAnswersErrorBoundary.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/SearchQuestions.jsx */ "./client/src/QuestionsAnswers/components/SearchQuestions.jsx");
+/* harmony import */ var _components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/QuestionsList.jsx */ "./client/src/QuestionsAnswers/components/QuestionsList.jsx");
+/* harmony import */ var _QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QuestionsAnswersErrorBoundary.jsx */ "./client/src/QuestionsAnswers/QuestionsAnswersErrorBoundary.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -899,15 +904,15 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         id: "QAwidget",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
             children: "Questions & Answers"
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {})]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               questions: this.state.sortedQuestions,
               product_id: this.state.product_id
             })
@@ -917,7 +922,7 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return QuestionsAnswers;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsAnswers);
 
 /***/ }),
@@ -933,8 +938,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -977,14 +983,14 @@ var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (this.state.errorInfo) {
         // Error path
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
             children: "Something went wrong friend. Please try again."
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("details", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("details", {
             style: {
               whiteSpace: 'pre-wrap'
             },
-            children: [this.state.error && this.state.error.toString(), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), this.state.errorInfo.componentStack]
+            children: [this.state.error && this.state.error.toString(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), this.state.errorInfo.componentStack]
           })]
         });
       }
@@ -993,7 +999,7 @@ var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return ErrorBoundary;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ErrorBoundary);
 
 /***/ }),
@@ -1009,10 +1015,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '@cloudinary/react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '@cloudinary/url-gen'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _cloudinary_url_gen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cloudinary/url-gen */ "./node_modules/@cloudinary/url-gen/instance/Cloudinary.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
@@ -1035,35 +1041,35 @@ var AddAnswer = function AddAnswer(_ref) {
     onClose = _ref.onClose,
     question = _ref.question,
     productId = _ref.productId;
-  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(show),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(show),
     _useState2 = _slicedToArray(_useState, 2),
     modal = _useState2[0],
     setModal = _useState2[1];
-  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState4 = _slicedToArray(_useState3, 2),
     body = _useState4[0],
     setBody = _useState4[1];
-  var _useState5 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState6 = _slicedToArray(_useState5, 2),
     name = _useState6[0],
     setName = _useState6[1];
-  var _useState7 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState8 = _slicedToArray(_useState7, 2),
     email = _useState8[0],
     setEmail = _useState8[1];
-  var _useState9 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())([]),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState10 = _slicedToArray(_useState9, 2),
     images = _useState10[0],
     setImages = _useState10[1];
-  var _useState11 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())([]),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState12 = _slicedToArray(_useState11, 2),
     imageURLs = _useState12[0],
     setImageURLs = _useState12[1];
-  var _useState13 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())([]),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState14 = _slicedToArray(_useState13, 2),
     cloudImages = _useState14[0],
     setCloudImages = _useState14[1];
-  Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (images.length < 1 || images.length > 5) return;
     var currentImg = images[images.length - 1];
     setImageURLs([].concat(_toConsumableArray(imageURLs), [window.URL.createObjectURL(new Blob(currentImg, {
@@ -1072,7 +1078,7 @@ var AddAnswer = function AddAnswer(_ref) {
     // Now convert local urls to cloudinary urls
     var cloudImgs = [];
     images.forEach(function (img) {
-      var cld = new Object(function webpackMissingModule() { var e = new Error("Cannot find module '@cloudinary/url-gen'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+      var cld = new _cloudinary_url_gen__WEBPACK_IMPORTED_MODULE_2__.Cloudinary({
         cloud: {
           cloudName: 'atelier'
         }
@@ -1130,21 +1136,21 @@ var AddAnswer = function AddAnswer(_ref) {
   if (!show) {
     return null;
   } else {
-    return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("form", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
       className: "answerModal",
-      children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "answerModalContent",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
           children: "Submit your Answer"
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h4", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
           children: question.question_body
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "youranswer",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               children: " Your Answer * "
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
             type: "text",
             maxLength: "1000",
             required: true,
@@ -1153,14 +1159,14 @@ var AddAnswer = function AddAnswer(_ref) {
             onChange: function onChange(e) {
               return handleChange(e, 'body');
             }
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {})]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "yournickname",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               children: " What is your nickname? * "
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
             type: "text",
             maxLength: "60",
             placeholder: "Example: jack543!",
@@ -1170,19 +1176,19 @@ var AddAnswer = function AddAnswer(_ref) {
             onChange: function onChange(e) {
               return handleChange(e, 'name');
             }
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               className: "labels",
               children: " For privacy reasons, do not use your full name or email address"
             })
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "youremail",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               children: " What is your email? * "
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
             type: "email",
             maxLength: "60",
             placeholder: "Example: jack@email.com",
@@ -1192,33 +1198,33 @@ var AddAnswer = function AddAnswer(_ref) {
             onChange: function onChange(e) {
               return handleChange(e, 'email');
             }
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               className: "labels",
               children: " For authentication reasons, you will not be emailed "
             })
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "uploadImages",
           children: imageURLs.map(function (imageSrc, index) {
-            return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("img", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
               className: "uploadImagePreview",
               src: imageSrc,
               onError: handleError
             }, index);
           })
-        }), images.length < 5 ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+        }), images.length < 5 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
           type: "file",
           accept: "image/*",
           onChange: function onChange(e) {
             return onImageChange(e);
           }
-        }) : null, /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+        }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
           type: "Submit",
           className: "answerSubmit",
           onClick: handleSubmit,
           children: "Submit"
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
           type: "Submit",
           className: "QAbutton",
           onClick: function onClick(e) {
@@ -1245,8 +1251,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -1262,19 +1269,19 @@ var AddQuestion = function AddQuestion(_ref) {
   var show = _ref.show,
     onClose = _ref.onClose,
     product_id = _ref.product_id;
-  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(show),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(show),
     _useState2 = _slicedToArray(_useState, 2),
     modal = _useState2[0],
     setModal = _useState2[1];
-  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState4 = _slicedToArray(_useState3, 2),
     body = _useState4[0],
     setBody = _useState4[1];
-  var _useState5 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState6 = _slicedToArray(_useState5, 2),
     name = _useState6[0],
     setName = _useState6[1];
-  var _useState7 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState8 = _slicedToArray(_useState7, 2),
     email = _useState8[0],
     setEmail = _useState8[1];
@@ -1314,19 +1321,19 @@ var AddQuestion = function AddQuestion(_ref) {
   if (!show) {
     return null;
   } else {
-    return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("form", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
       className: "questionModal",
-      children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "questionModalContent",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
           children: "Ask Your Question"
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "yourquestion",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               children: " Your Question * "
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
             type: "text",
             maxLength: "1000",
             required: true,
@@ -1336,13 +1343,13 @@ var AddQuestion = function AddQuestion(_ref) {
               return handleChange(e, 'body');
             }
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "yournickname",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               children: " What is your nickname? * "
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
             type: "text",
             maxLength: "60",
             placeholder: "Example: jackson11!",
@@ -1352,19 +1359,19 @@ var AddQuestion = function AddQuestion(_ref) {
             onChange: function onChange(e) {
               return handleChange(e, 'name');
             }
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               className: "labels",
               children: " For privacy reasons, do not use your full name or email address"
             })
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "youremail",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               children: " What is your email? * "
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
             type: "email",
             maxLength: "60",
             placeholder: "Why did you like the product or not?",
@@ -1374,20 +1381,20 @@ var AddQuestion = function AddQuestion(_ref) {
             onChange: function onChange(e) {
               return handleChange(e, 'email');
             }
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
               className: "labels",
               children: " For authentication reasons, you will not be emailed "
             })
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "modalCloseSubmit",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
             type: "Submit",
             className: "questionSubmit",
             onClick: handleSubmit,
             children: "Submit"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
             type: "Submit",
             className: "QAbutton",
             onClick: function onClick(e) {
@@ -1415,10 +1422,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnswerHelpfulAndReport.jsx */ "./client/src/QuestionsAnswers/components/AnswerHelpfulAndReport.jsx");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1465,29 +1473,29 @@ var Answer = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
       if (this.state.showAllItems === false) {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             id: "answerContent",
             children: [" ", this.props.answers.slice(0, 2).map(function (answer, index) {
-              return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("li", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", answer.body, /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   id: "answererInfo",
-                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     style: {
                       fontWeight: 'bold'
                     },
                     children: answer.answerer_name
-                  }) : answer.answerer_name, ",", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+                  }) : answer.answerer_name, ",", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     children: " "
-                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                     answer: answer
                   })]
                 })]
               }, answer.answer_id);
             }), " "]
-          }), this.props.answers.length > 2 ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), this.props.answers.length > 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "button",
             value: "Load more answers",
             className: "QAinputbutton",
@@ -1497,29 +1505,29 @@ var Answer = /*#__PURE__*/function (_React$Component) {
           }) : '']
         });
       } else {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             id: "allAnswerContent",
             children: [" ", this.props.answers.map(function (answer, index) {
-              return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("li", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", answer.body, /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   id: "answererInfo",
-                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+                  children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     style: {
                       fontWeight: 'bold'
                     },
                     children: answer.answerer_name
-                  }) : answer.answerer_name, ",", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+                  }) : answer.answerer_name, ",", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     children: " "
-                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), "  ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                     answer: answer
                   })]
                 })]
               }, answer.answer_id);
             }), " "]
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             type: "button",
             value: "Collapse answers",
             className: "QAinputbutton",
@@ -1532,7 +1540,7 @@ var Answer = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return Answer;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Answer);
 
 /***/ }),
@@ -1548,8 +1556,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -1563,15 +1572,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var AnswerHelpfulAndReport = function AnswerHelpfulAndReport(_ref) {
   var answer = _ref.answer;
-  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(answer.helpfulness),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(answer.helpfulness),
     _useState2 = _slicedToArray(_useState, 2),
     helpful = _useState2[0],
     setHelpful = _useState2[1];
-  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
     report = _useState4[0],
     setReport = _useState4[1];
-  var _useState5 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(false),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
     disable = _useState6[0],
     setDisable = _useState6[1];
@@ -1594,26 +1603,26 @@ var AnswerHelpfulAndReport = function AnswerHelpfulAndReport(_ref) {
       id: answer.answer_id
     });
   };
-  return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "answerHelpfulAndReport",
-    children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
       className: "bar",
       children: "|"
-    }), " Helpful? ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+    }), " Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
       type: "submit",
       className: "QAbutton",
       disabled: disable,
       onClick: wasHelpful,
       children: "Yes"
-    }), " (", answer.helpfulness, ")", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+    }), " (", answer.helpfulness, ")", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
       className: "bar",
       children: "|"
-    }), " ", !report ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+    }), " ", !report ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
       type: "submit",
       className: "QAbutton",
       onClick: reportAnswer,
       children: "Report"
-    }) : /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
       children: "Reported"
     })]
   });
@@ -1633,10 +1642,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _QuestionHelpfulAddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionHelpfulAddAnswer.jsx */ "./client/src/QuestionsAnswers/components/QuestionHelpfulAddAnswer.jsx");
 /* harmony import */ var _Answer_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Answer.jsx */ "./client/src/QuestionsAnswers/components/Answer.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1723,20 +1733,20 @@ var Question = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         id: "individualQuestion",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_QuestionHelpfulAddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_QuestionHelpfulAddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
           helpfulCount: this.state.question.question_helpfulness,
           question: this.state.question,
           productId: this.props.productId
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
           id: "question",
           children: ["Q: ", this.state.question.question_body]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           id: "answer",
-          children: [" ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h3", {
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
             children: "A: "
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Answer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Answer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
             answers: this.state.sortedAnswers
           })]
         })]
@@ -1744,7 +1754,7 @@ var Question = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return Question;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Question);
 
 /***/ }),
@@ -1760,9 +1770,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddAnswer.jsx */ "./client/src/QuestionsAnswers/components/AddAnswer.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -1779,15 +1790,15 @@ var QuestionHelpfulAddAnswer = function QuestionHelpfulAddAnswer(_ref) {
   var question = _ref.question,
     helpfulCount = _ref.helpfulCount,
     productId = _ref.productId;
-  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     disable = _useState2[0],
     setDisable = _useState2[1];
-  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(question.question_helpfulness),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(question.question_helpfulness),
     _useState4 = _slicedToArray(_useState3, 2),
     helpful = _useState4[0],
     setHelpful = _useState4[1];
-  var _useState5 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(false),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
     show = _useState6[0],
     setShow = _useState6[1];
@@ -1806,23 +1817,23 @@ var QuestionHelpfulAddAnswer = function QuestionHelpfulAddAnswer(_ref) {
   var showModal = function showModal(e) {
     setShow(!show);
   };
-  return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     id: "addAnswer",
-    children: ["Helpful? ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+    children: ["Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       type: "Submit",
       className: "QAbutton",
       disabled: disable,
       onClick: wasHelpful,
       children: "Yes"
-    }), " (", helpful, ") ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+    }), " (", helpful, ") ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
       className: "bar",
       children: "|"
-    }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       type: "Submit",
       className: "QAbutton",
       onClick: showModal,
       children: "Add answer "
-    }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
       show: show,
       onClose: showModal,
       question: question,
@@ -1845,11 +1856,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _Question_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question.jsx */ "./client/src/QuestionsAnswers/components/Question.jsx");
-/* harmony import */ var _AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddQuestion.jsx */ "./client/src/QuestionsAnswers/components/AddQuestion.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _Question_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Question.jsx */ "./client/src/QuestionsAnswers/components/Question.jsx");
+/* harmony import */ var _AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddQuestion.jsx */ "./client/src/QuestionsAnswers/components/AddQuestion.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1923,28 +1935,28 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
       if (!this.state.showAllItems && this.props.questions.length > 0) {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             id: "questionsViewDefault",
             children: this.props.questions.slice(0, this.state.itemsShown).map(function (question) {
-              return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Question_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 question_id: question.question_id,
                 question: question,
                 productId: _this2.props.product_id
               }, question.question_id);
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "button",
               value: "More answered questions",
               className: "moreAnsweredQuestions",
               onClick: this.showMore
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "button",
               value: "Add a question +",
               className: "addQuestionButton",
               onClick: this.showModal
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               show: this.state.showQuestionModal,
               onClose: this.showModal,
               product_id: this.props.product_id
@@ -1952,28 +1964,28 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
           })]
         });
       } else if (this.state.showAllItems) {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             id: "questionsViewAll",
             children: this.props.questions.map(function (question) {
-              return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Question_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 question_id: question.question_id,
                 question: question,
                 productId: _this2.props.product_id
               }, question.question_id);
             })
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "button",
               value: "Show Less",
               className: "moreAnsweredQuestions",
               onClick: this.collapse
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "button",
               value: "Add a question +",
               className: "addQuestionButton",
               onClick: this.showModal
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               show: this.state.showQuestionModal,
               onClose: this.showModal,
               product_id: this.props.product_id
@@ -1981,9 +1993,9 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
           })]
         });
       } else if (this.props.questions.length === 0) {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           id: "questionsView",
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: "button",
             value: "Add a question +"
           })
@@ -1992,7 +2004,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return QuestionsList;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsList);
 
 /***/ }),
@@ -2082,13 +2094,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Lists)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Recommend_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Recommend.jsx */ "./client/src/RelatedProducts/Recommend.jsx");
 /* harmony import */ var _Outfit_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Outfit.jsx */ "./client/src/RelatedProducts/Outfit.jsx");
 /* harmony import */ var _ListsErrorBoundry_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ListsErrorBoundry.jsx */ "./client/src/RelatedProducts/ListsErrorBoundry.jsx");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2125,24 +2138,24 @@ var Lists = /*#__PURE__*/function (_React$Component) {
   _createClass(Lists, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-        children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_ListsErrorBoundry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_ListsErrorBoundry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             style: {
               fontSize: '25px',
               fontWeight: 'bold'
             },
             children: "Similar Products"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Recommend_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Recommend_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
             currentItem: this.state.currentItem,
             changeProduct: this.props.changeProduct
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             style: {
               fontSize: '25px',
               fontWeight: 'bold'
             },
             children: " Your Outfit"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Outfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Outfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
             currentItem: this.state.currentItem
           })]
         })
@@ -2150,7 +2163,7 @@ var Lists = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return Lists;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 
 /***/ }),
@@ -2243,11 +2256,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Outfit)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2299,40 +2313,40 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
         }
         console.log(values, 'inside element');
         var outfitMap = values.map(function (item, index) {
-          return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             id: "productRec",
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: _this2.removeItem.bind(_this2),
               style: {
                 position: 'absolute'
               },
               value: item.id,
               children: "-"
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               id: "productRecInfo",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("img", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 id: "productRecInfoImage",
                 src: item.image
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 id: "productRecInfoCategory",
                 children: item.category
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 id: "productRecInfoName",
                 children: item.name
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 id: "productRecInfoPrice",
                 children: ["$", item.default_price]
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 rating: item.rating,
                 widgetRatedColors: "black",
                 widgetDimensions: "15px",
                 widgetSpacings: "1px",
-                children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
               })]
             })]
           }, index);
         });
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           children: outfitMap
         });
       }
@@ -2434,17 +2448,17 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         id: "outfitScroll",
-        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
           id: "leftArrow",
           onClick: this.leftArrow.bind(this),
           children: "<"
-        }), this.element(), this.state.currentPosition + this.state.displayCount >= this.state.outfitList.length ? null : /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+        }), this.element(), this.state.currentPosition + this.state.displayCount >= this.state.outfitList.length ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
           id: "rightArrow",
           onClick: this.rightArrow.bind(this),
           children: ">"
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
           onClick: this.addItem.bind(this),
           style: {
             fontSize: '75px',
@@ -2458,7 +2472,7 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return Outfit;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 
 /***/ }),
@@ -2474,13 +2488,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Recommend)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
 /* harmony import */ var _ActionButton_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ActionButton.jsx */ "./client/src/RelatedProducts/ActionButton.jsx");
 /* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2569,10 +2584,10 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     value: function element(input) {
       var _this3 = this;
       var recMap = input.map(function (item, index) {
-        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           id: "productRec",
           onClick: _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"],
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             onClick: function onClick() {
               _this3.setState({
                 popup: !_this3.state.popup,
@@ -2583,36 +2598,36 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
               position: 'absolute'
             },
             children: "\u2605"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             id: "productRecInfo",
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               onClick: function onClick() {
                 _this3.props.changeProduct(item.id);
               },
               id: "productRecInfoImage",
               src: item.image
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               id: "productRecInfoCategory",
               children: item.category
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               id: "productRecInfoName",
               children: item.name
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               id: "productRecInfoPrice",
               children: ["$", item.default_price]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
               rating: item.rating,
               widgetRatedColors: "black",
               widgetDimensions: "15px",
               widgetSpacings: "1px",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
             })]
           })]
         }, index);
       });
       //console.log(recMap)
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-        children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           children: recMap
         })
       });
@@ -2658,32 +2673,32 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
         if (option === 'option1') {
           // returning check to both sides
           key++;
-          return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("tr", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
               children: "\u2714"
-            }, key), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+            }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
               children: [feature.feature, " : ", feature.value]
-            }, key + 1), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
               children: "\u2714"
             }, key + 2)]
           }, key + 3);
         } else if (option === 'option2') {
           // returning check to left side only
           key++;
-          return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("tr", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
               children: "\u2714"
-            }, key), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+            }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
               children: [feature.feature, " : ", feature.value]
-            }, key + 1), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {}, key + 2)]
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {}, key + 2)]
           }, key + 3);
         } else if (option === 'option3') {
           // returning check to right side only
           key++;
-          return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("tr", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {}, key), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {}, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
               children: [feature.feature, " : ", feature.value]
-            }, key + 1), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
               children: "\u2714"
             }, key + 2)]
           }, key + 3);
@@ -2733,17 +2748,17 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
         //console.log(arrayOfArrays)
         return result;
       };
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         id: "compareBox",
-        children: ["Comparing", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("table", {
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("tbody", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("tr", {
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+        children: ["Comparing", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("table", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tbody", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                 id: "compareName",
                 children: this.state.example.name
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                 children: "    "
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("td", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                 id: "compareName",
                 children: this.state.clickedProduct.name
               })]
@@ -2772,13 +2787,13 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         id: "productRecScroll",
-        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           id: "leftArrow",
           onClick: this.leftArrow.bind(this),
           children: "<"
-        }), this.element(this.state.display), this.state.popup ? this.popupFunc(this.state) : null, this.state.currentPosition + this.state.displayCount >= this.state.productList.length ? null : /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+        }), this.element(this.state.display), this.state.popup ? this.popupFunc(this.state) : null, this.state.currentPosition + this.state.displayCount >= this.state.productList.length ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           id: "rightArrow",
           onClick: this.rightArrow.bind(this),
           children: ">"
@@ -2787,8 +2802,85 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return Recommend;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
+
+/***/ }),
+
+/***/ "./client/src/Reviews/ReviewErrorBoundary.jsx":
+/*!****************************************************!*\
+  !*** ./client/src/Reviews/ReviewErrorBoundary.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
+  _inherits(ErrorBoundary, _React$Component);
+  var _super = _createSuper(ErrorBoundary);
+  function ErrorBoundary(props) {
+    var _this;
+    _classCallCheck(this, ErrorBoundary);
+    _this = _super.call(this, props);
+    _this.state = {
+      error: null,
+      errorInfo: null
+    };
+    return _this;
+  }
+  _createClass(ErrorBoundary, [{
+    key: "componentDidCatch",
+    value: function componentDidCatch(error, errorInfo) {
+      // Catch errors in any components below and re-render with error message
+      this.setState({
+        error: error,
+        errorInfo: errorInfo
+      });
+      // You can also log error messages to an error reporting service here
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state.errorInfo) {
+        // Error path
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            children: "Something went wrong friend. Please try again."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("details", {
+            style: {
+              whiteSpace: 'pre-wrap'
+            },
+            children: [this.state.error && this.state.error.toString(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), this.state.errorInfo.componentStack]
+          })]
+        });
+      }
+      // Normally, just render children
+      return this.props.children;
+    }
+  }]);
+  return ErrorBoundary;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ErrorBoundary);
 
 /***/ }),
 
@@ -2810,7 +2902,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RatingsOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/RatingsOverview.jsx */ "./client/src/Reviews/components/RatingsOverview.jsx");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ReviewErrorBoundary.jsx */ "./client/src/Reviews/ReviewErrorBoundary.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2829,6 +2925,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewIndex, _React$Component);
   var _super = _createSuper(ReviewIndex);
@@ -2837,12 +2934,52 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ReviewIndex);
     _this = _super.call(this, props);
     _this.state = {
-      reviews: []
+      reviews: [],
+      filteredReviews: {
+        5: [],
+        4: [],
+        3: [],
+        2: [],
+        1: []
+      },
+      filterClicked: false
     };
     _this.getReviews = _this.getReviews.bind(_assertThisInitialized(_this));
+    _this.filterByRating = _this.filterByRating.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(ReviewIndex, [{
+    key: "filterByRating",
+    value: function filterByRating(starRating) {
+      console.log("rating", _typeof(starRating));
+      console.log("reviewss", this.state.filteredReviews[5]);
+      if (this.state.filteredReviews[starRating].length === 0) {
+        //console.log('this.state.reviews', typeof this.state.reviews[0].rating)
+        var result = this.state.reviews.filter(function (review) {
+          return review.rating === starRating;
+        });
+        //console.log('result', result)
+        this.setState({
+          filterClicked: true,
+          filteredReviews: _objectSpread(_objectSpread({}, this.state.filteredReviews), {}, _defineProperty({}, starRating, result))
+        });
+        //console.log('this.state.filteredReviews', this.state.filteredReviews)
+      } else {
+        //if the clicked rating isn't empty, then reset that number to an empty array
+
+        if (this.state.filteredReviews[5] === [] && this.state.filteredReviews[4] === [] && this.state.filteredReviews[3] === [] && this.state.filteredReviews[2] === [] && this.state.filteredReviews[1] === []) {
+          this.setState({
+            filterClicked: false
+          });
+        } else {
+          this.setState({
+            filterClicked: true,
+            filteredReviews: _objectSpread(_objectSpread({}, this.state.filteredReviews), {}, _defineProperty({}, starRating, []))
+          });
+        }
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getReviews('relevant');
@@ -2852,7 +2989,8 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     value: function getReviews() {
       var _this2 = this;
       var sort = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'relevant';
-      axios__WEBPACK_IMPORTED_MODULE_4___default().get("/reviews/71720/".concat(sort)).then(function (data) {
+      //axios.get(`/reviews/${this.props.product_id}/${sort}`)
+      axios__WEBPACK_IMPORTED_MODULE_4___default().get("/reviews/71717/".concat(sort)).then(function (data) {
         //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
         _this2.setState({
           reviews: data.data.results
@@ -2865,43 +3003,78 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this3 = this;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      var finalArrays = this.state.filteredReviews[5].concat(this.state.filteredReviews[4], this.state.filteredReviews[3], this.state.filteredReviews[2], this.state.filteredReviews[1]);
+      var count = 0;
+      for (var key in this.state.filteredReviews) {
+        count += this.state.filteredReviews[key].length;
+      }
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "reviewsOverview",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
           className: "reviewsTitle",
           children: "RATINGS & REVIEWS"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "mainContainer",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "Ratings",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_RatingsOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_RatingsOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                filterByRating: this.filterByRating,
+                product_id: this.props.product_id
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "Reviews",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "sorting",
-              children: [this.state.reviews.length, " reviews, sorted by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
+              children: [this.state.reviews.length, " reviews, sorted by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
                   className: "dropdown",
                   onChange: function onChange(e) {
                     return _this3.getReviews(e.target.value);
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                     className: "dropdownSelect",
                     value: "relevance",
                     children: "relevance"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                     className: "dropdownSelect",
                     value: "helpful",
                     children: "helpful"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                     className: "dropdownSelect",
                     value: "newest",
                     children: "newest"
                   })]
-                })
+                }), this.state.filterClicked && count !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                  className: "filterApplied",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "filtersText",
+                    children: "[ Filter(s) has been applied ]"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                    className: "removeAllFilters",
+                    onClick: function onClick() {
+                      return _this3.setState({
+                        filterClicked: false,
+                        filteredReviews: {
+                          5: [],
+                          4: [],
+                          3: [],
+                          2: [],
+                          1: []
+                        }
+                      });
+                    },
+                    children: "Remove all filters"
+                  })]
+                }) : null]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-              reviews: this.state.reviews
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              children: count === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                reviews: this.state.reviews
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                reviews: finalArrays
+              })
             })]
           })]
         })]
@@ -3043,13 +3216,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var rc_progress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-progress */ "./node_modules/rc-progress/es/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3115,7 +3289,7 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
     key: "getMetaData",
     value: function getMetaData() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_2___default().get("/meta/".concat(this.props.product_id, "/")).then(function (data) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get("/meta/".concat(this.props.product_id, "/")).then(function (data) {
         //console.log('FRONT END META DATA \n', data.data.characteristics)
         _this2.setState({
           rating1: Number(data.data.ratings[1]),
@@ -3168,32 +3342,32 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "avgRating",
-          children: [this.state.average, /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          children: [this.state.average, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
             className: "ratingStar",
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
               rating: Number(this.state.average),
               widgetRatedColors: "black",
               widgetDimensions: "15px",
               widgetSpacings: "1px",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
             })
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "percentageRecommended",
           children: [this.state.recommended, "% of reviewers recommend this product"]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: "5 stars"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating5, " rating(s)"]
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
             percent: this.state.percent5,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3202,16 +3376,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 4 stars"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating4, " rating(s)"]
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
             percent: this.state.percent4,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3220,16 +3394,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 3 stars"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating3, " rating(s)"]
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
             percent: this.state.percent3,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3238,16 +3412,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 2 stars"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating2, " rating(s)"]
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
             percent: this.state.percent2,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3256,16 +3430,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 1 star"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating1, " rating(s)"]
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
             percent: this.state.percent1,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3274,12 +3448,12 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "characteristicsBreakdown",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), this.state.size !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), this.state.size !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "characteristics",
-              children: ["Size ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+              children: ["Size ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
                 percent: [this.state.size, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3289,23 +3463,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charLeft",
                 children: "Too small"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charRight",
                 children: "Too large"
               })]
             })]
-          }) : null, this.state.width !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }) : null, this.state.width !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "characteristics",
-              children: ["Width ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+              children: ["Width ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
                 percent: [this.state.width, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3315,23 +3489,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charLeft",
                 children: "Too narrow"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charRight",
                 children: "Too wide"
               })]
             })]
-          }) : null, this.state.comfort !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }) : null, this.state.comfort !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "characteristics",
-              children: ["Comfort ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+              children: ["Comfort ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
                 percent: [this.state.comfort, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3341,23 +3515,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charLeft",
                 children: "Uncomfortable"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charMid",
                 children: "Ok"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charRight",
                 children: "Perfect"
               })]
             })]
-          }) : null, this.state.quality !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }) : null, this.state.quality !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "characteristics",
-              children: ["Quality ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+              children: ["Quality ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
                 percent: [this.state.quality, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3367,23 +3541,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charLeft",
                 children: "Poor"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charMid",
                 children: "What I expected"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charRight",
                 children: "Great"
               })]
             })]
-          }) : null, this.state.length !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }) : null, this.state.length !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "characteristics",
-              children: ["Length ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+              children: ["Length ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
                 percent: [this.state.length, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3393,23 +3567,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charLeft",
                 children: "Runs short"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charRight",
                 children: "Runs long"
               })]
             })]
-          }) : null, this.state.fit !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }) : null, this.state.fit !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "characteristics",
-              children: ["Fit ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+              children: ["Fit ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
                 percent: [this.state.fit, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3419,15 +3593,15 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charLeft",
                 children: "Runs tight"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "charRight",
                 children: "Runs long"
               })]
@@ -3438,7 +3612,7 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return RatingsOverview;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RatingsOverview);
 
 /***/ }),
@@ -3454,12 +3628,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3550,44 +3725,44 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this2 = this;
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "tile",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
           rating: this.props.review.rating,
           widgetRatedColors: "black",
           widgetDimensions: "15px",
           widgetSpacings: "1px",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "userAndDate",
-            children: [this.props.review.reviewer_name, ", ", (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(this.props.review.date), 'MMMM dd, yyyy')]
+            children: [this.props.review.reviewer_name, ", ", (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(this.props.review.date), 'MMMM dd, yyyy')]
           })
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("b", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
             className: "summary",
             children: this.props.review.summary
           })
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "bodyText",
-            children: [this.props.review.body.slice(0, this.state.bodyCharactersToShow), this.props.review.body.length > 250 ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-              children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+            children: [this.props.review.body.slice(0, this.state.bodyCharactersToShow), this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                 className: "bodyButton",
                 onClick: this.toggleBody,
-                children: this.state.expanded && this.props.review.body.length > 250 ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                children: this.state.expanded && this.props.review.body.length > 250 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   children: "Show Less"
-                }) : /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   children: "Show more"
                 })
               })
             }) : null]
           })
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "photoContainer",
           children: this.props.review.photos.slice(0, 5).map(function (photo) {
-            return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-              children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("img", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 className: "reviewPhoto",
                 onClick: function onClick() {
                   return _this2.toggleModal(photo.url);
@@ -3597,31 +3772,31 @@ var Tile = /*#__PURE__*/function (_React$Component) {
               }, photo.id)
             }, photo.id);
           })
-        }), this.state.modalOpen ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }), this.state.modalOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "specificModalPhoto",
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
             onClick: this.toggleModal,
             src: this.state.clickedPhotoURL
           })
-        }) : null, this.props.review.response !== null ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }) : null, this.props.review.response !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "response",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("b", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
             children: "Response from seller:"
-          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             children: this.props.review.response.slice(1, this.props.review.response.length - 1)
           })]
-        }) : null, this.props.review.recommend ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }) : null, this.props.review.recommend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "recommend",
           children: "\u2713 I recommend this product"
-        }) : null, /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "helpful",
-          children: ["Helpful? ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("u", {
+          children: ["Helpful? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("u", {
             className: "helpfulYes",
             onClick: function onClick() {
               return _this2.clickHelpful(_this2.props.review.review_id);
             },
             children: "Yes"
-          }), " (", this.state.helpfulIncrease, ") \u2002 | \u2002", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("u", {
+          }), " (", this.state.helpfulIncrease, ") \u2002 | \u2002", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("u", {
             onClick: function onClick() {
               alert('This review was reported.');
             },
@@ -3632,7 +3807,7 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return Tile;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tile);
 
 /***/ }),
@@ -5458,6 +5633,67 @@ module.exports = {
   trim: trim,
   stripBOM: stripBOM
 };
+
+/***/ }),
+
+/***/ "./node_modules/classnames/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/classnames/index.js ***!
+  \******************************************/
+/***/ ((module, exports) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+  'use strict';
+
+  var hasOwn = {}.hasOwnProperty;
+  var nativeCodeString = '[native code]';
+  function classNames() {
+    var classes = [];
+    for (var i = 0; i < arguments.length; i++) {
+      var arg = arguments[i];
+      if (!arg) continue;
+      var argType = typeof arg;
+      if (argType === 'string' || argType === 'number') {
+        classes.push(arg);
+      } else if (Array.isArray(arg)) {
+        if (arg.length) {
+          var inner = classNames.apply(null, arg);
+          if (inner) {
+            classes.push(inner);
+          }
+        }
+      } else if (argType === 'object') {
+        if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+          classes.push(arg.toString());
+          continue;
+        }
+        for (var key in arg) {
+          if (hasOwn.call(arg, key) && arg[key]) {
+            classes.push(key);
+          }
+        }
+      }
+    }
+    return classes.join(' ');
+  }
+  if ( true && module.exports) {
+    classNames.default = classNames;
+    module.exports = classNames;
+  } else if (true) {
+    // register as 'classnames', consistent with npm package name
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+      return classNames;
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+})();
 
 /***/ }),
 
@@ -8318,6 +8554,1441 @@ function toDate(argument) {
 
 /***/ }),
 
+/***/ "./node_modules/object-assign/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+/***/ ((module) => {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+function toObject(val) {
+  if (val === null || val === undefined) {
+    throw new TypeError('Object.assign cannot be called with null or undefined');
+  }
+  return Object(val);
+}
+function shouldUseNative() {
+  try {
+    if (!Object.assign) {
+      return false;
+    }
+
+    // Detect buggy property enumeration order in older V8 versions.
+
+    // https://bugs.chromium.org/p/v8/issues/detail?id=4118
+    var test1 = new String('abc'); // eslint-disable-line no-new-wrappers
+    test1[5] = 'de';
+    if (Object.getOwnPropertyNames(test1)[0] === '5') {
+      return false;
+    }
+
+    // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+    var test2 = {};
+    for (var i = 0; i < 10; i++) {
+      test2['_' + String.fromCharCode(i)] = i;
+    }
+    var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+      return test2[n];
+    });
+    if (order2.join('') !== '0123456789') {
+      return false;
+    }
+
+    // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+    var test3 = {};
+    'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+      test3[letter] = letter;
+    });
+    if (Object.keys(Object.assign({}, test3)).join('') !== 'abcdefghijklmnopqrst') {
+      return false;
+    }
+    return true;
+  } catch (err) {
+    // We don't expect any of the above to throw, but better to be safe.
+    return false;
+  }
+}
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+  var from;
+  var to = toObject(target);
+  var symbols;
+  for (var s = 1; s < arguments.length; s++) {
+    from = Object(arguments[s]);
+    for (var key in from) {
+      if (hasOwnProperty.call(from, key)) {
+        to[key] = from[key];
+      }
+    }
+    if (getOwnPropertySymbols) {
+      symbols = getOwnPropertySymbols(from);
+      for (var i = 0; i < symbols.length; i++) {
+        if (propIsEnumerable.call(from, symbols[i])) {
+          to[symbols[i]] = from[symbols[i]];
+        }
+      }
+    }
+  }
+  return to;
+};
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/checkPropTypes.js":
+/*!***************************************************!*\
+  !*** ./node_modules/prop-types/checkPropTypes.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var printWarning = function () {};
+if (true) {
+  var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+  var loggedTypeFailures = {};
+  var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
+  printWarning = function (text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {/**/}
+  };
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (true) {
+    for (var typeSpecName in typeSpecs) {
+      if (has(typeSpecs, typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        if (error && !(error instanceof Error)) {
+          printWarning((componentName || 'React class') + ': type specification of ' + location + ' `' + typeSpecName + '` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a ' + typeof error + '. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).');
+        }
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+          var stack = getStack ? getStack() : '';
+          printWarning('Failed ' + location + ' type: ' + error.message + (stack != null ? stack : ''));
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+checkPropTypes.resetWarningCache = function () {
+  if (true) {
+    loggedTypeFailures = {};
+  }
+};
+module.exports = checkPropTypes;
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/factoryWithTypeCheckers.js":
+/*!************************************************************!*\
+  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
+var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
+var printWarning = function () {};
+if (true) {
+  printWarning = function (text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
+module.exports = function (isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bigint: createPrimitiveTypeChecker('bigint'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message, data) {
+    this.message = message;
+    this.data = data && typeof data === 'object' ? data : {};
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+  function createChainableTypeChecker(validate) {
+    if (true) {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          var err = new Error('Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use `PropTypes.checkPropTypes()` to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
+          err.name = 'Invariant Violation';
+          throw err;
+        } else if ( true && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (!manualPropTypeCallCache[cacheKey] &&
+          // Avoid spamming the console because they are often not actionable except for lib authors
+          manualPropTypeWarningCount < 3) {
+            printWarning('You are manually calling a React.PropTypes validation ' + 'function for the `' + propFullName + '` prop on `' + componentName + '`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.');
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+    return chainedCheckType;
+  }
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'), {
+          expectedType: expectedType
+        });
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+  }
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!ReactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      if (true) {
+        if (arguments.length > 1) {
+          printWarning('Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' + 'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).');
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
+    }
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (has(propValue, key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : 0;
+      return emptyFunctionThatReturnsNull;
+    }
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        printWarning('Invalid argument supplied to oneOfType. Expected an array of check functions, but ' + 'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.');
+        return emptyFunctionThatReturnsNull;
+      }
+    }
+    function validate(props, propName, componentName, location, propFullName) {
+      var expectedTypes = [];
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        var checkerResult = checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
+        if (checkerResult == null) {
+          return null;
+        }
+        if (checkerResult.data && has(checkerResult.data, 'expectedType')) {
+          expectedTypes.push(checkerResult.data.expectedType);
+        }
+      }
+      var expectedTypesMessage = expectedTypes.length > 0 ? ', expected one of type [' + expectedTypes.join(', ') + ']' : '';
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`' + expectedTypesMessage + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function invalidValidatorError(componentName, location, propFullName, key, type) {
+    return new PropTypeError((componentName || 'React class') + ': ' + location + ' type `' + propFullName + '.' + key + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + type + '`.');
+  }
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (has(shapeTypes, key) && typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+        }
+        if (!checker) {
+          return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' + '\nBad object: ' + JSON.stringify(props[propName], null, '  ') + '\nValid keys: ' + JSON.stringify(Object.keys(shapeTypes), null, '  '));
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+        return true;
+      default:
+        return false;
+    }
+  }
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+  return ReactPropTypes;
+};
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/prop-types/index.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (true) {
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ "./node_modules/prop-types/factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
+} else {}
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+module.exports = ReactPropTypesSecret;
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/lib/has.js":
+/*!********************************************!*\
+  !*** ./node_modules/prop-types/lib/has.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+if (true) {
+  (function () {
+    'use strict';
+
+    // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+    // nor polyfill, then a plain number is used for performance.
+    var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+    var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+    var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+    var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+    var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+    var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+    var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+    var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+    // (unstable) APIs that have been removed. Can we remove the symbols?
+
+    var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+    var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+    var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+    var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+    var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+    var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+    var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+    var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+    var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+    var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+    var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+    function isValidElementType(type) {
+      return typeof type === 'string' || typeof type === 'function' ||
+      // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+      type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+    }
+    function typeOf(object) {
+      if (typeof object === 'object' && object !== null) {
+        var $$typeof = object.$$typeof;
+        switch ($$typeof) {
+          case REACT_ELEMENT_TYPE:
+            var type = object.type;
+            switch (type) {
+              case REACT_ASYNC_MODE_TYPE:
+              case REACT_CONCURRENT_MODE_TYPE:
+              case REACT_FRAGMENT_TYPE:
+              case REACT_PROFILER_TYPE:
+              case REACT_STRICT_MODE_TYPE:
+              case REACT_SUSPENSE_TYPE:
+                return type;
+              default:
+                var $$typeofType = type && type.$$typeof;
+                switch ($$typeofType) {
+                  case REACT_CONTEXT_TYPE:
+                  case REACT_FORWARD_REF_TYPE:
+                  case REACT_LAZY_TYPE:
+                  case REACT_MEMO_TYPE:
+                  case REACT_PROVIDER_TYPE:
+                    return $$typeofType;
+                  default:
+                    return $$typeof;
+                }
+            }
+          case REACT_PORTAL_TYPE:
+            return $$typeof;
+        }
+      }
+      return undefined;
+    } // AsyncMode is deprecated along with isAsyncMode
+
+    var AsyncMode = REACT_ASYNC_MODE_TYPE;
+    var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+    var ContextConsumer = REACT_CONTEXT_TYPE;
+    var ContextProvider = REACT_PROVIDER_TYPE;
+    var Element = REACT_ELEMENT_TYPE;
+    var ForwardRef = REACT_FORWARD_REF_TYPE;
+    var Fragment = REACT_FRAGMENT_TYPE;
+    var Lazy = REACT_LAZY_TYPE;
+    var Memo = REACT_MEMO_TYPE;
+    var Portal = REACT_PORTAL_TYPE;
+    var Profiler = REACT_PROFILER_TYPE;
+    var StrictMode = REACT_STRICT_MODE_TYPE;
+    var Suspense = REACT_SUSPENSE_TYPE;
+    var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+    function isAsyncMode(object) {
+      {
+        if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+          hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+          console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+        }
+      }
+      return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+    }
+    function isConcurrentMode(object) {
+      return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+    }
+    function isContextConsumer(object) {
+      return typeOf(object) === REACT_CONTEXT_TYPE;
+    }
+    function isContextProvider(object) {
+      return typeOf(object) === REACT_PROVIDER_TYPE;
+    }
+    function isElement(object) {
+      return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    function isForwardRef(object) {
+      return typeOf(object) === REACT_FORWARD_REF_TYPE;
+    }
+    function isFragment(object) {
+      return typeOf(object) === REACT_FRAGMENT_TYPE;
+    }
+    function isLazy(object) {
+      return typeOf(object) === REACT_LAZY_TYPE;
+    }
+    function isMemo(object) {
+      return typeOf(object) === REACT_MEMO_TYPE;
+    }
+    function isPortal(object) {
+      return typeOf(object) === REACT_PORTAL_TYPE;
+    }
+    function isProfiler(object) {
+      return typeOf(object) === REACT_PROFILER_TYPE;
+    }
+    function isStrictMode(object) {
+      return typeOf(object) === REACT_STRICT_MODE_TYPE;
+    }
+    function isSuspense(object) {
+      return typeOf(object) === REACT_SUSPENSE_TYPE;
+    }
+    exports.AsyncMode = AsyncMode;
+    exports.ConcurrentMode = ConcurrentMode;
+    exports.ContextConsumer = ContextConsumer;
+    exports.ContextProvider = ContextProvider;
+    exports.Element = Element;
+    exports.ForwardRef = ForwardRef;
+    exports.Fragment = Fragment;
+    exports.Lazy = Lazy;
+    exports.Memo = Memo;
+    exports.Portal = Portal;
+    exports.Profiler = Profiler;
+    exports.StrictMode = StrictMode;
+    exports.Suspense = Suspense;
+    exports.isAsyncMode = isAsyncMode;
+    exports.isConcurrentMode = isConcurrentMode;
+    exports.isContextConsumer = isContextConsumer;
+    exports.isContextProvider = isContextProvider;
+    exports.isElement = isElement;
+    exports.isForwardRef = isForwardRef;
+    exports.isFragment = isFragment;
+    exports.isLazy = isLazy;
+    exports.isMemo = isMemo;
+    exports.isPortal = isPortal;
+    exports.isProfiler = isProfiler;
+    exports.isStrictMode = isStrictMode;
+    exports.isSuspense = isSuspense;
+    exports.isValidElementType = isValidElementType;
+    exports.typeOf = typeOf;
+  })();
+}
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/node_modules/react-is/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/prop-types/node_modules/react-is/index.js ***!
+  \****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
+}
+
+/***/ }),
+
+/***/ "./node_modules/rc-progress/es/Circle.js":
+/*!***********************************************!*\
+  !*** ./node_modules/rc-progress/es/Circle.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./common */ "./node_modules/rc-progress/es/common.js");
+/* harmony import */ var _hooks_useId__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./hooks/useId */ "./node_modules/rc-progress/es/hooks/useId.js");
+
+
+
+var _excluded = ["id", "prefixCls", "steps", "strokeWidth", "trailWidth", "gapDegree", "gapPosition", "trailColor", "strokeLinecap", "style", "className", "strokeColor", "percent"];
+
+
+
+
+function stripPercentToNumber(percent) {
+  return +percent.replace('%', '');
+}
+function toArray(value) {
+  var mergedValue = value !== null && value !== void 0 ? value : [];
+  return Array.isArray(mergedValue) ? mergedValue : [mergedValue];
+}
+var VIEW_BOX_SIZE = 100;
+var getCircleStyle = function getCircleStyle(perimeter, perimeterWithoutGap, offset, percent, rotateDeg, gapDegree, gapPosition, strokeColor, strokeLinecap, strokeWidth) {
+  var stepSpace = arguments.length > 10 && arguments[10] !== undefined ? arguments[10] : 0;
+  var offsetDeg = offset / 100 * 360 * ((360 - gapDegree) / 360);
+  var positionDeg = gapDegree === 0 ? 0 : {
+    bottom: 0,
+    top: 180,
+    left: 90,
+    right: -90
+  }[gapPosition];
+  var strokeDashoffset = (100 - percent) / 100 * perimeterWithoutGap; // Fix percent accuracy when strokeLinecap is round
+  // https://github.com/ant-design/ant-design/issues/35009
+
+  if (strokeLinecap === 'round' && percent !== 100) {
+    strokeDashoffset += strokeWidth / 2; // when percent is small enough (<= 1%), keep smallest value to avoid it's disappearance
+
+    if (strokeDashoffset >= perimeterWithoutGap) {
+      strokeDashoffset = perimeterWithoutGap - 0.01;
+    }
+  }
+  return {
+    stroke: typeof strokeColor === 'string' ? strokeColor : undefined,
+    strokeDasharray: "".concat(perimeterWithoutGap, "px ").concat(perimeter),
+    strokeDashoffset: strokeDashoffset + stepSpace,
+    transform: "rotate(".concat(rotateDeg + offsetDeg + positionDeg, "deg)"),
+    transformOrigin: '50% 50%',
+    transition: 'stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s',
+    fillOpacity: 0
+  };
+};
+var Circle = function Circle(_ref) {
+  var id = _ref.id,
+    prefixCls = _ref.prefixCls,
+    steps = _ref.steps,
+    strokeWidth = _ref.strokeWidth,
+    trailWidth = _ref.trailWidth,
+    _ref$gapDegree = _ref.gapDegree,
+    gapDegree = _ref$gapDegree === void 0 ? 0 : _ref$gapDegree,
+    gapPosition = _ref.gapPosition,
+    trailColor = _ref.trailColor,
+    strokeLinecap = _ref.strokeLinecap,
+    style = _ref.style,
+    className = _ref.className,
+    strokeColor = _ref.strokeColor,
+    percent = _ref.percent,
+    restProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(_ref, _excluded);
+  var mergedId = (0,_hooks_useId__WEBPACK_IMPORTED_MODULE_6__["default"])(id);
+  var gradientId = "".concat(mergedId, "-gradient");
+  var radius = VIEW_BOX_SIZE / 2 - strokeWidth / 2;
+  var perimeter = Math.PI * 2 * radius;
+  var rotateDeg = gapDegree > 0 ? 90 + gapDegree / 2 : -90;
+  var perimeterWithoutGap = perimeter * ((360 - gapDegree) / 360);
+  var _ref2 = (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(steps) === 'object' ? steps : {
+      count: steps,
+      space: 2
+    },
+    stepCount = _ref2.count,
+    stepSpace = _ref2.space;
+  var circleStyle = getCircleStyle(perimeter, perimeterWithoutGap, 0, 100, rotateDeg, gapDegree, gapPosition, trailColor, strokeLinecap, strokeWidth);
+  var percentList = toArray(percent);
+  var strokeColorList = toArray(strokeColor);
+  var gradient = strokeColorList.find(function (color) {
+    return color && (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(color) === 'object';
+  });
+  var paths = (0,_common__WEBPACK_IMPORTED_MODULE_5__.useTransitionDuration)();
+  var getStokeList = function getStokeList() {
+    var stackPtg = 0;
+    return percentList.map(function (ptg, index) {
+      var color = strokeColorList[index] || strokeColorList[strokeColorList.length - 1];
+      var stroke = color && (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(color) === 'object' ? "url(#".concat(gradientId, ")") : undefined;
+      var circleStyleForStack = getCircleStyle(perimeter, perimeterWithoutGap, stackPtg, ptg, rotateDeg, gapDegree, gapPosition, color, strokeLinecap, strokeWidth);
+      stackPtg += ptg;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("circle", {
+        key: index,
+        className: "".concat(prefixCls, "-circle-path"),
+        r: radius,
+        cx: VIEW_BOX_SIZE / 2,
+        cy: VIEW_BOX_SIZE / 2,
+        stroke: stroke,
+        strokeLinecap: strokeLinecap,
+        strokeWidth: strokeWidth,
+        opacity: ptg === 0 ? 0 : 1,
+        style: circleStyleForStack,
+        ref: function ref(elem) {
+          // https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
+          // React will call the ref callback with the DOM element when the component mounts,
+          // and call it with `null` when it unmounts.
+          // Refs are guaranteed to be up-to-date before componentDidMount or componentDidUpdate fires.
+          paths[index] = elem;
+        }
+      });
+    }).reverse();
+  };
+  var getStepStokeList = function getStepStokeList() {
+    // only show the first percent when pass steps
+    var current = Math.round(stepCount * (percentList[0] / 100));
+    var stepPtg = 100 / stepCount;
+    var stackPtg = 0;
+    return new Array(stepCount).fill(null).map(function (_, index) {
+      var color = index <= current - 1 ? strokeColorList[0] : trailColor;
+      var stroke = color && (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(color) === 'object' ? "url(#".concat(gradientId, ")") : undefined;
+      var circleStyleForStack = getCircleStyle(perimeter, perimeterWithoutGap, stackPtg, stepPtg, rotateDeg, gapDegree, gapPosition, color, 'butt', strokeWidth, stepSpace);
+      stackPtg += (perimeterWithoutGap - circleStyleForStack.strokeDashoffset + stepSpace) * 100 / perimeterWithoutGap;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("circle", {
+        key: index,
+        className: "".concat(prefixCls, "-circle-path"),
+        r: radius,
+        cx: VIEW_BOX_SIZE / 2,
+        cy: VIEW_BOX_SIZE / 2,
+        stroke: stroke // strokeLinecap={strokeLinecap}
+        ,
+
+        strokeWidth: strokeWidth,
+        opacity: 1,
+        style: circleStyleForStack,
+        ref: function ref(elem) {
+          paths[index] = elem;
+        }
+      });
+    });
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("svg", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()("".concat(prefixCls, "-circle"), className),
+    viewBox: "0 0 ".concat(VIEW_BOX_SIZE, " ").concat(VIEW_BOX_SIZE),
+    style: style,
+    id: id
+  }, restProps), gradient && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("defs", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("linearGradient", {
+    id: gradientId,
+    x1: "100%",
+    y1: "0%",
+    x2: "0%",
+    y2: "0%"
+  }, Object.keys(gradient).sort(function (a, b) {
+    return stripPercentToNumber(a) - stripPercentToNumber(b);
+  }).map(function (key, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("stop", {
+      key: index,
+      offset: key,
+      stopColor: gradient[key]
+    });
+  }))), !stepCount && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("circle", {
+    className: "".concat(prefixCls, "-circle-trail"),
+    r: radius,
+    cx: VIEW_BOX_SIZE / 2,
+    cy: VIEW_BOX_SIZE / 2,
+    stroke: trailColor,
+    strokeLinecap: strokeLinecap,
+    strokeWidth: trailWidth || strokeWidth,
+    style: circleStyle
+  }), stepCount ? getStepStokeList() : getStokeList());
+};
+Circle.defaultProps = _common__WEBPACK_IMPORTED_MODULE_5__.defaultProps;
+Circle.displayName = 'Circle';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Circle);
+
+/***/ }),
+
+/***/ "./node_modules/rc-progress/es/Line.js":
+/*!*********************************************!*\
+  !*** ./node_modules/rc-progress/es/Line.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./common */ "./node_modules/rc-progress/es/common.js");
+
+
+var _excluded = ["className", "percent", "prefixCls", "strokeColor", "strokeLinecap", "strokeWidth", "style", "trailColor", "trailWidth", "transition"];
+
+
+
+var Line = function Line(_ref) {
+  var className = _ref.className,
+    percent = _ref.percent,
+    prefixCls = _ref.prefixCls,
+    strokeColor = _ref.strokeColor,
+    strokeLinecap = _ref.strokeLinecap,
+    strokeWidth = _ref.strokeWidth,
+    style = _ref.style,
+    trailColor = _ref.trailColor,
+    trailWidth = _ref.trailWidth,
+    transition = _ref.transition,
+    restProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, _excluded);
+
+  // eslint-disable-next-line no-param-reassign
+  delete restProps.gapPosition;
+  var percentList = Array.isArray(percent) ? percent : [percent];
+  var strokeColorList = Array.isArray(strokeColor) ? strokeColor : [strokeColor];
+  var paths = (0,_common__WEBPACK_IMPORTED_MODULE_4__.useTransitionDuration)();
+  var center = strokeWidth / 2;
+  var right = 100 - strokeWidth / 2;
+  var pathString = "M ".concat(strokeLinecap === 'round' ? center : 0, ",").concat(center, "\n         L ").concat(strokeLinecap === 'round' ? right : 100, ",").concat(center);
+  var viewBoxString = "0 0 100 ".concat(strokeWidth);
+  var stackPtg = 0;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("svg", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("".concat(prefixCls, "-line"), className),
+    viewBox: viewBoxString,
+    preserveAspectRatio: "none",
+    style: style
+  }, restProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("path", {
+    className: "".concat(prefixCls, "-line-trail"),
+    d: pathString,
+    strokeLinecap: strokeLinecap,
+    stroke: trailColor,
+    strokeWidth: trailWidth || strokeWidth,
+    fillOpacity: "0"
+  }), percentList.map(function (ptg, index) {
+    var dashPercent = 1;
+    switch (strokeLinecap) {
+      case 'round':
+        dashPercent = 1 - strokeWidth / 100;
+        break;
+      case 'square':
+        dashPercent = 1 - strokeWidth / 2 / 100;
+        break;
+      default:
+        dashPercent = 1;
+        break;
+    }
+    var pathStyle = {
+      strokeDasharray: "".concat(ptg * dashPercent, "px, 100px"),
+      strokeDashoffset: "-".concat(stackPtg, "px"),
+      transition: transition || 'stroke-dashoffset 0.3s ease 0s, stroke-dasharray .3s ease 0s, stroke 0.3s linear'
+    };
+    var color = strokeColorList[index] || strokeColorList[strokeColorList.length - 1];
+    stackPtg += ptg;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("path", {
+      key: index,
+      className: "".concat(prefixCls, "-line-path"),
+      d: pathString,
+      strokeLinecap: strokeLinecap,
+      stroke: color,
+      strokeWidth: strokeWidth,
+      fillOpacity: "0",
+      ref: function ref(elem) {
+        // https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
+        // React will call the ref callback with the DOM element when the component mounts,
+        // and call it with `null` when it unmounts.
+        // Refs are guaranteed to be up-to-date before componentDidMount or componentDidUpdate fires.
+        paths[index] = elem;
+      },
+      style: pathStyle
+    });
+  }));
+};
+Line.defaultProps = _common__WEBPACK_IMPORTED_MODULE_4__.defaultProps;
+Line.displayName = 'Line';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Line);
+
+/***/ }),
+
+/***/ "./node_modules/rc-progress/es/common.js":
+/*!***********************************************!*\
+  !*** ./node_modules/rc-progress/es/common.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultProps": () => (/* binding */ defaultProps),
+/* harmony export */   "useTransitionDuration": () => (/* binding */ useTransitionDuration)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var defaultProps = {
+  className: '',
+  percent: 0,
+  prefixCls: 'rc-progress',
+  strokeColor: '#2db7f5',
+  strokeLinecap: 'round',
+  strokeWidth: 1,
+  style: {},
+  trailColor: '#D9D9D9',
+  trailWidth: 1,
+  gapPosition: 'bottom'
+};
+var useTransitionDuration = function useTransitionDuration() {
+  var pathsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]);
+  var prevTimeStamp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var now = Date.now();
+    var updated = false;
+    pathsRef.current.forEach(function (path) {
+      if (!path) {
+        return;
+      }
+      updated = true;
+      var pathStyle = path.style;
+      pathStyle.transitionDuration = '.3s, .3s, .3s, .06s';
+      if (prevTimeStamp.current && now - prevTimeStamp.current < 100) {
+        pathStyle.transitionDuration = '0s, 0s';
+      }
+    });
+    if (updated) {
+      prevTimeStamp.current = Date.now();
+    }
+  });
+  return pathsRef.current;
+};
+
+/***/ }),
+
+/***/ "./node_modules/rc-progress/es/hooks/useId.js":
+/*!****************************************************!*\
+  !*** ./node_modules/rc-progress/es/hooks/useId.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "isBrowserClient": () => (/* binding */ isBrowserClient)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var rc_util_es_Dom_canUseDom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-util/es/Dom/canUseDom */ "./node_modules/rc-util/es/Dom/canUseDom.js");
+
+
+
+var uuid = 0;
+/** Is client side and not jsdom */
+
+var isBrowserClient =  true && (0,rc_util_es_Dom_canUseDom__WEBPACK_IMPORTED_MODULE_2__["default"])();
+/** Get unique id for accessibility usage */
+
+function getUUID() {
+  var retId; // Test never reach
+
+  /* istanbul ignore if */
+
+  if (isBrowserClient) {
+    retId = uuid;
+    uuid += 1;
+  } else {
+    retId = 'TEST_OR_SSR';
+  }
+  return retId;
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (id) {
+  // Inner id for accessibility usage. Only work in client side
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__.useState(),
+    _React$useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
+    innerId = _React$useState2[0],
+    setInnerId = _React$useState2[1];
+  react__WEBPACK_IMPORTED_MODULE_1__.useEffect(function () {
+    setInnerId("rc_progress_".concat(getUUID()));
+  }, []);
+  return id || innerId;
+});
+
+/***/ }),
+
+/***/ "./node_modules/rc-progress/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/rc-progress/es/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Circle": () => (/* reexport safe */ _Circle__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "Line": () => (/* reexport safe */ _Line__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Line__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Line */ "./node_modules/rc-progress/es/Line.js");
+/* harmony import */ var _Circle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Circle */ "./node_modules/rc-progress/es/Circle.js");
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  Line: _Line__WEBPACK_IMPORTED_MODULE_0__["default"],
+  Circle: _Circle__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+
+/***/ }),
+
+/***/ "./node_modules/rc-util/es/Dom/canUseDom.js":
+/*!**************************************************!*\
+  !*** ./node_modules/rc-util/es/Dom/canUseDom.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ canUseDom)
+/* harmony export */ });
+function canUseDom() {
+  return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+}
+
+/***/ }),
+
 /***/ "./node_modules/react-dom/cjs/react-dom.development.js":
 /*!*************************************************************!*\
   !*** ./node_modules/react-dom/cjs/react-dom.development.js ***!
@@ -8333,7 +10004,7 @@ function toDate(argument) {
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */if(true){(function(){'use strict';/* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__!=='undefined'&&typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart==='function'){__REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());}var React=__webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));var Scheduler=__webpack_require__(/*! scheduler */ "./node_modules/scheduler/index.js");var ReactSharedInternals=React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;var suppressWarning=false;function setSuppressWarning(newSuppressWarning){{suppressWarning=newSuppressWarning;}}// In DEV, calls to console.warn and console.error get replaced
+ */if(true){(function(){'use strict';/* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__!=='undefined'&&typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart==='function'){__REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());}var React=__webpack_require__(/*! react */ "./node_modules/react/index.js");var Scheduler=__webpack_require__(/*! scheduler */ "./node_modules/scheduler/index.js");var ReactSharedInternals=React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;var suppressWarning=false;function setSuppressWarning(newSuppressWarning){{suppressWarning=newSuppressWarning;}}// In DEV, calls to console.warn and console.error get replaced
 // by calls to these methods by a Babel plugin.
 //
 // In PROD (or in packages without access to React internals),
@@ -13275,6 +14946,38 @@ console.info('%cDownload the React DevTools '+'for a better development experien
 
 /***/ }),
 
+/***/ "./node_modules/react-dom/client.js":
+/*!******************************************!*\
+  !*** ./node_modules/react-dom/client.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var m = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+if (false) {} else {
+  var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+  exports.createRoot = function (c, o) {
+    i.usingClientEntryPoint = true;
+    try {
+      return m.createRoot(c, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+  exports.hydrateRoot = function (c, h, o) {
+    i.usingClientEntryPoint = true;
+    try {
+      return m.hydrateRoot(c, h, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+}
+
+/***/ }),
+
 /***/ "./node_modules/react-dom/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/react-dom/index.js ***!
@@ -13314,13 +15017,2327 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-ratings-declarative/build/ie-isInteger-polyfill.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/react-ratings-declarative/build/ie-isInteger-polyfill.js ***!
+  \*******************************************************************************/
+/***/ (() => {
+
+"use strict";
+
+
+Number.isInteger = Number.isInteger || function (value) {
+  return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
+};
+
+/***/ }),
+
 /***/ "./node_modules/react-ratings-declarative/build/index.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-ratings-declarative/build/index.js ***!
   \***************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/kenkurita/hackreactor/FEC/node_modules/react-ratings-declarative/build/index.js'");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = undefined;
+var _ratings = __webpack_require__(/*! ./ratings */ "./node_modules/react-ratings-declarative/build/ratings.js");
+Object.defineProperty(exports, "default", ({
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ratings).default;
+  }
+}));
+__webpack_require__(/*! ./ie-isInteger-polyfill */ "./node_modules/react-ratings-declarative/build/ie-isInteger-polyfill.js");
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-ratings-declarative/build/ratings.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-ratings-declarative/build/ratings.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+var _react = __webpack_require__(/*! react */ "./node_modules/react-ratings-declarative/node_modules/react/index.js");
+var _react2 = _interopRequireDefault(_react);
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+var _propTypes2 = _interopRequireDefault(_propTypes);
+var _utils = __webpack_require__(/*! ./utils */ "./node_modules/react-ratings-declarative/build/utils.js");
+var _widget = __webpack_require__(/*! ./widget */ "./node_modules/react-ratings-declarative/build/widget.js");
+var _widget2 = _interopRequireDefault(_widget);
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+var Ratings = function (_Component) {
+  _inherits(Ratings, _Component);
+  function Ratings(props) {
+    _classCallCheck(this, Ratings);
+    var _this = _possibleConstructorReturn(this, (Ratings.__proto__ || Object.getPrototypeOf(Ratings)).call(this, props));
+    _this.unHoverOverWidget = function () {
+      _this.setState({
+        highestWidgetHovered: -Infinity
+      });
+    };
+    _this.hoverOverWidget = function (rating) {
+      return function () {
+        _this.setState({
+          highestWidgetHovered: rating
+        });
+      };
+    };
+    _this.fillId = 'widgetGrad' + (0, _utils.randomNumber)();
+    _this.state = {
+      highestWidgetHovered: -Infinity
+    };
+    return _this;
+  }
+  _createClass(Ratings, [{
+    key: 'stopColorStyle',
+    value: function stopColorStyle(color) {
+      var stopColorStyle = {
+        stopColor: color,
+        stopOpacity: '1'
+      };
+      return this.props.ignoreInlineStyles ? {} : stopColorStyle;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+        widgetEmptyColors = _props.widgetEmptyColors,
+        widgetRatedColors = _props.widgetRatedColors;
+      return _react2.default.createElement('div', {
+        className: 'widget-ratings',
+        title: this.titleText,
+        style: this.widgetRatingsStyle
+      }, _react2.default.createElement('svg', {
+        className: 'widget-grad',
+        style: this.widgetGradientStyle
+      }, _react2.default.createElement('defs', null, _react2.default.createElement('linearGradient', {
+        id: this.fillId,
+        x1: '0%',
+        y1: '0%',
+        x2: '100%',
+        y2: '0%'
+      }, _react2.default.createElement('stop', {
+        offset: '0%',
+        className: 'stop-color-first',
+        style: this.stopColorStyle(widgetRatedColors)
+      }), _react2.default.createElement('stop', {
+        offset: this.offsetValue,
+        className: 'stop-color-first',
+        style: this.stopColorStyle(widgetRatedColors)
+      }), _react2.default.createElement('stop', {
+        offset: this.offsetValue,
+        className: 'stop-color-final',
+        style: this.stopColorStyle(widgetEmptyColors)
+      }), _react2.default.createElement('stop', {
+        offset: '100%',
+        className: 'stop-color-final',
+        style: this.stopColorStyle(widgetEmptyColors)
+      })))), this.childrenWithRatingState);
+    }
+  }, {
+    key: 'widgetRatingsStyle',
+    get: function get() {
+      var widgetRatingsStyle = {
+        position: 'relative',
+        boxSizing: 'border-box',
+        display: 'inline-block'
+      };
+      return this.props.ignoreInlineStyles ? {} : widgetRatingsStyle;
+    }
+  }, {
+    key: 'widgetGradientStyle',
+    get: function get() {
+      var widgetGradientStyle = {
+        position: 'absolute',
+        zIndex: '0',
+        width: '0',
+        height: '0',
+        visibility: 'hidden'
+      };
+      return this.props.ignoreInlineStyles ? {} : widgetGradientStyle;
+    }
+  }, {
+    key: 'titleText',
+    get: function get() {
+      var _props2 = this.props,
+        typeOfWidget = _props2.typeOfWidget,
+        selectedRating = _props2.rating;
+      var hoveredRating = this.state.highestWidgetHovered;
+      var currentRating = hoveredRating > 0 ? hoveredRating : selectedRating;
+      // fix it at 2 decimal places and remove trailing 0s
+      var formattedRating = parseFloat(currentRating.toFixed(2)).toString();
+      if (Number.isInteger(currentRating)) {
+        formattedRating = String(currentRating);
+      }
+      var widgetText = typeOfWidget + 's';
+      if (formattedRating === '1') {
+        widgetText = typeOfWidget;
+      }
+      return formattedRating + ' ' + widgetText;
+    }
+  }, {
+    key: 'offsetValue',
+    get: function get() {
+      var rating = this.props.rating;
+      var ratingIsInteger = Number.isInteger(rating);
+      var offsetValue = '0%';
+      if (!ratingIsInteger) {
+        var firstTwoDecimals = rating.toFixed(2).split('.')[1].slice(0, 2);
+        offsetValue = firstTwoDecimals + '%';
+      }
+      return offsetValue;
+    }
+  }, {
+    key: 'childrenWithRatingState',
+    get: function get() {
+      var _this2 = this;
+      var _props3 = this.props,
+        changeRating = _props3.changeRating,
+        selectedRating = _props3.rating,
+        children = _props3.children,
+        ignoreInlineStyles = _props3.ignoreInlineStyles,
+        gradientPathName = _props3.gradientPathName,
+        widgetEmptyColors = _props3.widgetEmptyColors,
+        widgetHoverColors = _props3.widgetHoverColors,
+        widgetRatedColors = _props3.widgetRatedColors,
+        widgetDimensions = _props3.widgetDimensions,
+        widgetSpacings = _props3.widgetSpacings,
+        svgIconPaths = _props3.svgIconPaths,
+        svgIconViewBoxes = _props3.svgIconViewBoxes,
+        svgs = _props3.svgs;
+      var highestWidgetHovered = this.state.highestWidgetHovered;
+      var numberOfWidgets = children.length;
+      return _react2.default.Children.map(children, function (child, index) {
+        var _child$props = child.props,
+          svgIconPath = _child$props.svgIconPath,
+          svgIconViewBox = _child$props.svgIconViewBox,
+          widgetHoverColor = _child$props.widgetHoverColor,
+          widgetEmptyColor = _child$props.widgetEmptyColor,
+          widgetRatedColor = _child$props.widgetRatedColor,
+          widgetDimension = _child$props.widgetDimension,
+          widgetSpacing = _child$props.widgetSpacing,
+          svg = _child$props.svg;
+        var widgetRating = index + 1;
+        var isSelected = widgetRating <= selectedRating;
+
+        // hovered only matters when changeRating is true
+        var hoverMode = highestWidgetHovered > 0;
+        var isHovered = widgetRating <= highestWidgetHovered;
+        var isCurrentHoveredWidget = widgetRating === highestWidgetHovered;
+
+        // only matters when changeRating is false
+        // given widget 5 and rating 4.2:  5 > 4.2 && 4 < 4.2;
+        var isPartiallyFullWidget = widgetRating > selectedRating && widgetRating - 1 < selectedRating;
+        var isFirstWidget = widgetRating === 1;
+        var isLastWidget = widgetRating === numberOfWidgets;
+        return _react2.default.cloneElement(child, {
+          selectedRating: selectedRating,
+          ignoreInlineStyles: ignoreInlineStyles,
+          gradientPathName: gradientPathName,
+          changeRating: changeRating ? function () {
+            return changeRating(widgetRating);
+          } : null,
+          hoverOverWidget: changeRating ? _this2.hoverOverWidget(widgetRating) : null,
+          unHoverOverWidget: changeRating ? _this2.unHoverOverWidget : null,
+          inheritFillId: _this2.fillId,
+          isSelected: isSelected,
+          isHovered: isHovered,
+          isCurrentHoveredWidget: isCurrentHoveredWidget,
+          isPartiallyFullWidget: isPartiallyFullWidget,
+          isFirstWidget: isFirstWidget,
+          isLastWidget: isLastWidget,
+          hoverMode: hoverMode,
+          hasCustomGradientColor: (widgetRatedColor || widgetEmptyColor) && isPartiallyFullWidget,
+          svgIconPath: svgIconPath || svgIconPaths,
+          svgIconViewBox: svgIconViewBox || svgIconViewBoxes,
+          widgetHoverColor: widgetHoverColor || widgetHoverColors,
+          widgetEmptyColor: widgetEmptyColor || widgetEmptyColors,
+          widgetRatedColor: widgetRatedColor || widgetRatedColors,
+          widgetDimension: widgetDimension || widgetDimensions,
+          widgetSpacing: widgetSpacing || widgetSpacings,
+          svg: svg || svgs
+        });
+      });
+    }
+  }]);
+  return Ratings;
+}(_react.Component);
+Ratings.Widget = _widget2.default;
+Ratings.propTypes = {
+  rating: _propTypes2.default.number.isRequired,
+  typeOfWidget: _propTypes2.default.string.isRequired,
+  changeRating: _propTypes2.default.func,
+  gradientPathName: _propTypes2.default.string.isRequired,
+  ignoreInlineStyles: _propTypes2.default.bool.isRequired,
+  svgIconPaths: _propTypes2.default.string.isRequired,
+  svgIconViewBoxes: _propTypes2.default.string.isRequired,
+  widgetRatedColors: _propTypes2.default.string.isRequired,
+  widgetEmptyColors: _propTypes2.default.string.isRequired,
+  widgetHoverColors: _propTypes2.default.string.isRequired,
+  widgetDimensions: _propTypes2.default.string.isRequired,
+  widgetSpacings: _propTypes2.default.string.isRequired,
+  svgs: _propTypes2.default.node
+};
+Ratings.defaultProps = {
+  rating: 0,
+  typeOfWidget: 'Star',
+  changeRating: null,
+  ignoreInlineStyles: false,
+  gradientPathName: '',
+  svgIconPaths: 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z',
+  svgIconViewBoxes: '0 0 51 48',
+  widgetRatedColors: 'rgb(109, 122, 130)',
+  widgetEmptyColors: 'rgb(203, 211, 227)',
+  widgetHoverColors: 'rgb(230, 67, 47)',
+  widgetDimensions: '50px',
+  widgetSpacings: '7px'
+};
+exports["default"] = Ratings;
+
+/***/ }),
+
+/***/ "./node_modules/react-ratings-declarative/build/utils.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-ratings-declarative/build/utils.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+var randomNumber = exports.randomNumber = function randomNumber() {
+  return Math.random().toFixed(15).slice(2);
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-ratings-declarative/build/widget.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-ratings-declarative/build/widget.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+  return target;
+};
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+var _react = __webpack_require__(/*! react */ "./node_modules/react-ratings-declarative/node_modules/react/index.js");
+var _react2 = _interopRequireDefault(_react);
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+var _propTypes2 = _interopRequireDefault(_propTypes);
+var _classnames = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+var _classnames2 = _interopRequireDefault(_classnames);
+var _utils = __webpack_require__(/*! ./utils */ "./node_modules/react-ratings-declarative/build/utils.js");
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+var Widget = function (_Component) {
+  _inherits(Widget, _Component);
+  function Widget(props) {
+    _classCallCheck(this, Widget);
+    var _this = _possibleConstructorReturn(this, (Widget.__proto__ || Object.getPrototypeOf(Widget)).call(this, props));
+    if (props.hasCustomGradientColor) {
+      _this.fillId = 'widgetGrad' + (0, _utils.randomNumber)();
+    }
+    return _this;
+  }
+  _createClass(Widget, [{
+    key: 'stopColorStyle',
+    value: function stopColorStyle(color) {
+      var stopColorStyle = {
+        stopColor: color,
+        stopOpacity: '1'
+      };
+      return this.props.ignoreInlineStyles ? {} : stopColorStyle;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+        changeRating = _props.changeRating,
+        hoverOverWidget = _props.hoverOverWidget,
+        unHoverOverWidget = _props.unHoverOverWidget,
+        inheritFillId = _props.inheritFillId,
+        svgIconViewBox = _props.svgIconViewBox,
+        svgIconPath = _props.svgIconPath,
+        svg = _props.svg,
+        hasCustomGradientColor = _props.hasCustomGradientColor;
+      var customSvg = svg;
+      if (_react2.default.isValidElement(customSvg)) {
+        customSvg = _react2.default.cloneElement(customSvg, _extends({}, this.props, {
+          fillId: this.fillId || inheritFillId
+        }));
+      }
+      return _react2.default.createElement('div', {
+        className: 'widget-container',
+        style: this.widgetContainerStyle,
+        onMouseEnter: hoverOverWidget,
+        onMouseLeave: unHoverOverWidget,
+        onClick: changeRating
+      }, customSvg ? customSvg : _react2.default.createElement('svg', {
+        viewBox: svgIconViewBox,
+        className: this.widgetClasses,
+        style: this.widgetSvgStyle
+      }, hasCustomGradientColor ? this.renderIndividualGradient : null, _react2.default.createElement('path', {
+        className: 'widget',
+        style: this.pathStyle,
+        d: svgIconPath
+      })));
+    }
+  }, {
+    key: 'widgetContainerStyle',
+    get: function get() {
+      var _props2 = this.props,
+        changeRating = _props2.changeRating,
+        widgetSpacing = _props2.widgetSpacing,
+        isFirstWidget = _props2.isFirstWidget,
+        isLastWidget = _props2.isLastWidget,
+        ignoreInlineStyles = _props2.ignoreInlineStyles;
+      var widgetContainerStyle = {
+        position: 'relative',
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        paddingLeft: isFirstWidget ? undefined : widgetSpacing,
+        paddingRight: isLastWidget ? undefined : widgetSpacing,
+        cursor: changeRating ? 'pointer' : undefined
+      };
+      return ignoreInlineStyles ? {} : widgetContainerStyle;
+    }
+  }, {
+    key: 'widgetSvgStyle',
+    get: function get() {
+      var _props3 = this.props,
+        ignoreInlineStyles = _props3.ignoreInlineStyles,
+        isCurrentHoveredWidget = _props3.isCurrentHoveredWidget,
+        widgetDimension = _props3.widgetDimension;
+      var widgetSvgStyle = {
+        width: widgetDimension,
+        height: widgetDimension,
+        transition: 'transform .2s ease-in-out',
+        transform: isCurrentHoveredWidget ? 'scale(1.1)' : undefined
+      };
+      return ignoreInlineStyles ? {} : widgetSvgStyle;
+    }
+  }, {
+    key: 'pathStyle',
+    get: function get() {
+      var _props4 = this.props,
+        isSelected = _props4.isSelected,
+        isPartiallyFullWidget = _props4.isPartiallyFullWidget,
+        isHovered = _props4.isHovered,
+        hoverMode = _props4.hoverMode,
+        widgetEmptyColor = _props4.widgetEmptyColor,
+        widgetRatedColor = _props4.widgetRatedColor,
+        widgetHoverColor = _props4.widgetHoverColor,
+        gradientPathName = _props4.gradientPathName,
+        inheritFillId = _props4.inheritFillId,
+        ignoreInlineStyles = _props4.ignoreInlineStyles;
+      var fill = void 0;
+      if (hoverMode) {
+        if (isHovered) fill = widgetHoverColor;else fill = widgetEmptyColor;
+      } else {
+        if (isPartiallyFullWidget) fill = 'url(\'' + gradientPathName + '#' + (this.fillId || inheritFillId) + '\')';else if (isSelected) fill = widgetRatedColor;else fill = widgetEmptyColor;
+      }
+      var pathStyle = {
+        fill: fill,
+        transition: 'fill .2s ease-in-out'
+      };
+      return ignoreInlineStyles ? {} : pathStyle;
+    }
+  }, {
+    key: 'widgetClasses',
+    get: function get() {
+      var _props5 = this.props,
+        isSelected = _props5.isSelected,
+        isPartiallyFullWidget = _props5.isPartiallyFullWidget,
+        isHovered = _props5.isHovered,
+        isCurrentHoveredWidget = _props5.isCurrentHoveredWidget,
+        ignoreInlineStyles = _props5.ignoreInlineStyles;
+      var widgetClasses = (0, _classnames2.default)({
+        'widget-svg': true,
+        'widget-selected': isSelected,
+        'multi-widget-selected': isPartiallyFullWidget,
+        'hovered': isHovered,
+        'current-hovered': isCurrentHoveredWidget
+      });
+      return ignoreInlineStyles ? {} : widgetClasses;
+    }
+  }, {
+    key: 'offsetValue',
+    get: function get() {
+      var selectedRating = this.props.selectedRating;
+      var ratingIsInteger = Number.isInteger(selectedRating);
+      var offsetValue = '0%';
+      if (!ratingIsInteger) {
+        var firstTwoDecimals = selectedRating.toFixed(2).split('.')[1].slice(0, 2);
+        offsetValue = firstTwoDecimals + '%';
+      }
+      return offsetValue;
+    }
+  }, {
+    key: 'renderIndividualGradient',
+    get: function get() {
+      var _props6 = this.props,
+        widgetRatedColor = _props6.widgetRatedColor,
+        widgetEmptyColor = _props6.widgetEmptyColor;
+      return _react2.default.createElement('defs', null, _react2.default.createElement('linearGradient', {
+        id: this.fillId,
+        x1: '0%',
+        y1: '0%',
+        x2: '100%',
+        y2: '0%'
+      }, _react2.default.createElement('stop', {
+        offset: '0%',
+        className: 'stop-color-first',
+        style: this.stopColorStyle(widgetRatedColor)
+      }), _react2.default.createElement('stop', {
+        offset: this.offsetValue,
+        className: 'stop-color-first',
+        style: this.stopColorStyle(widgetRatedColor)
+      }), _react2.default.createElement('stop', {
+        offset: this.offsetValue,
+        className: 'stop-color-final',
+        style: this.stopColorStyle(widgetEmptyColor)
+      }), _react2.default.createElement('stop', {
+        offset: '100%',
+        className: 'stop-color-final',
+        style: this.stopColorStyle(widgetEmptyColor)
+      })));
+    }
+  }]);
+  return Widget;
+}(_react.Component);
+Widget.propTypes = {
+  selectedRating: _propTypes2.default.number,
+  changeRating: _propTypes2.default.func,
+  hoverOverWidget: _propTypes2.default.func,
+  unHoverOverWidget: _propTypes2.default.func,
+  inheritFillId: _propTypes2.default.string,
+  isSelected: _propTypes2.default.bool,
+  isHovered: _propTypes2.default.bool,
+  isCurrentHoveredWidget: _propTypes2.default.bool,
+  isPartiallyFullWidget: _propTypes2.default.bool,
+  isFirstWidget: _propTypes2.default.bool,
+  isLastWidget: _propTypes2.default.bool,
+  hoverMode: _propTypes2.default.bool,
+  hasCustomGradientColor: _propTypes2.default.bool,
+  // customizable
+  svgIconPath: _propTypes2.default.string,
+  svgIconViewBox: _propTypes2.default.string,
+  svg: _propTypes2.default.node,
+  widgetRatedColor: _propTypes2.default.string,
+  widgetEmptyColor: _propTypes2.default.string,
+  widgetHoverColor: _propTypes2.default.string,
+  widgetDimension: _propTypes2.default.string,
+  widgetSpacing: _propTypes2.default.string
+};
+exports["default"] = Widget;
+
+/***/ }),
+
+/***/ "./node_modules/react-ratings-declarative/node_modules/react/cjs/react.development.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/react-ratings-declarative/node_modules/react/cjs/react.development.js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/** @license React v16.14.0
+ * react.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+if (true) {
+  (function () {
+    'use strict';
+
+    var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+    var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
+    var ReactVersion = '16.14.0';
+
+    // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+    // nor polyfill, then a plain number is used for performance.
+    var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+    var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+    var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+    var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+    var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+    var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+    var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+    var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+    var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+    var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+    var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+    var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+    var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+    var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+    var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+    var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+    var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+    var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+    var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+    var FAUX_ITERATOR_SYMBOL = '@@iterator';
+    function getIteratorFn(maybeIterable) {
+      if (maybeIterable === null || typeof maybeIterable !== 'object') {
+        return null;
+      }
+      var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+      if (typeof maybeIterator === 'function') {
+        return maybeIterator;
+      }
+      return null;
+    }
+
+    /**
+     * Keeps track of the current dispatcher.
+     */
+    var ReactCurrentDispatcher = {
+      /**
+       * @internal
+       * @type {ReactComponent}
+       */
+      current: null
+    };
+
+    /**
+     * Keeps track of the current batch's configuration such as how long an update
+     * should suspend for if it needs to.
+     */
+    var ReactCurrentBatchConfig = {
+      suspense: null
+    };
+
+    /**
+     * Keeps track of the current owner.
+     *
+     * The current owner is the component who should own any components that are
+     * currently being constructed.
+     */
+    var ReactCurrentOwner = {
+      /**
+       * @internal
+       * @type {ReactComponent}
+       */
+      current: null
+    };
+    var BEFORE_SLASH_RE = /^(.*)[\\\/]/;
+    function describeComponentFrame(name, source, ownerName) {
+      var sourceInfo = '';
+      if (source) {
+        var path = source.fileName;
+        var fileName = path.replace(BEFORE_SLASH_RE, '');
+        {
+          // In DEV, include code for a common special case:
+          // prefer "folder/index.js" instead of just "index.js".
+          if (/^index\./.test(fileName)) {
+            var match = path.match(BEFORE_SLASH_RE);
+            if (match) {
+              var pathBeforeSlash = match[1];
+              if (pathBeforeSlash) {
+                var folderName = pathBeforeSlash.replace(BEFORE_SLASH_RE, '');
+                fileName = folderName + '/' + fileName;
+              }
+            }
+          }
+        }
+        sourceInfo = ' (at ' + fileName + ':' + source.lineNumber + ')';
+      } else if (ownerName) {
+        sourceInfo = ' (created by ' + ownerName + ')';
+      }
+      return '\n    in ' + (name || 'Unknown') + sourceInfo;
+    }
+    var Resolved = 1;
+    function refineResolvedLazyComponent(lazyComponent) {
+      return lazyComponent._status === Resolved ? lazyComponent._result : null;
+    }
+    function getWrappedName(outerType, innerType, wrapperName) {
+      var functionName = innerType.displayName || innerType.name || '';
+      return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+    }
+    function getComponentName(type) {
+      if (type == null) {
+        // Host root, text node or just invalid type.
+        return null;
+      }
+      {
+        if (typeof type.tag === 'number') {
+          error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
+        }
+      }
+      if (typeof type === 'function') {
+        return type.displayName || type.name || null;
+      }
+      if (typeof type === 'string') {
+        return type;
+      }
+      switch (type) {
+        case REACT_FRAGMENT_TYPE:
+          return 'Fragment';
+        case REACT_PORTAL_TYPE:
+          return 'Portal';
+        case REACT_PROFILER_TYPE:
+          return "Profiler";
+        case REACT_STRICT_MODE_TYPE:
+          return 'StrictMode';
+        case REACT_SUSPENSE_TYPE:
+          return 'Suspense';
+        case REACT_SUSPENSE_LIST_TYPE:
+          return 'SuspenseList';
+      }
+      if (typeof type === 'object') {
+        switch (type.$$typeof) {
+          case REACT_CONTEXT_TYPE:
+            return 'Context.Consumer';
+          case REACT_PROVIDER_TYPE:
+            return 'Context.Provider';
+          case REACT_FORWARD_REF_TYPE:
+            return getWrappedName(type, type.render, 'ForwardRef');
+          case REACT_MEMO_TYPE:
+            return getComponentName(type.type);
+          case REACT_BLOCK_TYPE:
+            return getComponentName(type.render);
+          case REACT_LAZY_TYPE:
+            {
+              var thenable = type;
+              var resolvedThenable = refineResolvedLazyComponent(thenable);
+              if (resolvedThenable) {
+                return getComponentName(resolvedThenable);
+              }
+              break;
+            }
+        }
+      }
+      return null;
+    }
+    var ReactDebugCurrentFrame = {};
+    var currentlyValidatingElement = null;
+    function setCurrentlyValidatingElement(element) {
+      {
+        currentlyValidatingElement = element;
+      }
+    }
+    {
+      // Stack implementation injected by the current renderer.
+      ReactDebugCurrentFrame.getCurrentStack = null;
+      ReactDebugCurrentFrame.getStackAddendum = function () {
+        var stack = ''; // Add an extra top frame while an element is being validated
+
+        if (currentlyValidatingElement) {
+          var name = getComponentName(currentlyValidatingElement.type);
+          var owner = currentlyValidatingElement._owner;
+          stack += describeComponentFrame(name, currentlyValidatingElement._source, owner && getComponentName(owner.type));
+        } // Delegate to the injected renderer-specific implementation
+
+        var impl = ReactDebugCurrentFrame.getCurrentStack;
+        if (impl) {
+          stack += impl() || '';
+        }
+        return stack;
+      };
+    }
+
+    /**
+     * Used by act() to track whether you're inside an act() scope.
+     */
+    var IsSomeRendererActing = {
+      current: false
+    };
+    var ReactSharedInternals = {
+      ReactCurrentDispatcher: ReactCurrentDispatcher,
+      ReactCurrentBatchConfig: ReactCurrentBatchConfig,
+      ReactCurrentOwner: ReactCurrentOwner,
+      IsSomeRendererActing: IsSomeRendererActing,
+      // Used by renderers to avoid bundling object-assign twice in UMD bundles:
+      assign: _assign
+    };
+    {
+      _assign(ReactSharedInternals, {
+        // These should not be included in production.
+        ReactDebugCurrentFrame: ReactDebugCurrentFrame,
+        // Shim for React DOM 16.0.0 which still destructured (but not used) this.
+        // TODO: remove in React 17.0.
+        ReactComponentTreeHook: {}
+      });
+    }
+
+    // by calls to these methods by a Babel plugin.
+    //
+    // In PROD (or in packages without access to React internals),
+    // they are left as they are instead.
+
+    function warn(format) {
+      {
+        for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+          args[_key - 1] = arguments[_key];
+        }
+        printWarning('warn', format, args);
+      }
+    }
+    function error(format) {
+      {
+        for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+          args[_key2 - 1] = arguments[_key2];
+        }
+        printWarning('error', format, args);
+      }
+    }
+    function printWarning(level, format, args) {
+      // When changing this logic, you might want to also
+      // update consoleWithStackDev.www.js as well.
+      {
+        var hasExistingStack = args.length > 0 && typeof args[args.length - 1] === 'string' && args[args.length - 1].indexOf('\n    in') === 0;
+        if (!hasExistingStack) {
+          var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+          var stack = ReactDebugCurrentFrame.getStackAddendum();
+          if (stack !== '') {
+            format += '%s';
+            args = args.concat([stack]);
+          }
+        }
+        var argsWithFormat = args.map(function (item) {
+          return '' + item;
+        }); // Careful: RN currently depends on this prefix
+
+        argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
+        // breaks IE9: https://github.com/facebook/react/issues/13610
+        // eslint-disable-next-line react-internal/no-production-logging
+
+        Function.prototype.apply.call(console[level], console, argsWithFormat);
+        try {
+          // --- Welcome to debugging React ---
+          // This error was thrown as a convenience so that you can use this stack
+          // to find the callsite that caused this warning to fire.
+          var argIndex = 0;
+          var message = 'Warning: ' + format.replace(/%s/g, function () {
+            return args[argIndex++];
+          });
+          throw new Error(message);
+        } catch (x) {}
+      }
+    }
+    var didWarnStateUpdateForUnmountedComponent = {};
+    function warnNoop(publicInstance, callerName) {
+      {
+        var _constructor = publicInstance.constructor;
+        var componentName = _constructor && (_constructor.displayName || _constructor.name) || 'ReactClass';
+        var warningKey = componentName + "." + callerName;
+        if (didWarnStateUpdateForUnmountedComponent[warningKey]) {
+          return;
+        }
+        error("Can't call %s on a component that is not yet mounted. " + 'This is a no-op, but it might indicate a bug in your application. ' + 'Instead, assign to `this.state` directly or define a `state = {};` ' + 'class property with the desired state in the %s component.', callerName, componentName);
+        didWarnStateUpdateForUnmountedComponent[warningKey] = true;
+      }
+    }
+    /**
+     * This is the abstract API for an update queue.
+     */
+
+    var ReactNoopUpdateQueue = {
+      /**
+       * Checks whether or not this composite component is mounted.
+       * @param {ReactClass} publicInstance The instance we want to test.
+       * @return {boolean} True if mounted, false otherwise.
+       * @protected
+       * @final
+       */
+      isMounted: function (publicInstance) {
+        return false;
+      },
+      /**
+       * Forces an update. This should only be invoked when it is known with
+       * certainty that we are **not** in a DOM transaction.
+       *
+       * You may want to call this when you know that some deeper aspect of the
+       * component's state has changed but `setState` was not called.
+       *
+       * This will not invoke `shouldComponentUpdate`, but it will invoke
+       * `componentWillUpdate` and `componentDidUpdate`.
+       *
+       * @param {ReactClass} publicInstance The instance that should rerender.
+       * @param {?function} callback Called after component is updated.
+       * @param {?string} callerName name of the calling function in the public API.
+       * @internal
+       */
+      enqueueForceUpdate: function (publicInstance, callback, callerName) {
+        warnNoop(publicInstance, 'forceUpdate');
+      },
+      /**
+       * Replaces all of the state. Always use this or `setState` to mutate state.
+       * You should treat `this.state` as immutable.
+       *
+       * There is no guarantee that `this.state` will be immediately updated, so
+       * accessing `this.state` after calling this method may return the old value.
+       *
+       * @param {ReactClass} publicInstance The instance that should rerender.
+       * @param {object} completeState Next state.
+       * @param {?function} callback Called after component is updated.
+       * @param {?string} callerName name of the calling function in the public API.
+       * @internal
+       */
+      enqueueReplaceState: function (publicInstance, completeState, callback, callerName) {
+        warnNoop(publicInstance, 'replaceState');
+      },
+      /**
+       * Sets a subset of the state. This only exists because _pendingState is
+       * internal. This provides a merging strategy that is not available to deep
+       * properties which is confusing. TODO: Expose pendingState or don't use it
+       * during the merge.
+       *
+       * @param {ReactClass} publicInstance The instance that should rerender.
+       * @param {object} partialState Next partial state to be merged with state.
+       * @param {?function} callback Called after component is updated.
+       * @param {?string} Name of the calling function in the public API.
+       * @internal
+       */
+      enqueueSetState: function (publicInstance, partialState, callback, callerName) {
+        warnNoop(publicInstance, 'setState');
+      }
+    };
+    var emptyObject = {};
+    {
+      Object.freeze(emptyObject);
+    }
+    /**
+     * Base class helpers for the updating state of a component.
+     */
+
+    function Component(props, context, updater) {
+      this.props = props;
+      this.context = context; // If a component has string refs, we will assign a different object later.
+
+      this.refs = emptyObject; // We initialize the default updater but the real one gets injected by the
+      // renderer.
+
+      this.updater = updater || ReactNoopUpdateQueue;
+    }
+    Component.prototype.isReactComponent = {};
+    /**
+     * Sets a subset of the state. Always use this to mutate
+     * state. You should treat `this.state` as immutable.
+     *
+     * There is no guarantee that `this.state` will be immediately updated, so
+     * accessing `this.state` after calling this method may return the old value.
+     *
+     * There is no guarantee that calls to `setState` will run synchronously,
+     * as they may eventually be batched together.  You can provide an optional
+     * callback that will be executed when the call to setState is actually
+     * completed.
+     *
+     * When a function is provided to setState, it will be called at some point in
+     * the future (not synchronously). It will be called with the up to date
+     * component arguments (state, props, context). These values can be different
+     * from this.* because your function may be called after receiveProps but before
+     * shouldComponentUpdate, and this new state, props, and context will not yet be
+     * assigned to this.
+     *
+     * @param {object|function} partialState Next partial state or function to
+     *        produce next partial state to be merged with current state.
+     * @param {?function} callback Called after state is updated.
+     * @final
+     * @protected
+     */
+
+    Component.prototype.setState = function (partialState, callback) {
+      if (!(typeof partialState === 'object' || typeof partialState === 'function' || partialState == null)) {
+        {
+          throw Error("setState(...): takes an object of state variables to update or a function which returns an object of state variables.");
+        }
+      }
+      this.updater.enqueueSetState(this, partialState, callback, 'setState');
+    };
+    /**
+     * Forces an update. This should only be invoked when it is known with
+     * certainty that we are **not** in a DOM transaction.
+     *
+     * You may want to call this when you know that some deeper aspect of the
+     * component's state has changed but `setState` was not called.
+     *
+     * This will not invoke `shouldComponentUpdate`, but it will invoke
+     * `componentWillUpdate` and `componentDidUpdate`.
+     *
+     * @param {?function} callback Called after update is complete.
+     * @final
+     * @protected
+     */
+
+    Component.prototype.forceUpdate = function (callback) {
+      this.updater.enqueueForceUpdate(this, callback, 'forceUpdate');
+    };
+    /**
+     * Deprecated APIs. These APIs used to exist on classic React classes but since
+     * we would like to deprecate them, we're not going to move them over to this
+     * modern base class. Instead, we define a getter that warns if it's accessed.
+     */
+
+    {
+      var deprecatedAPIs = {
+        isMounted: ['isMounted', 'Instead, make sure to clean up subscriptions and pending requests in ' + 'componentWillUnmount to prevent memory leaks.'],
+        replaceState: ['replaceState', 'Refactor your code to use setState instead (see ' + 'https://github.com/facebook/react/issues/3236).']
+      };
+      var defineDeprecationWarning = function (methodName, info) {
+        Object.defineProperty(Component.prototype, methodName, {
+          get: function () {
+            warn('%s(...) is deprecated in plain JavaScript React classes. %s', info[0], info[1]);
+            return undefined;
+          }
+        });
+      };
+      for (var fnName in deprecatedAPIs) {
+        if (deprecatedAPIs.hasOwnProperty(fnName)) {
+          defineDeprecationWarning(fnName, deprecatedAPIs[fnName]);
+        }
+      }
+    }
+    function ComponentDummy() {}
+    ComponentDummy.prototype = Component.prototype;
+    /**
+     * Convenience component with default shallow equality check for sCU.
+     */
+
+    function PureComponent(props, context, updater) {
+      this.props = props;
+      this.context = context; // If a component has string refs, we will assign a different object later.
+
+      this.refs = emptyObject;
+      this.updater = updater || ReactNoopUpdateQueue;
+    }
+    var pureComponentPrototype = PureComponent.prototype = new ComponentDummy();
+    pureComponentPrototype.constructor = PureComponent; // Avoid an extra prototype jump for these methods.
+
+    _assign(pureComponentPrototype, Component.prototype);
+    pureComponentPrototype.isPureReactComponent = true;
+
+    // an immutable object with a single mutable value
+    function createRef() {
+      var refObject = {
+        current: null
+      };
+      {
+        Object.seal(refObject);
+      }
+      return refObject;
+    }
+    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    var RESERVED_PROPS = {
+      key: true,
+      ref: true,
+      __self: true,
+      __source: true
+    };
+    var specialPropKeyWarningShown, specialPropRefWarningShown, didWarnAboutStringRefs;
+    {
+      didWarnAboutStringRefs = {};
+    }
+    function hasValidRef(config) {
+      {
+        if (hasOwnProperty.call(config, 'ref')) {
+          var getter = Object.getOwnPropertyDescriptor(config, 'ref').get;
+          if (getter && getter.isReactWarning) {
+            return false;
+          }
+        }
+      }
+      return config.ref !== undefined;
+    }
+    function hasValidKey(config) {
+      {
+        if (hasOwnProperty.call(config, 'key')) {
+          var getter = Object.getOwnPropertyDescriptor(config, 'key').get;
+          if (getter && getter.isReactWarning) {
+            return false;
+          }
+        }
+      }
+      return config.key !== undefined;
+    }
+    function defineKeyPropWarningGetter(props, displayName) {
+      var warnAboutAccessingKey = function () {
+        {
+          if (!specialPropKeyWarningShown) {
+            specialPropKeyWarningShown = true;
+            error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
+          }
+        }
+      };
+      warnAboutAccessingKey.isReactWarning = true;
+      Object.defineProperty(props, 'key', {
+        get: warnAboutAccessingKey,
+        configurable: true
+      });
+    }
+    function defineRefPropWarningGetter(props, displayName) {
+      var warnAboutAccessingRef = function () {
+        {
+          if (!specialPropRefWarningShown) {
+            specialPropRefWarningShown = true;
+            error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://fb.me/react-special-props)', displayName);
+          }
+        }
+      };
+      warnAboutAccessingRef.isReactWarning = true;
+      Object.defineProperty(props, 'ref', {
+        get: warnAboutAccessingRef,
+        configurable: true
+      });
+    }
+    function warnIfStringRefCannotBeAutoConverted(config) {
+      {
+        if (typeof config.ref === 'string' && ReactCurrentOwner.current && config.__self && ReactCurrentOwner.current.stateNode !== config.__self) {
+          var componentName = getComponentName(ReactCurrentOwner.current.type);
+          if (!didWarnAboutStringRefs[componentName]) {
+            error('Component "%s" contains the string ref "%s". ' + 'Support for string refs will be removed in a future major release. ' + 'This case cannot be automatically converted to an arrow function. ' + 'We ask you to manually fix this case by using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://fb.me/react-strict-mode-string-ref', getComponentName(ReactCurrentOwner.current.type), config.ref);
+            didWarnAboutStringRefs[componentName] = true;
+          }
+        }
+      }
+    }
+    /**
+     * Factory method to create a new React element. This no longer adheres to
+     * the class pattern, so do not use new to call it. Also, instanceof check
+     * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+     * if something is a React Element.
+     *
+     * @param {*} type
+     * @param {*} props
+     * @param {*} key
+     * @param {string|object} ref
+     * @param {*} owner
+     * @param {*} self A *temporary* helper to detect places where `this` is
+     * different from the `owner` when React.createElement is called, so that we
+     * can warn. We want to get rid of owner and replace string `ref`s with arrow
+     * functions, and as long as `this` and owner are the same, there will be no
+     * change in behavior.
+     * @param {*} source An annotation object (added by a transpiler or otherwise)
+     * indicating filename, line number, and/or other information.
+     * @internal
+     */
+
+    var ReactElement = function (type, key, ref, self, source, owner, props) {
+      var element = {
+        // This tag allows us to uniquely identify this as a React Element
+        $$typeof: REACT_ELEMENT_TYPE,
+        // Built-in properties that belong on the element
+        type: type,
+        key: key,
+        ref: ref,
+        props: props,
+        // Record the component responsible for creating this element.
+        _owner: owner
+      };
+      {
+        // The validation flag is currently mutative. We put it on
+        // an external backing store so that we can freeze the whole object.
+        // This can be replaced with a WeakMap once they are implemented in
+        // commonly used development environments.
+        element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
+        // the validation flag non-enumerable (where possible, which should
+        // include every environment we run tests in), so the test framework
+        // ignores it.
+
+        Object.defineProperty(element._store, 'validated', {
+          configurable: false,
+          enumerable: false,
+          writable: true,
+          value: false
+        }); // self and source are DEV only properties.
+
+        Object.defineProperty(element, '_self', {
+          configurable: false,
+          enumerable: false,
+          writable: false,
+          value: self
+        }); // Two elements created in two different places should be considered
+        // equal for testing purposes and therefore we hide it from enumeration.
+
+        Object.defineProperty(element, '_source', {
+          configurable: false,
+          enumerable: false,
+          writable: false,
+          value: source
+        });
+        if (Object.freeze) {
+          Object.freeze(element.props);
+          Object.freeze(element);
+        }
+      }
+      return element;
+    };
+    /**
+     * Create and return a new ReactElement of the given type.
+     * See https://reactjs.org/docs/react-api.html#createelement
+     */
+
+    function createElement(type, config, children) {
+      var propName; // Reserved names are extracted
+
+      var props = {};
+      var key = null;
+      var ref = null;
+      var self = null;
+      var source = null;
+      if (config != null) {
+        if (hasValidRef(config)) {
+          ref = config.ref;
+          {
+            warnIfStringRefCannotBeAutoConverted(config);
+          }
+        }
+        if (hasValidKey(config)) {
+          key = '' + config.key;
+        }
+        self = config.__self === undefined ? null : config.__self;
+        source = config.__source === undefined ? null : config.__source; // Remaining properties are added to a new props object
+
+        for (propName in config) {
+          if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+            props[propName] = config[propName];
+          }
+        }
+      } // Children can be more than one argument, and those are transferred onto
+      // the newly allocated props object.
+
+      var childrenLength = arguments.length - 2;
+      if (childrenLength === 1) {
+        props.children = children;
+      } else if (childrenLength > 1) {
+        var childArray = Array(childrenLength);
+        for (var i = 0; i < childrenLength; i++) {
+          childArray[i] = arguments[i + 2];
+        }
+        {
+          if (Object.freeze) {
+            Object.freeze(childArray);
+          }
+        }
+        props.children = childArray;
+      } // Resolve default props
+
+      if (type && type.defaultProps) {
+        var defaultProps = type.defaultProps;
+        for (propName in defaultProps) {
+          if (props[propName] === undefined) {
+            props[propName] = defaultProps[propName];
+          }
+        }
+      }
+      {
+        if (key || ref) {
+          var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+          if (key) {
+            defineKeyPropWarningGetter(props, displayName);
+          }
+          if (ref) {
+            defineRefPropWarningGetter(props, displayName);
+          }
+        }
+      }
+      return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+    }
+    function cloneAndReplaceKey(oldElement, newKey) {
+      var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
+      return newElement;
+    }
+    /**
+     * Clone and return a new ReactElement using element as the starting point.
+     * See https://reactjs.org/docs/react-api.html#cloneelement
+     */
+
+    function cloneElement(element, config, children) {
+      if (!!(element === null || element === undefined)) {
+        {
+          throw Error("React.cloneElement(...): The argument must be a React element, but you passed " + element + ".");
+        }
+      }
+      var propName; // Original props are copied
+
+      var props = _assign({}, element.props); // Reserved names are extracted
+
+      var key = element.key;
+      var ref = element.ref; // Self is preserved since the owner is preserved.
+
+      var self = element._self; // Source is preserved since cloneElement is unlikely to be targeted by a
+      // transpiler, and the original source is probably a better indicator of the
+      // true owner.
+
+      var source = element._source; // Owner will be preserved, unless ref is overridden
+
+      var owner = element._owner;
+      if (config != null) {
+        if (hasValidRef(config)) {
+          // Silently steal the ref from the parent.
+          ref = config.ref;
+          owner = ReactCurrentOwner.current;
+        }
+        if (hasValidKey(config)) {
+          key = '' + config.key;
+        } // Remaining properties override existing props
+
+        var defaultProps;
+        if (element.type && element.type.defaultProps) {
+          defaultProps = element.type.defaultProps;
+        }
+        for (propName in config) {
+          if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+            if (config[propName] === undefined && defaultProps !== undefined) {
+              // Resolve default props
+              props[propName] = defaultProps[propName];
+            } else {
+              props[propName] = config[propName];
+            }
+          }
+        }
+      } // Children can be more than one argument, and those are transferred onto
+      // the newly allocated props object.
+
+      var childrenLength = arguments.length - 2;
+      if (childrenLength === 1) {
+        props.children = children;
+      } else if (childrenLength > 1) {
+        var childArray = Array(childrenLength);
+        for (var i = 0; i < childrenLength; i++) {
+          childArray[i] = arguments[i + 2];
+        }
+        props.children = childArray;
+      }
+      return ReactElement(element.type, key, ref, self, source, owner, props);
+    }
+    /**
+     * Verifies the object is a ReactElement.
+     * See https://reactjs.org/docs/react-api.html#isvalidelement
+     * @param {?object} object
+     * @return {boolean} True if `object` is a ReactElement.
+     * @final
+     */
+
+    function isValidElement(object) {
+      return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    var SEPARATOR = '.';
+    var SUBSEPARATOR = ':';
+    /**
+     * Escape and wrap key so it is safe to use as a reactid
+     *
+     * @param {string} key to be escaped.
+     * @return {string} the escaped key.
+     */
+
+    function escape(key) {
+      var escapeRegex = /[=:]/g;
+      var escaperLookup = {
+        '=': '=0',
+        ':': '=2'
+      };
+      var escapedString = ('' + key).replace(escapeRegex, function (match) {
+        return escaperLookup[match];
+      });
+      return '$' + escapedString;
+    }
+    /**
+     * TODO: Test that a single child and an array with one item have the same key
+     * pattern.
+     */
+
+    var didWarnAboutMaps = false;
+    var userProvidedKeyEscapeRegex = /\/+/g;
+    function escapeUserProvidedKey(text) {
+      return ('' + text).replace(userProvidedKeyEscapeRegex, '$&/');
+    }
+    var POOL_SIZE = 10;
+    var traverseContextPool = [];
+    function getPooledTraverseContext(mapResult, keyPrefix, mapFunction, mapContext) {
+      if (traverseContextPool.length) {
+        var traverseContext = traverseContextPool.pop();
+        traverseContext.result = mapResult;
+        traverseContext.keyPrefix = keyPrefix;
+        traverseContext.func = mapFunction;
+        traverseContext.context = mapContext;
+        traverseContext.count = 0;
+        return traverseContext;
+      } else {
+        return {
+          result: mapResult,
+          keyPrefix: keyPrefix,
+          func: mapFunction,
+          context: mapContext,
+          count: 0
+        };
+      }
+    }
+    function releaseTraverseContext(traverseContext) {
+      traverseContext.result = null;
+      traverseContext.keyPrefix = null;
+      traverseContext.func = null;
+      traverseContext.context = null;
+      traverseContext.count = 0;
+      if (traverseContextPool.length < POOL_SIZE) {
+        traverseContextPool.push(traverseContext);
+      }
+    }
+    /**
+     * @param {?*} children Children tree container.
+     * @param {!string} nameSoFar Name of the key path so far.
+     * @param {!function} callback Callback to invoke with each child found.
+     * @param {?*} traverseContext Used to pass information throughout the traversal
+     * process.
+     * @return {!number} The number of children in this subtree.
+     */
+
+    function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext) {
+      var type = typeof children;
+      if (type === 'undefined' || type === 'boolean') {
+        // All of the above are perceived as null.
+        children = null;
+      }
+      var invokeCallback = false;
+      if (children === null) {
+        invokeCallback = true;
+      } else {
+        switch (type) {
+          case 'string':
+          case 'number':
+            invokeCallback = true;
+            break;
+          case 'object':
+            switch (children.$$typeof) {
+              case REACT_ELEMENT_TYPE:
+              case REACT_PORTAL_TYPE:
+                invokeCallback = true;
+            }
+        }
+      }
+      if (invokeCallback) {
+        callback(traverseContext, children,
+        // If it's the only child, treat the name as if it was wrapped in an array
+        // so that it's consistent if the number of children grows.
+        nameSoFar === '' ? SEPARATOR + getComponentKey(children, 0) : nameSoFar);
+        return 1;
+      }
+      var child;
+      var nextName;
+      var subtreeCount = 0; // Count of children found in the current subtree.
+
+      var nextNamePrefix = nameSoFar === '' ? SEPARATOR : nameSoFar + SUBSEPARATOR;
+      if (Array.isArray(children)) {
+        for (var i = 0; i < children.length; i++) {
+          child = children[i];
+          nextName = nextNamePrefix + getComponentKey(child, i);
+          subtreeCount += traverseAllChildrenImpl(child, nextName, callback, traverseContext);
+        }
+      } else {
+        var iteratorFn = getIteratorFn(children);
+        if (typeof iteratorFn === 'function') {
+          {
+            // Warn about using Maps as children
+            if (iteratorFn === children.entries) {
+              if (!didWarnAboutMaps) {
+                warn('Using Maps as children is deprecated and will be removed in ' + 'a future major release. Consider converting children to ' + 'an array of keyed ReactElements instead.');
+              }
+              didWarnAboutMaps = true;
+            }
+          }
+          var iterator = iteratorFn.call(children);
+          var step;
+          var ii = 0;
+          while (!(step = iterator.next()).done) {
+            child = step.value;
+            nextName = nextNamePrefix + getComponentKey(child, ii++);
+            subtreeCount += traverseAllChildrenImpl(child, nextName, callback, traverseContext);
+          }
+        } else if (type === 'object') {
+          var addendum = '';
+          {
+            addendum = ' If you meant to render a collection of children, use an array ' + 'instead.' + ReactDebugCurrentFrame.getStackAddendum();
+          }
+          var childrenString = '' + children;
+          {
+            {
+              throw Error("Objects are not valid as a React child (found: " + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + ")." + addendum);
+            }
+          }
+        }
+      }
+      return subtreeCount;
+    }
+    /**
+     * Traverses children that are typically specified as `props.children`, but
+     * might also be specified through attributes:
+     *
+     * - `traverseAllChildren(this.props.children, ...)`
+     * - `traverseAllChildren(this.props.leftPanelChildren, ...)`
+     *
+     * The `traverseContext` is an optional argument that is passed through the
+     * entire traversal. It can be used to store accumulations or anything else that
+     * the callback might find relevant.
+     *
+     * @param {?*} children Children tree object.
+     * @param {!function} callback To invoke upon traversing each child.
+     * @param {?*} traverseContext Context for traversal.
+     * @return {!number} The number of children in this subtree.
+     */
+
+    function traverseAllChildren(children, callback, traverseContext) {
+      if (children == null) {
+        return 0;
+      }
+      return traverseAllChildrenImpl(children, '', callback, traverseContext);
+    }
+    /**
+     * Generate a key string that identifies a component within a set.
+     *
+     * @param {*} component A component that could contain a manual key.
+     * @param {number} index Index that is used if a manual key is not provided.
+     * @return {string}
+     */
+
+    function getComponentKey(component, index) {
+      // Do some typechecking here since we call this blindly. We want to ensure
+      // that we don't block potential future ES APIs.
+      if (typeof component === 'object' && component !== null && component.key != null) {
+        // Explicit key
+        return escape(component.key);
+      } // Implicit key determined by the index in the set
+
+      return index.toString(36);
+    }
+    function forEachSingleChild(bookKeeping, child, name) {
+      var func = bookKeeping.func,
+        context = bookKeeping.context;
+      func.call(context, child, bookKeeping.count++);
+    }
+    /**
+     * Iterates through children that are typically specified as `props.children`.
+     *
+     * See https://reactjs.org/docs/react-api.html#reactchildrenforeach
+     *
+     * The provided forEachFunc(child, index) will be called for each
+     * leaf child.
+     *
+     * @param {?*} children Children tree container.
+     * @param {function(*, int)} forEachFunc
+     * @param {*} forEachContext Context for forEachContext.
+     */
+
+    function forEachChildren(children, forEachFunc, forEachContext) {
+      if (children == null) {
+        return children;
+      }
+      var traverseContext = getPooledTraverseContext(null, null, forEachFunc, forEachContext);
+      traverseAllChildren(children, forEachSingleChild, traverseContext);
+      releaseTraverseContext(traverseContext);
+    }
+    function mapSingleChildIntoContext(bookKeeping, child, childKey) {
+      var result = bookKeeping.result,
+        keyPrefix = bookKeeping.keyPrefix,
+        func = bookKeeping.func,
+        context = bookKeeping.context;
+      var mappedChild = func.call(context, child, bookKeeping.count++);
+      if (Array.isArray(mappedChild)) {
+        mapIntoWithKeyPrefixInternal(mappedChild, result, childKey, function (c) {
+          return c;
+        });
+      } else if (mappedChild != null) {
+        if (isValidElement(mappedChild)) {
+          mappedChild = cloneAndReplaceKey(mappedChild,
+          // Keep both the (mapped) and old keys if they differ, just as
+          // traverseAllChildren used to do for objects as children
+          keyPrefix + (mappedChild.key && (!child || child.key !== mappedChild.key) ? escapeUserProvidedKey(mappedChild.key) + '/' : '') + childKey);
+        }
+        result.push(mappedChild);
+      }
+    }
+    function mapIntoWithKeyPrefixInternal(children, array, prefix, func, context) {
+      var escapedPrefix = '';
+      if (prefix != null) {
+        escapedPrefix = escapeUserProvidedKey(prefix) + '/';
+      }
+      var traverseContext = getPooledTraverseContext(array, escapedPrefix, func, context);
+      traverseAllChildren(children, mapSingleChildIntoContext, traverseContext);
+      releaseTraverseContext(traverseContext);
+    }
+    /**
+     * Maps children that are typically specified as `props.children`.
+     *
+     * See https://reactjs.org/docs/react-api.html#reactchildrenmap
+     *
+     * The provided mapFunction(child, key, index) will be called for each
+     * leaf child.
+     *
+     * @param {?*} children Children tree container.
+     * @param {function(*, int)} func The map function.
+     * @param {*} context Context for mapFunction.
+     * @return {object} Object containing the ordered map of results.
+     */
+
+    function mapChildren(children, func, context) {
+      if (children == null) {
+        return children;
+      }
+      var result = [];
+      mapIntoWithKeyPrefixInternal(children, result, null, func, context);
+      return result;
+    }
+    /**
+     * Count the number of children that are typically specified as
+     * `props.children`.
+     *
+     * See https://reactjs.org/docs/react-api.html#reactchildrencount
+     *
+     * @param {?*} children Children tree container.
+     * @return {number} The number of children.
+     */
+
+    function countChildren(children) {
+      return traverseAllChildren(children, function () {
+        return null;
+      }, null);
+    }
+    /**
+     * Flatten a children object (typically specified as `props.children`) and
+     * return an array with appropriately re-keyed children.
+     *
+     * See https://reactjs.org/docs/react-api.html#reactchildrentoarray
+     */
+
+    function toArray(children) {
+      var result = [];
+      mapIntoWithKeyPrefixInternal(children, result, null, function (child) {
+        return child;
+      });
+      return result;
+    }
+    /**
+     * Returns the first child in a collection of children and verifies that there
+     * is only one child in the collection.
+     *
+     * See https://reactjs.org/docs/react-api.html#reactchildrenonly
+     *
+     * The current implementation of this function assumes that a single child gets
+     * passed without a wrapper, but the purpose of this helper function is to
+     * abstract away the particular structure of children.
+     *
+     * @param {?object} children Child collection structure.
+     * @return {ReactElement} The first and only `ReactElement` contained in the
+     * structure.
+     */
+
+    function onlyChild(children) {
+      if (!isValidElement(children)) {
+        {
+          throw Error("React.Children.only expected to receive a single React element child.");
+        }
+      }
+      return children;
+    }
+    function createContext(defaultValue, calculateChangedBits) {
+      if (calculateChangedBits === undefined) {
+        calculateChangedBits = null;
+      } else {
+        {
+          if (calculateChangedBits !== null && typeof calculateChangedBits !== 'function') {
+            error('createContext: Expected the optional second argument to be a ' + 'function. Instead received: %s', calculateChangedBits);
+          }
+        }
+      }
+      var context = {
+        $$typeof: REACT_CONTEXT_TYPE,
+        _calculateChangedBits: calculateChangedBits,
+        // As a workaround to support multiple concurrent renderers, we categorize
+        // some renderers as primary and others as secondary. We only expect
+        // there to be two concurrent renderers at most: React Native (primary) and
+        // Fabric (secondary); React DOM (primary) and React ART (secondary).
+        // Secondary renderers store their context values on separate fields.
+        _currentValue: defaultValue,
+        _currentValue2: defaultValue,
+        // Used to track how many concurrent renderers this context currently
+        // supports within in a single renderer. Such as parallel server rendering.
+        _threadCount: 0,
+        // These are circular
+        Provider: null,
+        Consumer: null
+      };
+      context.Provider = {
+        $$typeof: REACT_PROVIDER_TYPE,
+        _context: context
+      };
+      var hasWarnedAboutUsingNestedContextConsumers = false;
+      var hasWarnedAboutUsingConsumerProvider = false;
+      {
+        // A separate object, but proxies back to the original context object for
+        // backwards compatibility. It has a different $$typeof, so we can properly
+        // warn for the incorrect usage of Context as a Consumer.
+        var Consumer = {
+          $$typeof: REACT_CONTEXT_TYPE,
+          _context: context,
+          _calculateChangedBits: context._calculateChangedBits
+        }; // $FlowFixMe: Flow complains about not setting a value, which is intentional here
+
+        Object.defineProperties(Consumer, {
+          Provider: {
+            get: function () {
+              if (!hasWarnedAboutUsingConsumerProvider) {
+                hasWarnedAboutUsingConsumerProvider = true;
+                error('Rendering <Context.Consumer.Provider> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Provider> instead?');
+              }
+              return context.Provider;
+            },
+            set: function (_Provider) {
+              context.Provider = _Provider;
+            }
+          },
+          _currentValue: {
+            get: function () {
+              return context._currentValue;
+            },
+            set: function (_currentValue) {
+              context._currentValue = _currentValue;
+            }
+          },
+          _currentValue2: {
+            get: function () {
+              return context._currentValue2;
+            },
+            set: function (_currentValue2) {
+              context._currentValue2 = _currentValue2;
+            }
+          },
+          _threadCount: {
+            get: function () {
+              return context._threadCount;
+            },
+            set: function (_threadCount) {
+              context._threadCount = _threadCount;
+            }
+          },
+          Consumer: {
+            get: function () {
+              if (!hasWarnedAboutUsingNestedContextConsumers) {
+                hasWarnedAboutUsingNestedContextConsumers = true;
+                error('Rendering <Context.Consumer.Consumer> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Consumer> instead?');
+              }
+              return context.Consumer;
+            }
+          }
+        }); // $FlowFixMe: Flow complains about missing properties because it doesn't understand defineProperty
+
+        context.Consumer = Consumer;
+      }
+      {
+        context._currentRenderer = null;
+        context._currentRenderer2 = null;
+      }
+      return context;
+    }
+    function lazy(ctor) {
+      var lazyType = {
+        $$typeof: REACT_LAZY_TYPE,
+        _ctor: ctor,
+        // React uses these fields to store the result.
+        _status: -1,
+        _result: null
+      };
+      {
+        // In production, this would just set it on the object.
+        var defaultProps;
+        var propTypes;
+        Object.defineProperties(lazyType, {
+          defaultProps: {
+            configurable: true,
+            get: function () {
+              return defaultProps;
+            },
+            set: function (newDefaultProps) {
+              error('React.lazy(...): It is not supported to assign `defaultProps` to ' + 'a lazy component import. Either specify them where the component ' + 'is defined, or create a wrapping component around it.');
+              defaultProps = newDefaultProps; // Match production behavior more closely:
+
+              Object.defineProperty(lazyType, 'defaultProps', {
+                enumerable: true
+              });
+            }
+          },
+          propTypes: {
+            configurable: true,
+            get: function () {
+              return propTypes;
+            },
+            set: function (newPropTypes) {
+              error('React.lazy(...): It is not supported to assign `propTypes` to ' + 'a lazy component import. Either specify them where the component ' + 'is defined, or create a wrapping component around it.');
+              propTypes = newPropTypes; // Match production behavior more closely:
+
+              Object.defineProperty(lazyType, 'propTypes', {
+                enumerable: true
+              });
+            }
+          }
+        });
+      }
+      return lazyType;
+    }
+    function forwardRef(render) {
+      {
+        if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
+          error('forwardRef requires a render function but received a `memo` ' + 'component. Instead of forwardRef(memo(...)), use ' + 'memo(forwardRef(...)).');
+        } else if (typeof render !== 'function') {
+          error('forwardRef requires a render function but was given %s.', render === null ? 'null' : typeof render);
+        } else {
+          if (render.length !== 0 && render.length !== 2) {
+            error('forwardRef render functions accept exactly two parameters: props and ref. %s', render.length === 1 ? 'Did you forget to use the ref parameter?' : 'Any additional parameter will be undefined.');
+          }
+        }
+        if (render != null) {
+          if (render.defaultProps != null || render.propTypes != null) {
+            error('forwardRef render functions do not support propTypes or defaultProps. ' + 'Did you accidentally pass a React component?');
+          }
+        }
+      }
+      return {
+        $$typeof: REACT_FORWARD_REF_TYPE,
+        render: render
+      };
+    }
+    function isValidElementType(type) {
+      return typeof type === 'string' || typeof type === 'function' ||
+      // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+      type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+    }
+    function memo(type, compare) {
+      {
+        if (!isValidElementType(type)) {
+          error('memo: The first argument must be a component. Instead ' + 'received: %s', type === null ? 'null' : typeof type);
+        }
+      }
+      return {
+        $$typeof: REACT_MEMO_TYPE,
+        type: type,
+        compare: compare === undefined ? null : compare
+      };
+    }
+    function resolveDispatcher() {
+      var dispatcher = ReactCurrentDispatcher.current;
+      if (!(dispatcher !== null)) {
+        {
+          throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://fb.me/react-invalid-hook-call for tips about how to debug and fix this problem.");
+        }
+      }
+      return dispatcher;
+    }
+    function useContext(Context, unstable_observedBits) {
+      var dispatcher = resolveDispatcher();
+      {
+        if (unstable_observedBits !== undefined) {
+          error('useContext() second argument is reserved for future ' + 'use in React. Passing it is not supported. ' + 'You passed: %s.%s', unstable_observedBits, typeof unstable_observedBits === 'number' && Array.isArray(arguments[2]) ? '\n\nDid you call array.map(useContext)? ' + 'Calling Hooks inside a loop is not supported. ' + 'Learn more at https://fb.me/rules-of-hooks' : '');
+        } // TODO: add a more generic warning for invalid values.
+
+        if (Context._context !== undefined) {
+          var realContext = Context._context; // Don't deduplicate because this legitimately causes bugs
+          // and nobody should be using this in existing code.
+
+          if (realContext.Consumer === Context) {
+            error('Calling useContext(Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(Context) instead?');
+          } else if (realContext.Provider === Context) {
+            error('Calling useContext(Context.Provider) is not supported. ' + 'Did you mean to call useContext(Context) instead?');
+          }
+        }
+      }
+      return dispatcher.useContext(Context, unstable_observedBits);
+    }
+    function useState(initialState) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useState(initialState);
+    }
+    function useReducer(reducer, initialArg, init) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useReducer(reducer, initialArg, init);
+    }
+    function useRef(initialValue) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useRef(initialValue);
+    }
+    function useEffect(create, deps) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useEffect(create, deps);
+    }
+    function useLayoutEffect(create, deps) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useLayoutEffect(create, deps);
+    }
+    function useCallback(callback, deps) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useCallback(callback, deps);
+    }
+    function useMemo(create, deps) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useMemo(create, deps);
+    }
+    function useImperativeHandle(ref, create, deps) {
+      var dispatcher = resolveDispatcher();
+      return dispatcher.useImperativeHandle(ref, create, deps);
+    }
+    function useDebugValue(value, formatterFn) {
+      {
+        var dispatcher = resolveDispatcher();
+        return dispatcher.useDebugValue(value, formatterFn);
+      }
+    }
+    var propTypesMisspellWarningShown;
+    {
+      propTypesMisspellWarningShown = false;
+    }
+    function getDeclarationErrorAddendum() {
+      if (ReactCurrentOwner.current) {
+        var name = getComponentName(ReactCurrentOwner.current.type);
+        if (name) {
+          return '\n\nCheck the render method of `' + name + '`.';
+        }
+      }
+      return '';
+    }
+    function getSourceInfoErrorAddendum(source) {
+      if (source !== undefined) {
+        var fileName = source.fileName.replace(/^.*[\\\/]/, '');
+        var lineNumber = source.lineNumber;
+        return '\n\nCheck your code at ' + fileName + ':' + lineNumber + '.';
+      }
+      return '';
+    }
+    function getSourceInfoErrorAddendumForProps(elementProps) {
+      if (elementProps !== null && elementProps !== undefined) {
+        return getSourceInfoErrorAddendum(elementProps.__source);
+      }
+      return '';
+    }
+    /**
+     * Warn if there's no key explicitly set on dynamic arrays of children or
+     * object keys are not valid. This allows us to keep track of children between
+     * updates.
+     */
+
+    var ownerHasKeyUseWarning = {};
+    function getCurrentComponentErrorInfo(parentType) {
+      var info = getDeclarationErrorAddendum();
+      if (!info) {
+        var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
+        if (parentName) {
+          info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+        }
+      }
+      return info;
+    }
+    /**
+     * Warn if the element doesn't have an explicit key assigned to it.
+     * This element is in an array. The array could grow and shrink or be
+     * reordered. All children that haven't already been validated are required to
+     * have a "key" property assigned to it. Error statuses are cached so a warning
+     * will only be shown once.
+     *
+     * @internal
+     * @param {ReactElement} element Element that requires a key.
+     * @param {*} parentType element's parent's type.
+     */
+
+    function validateExplicitKey(element, parentType) {
+      if (!element._store || element._store.validated || element.key != null) {
+        return;
+      }
+      element._store.validated = true;
+      var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+      if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
+        return;
+      }
+      ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
+      // property, it may be the creator of the child that's responsible for
+      // assigning it a key.
+
+      var childOwner = '';
+      if (element && element._owner && element._owner !== ReactCurrentOwner.current) {
+        // Give the component that originally created this child.
+        childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
+      }
+      setCurrentlyValidatingElement(element);
+      {
+        error('Each child in a list should have a unique "key" prop.' + '%s%s See https://fb.me/react-warning-keys for more information.', currentComponentErrorInfo, childOwner);
+      }
+      setCurrentlyValidatingElement(null);
+    }
+    /**
+     * Ensure that every element either is passed in a static location, in an
+     * array with an explicit keys property defined, or in an object literal
+     * with valid key property.
+     *
+     * @internal
+     * @param {ReactNode} node Statically passed child of any type.
+     * @param {*} parentType node's parent's type.
+     */
+
+    function validateChildKeys(node, parentType) {
+      if (typeof node !== 'object') {
+        return;
+      }
+      if (Array.isArray(node)) {
+        for (var i = 0; i < node.length; i++) {
+          var child = node[i];
+          if (isValidElement(child)) {
+            validateExplicitKey(child, parentType);
+          }
+        }
+      } else if (isValidElement(node)) {
+        // This element was passed in a valid location.
+        if (node._store) {
+          node._store.validated = true;
+        }
+      } else if (node) {
+        var iteratorFn = getIteratorFn(node);
+        if (typeof iteratorFn === 'function') {
+          // Entry iterators used to provide implicit keys,
+          // but now we print a separate warning for them later.
+          if (iteratorFn !== node.entries) {
+            var iterator = iteratorFn.call(node);
+            var step;
+            while (!(step = iterator.next()).done) {
+              if (isValidElement(step.value)) {
+                validateExplicitKey(step.value, parentType);
+              }
+            }
+          }
+        }
+      }
+    }
+    /**
+     * Given an element, validate that its props follow the propTypes definition,
+     * provided by the type.
+     *
+     * @param {ReactElement} element
+     */
+
+    function validatePropTypes(element) {
+      {
+        var type = element.type;
+        if (type === null || type === undefined || typeof type === 'string') {
+          return;
+        }
+        var name = getComponentName(type);
+        var propTypes;
+        if (typeof type === 'function') {
+          propTypes = type.propTypes;
+        } else if (typeof type === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE ||
+        // Note: Memo only checks outer props here.
+        // Inner props are checked in the reconciler.
+        type.$$typeof === REACT_MEMO_TYPE)) {
+          propTypes = type.propTypes;
+        } else {
+          return;
+        }
+        if (propTypes) {
+          setCurrentlyValidatingElement(element);
+          checkPropTypes(propTypes, element.props, 'prop', name, ReactDebugCurrentFrame.getStackAddendum);
+          setCurrentlyValidatingElement(null);
+        } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+          propTypesMisspellWarningShown = true;
+          error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', name || 'Unknown');
+        }
+        if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
+          error('getDefaultProps is only used on classic React.createClass ' + 'definitions. Use a static property named `defaultProps` instead.');
+        }
+      }
+    }
+    /**
+     * Given a fragment, validate that it can only be provided with fragment props
+     * @param {ReactElement} fragment
+     */
+
+    function validateFragmentProps(fragment) {
+      {
+        setCurrentlyValidatingElement(fragment);
+        var keys = Object.keys(fragment.props);
+        for (var i = 0; i < keys.length; i++) {
+          var key = keys[i];
+          if (key !== 'children' && key !== 'key') {
+            error('Invalid prop `%s` supplied to `React.Fragment`. ' + 'React.Fragment can only have `key` and `children` props.', key);
+            break;
+          }
+        }
+        if (fragment.ref !== null) {
+          error('Invalid attribute `ref` supplied to `React.Fragment`.');
+        }
+        setCurrentlyValidatingElement(null);
+      }
+    }
+    function createElementWithValidation(type, props, children) {
+      var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
+      // succeed and there will likely be errors in render.
+
+      if (!validType) {
+        var info = '';
+        if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+          info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+        }
+        var sourceInfo = getSourceInfoErrorAddendumForProps(props);
+        if (sourceInfo) {
+          info += sourceInfo;
+        } else {
+          info += getDeclarationErrorAddendum();
+        }
+        var typeString;
+        if (type === null) {
+          typeString = 'null';
+        } else if (Array.isArray(type)) {
+          typeString = 'array';
+        } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+          typeString = "<" + (getComponentName(type.type) || 'Unknown') + " />";
+          info = ' Did you accidentally export a JSX literal instead of a component?';
+        } else {
+          typeString = typeof type;
+        }
+        {
+          error('React.createElement: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
+        }
+      }
+      var element = createElement.apply(this, arguments); // The result can be nullish if a mock or a custom function is used.
+      // TODO: Drop this when these are no longer allowed as the type argument.
+
+      if (element == null) {
+        return element;
+      } // Skip key warning if the type isn't valid since our key validation logic
+      // doesn't expect a non-string/function type and can throw confusing errors.
+      // We don't want exception behavior to differ between dev and prod.
+      // (Rendering will throw with a helpful message and as soon as the type is
+      // fixed, the key warnings will appear.)
+
+      if (validType) {
+        for (var i = 2; i < arguments.length; i++) {
+          validateChildKeys(arguments[i], type);
+        }
+      }
+      if (type === REACT_FRAGMENT_TYPE) {
+        validateFragmentProps(element);
+      } else {
+        validatePropTypes(element);
+      }
+      return element;
+    }
+    var didWarnAboutDeprecatedCreateFactory = false;
+    function createFactoryWithValidation(type) {
+      var validatedFactory = createElementWithValidation.bind(null, type);
+      validatedFactory.type = type;
+      {
+        if (!didWarnAboutDeprecatedCreateFactory) {
+          didWarnAboutDeprecatedCreateFactory = true;
+          warn('React.createFactory() is deprecated and will be removed in ' + 'a future major release. Consider using JSX ' + 'or use React.createElement() directly instead.');
+        } // Legacy hook: remove it
+
+        Object.defineProperty(validatedFactory, 'type', {
+          enumerable: false,
+          get: function () {
+            warn('Factory.type is deprecated. Access the class directly ' + 'before passing it to createFactory.');
+            Object.defineProperty(this, 'type', {
+              value: type
+            });
+            return type;
+          }
+        });
+      }
+      return validatedFactory;
+    }
+    function cloneElementWithValidation(element, props, children) {
+      var newElement = cloneElement.apply(this, arguments);
+      for (var i = 2; i < arguments.length; i++) {
+        validateChildKeys(arguments[i], newElement.type);
+      }
+      validatePropTypes(newElement);
+      return newElement;
+    }
+    {
+      try {
+        var frozenObject = Object.freeze({});
+        var testMap = new Map([[frozenObject, null]]);
+        var testSet = new Set([frozenObject]); // This is necessary for Rollup to not consider these unused.
+        // https://github.com/rollup/rollup/issues/1771
+        // TODO: we can remove these if Rollup fixes the bug.
+
+        testMap.set(0, 0);
+        testSet.add(0);
+      } catch (e) {}
+    }
+    var createElement$1 = createElementWithValidation;
+    var cloneElement$1 = cloneElementWithValidation;
+    var createFactory = createFactoryWithValidation;
+    var Children = {
+      map: mapChildren,
+      forEach: forEachChildren,
+      count: countChildren,
+      toArray: toArray,
+      only: onlyChild
+    };
+    exports.Children = Children;
+    exports.Component = Component;
+    exports.Fragment = REACT_FRAGMENT_TYPE;
+    exports.Profiler = REACT_PROFILER_TYPE;
+    exports.PureComponent = PureComponent;
+    exports.StrictMode = REACT_STRICT_MODE_TYPE;
+    exports.Suspense = REACT_SUSPENSE_TYPE;
+    exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
+    exports.cloneElement = cloneElement$1;
+    exports.createContext = createContext;
+    exports.createElement = createElement$1;
+    exports.createFactory = createFactory;
+    exports.createRef = createRef;
+    exports.forwardRef = forwardRef;
+    exports.isValidElement = isValidElement;
+    exports.lazy = lazy;
+    exports.memo = memo;
+    exports.useCallback = useCallback;
+    exports.useContext = useContext;
+    exports.useDebugValue = useDebugValue;
+    exports.useEffect = useEffect;
+    exports.useImperativeHandle = useImperativeHandle;
+    exports.useLayoutEffect = useLayoutEffect;
+    exports.useMemo = useMemo;
+    exports.useReducer = useReducer;
+    exports.useRef = useRef;
+    exports.useState = useState;
+    exports.version = ReactVersion;
+  })();
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-ratings-declarative/node_modules/react/index.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/react-ratings-declarative/node_modules/react/index.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "./node_modules/react-ratings-declarative/node_modules/react/cjs/react.development.js");
+}
 
 /***/ }),
 
@@ -13347,7 +17364,7 @@ if (true) {
   (function () {
     'use strict';
 
-    var React = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+    var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
     // ATTENTION
     // When adding new symbols to this file,
@@ -17464,6 +21481,3340 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _arrayLikeToArray)
+/* harmony export */ });
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _arrayWithHoles)
+/* harmony export */ });
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _extends)
+/* harmony export */ });
+function _extends() {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _iterableToArrayLimit)
+/* harmony export */ });
+function _iterableToArrayLimit(arr, i) {
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+  if (_i == null) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _s, _e;
+  try {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+  return _arr;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _nonIterableRest)
+/* harmony export */ });
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _objectWithoutProperties)
+/* harmony export */ });
+/* harmony import */ var _objectWithoutPropertiesLoose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./objectWithoutPropertiesLoose.js */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = (0,_objectWithoutPropertiesLoose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(source, excluded);
+  var key, i;
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _objectWithoutPropertiesLoose)
+/* harmony export */ });
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+  return target;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _slicedToArray)
+/* harmony export */ });
+/* harmony import */ var _arrayWithHoles_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles.js */ "./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js");
+/* harmony import */ var _iterableToArrayLimit_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit.js */ "./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js");
+/* harmony import */ var _unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./unsupportedIterableToArray.js */ "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js");
+/* harmony import */ var _nonIterableRest_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nonIterableRest.js */ "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js");
+
+
+
+
+function _slicedToArray(arr, i) {
+  return (0,_arrayWithHoles_js__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || (0,_iterableToArrayLimit_js__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(arr, i) || (0,_nonIterableRest_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _typeof)
+/* harmony export */ });
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _unsupportedIterableToArray)
+/* harmony export */ });
+/* harmony import */ var _arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(o, minLen);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/actions/background/actions/BackgroundColor.js":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/actions/background/actions/BackgroundColor.js ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BackgroundColor": () => (/* binding */ BackgroundColor)
+/* harmony export */ });
+/* harmony import */ var _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../internal/Action.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js");
+/* harmony import */ var _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../internal/qualifier/QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
+/* harmony import */ var _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../internal/qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
+
+
+
+/**
+ * @extends SDK.Action
+ * @description A class for background transformations.
+ */
+class BackgroundColor extends _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__.Action {
+  constructor(color) {
+    super();
+    this.addQualifier(new _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_1__.Qualifier('b', new _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_2__.QualifierValue(color).setDelimiter('_')));
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryAction.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryAction.js ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DeliveryAction": () => (/* binding */ DeliveryAction)
+/* harmony export */ });
+/* harmony import */ var _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../internal/Action.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js");
+/* harmony import */ var _qualifiers_format_FormatQualifier_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../qualifiers/format/FormatQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/format/FormatQualifier.js");
+/* harmony import */ var _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../internal/qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
+/* harmony import */ var _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../internal/internalConstants.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/internalConstants.js");
+
+
+
+
+/**
+ * @description Qualifies the delivery of an asset.
+ * @memberOf Actions.Delivery
+ * @extends SDK.Action
+ */
+class DeliveryAction extends _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__.Action {
+  /**
+   * @param {string} deliveryKey A generic Delivery Action Key (such as q, f, dn, etc.)
+   * @param {string} deliveryType A Format Qualifiers for the action, such as Quality.auto()
+   * @param {string} modelProperty internal model property of the action, for example quality uses `level` while dpr uses `density`
+   * @see Visit {@link Actions.Delivery|Delivery} for an example
+   */
+  constructor(deliveryKey, deliveryType, modelProperty) {
+    super();
+    this._actionModel = {};
+    let deliveryTypeValue;
+    if (deliveryType instanceof _qualifiers_format_FormatQualifier_js__WEBPACK_IMPORTED_MODULE_1__.FormatQualifier) {
+      deliveryTypeValue = deliveryType.getValue();
+    } else {
+      deliveryTypeValue = deliveryType;
+    }
+    this._actionModel.actionType = _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_2__.DELIVERY_MODE_TO_ACTION_TYPE_MAP[deliveryKey];
+    this._actionModel[modelProperty] = deliveryTypeValue;
+    this.addQualifier(new _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__.Qualifier(deliveryKey, deliveryType));
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DeliveryFormatAction": () => (/* binding */ DeliveryFormatAction)
+/* harmony export */ });
+/* harmony import */ var _qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../qualifiers/flag.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag.js");
+/* harmony import */ var _DeliveryAction_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeliveryAction.js */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryAction.js");
+/* harmony import */ var _qualifiers_progressive_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../qualifiers/progressive.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/progressive.js");
+
+
+
+/**
+ * @memberOf Actions.Delivery
+ * @extends {Actions.Delivery.DeliveryAction}
+ * @see Visit {@link Actions.Delivery|Delivery} for an example
+ */
+class DeliveryFormatAction extends _DeliveryAction_js__WEBPACK_IMPORTED_MODULE_0__.DeliveryAction {
+  constructor(deliveryKey, deliveryType) {
+    super(deliveryKey, deliveryType, 'formatType');
+  }
+  /**
+   * @description Uses lossy compression when delivering animated GIF files.
+   * @return {this}
+   */
+  lossy() {
+    this._actionModel.lossy = true;
+    this.addFlag((0,_qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__.lossy)());
+    return this;
+  }
+  /**
+   * @description Uses progressive compression when delivering JPG file format.
+   * @return {this}
+   */
+  progressive(mode) {
+    if (mode instanceof _qualifiers_progressive_js__WEBPACK_IMPORTED_MODULE_2__.ProgressiveQualifier) {
+      this._actionModel.progressive = {
+        mode: mode.getFlagValue()
+      };
+      this.addFlag(mode);
+    } else {
+      this._actionModel.progressive = {
+        mode: mode
+      };
+      this.addFlag((0,_qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__.progressive)(mode));
+    }
+    return this;
+  }
+  /**
+   * @description Ensures that images with a transparency channel are delivered in PNG format.
+   */
+  preserveTransparency() {
+    this._actionModel.preserveTransparency = true;
+    this.addFlag((0,_qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__.preserveTransparency)());
+    return this;
+  }
+  static fromJson(actionModel) {
+    const {
+      formatType,
+      lossy,
+      progressive,
+      preserveTransparency
+    } = actionModel;
+    let result;
+    if (formatType) {
+      result = new this('f', formatType);
+    } else {
+      result = new this('f');
+    }
+    if (progressive) {
+      if (progressive.mode) {
+        result.progressive(progressive.mode);
+      } else {
+        result.progressive();
+      }
+    }
+    lossy && result.lossy();
+    preserveTransparency && result.preserveTransparency();
+    return result;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Action": () => (/* binding */ Action)
+/* harmony export */ });
+/* harmony import */ var _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../qualifiers/flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
+/* harmony import */ var _qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
+/* harmony import */ var _utils_dataStructureUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/dataStructureUtils.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/dataStructureUtils.js");
+/* harmony import */ var _models_ActionModel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/ActionModel.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/ActionModel.js");
+
+
+
+
+/**
+ * @summary SDK
+ * @memberOf SDK
+ * @description Defines the category of transformation to perform.
+ */
+class Action extends _models_ActionModel_js__WEBPACK_IMPORTED_MODULE_0__.ActionModel {
+  constructor() {
+    super(...arguments);
+    // We're using map, to overwrite existing keys. for example:
+    // addParam(w_100).addQualifier(w_200) should result in w_200. and not w_100,w_200
+    this.qualifiers = new Map();
+    // Unlike regular qualifiers, there can be multiple flags in each url component /fl_1,fl_2/
+    // If the falgs are added to the qualifiers map, only a single flag could exist in a component (it's a map)
+    // So flags are stored separately until the very end because of that reason
+    this.flags = [];
+    this.delimiter = ','; // {qualifier}{delimiter}{qualifier} for example: `${'w_100'}${','}${'c_fill'}`
+    this.actionTag = ''; // A custom name tag to identify this action in the future
+  }
+
+  prepareQualifiers() {}
+  /**
+   * @description Returns the custom name tag that was given to this action
+   * @return {string}
+   */
+  getActionTag() {
+    return this.actionTag;
+  }
+  /**
+   * @description Sets the custom name tag for this action
+   * @return {this}
+   */
+  setActionTag(tag) {
+    this.actionTag = tag;
+    return this;
+  }
+  /**
+   * @description Calls toString() on all child qualifiers (implicitly by using .join()).
+   * @return {string}
+   */
+  toString() {
+    this.prepareQualifiers();
+    return (0,_utils_dataStructureUtils_js__WEBPACK_IMPORTED_MODULE_1__.mapToSortedArray)(this.qualifiers, this.flags).join(this.delimiter);
+  }
+  /**
+   * @description Adds the parameter to the action.
+   * @param {SDK.Qualifier} qualifier
+   * @return {this}
+   */
+  addQualifier(qualifier) {
+    // if string, find the key and value
+    if (typeof qualifier === 'string') {
+      const [key, value] = qualifier.toLowerCase().split('_');
+      if (key === 'fl') {
+        // if string qualifier is a flag, store it in the flags arrays
+        this.flags.push(new _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__.FlagQualifier(value));
+      } else {
+        // if the string qualifier is not a flag, create a new qualifier from it
+        this.qualifiers.set(key, new _qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__.Qualifier(key, value));
+      }
+    } else {
+      // if a qualifier object, insert to the qualifiers map
+      this.qualifiers.set(qualifier.key, qualifier);
+    }
+    return this;
+  }
+  /**
+   * @description Adds a flag to the current action.
+   * @param {Qualifiers.Flag} flag
+   * @return {this}
+   */
+  addFlag(flag) {
+    if (typeof flag === 'string') {
+      this.flags.push(new _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__.FlagQualifier(flag));
+    } else {
+      if (flag instanceof _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__.FlagQualifier) {
+        this.flags.push(flag);
+      }
+    }
+    return this;
+  }
+  addValueToQualifier(qualifierKey, qualifierValue) {
+    this.qualifiers.get(qualifierKey).addValue(qualifierValue);
+    return this;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/RawAction.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/RawAction.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RawAction": () => (/* binding */ RawAction)
+/* harmony export */ });
+/* harmony import */ var _utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/unsupportedError.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js");
+
+/**
+ * @summary SDK
+ * @memberOf SDK
+ * @description Defines an action that's a string literal, no validations or manipulations are performed
+ */
+class RawAction {
+  constructor(raw) {
+    this.raw = raw;
+  }
+  toString() {
+    return this.raw;
+  }
+  toJson() {
+    return {
+      error: (0,_utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__.createUnsupportedError)(`unsupported action ${this.constructor.name}`)
+    };
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/internalConstants.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/internalConstants.js ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ACTION_TYPE_TO_BLEND_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_BLEND_MODE_MAP),
+/* harmony export */   "ACTION_TYPE_TO_CROP_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_CROP_MODE_MAP),
+/* harmony export */   "ACTION_TYPE_TO_DELIVERY_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_DELIVERY_MODE_MAP),
+/* harmony export */   "ACTION_TYPE_TO_EFFECT_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_EFFECT_MODE_MAP),
+/* harmony export */   "ACTION_TYPE_TO_QUALITY_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_QUALITY_MODE_MAP),
+/* harmony export */   "ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP),
+/* harmony export */   "CHROMA_MODEL_ENUM_TO_CHROMA_VALUE": () => (/* binding */ CHROMA_MODEL_ENUM_TO_CHROMA_VALUE),
+/* harmony export */   "CHROMA_VALUE_TO_CHROMA_MODEL_ENUM": () => (/* binding */ CHROMA_VALUE_TO_CHROMA_MODEL_ENUM),
+/* harmony export */   "COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP": () => (/* binding */ COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP),
+/* harmony export */   "COLOR_SPACE_MODE_TO_COLOR_SPACE_MODEL_MODE_MAP": () => (/* binding */ COLOR_SPACE_MODE_TO_COLOR_SPACE_MODEL_MODE_MAP),
+/* harmony export */   "CONDITIONAL_OPERATORS": () => (/* binding */ CONDITIONAL_OPERATORS),
+/* harmony export */   "CROP_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ CROP_MODE_TO_ACTION_TYPE_MAP),
+/* harmony export */   "DELIVERY_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ DELIVERY_MODE_TO_ACTION_TYPE_MAP),
+/* harmony export */   "EFFECT_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ EFFECT_MODE_TO_ACTION_TYPE_MAP),
+/* harmony export */   "QUALITY_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ QUALITY_MODE_TO_ACTION_TYPE_MAP),
+/* harmony export */   "RESERVED_NAMES": () => (/* binding */ RESERVED_NAMES),
+/* harmony export */   "STREAMING_PROFILE_TO_ACTION_TYPE_MAP": () => (/* binding */ STREAMING_PROFILE_TO_ACTION_TYPE_MAP)
+/* harmony export */ });
+/* harmony import */ var _utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/objectFlip.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/objectFlip.js");
+/**
+ * This file is for internal constants only.
+ * It is not intended for public use and is not part of the public API
+ */
+
+const CONDITIONAL_OPERATORS = {
+  "=": "eq",
+  "!=": "ne",
+  "<": "lt",
+  ">": "gt",
+  "<=": "lte",
+  ">=": "gte",
+  "&&": "and",
+  "||": "or",
+  "*": "mul",
+  "/": "div",
+  "+": "add",
+  "-": "sub",
+  "^": "pow"
+};
+const RESERVED_NAMES = {
+  "aspect_ratio": "ar",
+  "aspectRatio": "ar",
+  "current_page": "cp",
+  "currentPage": "cp",
+  "duration": "du",
+  "face_count": "fc",
+  "faceCount": "fc",
+  "height": "h",
+  "initial_aspect_ratio": "iar",
+  "initial_height": "ih",
+  "initial_width": "iw",
+  "initialAspectRatio": "iar",
+  "initialHeight": "ih",
+  "initialWidth": "iw",
+  "initial_duration": "idu",
+  "initialDuration": "idu",
+  "page_count": "pc",
+  "page_x": "px",
+  "page_y": "py",
+  "pageCount": "pc",
+  "pageX": "px",
+  "pageY": "py",
+  "tags": "tags",
+  "width": "w",
+  "trimmed_aspect_ratio": "tar",
+  "current_public_id": "cpi",
+  "initial_density": "idn",
+  "page_names": "pgnames"
+};
+const ACTION_TYPE_TO_CROP_MODE_MAP = {
+  limitFit: 'limit',
+  limitFill: 'lfill',
+  minimumFit: 'mfit',
+  thumbnail: 'thumb',
+  limitPad: 'lpad',
+  minimumPad: 'mpad'
+};
+const ACTION_TYPE_TO_DELIVERY_MODE_MAP = {
+  colorSpace: 'cs',
+  dpr: 'dpr',
+  density: 'dn',
+  defaultImage: 'd',
+  format: 'f',
+  quality: 'q'
+};
+const ACTION_TYPE_TO_EFFECT_MODE_MAP = {
+  redEye: 'redeye',
+  advancedRedEye: 'adv_redeye',
+  oilPaint: 'oil_paint',
+  unsharpMask: 'unsharp_mask',
+  makeTransparent: 'make_transparent'
+};
+const ACTION_TYPE_TO_QUALITY_MODE_MAP = {
+  autoBest: 'auto:best',
+  autoEco: 'auto:eco',
+  autoGood: 'auto:good',
+  autoLow: 'auto:low',
+  jpegminiHigh: 'jpegmini:1',
+  jpegminiMedium: 'jpegmini:2',
+  jpegminiBest: 'jpegmini:0'
+};
+const ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP = {
+  fullHd: 'full_hd',
+  fullHdWifi: 'full_hd_wifi',
+  fullHdLean: 'full_hd_lean',
+  hdLean: 'hd_lean'
+};
+const CHROMA_VALUE_TO_CHROMA_MODEL_ENUM = {
+  444: "CHROMA_444",
+  420: "CHROMA_420"
+};
+const COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP = {
+  'noCmyk': 'no_cmyk',
+  'keepCmyk': 'keep_cmyk',
+  'tinySrgb': 'tinysrgb',
+  'srgbTrueColor': 'srgb:truecolor'
+};
+const ACTION_TYPE_TO_BLEND_MODE_MAP = {
+  'antiRemoval': 'anti_removal'
+};
+const CHROMA_MODEL_ENUM_TO_CHROMA_VALUE = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(CHROMA_VALUE_TO_CHROMA_MODEL_ENUM);
+const COLOR_SPACE_MODE_TO_COLOR_SPACE_MODEL_MODE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP);
+const CROP_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_CROP_MODE_MAP);
+const DELIVERY_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_DELIVERY_MODE_MAP);
+const EFFECT_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_EFFECT_MODE_MAP);
+const QUALITY_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_QUALITY_MODE_MAP);
+const STREAMING_PROFILE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP);
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/ActionModel.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/ActionModel.js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ActionModel": () => (/* binding */ ActionModel)
+/* harmony export */ });
+/* harmony import */ var _actionToJson_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionToJson.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/actionToJson.js");
+
+class ActionModel {
+  constructor() {
+    this._actionModel = {};
+  }
+  toJson() {
+    return _actionToJson_js__WEBPACK_IMPORTED_MODULE_0__.actionToJson.apply(this);
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/IErrorObject.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/IErrorObject.js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isErrorObject": () => (/* binding */ isErrorObject)
+/* harmony export */ });
+/**
+ * Validates obj is an instance of IErrorObject
+ * @param obj
+ */
+function isErrorObject(obj) {
+  const errorObj = obj;
+  return 'error' in errorObj && !!errorObj.error;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/QualifierModel.js":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/QualifierModel.js ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "QualifierModel": () => (/* binding */ QualifierModel)
+/* harmony export */ });
+/* harmony import */ var _qualifierToJson_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./qualifierToJson.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/qualifierToJson.js");
+
+class QualifierModel {
+  constructor() {
+    this._qualifierModel = {};
+  }
+  toJson() {
+    return _qualifierToJson_js__WEBPACK_IMPORTED_MODULE_0__.qualifierToJson.apply(this);
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/actionToJson.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/actionToJson.js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "actionToJson": () => (/* binding */ actionToJson)
+/* harmony export */ });
+/* harmony import */ var _utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/unsupportedError.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js");
+
+/**
+ * Returns the action's model
+ */
+function actionToJson() {
+  const actionModelIsNotEmpty = this._actionModel && Object.keys(this._actionModel).length;
+  if (actionModelIsNotEmpty) {
+    return this._actionModel;
+  }
+  return {
+    error: (0,_utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__.createUnsupportedError)(`unsupported action ${this.constructor.name}`)
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/qualifierToJson.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/qualifierToJson.js ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "qualifierToJson": () => (/* binding */ qualifierToJson)
+/* harmony export */ });
+/* harmony import */ var _utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/unsupportedError.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js");
+
+/**
+ * Returns the action's model
+ */
+function qualifierToJson() {
+  return this._qualifierModel || {
+    error: (0,_utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__.createUnsupportedError)(`unsupported qualifier ${this.constructor.name}`)
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Qualifier": () => (/* binding */ Qualifier)
+/* harmony export */ });
+/* harmony import */ var _QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
+/* harmony import */ var _models_QualifierModel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/QualifierModel.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/QualifierModel.js");
+
+
+/**
+ * @summary SDK
+ * @memberOf SDK
+ */
+class Qualifier extends _models_QualifierModel_js__WEBPACK_IMPORTED_MODULE_0__.QualifierModel {
+  constructor(key, qualifierValue) {
+    super();
+    this.delimiter = '_'; // {key}{delimiter}{qualifierValue}
+    this.key = key;
+    if (qualifierValue instanceof _QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__.QualifierValue) {
+      this.qualifierValue = qualifierValue;
+    } else {
+      this.qualifierValue = new _QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__.QualifierValue();
+      this.qualifierValue.addValue(qualifierValue);
+    }
+  }
+  toString() {
+    const {
+      key,
+      delimiter,
+      qualifierValue
+    } = this;
+    return `${key}${delimiter}${qualifierValue.toString()}`;
+  }
+  addValue(value) {
+    this.qualifierValue.addValue(value);
+    return this;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "QualifierValue": () => (/* binding */ QualifierValue)
+/* harmony export */ });
+/**
+ * @summary SDK
+ * @memberOf SDK
+ */
+class QualifierValue {
+  /**
+   *
+   * @param {QualifierValue | QualifierValue[] | any[] | string | number}qualifierValue
+   */
+  constructor(qualifierValue) {
+    this.values = [];
+    this.delimiter = ':'; // {value}{delimiter}{value}...
+    if (this.hasValue(qualifierValue)) {
+      this.addValue(qualifierValue);
+    }
+  }
+  /**
+   * @description Joins the provided values with the provided delimiter
+   */
+  toString() {
+    return this.values.join(this.delimiter);
+  }
+  /**
+   * @description Checks if the provided argument has a value
+   * @param {any} v
+   * @private
+   * @return {boolean}
+   */
+  hasValue(v) {
+    return typeof v !== 'undefined' && v !== null && v !== '';
+  }
+  /**
+   * @desc Adds a value for the this qualifier instance
+   * @param {any} value
+   * @return {this}
+   */
+  addValue(value) {
+    // Append value or array of values
+    if (Array.isArray(value)) {
+      this.values = this.values.concat(value);
+    } else {
+      this.values.push(value);
+    }
+    // Remove falsy values
+    this.values = this.values.filter(v => this.hasValue(v));
+    return this;
+  }
+  /**
+   * @description Sets the delimiter for this instance
+   * @param delimiter
+   */
+  setDelimiter(delimiter) {
+    this.delimiter = delimiter;
+    return this;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/dataStructureUtils.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/dataStructureUtils.js ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isString": () => (/* binding */ isString),
+/* harmony export */   "mapToSortedArray": () => (/* binding */ mapToSortedArray)
+/* harmony export */ });
+/**
+ * Sort a map by key
+ * @private
+ * @param map <string, any>
+ * @Return array of map's values sorted by key
+ */
+function mapToSortedArray(map, flags) {
+  const array = Array.from(map.entries());
+  // objects from the Array.from() method above are stored in array of arrays:
+  // [[qualifierKey, QualifierObj], [qualifierKey, QualifierObj]]
+  // Flags is an array of FlagQualifierObj
+  // We need to convert it to the same form: [flagQualifier] =>  ['fl', flagQualifier]
+  flags.forEach(flag => {
+    array.push(['fl', flag]); // push ['fl', flagQualifier]
+  });
+
+  return array.sort().map(v => v[1]);
+}
+/**
+ * Checks if `value` is a string.
+ * @private
+ * @param {*} value The value to check.
+ * @return {boolean} `true` if `value` is a string, else `false`.
+ */
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/objectFlip.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/objectFlip.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "objectFlip": () => (/* binding */ objectFlip)
+/* harmony export */ });
+/**
+ * Flip keys and values for given object
+ * @param obj
+ */
+function objectFlip(obj) {
+  const result = {};
+  Object.keys(obj).forEach(key => {
+    result[obj[key]] = key;
+  });
+  return result;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/prepareColor.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/prepareColor.js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "prepareColor": () => (/* binding */ prepareColor)
+/* harmony export */ });
+/**
+ * Returns RGB or Color
+ * @private
+ * @param color
+ */
+function prepareColor(color) {
+  if (color) {
+    return color.match(/^#/) ? `rgb:${color.substr(1)}` : color;
+  } else {
+    return color;
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UnsupportedError": () => (/* binding */ UnsupportedError),
+/* harmony export */   "createUnsupportedError": () => (/* binding */ createUnsupportedError)
+/* harmony export */ });
+class UnsupportedError extends Error {
+  constructor(message = 'Unsupported') {
+    super(message);
+  }
+}
+/**
+ * Creates a new UnsupportedError
+ * @param message
+ */
+function createUnsupportedError(message) {
+  return new UnsupportedError(message);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Flag": () => (/* binding */ Flag),
+/* harmony export */   "animated": () => (/* binding */ animated),
+/* harmony export */   "animatedPng": () => (/* binding */ animatedPng),
+/* harmony export */   "animatedWebP": () => (/* binding */ animatedWebP),
+/* harmony export */   "anyFormat": () => (/* binding */ anyFormat),
+/* harmony export */   "attachment": () => (/* binding */ attachment),
+/* harmony export */   "clip": () => (/* binding */ clip),
+/* harmony export */   "clipEvenOdd": () => (/* binding */ clipEvenOdd),
+/* harmony export */   "custom": () => (/* binding */ custom),
+/* harmony export */   "forceIcc": () => (/* binding */ forceIcc),
+/* harmony export */   "forceStrip": () => (/* binding */ forceStrip),
+/* harmony export */   "getInfo": () => (/* binding */ getInfo),
+/* harmony export */   "hlsv3": () => (/* binding */ hlsv3),
+/* harmony export */   "ignoreInitialAspectRatio": () => (/* binding */ ignoreInitialAspectRatio),
+/* harmony export */   "ignoreMaskChannels": () => (/* binding */ ignoreMaskChannels),
+/* harmony export */   "immutableCache": () => (/* binding */ immutableCache),
+/* harmony export */   "keepAttribution": () => (/* binding */ keepAttribution),
+/* harmony export */   "keepDar": () => (/* binding */ keepDar),
+/* harmony export */   "keepIptc": () => (/* binding */ keepIptc),
+/* harmony export */   "layerApply": () => (/* binding */ layerApply),
+/* harmony export */   "lossy": () => (/* binding */ lossy),
+/* harmony export */   "mono": () => (/* binding */ mono),
+/* harmony export */   "noOverflow": () => (/* binding */ noOverflow),
+/* harmony export */   "noStream": () => (/* binding */ noStream),
+/* harmony export */   "png24": () => (/* binding */ png24),
+/* harmony export */   "png32": () => (/* binding */ png32),
+/* harmony export */   "png8": () => (/* binding */ png8),
+/* harmony export */   "preserveTransparency": () => (/* binding */ preserveTransparency),
+/* harmony export */   "progressive": () => (/* binding */ progressive),
+/* harmony export */   "rasterize": () => (/* binding */ rasterize),
+/* harmony export */   "regionRelative": () => (/* binding */ regionRelative),
+/* harmony export */   "relative": () => (/* binding */ relative),
+/* harmony export */   "sanitize": () => (/* binding */ sanitize),
+/* harmony export */   "splice": () => (/* binding */ splice),
+/* harmony export */   "streamingAttachment": () => (/* binding */ streamingAttachment),
+/* harmony export */   "stripProfile": () => (/* binding */ stripProfile),
+/* harmony export */   "tiff8Lzw": () => (/* binding */ tiff8Lzw),
+/* harmony export */   "tiled": () => (/* binding */ tiled),
+/* harmony export */   "truncateTS": () => (/* binding */ truncateTS),
+/* harmony export */   "waveform": () => (/* binding */ waveform)
+/* harmony export */ });
+/* harmony import */ var _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
+/**
+ * @description Defines flags that you can use to alter the default transformation behavior.
+ * @namespace Flag
+ * @memberOf Qualifiers
+ */
+
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Used when delivering a video file as an image format that supports animation, such as animated WebP.
+ * Plays all frames rather than just delivering the first one as a static image.
+ * Use this flag in addition to the flag or parameter controlling the delivery format,
+ * for example f_auto or fl_awebp.
+
+ * Note: When delivering a video in GIF format, it is delivered as an animated GIF by default and this flag is not
+ * necessary. To deliver a single frame of a video in GIF format, use the page parameter.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function animated() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('animated');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description When converting animated images to WebP format, generate an animated WebP from all the frames in the
+ * original
+ * animated file instead of only from the first still frame.
+ *
+ * Note that animated WebPs are not supported in all browsers and versions.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function animatedWebP() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('awebp');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description When used together with automatic quality (q_auto):
+ * allow switching to PNG8 encoding if the quality algorithm decides that it's more efficient.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function anyFormat() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('any_format');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description When converting animated images to PNG format, generates an animated PNG from all the frames in the
+ * original
+ * animated file instead of only from the first still frame.
+ *
+ * Note that animated PNGs are not supported in all browsers and versions.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function animatedPng() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('apng');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Trims pixels according to a clipping path included in the original image
+ * (e.g., manually created using PhotoShop).
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function clip() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('clip');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Trims pixels according to a clipping path included in the original image (e.g., manually created
+ * using PhotoShop)
+ * using an evenodd clipping rule.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function clipEvenOdd() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('clip_evenodd');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Instructs Cloudinary to clear all image meta-data (IPTC, Exif and XMP) while applying an incoming
+ * transformation.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function forceStrip() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('force_strip');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Allows custom flag
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function custom(value) {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier(value);
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Adds ICC color space metadata to the image, even when the original image doesn't contain any ICC data.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function forceIcc() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('force_icc');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Delivers the image as an attachment.
+ * @param {string} filename The attachment's filename
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function attachment(filename) {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('attachment', filename);
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Returns metadata of the input asset and of the transformed output asset in JSON instead of the
+ * transformed image.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function getInfo() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('getinfo');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Deliver an HLS adaptive bitrate streaming file as HLS v3 instead of the default version (HLS v4).
+ * Delivering in this format requires a private CDN configuration.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function hlsv3() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('hlsv3');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Sets the cache-control to immutable for the asset.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function immutableCache() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('immutable_cache');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description * Allows specifying only either width or height so the value of the second axis remains as is, and is not
+ * recalculated to maintain the aspect ratio of the original image.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function ignoreInitialAspectRatio() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('ignore_aspect_ratio');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Keeps the copyright related fields when stripping meta-data.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function keepAttribution() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('keep_attribution');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * Keep the Display Aspect Ratio metadata of the uploaded video (if it’s different from the current video
+ * dimensions).
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function keepDar() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('keep_dar');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Keeps all meta-data.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function keepIptc() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('keep_iptc');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Applies all chained transformations, until a transformation component that includes this flag, on the last added
+ * overlay or underlay instead of applying on the containing image.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function layerApply() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('layer_apply');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Automatically use lossy compression when delivering animated GIF files.
+ *
+ * This flag can also be used as a conditional flag for delivering PNG files: it tells Cloudinary to deliver the
+ * image in PNG format (as requested) unless there is no transparency channel - in which case deliver in JPEG
+ * format.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function lossy() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('lossy');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Convert the audio channel to mono
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function mono() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('mono');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Used internally by Position within an Overlay, this flag will tile the overlay across your image.
+ *
+ * <b>Learn more:</b> {@link https://cloudinary.com/documentation/transformation_reference#fl_no_overflow|Overflow in overlays}
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function noOverflow() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('no_overflow');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Don't stream a video that is currently being generated on the fly. Wait until the video is fully generated.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function noStream() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('no_stream');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Generate PNG images in the png24 format.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function png24() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('png24');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Generate PNG images in the png32 format.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function png32() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('png32');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Generate PNG images in the PNG8 format.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function png8() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('png8');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description When used with automatic fetch_format (f_auto): ensures that images with a transparency channel will be
+ * delivered in PNG format.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function preserveTransparency() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('preserve_transparency');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Generates a JPG image using the progressive (interlaced) JPG format.
+ *
+ * This format allows the browser to quickly show a low-quality rendering of the image until the full-quality
+ * image is loaded.
+ *
+ * @param {string} mode? The mode to determine a specific progressive outcome as follows:
+ * * semi - A smart optimization of the decoding time, compression level and progressive rendering
+ *          (less iterations). This is the default mode when using q_auto.
+ * * steep - Delivers a preview very quickly, and in a single later phase improves the image to
+ *           the required resolution.
+ * * none  - Use this to deliver a non-progressive image. This is the default mode when setting
+ *           a specific value for quality.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function progressive(mode) {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('progressive', mode);
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Modifies percentage-based width & height parameters of overlays and underlays (e.g., 1.0) to be relative to the overlaid region
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function regionRelative() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('region_relative');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Reduces the image to one flat pixelated layer (as opposed to the default vector based graphic) in
+ * order to enable
+ * PDF resizing and overlay manipulations.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function rasterize() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('rasterize');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Modifies percentage-based width & height parameters of overlays and underlays (e.g., 1.0) to be relative to the containing image instead of the added layer.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function relative() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('relative');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Instructs Cloudinary to run a sanitizer on the image (relevant only for the SVG format).
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function sanitize() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('sanitize');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Splices the video stipulated as an overlay on to the end of the container video instead of adding it as an
+ * overlay.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function splice() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('splice');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Instructs Cloudinary to clear all ICC color profile data included with the image.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function stripProfile() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('strip_profile');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description If the requested video transformation has already been generated, this flag works identically to
+ * Flag::attachment.
+ *
+ *  However, if the video transformation is being requested for the first time, this flag causes the video download
+ * to begin immediately, streaming it as a fragmented video file.
+ *
+ * In contrast, if the regular fl_attachment flag is used when a user requests a new video transformation,
+ * the download will begin only after the complete transformed video has been generated.
+ *
+ * Most standard video players successfully play fragmented video files without issue.
+ *
+ * @param {string} filename The attachment's filename
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function streamingAttachment(filename) {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('streaming_attachment', filename);
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Generates TIFF images using LZW compression and in the TIFF8 format.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function tiff8Lzw() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('tiff8_lzw');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Used internally by Position within an Overlay, this flag will tile the overlay across your image.
+ *
+ * <b>Learn more:</b> {@link https://cloudinary.com/documentation/layers#automatic_tiling|Tiling overlay}
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function tiled() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('tiled');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Truncate (trim) a video file based on the start time defined in the metadata (relevant only where the metadata
+ * includes a directive to play only a section of the video).
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function truncateTS() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('truncate_ts');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description Create a waveform image (in the format specified by the file extension) from the audio or video file.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function waveform() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('waveform');
+}
+/**
+ * @summary qualifier
+ * @memberOf Qualifiers.Flag
+ * @description A qualifier that ensures that an alpha channel is not applied to a TIFF image if it is a mask channel.
+ * @return {Qualifiers.Flag.FlagQualifier}
+ */
+function ignoreMaskChannels() {
+  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('ignore_mask_channels');
+}
+const Flag = {
+  animated,
+  anyFormat,
+  animatedPng,
+  animatedWebP,
+  clipEvenOdd,
+  lossy,
+  preserveTransparency,
+  png8,
+  png24,
+  png32,
+  progressive,
+  rasterize,
+  sanitize,
+  stripProfile,
+  tiff8Lzw,
+  attachment,
+  forceIcc,
+  forceStrip,
+  getInfo,
+  immutableCache,
+  keepAttribution,
+  keepIptc,
+  custom,
+  streamingAttachment,
+  hlsv3,
+  keepDar,
+  noStream,
+  mono,
+  layerApply,
+  relative,
+  regionRelative,
+  splice,
+  truncateTS,
+  waveform,
+  ignoreInitialAspectRatio,
+  clip,
+  tiled,
+  noOverflow,
+  ignoreMaskChannels
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FlagQualifier": () => (/* binding */ FlagQualifier)
+/* harmony export */ });
+/* harmony import */ var _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../internal/qualifier/QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
+/* harmony import */ var _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../internal/qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
+
+
+/**
+ * @memberOf Qualifiers.Flag
+ * @extends {SDK.Qualifier}
+ * @description the FlagQualifier class
+ */
+class FlagQualifier extends _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_0__.Qualifier {
+  constructor(flagType, flagValue) {
+    let qualifierValue;
+    if (flagValue) {
+      qualifierValue = new _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__.QualifierValue([flagType, `${flagValue}`]).setDelimiter(':');
+    } else {
+      qualifierValue = flagType;
+    }
+    super('fl', qualifierValue);
+    this.flagValue = flagValue;
+  }
+  toString() {
+    return super.toString().replace(/\./, '%2E');
+  }
+  getFlagValue() {
+    return this.flagValue;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/format/FormatQualifier.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/format/FormatQualifier.js ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FormatQualifier": () => (/* binding */ FormatQualifier)
+/* harmony export */ });
+/* harmony import */ var _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../internal/qualifier/QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
+
+/**
+ * @memberOf Qualifiers.Format
+ * @extends {SDK.QualifierValue}
+ */
+class FormatQualifier extends _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_0__.QualifierValue {
+  constructor(val) {
+    super(val);
+    this.val = val;
+  }
+  getValue() {
+    return this.val;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/progressive.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/progressive.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Progressive": () => (/* binding */ Progressive),
+/* harmony export */   "ProgressiveQualifier": () => (/* binding */ ProgressiveQualifier),
+/* harmony export */   "none": () => (/* binding */ none),
+/* harmony export */   "progressive": () => (/* binding */ progressive),
+/* harmony export */   "semi": () => (/* binding */ semi),
+/* harmony export */   "steep": () => (/* binding */ steep)
+/* harmony export */ });
+/* harmony import */ var _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
+/**
+ * @description Contains functions to select the mode when using a progressive format.
+ * <b>Learn more</b>: {@link https://cloudinary.com/documentation/transformation_reference#fl_progressive|Progressive modes}
+ * @memberOf Qualifiers
+ * @namespace Progressive
+ * @example
+ * import {Cloudinary} from "@cloudinary/url-gen";
+ * import {format} from "@cloudinary/url-gen/actions/delivery";
+ * import {jpg} from "@cloudinary/url-gen/qualifiers/format";
+ * import {steep} from "@cloudinary/url-gen/qualifiers/progressive";
+ *
+ * const yourCldInstance = new Cloudinary({cloud: {cloudName: 'demo'}});
+ * const image = yourCldInstance.image('woman');
+ * image.delivery(format(jpg()).progressive(steep()))
+ */
+
+class ProgressiveQualifier extends _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier {
+  constructor(mode) {
+    super('progressive', mode);
+  }
+}
+/**
+ * @memberOf Qualifiers.Progressive
+ */
+function none() {
+  return new ProgressiveQualifier('none');
+}
+/**
+ * @memberOf Qualifiers.Progressive
+ */
+function semi() {
+  return new ProgressiveQualifier('semi');
+}
+/**
+ * @memberOf Qualifiers.Progressive
+ */
+function steep() {
+  return new ProgressiveQualifier('steep');
+}
+/**
+ * @memberOf Qualifiers.Progressive
+ */
+function progressive() {
+  return new ProgressiveQualifier();
+}
+const Progressive = {
+  semi,
+  none,
+  steep,
+  progressive,
+  ProgressiveQualifier
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/ImageTransformation.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/transformation/ImageTransformation.js ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ImageTransformation": () => (/* binding */ ImageTransformation)
+/* harmony export */ });
+/* harmony import */ var _Transformation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Transformation.js */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js");
+
+/**
+ * @summary SDK
+ * @extends {SDK.Transformation}
+ * @memberOf SDK
+ */
+class ImageTransformation extends _Transformation_js__WEBPACK_IMPORTED_MODULE_0__.Transformation {}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Transformation": () => (/* binding */ Transformation)
+/* harmony export */ });
+/* harmony import */ var _internal_Action_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../internal/Action.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js");
+/* harmony import */ var _actions_background_actions_BackgroundColor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/background/actions/BackgroundColor.js */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/background/actions/BackgroundColor.js");
+/* harmony import */ var _internal_utils_prepareColor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../internal/utils/prepareColor.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/prepareColor.js");
+/* harmony import */ var _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../qualifiers/flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
+/* harmony import */ var _internal_RawAction_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../internal/RawAction.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/RawAction.js");
+/* harmony import */ var _internal_models_IErrorObject_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../internal/models/IErrorObject.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/IErrorObject.js");
+/* harmony import */ var _actions_delivery_DeliveryFormatAction_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/delivery/DeliveryFormatAction.js */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js");
+
+
+
+
+
+
+
+/**
+ * @summary SDK
+ * @description - Defines how to transform an asset
+ * @memberOf SDK
+ */
+class Transformation {
+  constructor() {
+    this.actions = [];
+  }
+  /**
+   * @param {SDK.Action | string} action
+   * @return {this}
+   */
+  addAction(action) {
+    let actionToAdd;
+    if (typeof action === 'string') {
+      if (action.indexOf('/') >= 0) {
+        throw 'addAction cannot accept a string with a forward slash in it - /, use .addTransformation() instead';
+      } else {
+        actionToAdd = new _internal_RawAction_js__WEBPACK_IMPORTED_MODULE_0__.RawAction(action);
+      }
+    } else {
+      actionToAdd = action;
+    }
+    this.actions.push(actionToAdd);
+    return this;
+  }
+  /**
+   * @description Allows the injection of a raw transformation as a string into the transformation, or a Transformation instance that was previously created
+   * @param {string | SDK.Transformation} tx
+   * @example
+   * import {Transformation} from "@cloudinary/url-gen";
+   *
+   * const transformation = new Transformation();
+   * transformation.addTransformation('w_100/w_200/w_300');
+   * @return {this}
+   */
+  addTransformation(tx) {
+    if (tx instanceof Transformation) {
+      // Concat the new actions into the existing actions
+      this.actions = this.actions.concat(tx.actions);
+    } else {
+      this.actions.push(new _internal_RawAction_js__WEBPACK_IMPORTED_MODULE_0__.RawAction(tx));
+    }
+    return this;
+  }
+  /**
+   * @return {string}
+   */
+  toString() {
+    return this.actions.map(action => {
+      return action.toString();
+    }).filter(a => a).join('/');
+  }
+  /**
+   * @description Delivers an animated GIF.
+   * @param {AnimatedAction} animatedAction
+   * @return {this}
+   */
+  animated(animatedAction) {
+    return this.addAction(animatedAction);
+  }
+  /**
+   * @description Adds a border around the image.
+   * @param {Border} borderAction
+   * @return {this}
+   */
+  border(borderAction) {
+    return this.addAction(borderAction);
+  }
+  /**
+   * @description Adjusts the shape of the delivered image. </br>
+   * <b>Learn more:</b> {@link https://cloudinary.com/documentation/effects_and_artistic_enhancements#distort|Shape changes and distortion effects}
+   * @param {IReshape} reshapeAction
+   * @return {this}
+   */
+  reshape(reshapeAction) {
+    return this.addAction(reshapeAction);
+  }
+  /**
+   * @description Resize the asset using provided resize action
+   * @param {ResizeSimpleAction} resizeAction
+   * @return {this}
+   */
+  resize(resizeAction) {
+    return this.addAction(resizeAction);
+  }
+  /**
+   * @desc An alias to Action Delivery.quality
+   * @param {string|number} quality
+   * @return {this}
+   */
+  quality(quality) {
+    this.addAction(new _actions_delivery_DeliveryFormatAction_js__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('q', quality));
+    return this;
+  }
+  /**
+   * @desc An alias to Action Delivery.format
+   * @param {string} format
+   * @return {this}
+   */
+  format(format) {
+    this.addAction(new _actions_delivery_DeliveryFormatAction_js__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('f', format));
+    return this;
+  }
+  /**
+   * @description Rounds the specified corners of an image.
+   * @param roundCornersAction
+   * @return {this}
+   */
+  roundCorners(roundCornersAction) {
+    return this.addAction(roundCornersAction);
+  }
+  /**
+   * @description Adds an overlay over the base image.
+   * @param {LayerAction} overlayAction
+   * @return {this}
+   */
+  overlay(overlayAction) {
+    return this.addAction(overlayAction);
+  }
+  /**
+   * @description Adds an underlay under the base image.
+   * @param {LayerAction} underlayAction
+   * @return {this}
+   */
+  underlay(underlayAction) {
+    underlayAction.setLayerType('u');
+    return this.addAction(underlayAction);
+  }
+  /**
+   * @description Defines an new user variable.
+   * @param {VariableAction} variableAction
+   * @return {this}
+   */
+  addVariable(variableAction) {
+    return this.addAction(variableAction);
+  }
+  /**
+   * @description Specifies a condition to be met before applying a transformation.
+   * @param {ConditionalAction} conditionAction
+   * @return {this}
+   */
+  conditional(conditionAction) {
+    return this.addAction(conditionAction);
+  }
+  /**
+   * @description Applies a filter or an effect on an asset.
+   * @param {SimpleEffectAction} effectAction
+   * @return {this}
+   */
+  effect(effectAction) {
+    return this.addAction(effectAction);
+  }
+  /**
+   * @description Applies adjustment effect on an asset.
+   * @param action
+   * @return {this}
+   */
+  adjust(action) {
+    return this.addAction(action);
+  }
+  /**
+   * @description Rotates the asset by the given angle.
+   * @param {RotateAction} rotateAction
+   * @return {this}
+   */
+  rotate(rotateAction) {
+    return this.addAction(rotateAction);
+  }
+  /**
+   * @description Applies a pre-defined named transformation of the given name.
+   * @param {NamedTransformation} namedTransformation
+   * @return {this}
+   */
+  namedTransformation(namedTransformation) {
+    return this.addAction(namedTransformation);
+  }
+  /**
+   * @description Applies delivery action.
+   * @param deliveryAction
+   * @return {this}
+   */
+  delivery(deliveryAction) {
+    return this.addAction(deliveryAction);
+  }
+  /**
+   * @description Sets the color of the background.
+   * @param {Qualifiers.Color} color
+   * @return {this}
+   */
+  backgroundColor(color) {
+    return this.addAction(new _actions_background_actions_BackgroundColor_js__WEBPACK_IMPORTED_MODULE_2__.BackgroundColor((0,_internal_utils_prepareColor_js__WEBPACK_IMPORTED_MODULE_3__.prepareColor)(color)));
+  }
+  /**
+   * @description Adds a layer in a Photoshop document.
+   * @param action
+   * @return {this}
+   */
+  psdTools(action) {
+    return this.addAction(action);
+  }
+  /**
+   * @description Extracts an image or a page using an index, a range, or a name from a layered media asset.
+   * @param action
+   * @return {this}
+   */
+  extract(action) {
+    return this.addAction(action);
+  }
+  /**
+   * @description Adds a flag as a separate action.
+   * @param {Qualifiers.Flag | string} flagQualifier
+   * @return {this}
+   */
+  addFlag(flagQualifier) {
+    const action = new _internal_Action_js__WEBPACK_IMPORTED_MODULE_4__.Action();
+    let flagToAdd = flagQualifier;
+    if (typeof flagQualifier === 'string') {
+      flagToAdd = new _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_5__.FlagQualifier(flagQualifier);
+    }
+    action.addQualifier(flagToAdd);
+    return this.addAction(action);
+  }
+  /**
+   * @description Inject a custom function into the image transformation pipeline.
+   * @return {this}
+   */
+  customFunction(customFunction) {
+    return this.addAction(customFunction);
+  }
+  /**
+   * Transcodes the video (or audio) to another format.
+   * @param {Action} action
+   * @return {this}
+   */
+  transcode(action) {
+    return this.addAction(action);
+  }
+  /**
+   * Applies the specified video edit action.
+   *
+   * @param {videoEditType} action
+   * @return {this}
+   */
+  videoEdit(action) {
+    return this.addAction(action);
+  }
+  toJson() {
+    const actions = [];
+    for (const action of this.actions) {
+      const json = action.toJson();
+      if ((0,_internal_models_IErrorObject_js__WEBPACK_IMPORTED_MODULE_6__.isErrorObject)(json)) {
+        // Fail early and return an IErrorObject
+        return json;
+      }
+      actions.push(json);
+    }
+    return {
+      actions
+    };
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/VideoTransformation.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/transformation-builder-sdk/transformation/VideoTransformation.js ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "VideoTransformation": () => (/* binding */ VideoTransformation)
+/* harmony export */ });
+/* harmony import */ var _Transformation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Transformation.js */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js");
+
+/**
+ * @summary SDK
+ * @extends {SDK.Transformation}
+ * @memberOf SDK
+ */
+class VideoTransformation extends _Transformation_js__WEBPACK_IMPORTED_MODULE_0__.Transformation {}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryFile.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryFile.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CloudinaryFile": () => (/* binding */ CloudinaryFile),
+/* harmony export */   "SEO_TYPES": () => (/* binding */ SEO_TYPES)
+/* harmony export */ });
+/* harmony import */ var _internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../internal/url/cloudinaryURL.js */ "./node_modules/@cloudinary/url-gen/internal/url/cloudinaryURL.js");
+/* harmony import */ var _config_URLConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/URLConfig.js */ "./node_modules/@cloudinary/url-gen/config/URLConfig.js");
+/* harmony import */ var _sdkAnalytics_getSDKAnalyticsSignature_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sdkAnalytics/getSDKAnalyticsSignature.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getSDKAnalyticsSignature.js");
+
+
+
+/**
+ * This const contains all the valid combination of asset/delivery for URL shortening purposes
+ * It's exported because it's used in a test, but it's not really shared enough to belong in a separate file
+ */
+const SEO_TYPES = {
+  "image/upload": "images",
+  "image/private": "private_images",
+  "image/authenticated": "authenticated_images",
+  "raw/upload": "files",
+  "video/upload": "videos"
+};
+/**
+ * @description Cloudinary file without a transformation
+ * @summary SDK
+ * @memberOf SDK
+ */
+class CloudinaryFile {
+  constructor(publicID, cloudConfig = {}, urlConfig) {
+    this.setPublicID(publicID);
+    this.setCloudConfig(cloudConfig);
+    this.setURLConfig(urlConfig);
+  }
+  /**
+   * @description Sets the URL Config for this asset
+   * @param urlConfig
+   * @return {this}
+   */
+  setURLConfig(urlConfig) {
+    this.urlConfig = new _config_URLConfig_js__WEBPACK_IMPORTED_MODULE_0__["default"](urlConfig);
+    return this;
+  }
+  /**
+   * @description Sets the Cloud Config for this asset
+   * @param urlConfig
+   * @return {this}
+   */
+  setCloudConfig(cloudConfig) {
+    this.cloudName = cloudConfig.cloudName;
+    this.apiKey = cloudConfig.apiKey;
+    this.apiSecret = cloudConfig.apiSecret;
+    this.authToken = cloudConfig.authToken;
+    return this;
+  }
+  /**
+   * @description Sets the public ID of the asset.
+   * @param {string} publicID The public ID of the asset.
+   * @return {this}
+   */
+  setPublicID(publicID) {
+    // PublicID must be a string!
+    this.publicID = publicID ? publicID.toString() : '';
+    return this;
+  }
+  /**
+   * @description Sets the delivery type of the asset.
+   * @param {DELIVERY_TYPE | string} newType The type of the asset.
+   * @return {this}
+   */
+  setDeliveryType(newType) {
+    this.deliveryType = newType;
+    return this;
+  }
+  /**
+   * @description Sets the URL SEO suffix of the asset.
+   * @param {string} newSuffix The SEO suffix.
+   * @return {this}
+   */
+  setSuffix(newSuffix) {
+    this.suffix = newSuffix;
+    return this;
+  }
+  /**
+   * @description Sets the signature of the asset.
+   * @param {string} signature The signature.
+   * @return {this}
+   */
+  setSignature(signature) {
+    this.signature = signature;
+    return this;
+  }
+  /**
+   * @description Sets the version of the asset.
+   * @param {string} newVersion The version of the asset.
+   * @return {this}
+   */
+  setVersion(newVersion) {
+    if (newVersion) {
+      this.version = newVersion;
+    }
+    return this;
+  }
+  /**
+   * @description Sets the asset type.
+   * @param {string} newType The type of the asset.
+   * @return {this}
+   */
+  setAssetType(newType) {
+    if (newType) {
+      this.assetType = newType;
+    }
+    return this;
+  }
+  sign() {
+    return this;
+  }
+  /**
+   * @description Serializes to URL string
+   * @param overwriteOptions
+   */
+  toURL(overwriteOptions = {}) {
+    return this.createCloudinaryURL(null, overwriteOptions.trackedAnalytics);
+  }
+  /**
+   * @description Validate various options before attempting to create a URL
+   * The function will throw in case a violation
+   * @throws Validation errors
+   */
+  validateAssetForURLCreation() {
+    if (typeof this.cloudName === 'undefined') {
+      throw 'You must supply a cloudName when initializing the asset';
+    }
+    const suffixContainsDot = this.suffix && this.suffix.indexOf('.') >= 0;
+    const suffixContainsSlash = this.suffix && this.suffix.indexOf('/') >= 0;
+    if (suffixContainsDot || suffixContainsSlash) {
+      throw '`suffix`` should not include . or /';
+    }
+  }
+  /**
+   * @description return an SEO friendly name for a combination of asset/delivery, some examples:
+   * * image/upload -> images
+   * * video/upload -> videos
+   * If no match is found, return `{asset}/{delivery}`
+   */
+  getResourceType() {
+    const assetType = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.handleAssetType)(this.assetType);
+    const deliveryType = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.handleDeliveryType)(this.deliveryType);
+    const hasSuffix = !!this.suffix;
+    const regularSEOType = `${assetType}/${deliveryType}`;
+    const shortSEOType = SEO_TYPES[`${assetType}/${deliveryType}`];
+    const useRootPath = this.urlConfig.useRootPath;
+    const shorten = this.urlConfig.shorten;
+    // Quick exit incase of useRootPath
+    if (useRootPath) {
+      if (regularSEOType === 'image/upload') {
+        return ''; // For image/upload we're done, just return nothing
+      } else {
+        throw new Error(`useRootPath can only be used with assetType: 'image' and deliveryType: 'upload'. Provided: ${regularSEOType} instead`);
+      }
+    }
+    if (shorten && regularSEOType === 'image/upload') {
+      return 'iu';
+    }
+    if (hasSuffix) {
+      if (shortSEOType) {
+        return shortSEOType;
+      } else {
+        throw new Error(`URL Suffix only supported for ${Object.keys(SEO_TYPES).join(', ')}, Provided: ${regularSEOType} instead`);
+      }
+    }
+    // If all else fails, return the regular image/upload combination (asset/delivery)
+    return regularSEOType;
+  }
+  getSignature() {
+    if (this.signature) {
+      return `s--${this.signature}--`;
+    } else {
+      return '';
+    }
+  }
+  /**
+   *
+   * @description Creates a fully qualified CloudinaryURL
+   * @return {string} CloudinaryURL
+   * @throws Validation Errors
+   */
+  createCloudinaryURL(transformation, trackedAnalytics) {
+    // In accordance with the existing implementation, if no publicID exists we should return nothing.
+    if (!this.publicID) {
+      return '';
+    }
+    // Throws if some options are mis-configured
+    // See the function for more information on when it throws
+    this.validateAssetForURLCreation();
+    const prefix = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.getUrlPrefix)(this.cloudName, this.urlConfig);
+    const transformationString = transformation ? transformation.toString() : '';
+    const version = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.getUrlVersion)(this.publicID, this.version, this.urlConfig.forceVersion);
+    const publicID = this.publicID
+    // Serialize the publicID, but leave slashes alone.
+    // we can't use serializeCloudinaryCharacters because that does both things (, and /)
+    .replace(/,/g, '%2C');
+    // Resource type is a mixture of assetType, deliveryType and various URL Configurations
+    // Note how `suffix` changes both image/upload (resourceType) and also is appended at the end
+    const url = [prefix, this.getResourceType(), this.getSignature(), transformationString, version, publicID, this.suffix].filter(a => a).join('/');
+    if (typeof transformation === 'string') {
+      return url;
+    } else {
+      const safeURL = encodeURI(url).replace(/\?/g, '%3F').replace(/=/g, '%3D');
+      // urlConfig.analytics is true by default, has to be explicitly set to false to overwrite
+      // Don't add analytics when publicId includes a '?' to not risk changing existing query params
+      if (this.urlConfig.analytics !== false && !publicID.includes('?')) {
+        return `${safeURL}?_a=${(0,_sdkAnalytics_getSDKAnalyticsSignature_js__WEBPACK_IMPORTED_MODULE_2__.getSDKAnalyticsSignature)(trackedAnalytics)}`;
+      } else {
+        return safeURL;
+      }
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryImage.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryImage.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CloudinaryImage": () => (/* binding */ CloudinaryImage)
+/* harmony export */ });
+/* harmony import */ var _cloudinary_transformation_builder_sdk_transformation_ImageTransformation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cloudinary/transformation-builder-sdk/transformation/ImageTransformation */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/ImageTransformation.js");
+/* harmony import */ var _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CloudinaryTransformable.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js");
+
+
+/**
+ * @desc Cloudinary image asset, with image-related transformations
+ * @summary SDK
+ * @memberOf SDK
+ */
+class CloudinaryImage extends _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryTransformable {
+  constructor(publicID, cloudConfig, urlConfig) {
+    /* istanbul ignore next */
+    super(publicID, cloudConfig, urlConfig, new _cloudinary_transformation_builder_sdk_transformation_ImageTransformation__WEBPACK_IMPORTED_MODULE_1__.ImageTransformation());
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CloudinaryTransformable": () => (/* binding */ CloudinaryTransformable)
+/* harmony export */ });
+/* harmony import */ var _CloudinaryFile_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CloudinaryFile.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryFile.js");
+/* harmony import */ var _cloudinary_transformation_builder_sdk_actions_delivery_DeliveryFormatAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js");
+
+
+/**
+ * @desc Cloudinary Transformable interface, extended by any class that needs a Transformation Interface
+ * @summary SDK
+ * @memberOf SDK
+ */
+class CloudinaryTransformable extends _CloudinaryFile_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryFile {
+  constructor(publicID, cloudConfig, urlConfig, transformation) {
+    /* istanbul ignore next */
+    super(publicID, cloudConfig, urlConfig);
+    this.transformation = transformation;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Animated} animated
+   * @return {this}
+   */
+  animated(animated) {
+    this.transformation.animated(animated);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Border} border
+   * @return {this}
+   */
+  border(border) {
+    this.transformation.border(border);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Reshape} reshape
+   * @return {this}
+   */
+  reshape(reshape) {
+    this.transformation.reshape(reshape);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Resize} resize
+   * @return {this}
+   */
+  resize(resize) {
+    this.transformation.resize(resize);
+    return this;
+  }
+  /**
+   * @desc An alias to Action Delivery.quality
+   * @param {string|number} quality
+   * @return {this}
+   */
+  quality(quality) {
+    this.addAction(new _cloudinary_transformation_builder_sdk_actions_delivery_DeliveryFormatAction__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('q', quality));
+    return this;
+  }
+  /**
+   * @desc An alias to Action Delivery.format
+   * @param {string} format
+   * @return {this}
+   */
+  format(format) {
+    this.addAction(new _cloudinary_transformation_builder_sdk_actions_delivery_DeliveryFormatAction__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('f', format));
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.RoundCorners} roundCorners
+   * @return {this}
+   */
+  roundCorners(roundCorners) {
+    this.transformation.roundCorners(roundCorners);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @return {this}
+   */
+  overlay(overlayAction) {
+    this.transformation.overlay(overlayAction);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Variable} variableAction
+   * @return {this}
+   */
+  addVariable(variableAction) {
+    this.transformation.addVariable(variableAction);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Condition} conditionalAction
+   * @return {this}
+   */
+  conditional(conditionalAction) {
+    this.transformation.conditional(conditionalAction);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Effect} effect
+   * @return {this}
+   */
+  effect(effect) {
+    this.transformation.effect(effect);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Adjust} action
+   * @return {this}
+   */
+  adjust(action) {
+    this.transformation.adjust(action);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Rotate} rotate
+   * @return {this}
+   */
+  rotate(rotate) {
+    this.transformation.rotate(rotate);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.NamedTransformation} namedTransformation
+   * @return {this}
+   */
+  namedTransformation(namedTransformation) {
+    this.transformation.namedTransformation(namedTransformation);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Delivery} deliveryAction
+   * @return {this}
+   */
+  delivery(deliveryAction) {
+    this.transformation.delivery(deliveryAction);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Qualifiers.color} color
+   * @return {this}
+   */
+  backgroundColor(color) {
+    this.transformation.backgroundColor(color);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.PSDTools} action
+   * @return {this}
+   */
+  psdTools(action) {
+    this.transformation.psdTools(action);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Extract} action
+   * @return {this}
+   */
+  extract(action) {
+    this.transformation.extract(action);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Qualifiers.Flag | string} flagQualifier
+   * @return {this}
+   */
+  addFlag(flagQualifier) {
+    this.transformation.addFlag(flagQualifier);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.CustomFunction} customFunction
+   * @return {this}
+   */
+  customFunction(customFunction) {
+    this.transformation.customFunction(customFunction);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {SDK.Action | string} action
+   * @return {this}
+   */
+  addAction(action) {
+    this.transformation.addAction(action);
+    return this;
+  }
+  /**
+   * @description Extend your transformation with another transformation
+   * @param { string | SDK.Transformation } tx
+   */
+  addTransformation(tx) {
+    this.transformation.addTransformation(tx);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @return {string}
+   */
+  toString() {
+    return this.transformation.toString();
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @return {this}
+   */
+  underlay(underlayAction) {
+    this.transformation.underlay(underlayAction);
+    return this;
+  }
+  toURL(overwriteOptions = {}) {
+    return this.createCloudinaryURL(this.transformation, overwriteOptions === null || overwriteOptions === void 0 ? void 0 : overwriteOptions.trackedAnalytics);
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryVideo.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryVideo.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CloudinaryVideo": () => (/* binding */ CloudinaryVideo)
+/* harmony export */ });
+/* harmony import */ var _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CloudinaryTransformable.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js");
+/* harmony import */ var _transformation_VideoTransformation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../transformation/VideoTransformation.js */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/VideoTransformation.js");
+
+
+/**
+ * @desc Cloudinary video asset, with video-related transformations
+ * @summary SDK
+ * @memberOf SDK
+ */
+class CloudinaryVideo extends _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryTransformable {
+  constructor(publicID, cloudConfig, urlConfig) {
+    /* istanbul ignore next */
+    super(publicID, cloudConfig, urlConfig, new _transformation_VideoTransformation_js__WEBPACK_IMPORTED_MODULE_1__.VideoTransformation());
+    this.assetType = 'video';
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.Transcode} action
+   * @return {this}
+   */
+  transcode(action) {
+    this.transformation.transcode(action);
+    return this;
+  }
+  /**
+   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
+   * @param {Actions.VideoEdit} action
+   * @return {this}
+   */
+  videoEdit(action) {
+    this.transformation.videoEdit(action);
+    return this;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/config/BaseConfig.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/config/BaseConfig.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ *
+ * @private
+ * @param {any} a
+ */
+function isObject(a) {
+  if (typeof a !== 'object' || a instanceof Array) {
+    return false;
+  } else {
+    return true;
+  }
+}
+class Config {
+  filterOutNonSupportedKeys(userProvidedConfig, validKeys) {
+    const obj = Object.create({});
+    if (isObject(userProvidedConfig)) {
+      Object.keys(userProvidedConfig).forEach(key => {
+        if (validKeys.indexOf(key) >= 0) {
+          obj[key] = userProvidedConfig[key];
+        } else {
+          console.warn('Warning - unsupported key provided to configuration: ', key);
+        }
+      });
+      return obj;
+    } else {
+      return Object.create({});
+    }
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Config);
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/config/URLConfig.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/config/URLConfig.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BaseConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseConfig.js */ "./node_modules/@cloudinary/url-gen/config/BaseConfig.js");
+/* harmony import */ var _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../internal/internalConstants.js */ "./node_modules/@cloudinary/url-gen/internal/internalConstants.js");
+
+
+class URLConfig extends _BaseConfig_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+  /**
+   * @param {IURLConfig} userURLConfig
+   */
+  constructor(userURLConfig) {
+    super();
+    const urlConfig = this.filterOutNonSupportedKeys(userURLConfig, _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_1__.ALLOWED_URL_CONFIG);
+    Object.assign(this, {
+      secure: true
+    }, urlConfig);
+  }
+  extend(userURLConfig) {
+    const urlConfig = this.filterOutNonSupportedKeys(userURLConfig, _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_1__.ALLOWED_URL_CONFIG);
+    return new URLConfig(Object.assign({}, this, urlConfig));
+  }
+  /**
+   * @param {string} value Sets the cname
+   */
+  setCname(value) {
+    this.cname = value;
+    return this;
+  }
+  /**
+   * @param {string} value Sets the secureDistribution
+   */
+  setSecureDistribution(value) {
+    this.secureDistribution = value;
+    return this;
+  }
+  /**
+   * @param {boolean} value Sets whether to use a private CDN (Removes cloudName from URL)
+   */
+  setPrivateCdn(value) {
+    this.privateCdn = value;
+    return this;
+  }
+  /**
+   * @param value Sets whether or not to sign the URL
+   */
+  setSignUrl(value) {
+    this.signUrl = value;
+    return this;
+  }
+  /**
+   * @param value Sets whether or not to use a long signature
+   */
+  setLongUrlSignature(value) {
+    this.longUrlSignature = value;
+    return this;
+  }
+  /**
+   * @param value Sets whether or not to shorten the URL
+   */
+  setShorten(value) {
+    this.shorten = value;
+    return this;
+  }
+  /**
+   * @param value Sets whether or not to use a root path
+   */
+  setUseRootPath(value) {
+    this.useRootPath = value;
+    return this;
+  }
+  /**
+   * @param value Sets whether or not to deliver the asset through https
+   */
+  setSecure(value) {
+    this.secure = value;
+    return this;
+  }
+  /**
+   * @param value Sets whether to force a version in the URL
+   */
+  setForceVersion(value) {
+    this.forceVersion = value;
+    return this;
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (URLConfig);
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/instance/Cloudinary.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/instance/Cloudinary.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Cloudinary": () => (/* binding */ Cloudinary)
+/* harmony export */ });
+/* harmony import */ var _assets_CloudinaryImage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/CloudinaryImage.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryImage.js");
+/* harmony import */ var _assets_CloudinaryVideo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/CloudinaryVideo.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryVideo.js");
+
+
+class Cloudinary {
+  constructor(cloudinaryConfig) {
+    if (cloudinaryConfig) {
+      this.cloudinaryConfig = cloudinaryConfig;
+    }
+  }
+  image(publicID) {
+    return new _assets_CloudinaryImage_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryImage(publicID, this.cloudinaryConfig.cloud, this.cloudinaryConfig.url);
+  }
+  video(publicID) {
+    return new _assets_CloudinaryVideo_js__WEBPACK_IMPORTED_MODULE_1__.CloudinaryVideo(publicID, this.cloudinaryConfig.cloud, this.cloudinaryConfig.url);
+  }
+  setConfig(cloudinaryConfig) {
+    this.cloudinaryConfig = cloudinaryConfig;
+    return this;
+  }
+  getConfig() {
+    return this.cloudinaryConfig;
+  }
+  extendConfig() {
+    // Future implementation
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/internal/internalConstants.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/internal/internalConstants.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ALLOWED_CLOUD_CONFIG": () => (/* binding */ ALLOWED_CLOUD_CONFIG),
+/* harmony export */   "ALLOWED_URL_CONFIG": () => (/* binding */ ALLOWED_URL_CONFIG)
+/* harmony export */ });
+/**
+ * This file is for internal constants only.
+ * It is not intended for public use and is not part of the public API
+ */
+/**
+ * @private
+ */
+const ALLOWED_URL_CONFIG = ['cname', 'secureDistribution', 'privateCdn', 'signUrl', 'longUrlSignature', 'shorten', 'useRootPath', 'secure', 'forceVersion', 'analytics'];
+/**
+ * @private
+ */
+const ALLOWED_CLOUD_CONFIG = ['cloudName', 'apiKey', 'apiSecret', 'authToken'];
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/internal/url/cloudinaryURL.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/internal/url/cloudinaryURL.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getUrlPrefix": () => (/* binding */ getUrlPrefix),
+/* harmony export */   "getUrlVersion": () => (/* binding */ getUrlVersion),
+/* harmony export */   "handleAssetType": () => (/* binding */ handleAssetType),
+/* harmony export */   "handleDeliveryType": () => (/* binding */ handleDeliveryType)
+/* harmony export */ });
+/* harmony import */ var _urlUtils_isUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./urlUtils/isUrl.js */ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isUrl.js");
+/* harmony import */ var _urlUtils_isFileName_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./urlUtils/isFileName.js */ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isFileName.js");
+/* harmony import */ var _urlUtils_publicIDContainsVersion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./urlUtils/publicIDContainsVersion.js */ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/publicIDContainsVersion.js");
+
+
+
+/**
+ * Create the URL prefix for Cloudinary resources.
+ * Available use cases
+ * http://res.cloudinary.com/{cloudName}
+ * https://res.cloudinary.com/{cloudName}
+ * https://{cloudName}-res.cloudinary.com/
+ * http://{domain}/${cloudName}
+ * https://{domain}/${cloudName}
+ * https://{domain}
+ * @private
+ *
+ * @param {string} cloudName
+ * @param {IURLConfig} urlConfig
+ */
+function getUrlPrefix(cloudName, urlConfig) {
+  const secure = urlConfig.secure;
+  const privateCDN = urlConfig.privateCdn;
+  const cname = urlConfig.cname;
+  const secureDistribution = urlConfig.secureDistribution;
+  if (!secure && !cname) {
+    return `http://res.cloudinary.com/${cloudName}`;
+  }
+  if (secure && !secureDistribution && privateCDN) {
+    return `https://${cloudName}-res.cloudinary.com`;
+  }
+  if (secure && !secureDistribution) {
+    return `https://res.cloudinary.com/${cloudName}`;
+  }
+  if (secure && secureDistribution && privateCDN) {
+    return `https://${secureDistribution}`;
+  }
+  if (secure && secureDistribution) {
+    return `https://${secureDistribution}/${cloudName}`;
+  }
+  if (!secure && cname) {
+    return `http://${cname}/${cloudName}`;
+  } else {
+    return 'ERROR';
+  }
+}
+/**
+ * @private
+ * @param assetType
+ */
+function handleAssetType(assetType) {
+  //default to image
+  if (!assetType) {
+    return 'image';
+  }
+  return assetType;
+}
+/**
+ * @private
+ * @param deliveryType
+ */
+function handleDeliveryType(deliveryType) {
+  //default to upload
+  if (!deliveryType) {
+    return 'upload';
+  }
+  return deliveryType;
+}
+/**
+ *
+ * @param {string} publicID
+ * @param {number} version
+ * @param {boolean} forceVersion
+ */
+function getUrlVersion(publicID, version, forceVersion) {
+  const shouldForceVersion = forceVersion !== false;
+  if (version) {
+    return `v${version}`;
+  }
+  // In all these conditions we never force a version
+  if ((0,_urlUtils_publicIDContainsVersion_js__WEBPACK_IMPORTED_MODULE_0__.publicIDContainsVersion)(publicID) || (0,_urlUtils_isUrl_js__WEBPACK_IMPORTED_MODULE_1__.isUrl)(publicID) || (0,_urlUtils_isFileName_js__WEBPACK_IMPORTED_MODULE_2__.isFileName)(publicID)) {
+    return '';
+  }
+  return shouldForceVersion ? 'v1' : '';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isFileName.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isFileName.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isFileName": () => (/* binding */ isFileName)
+/* harmony export */ });
+/**
+ *
+ * @param publicID
+ */
+function isFileName(publicID) {
+  return publicID.indexOf('/') < 0;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isUrl.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isUrl.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isUrl": () => (/* binding */ isUrl)
+/* harmony export */ });
+/**
+ *
+ * @param publicID
+ */
+function isUrl(publicID) {
+  return publicID.match(/^https?:\//);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/publicIDContainsVersion.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/internal/url/urlUtils/publicIDContainsVersion.js ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "publicIDContainsVersion": () => (/* binding */ publicIDContainsVersion)
+/* harmony export */ });
+/**
+ *
+ * @param publicID
+ */
+function publicIDContainsVersion(publicID) {
+  return publicID.match(/^v[0-9]+/);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/internal/utils/packageVersion.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/internal/utils/packageVersion.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "packageVersion": () => (/* binding */ packageVersion)
+/* harmony export */ });
+const packageVersion = '1.8.6';
+/**
+ * Export package version (injected during our build).
+ * Reason for this is that If we import values from from package.json,
+ * it will cause an error for users who do not have an 'import from json' plugin
+ * as part of their build process / bundler.
+ */
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/base64Map.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/base64Map.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "base64Map": () => (/* binding */ base64Map)
+/* harmony export */ });
+/* harmony import */ var _stringPad_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./stringPad.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js");
+
+/**
+ * This file maps sequences of 6 bit binary digits to a character in base64.
+ * 000000 -> A
+ * 110011 -> Z
+ * 111111 -> /
+ */
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+const base64Map = {};
+let num = 0;
+chars.split('').forEach(char => {
+  let key = num.toString(2);
+  key = (0,_stringPad_js__WEBPACK_IMPORTED_MODULE_0__.stringPad)(key, 6, '0');
+  base64Map[key] = char;
+  num++;
+});
+/**
+ * Map of [six-bit binary codes] -> [Base64 characters]
+ */
+
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/encodeVersion.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/encodeVersion.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "encodeVersion": () => (/* binding */ encodeVersion)
+/* harmony export */ });
+/* harmony import */ var _base64Map_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./base64Map.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/base64Map.js");
+/* harmony import */ var _stringPad_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stringPad.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js");
+/* harmony import */ var _reverseVersion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reverseVersion.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/reverseVersion.js");
+
+
+
+/**
+ * @private
+ * @description Encodes a semVer-like version string
+ * @param {string} semVer Input can be either x.y.z or x.y
+ * @return {string} A string built from 3 characters of the base64 table that encode the semVer
+ */
+function encodeVersion(semVer) {
+  let strResult = '';
+  // support x.y or x.y.z by using 'parts' as a variable
+  const parts = semVer.split('.').length;
+  const paddedStringLength = parts * 6; // we pad to either 12 or 18 characters
+  // reverse (but don't mirror) the version. 1.5.15 -> 15.5.1
+  // Pad to two spaces, 15.5.1 -> 15.05.01
+  const paddedReversedSemver = (0,_reverseVersion_js__WEBPACK_IMPORTED_MODULE_0__.reverseVersion)(semVer);
+  // turn 15.05.01 to a string '150501' then to a number 150501
+  const num = parseInt(paddedReversedSemver.split('.').join(''));
+  // Represent as binary, add left padding to 12 or 18 characters.
+  // 150,501 -> 100100101111100101
+  let paddedBinary = num.toString(2);
+  paddedBinary = (0,_stringPad_js__WEBPACK_IMPORTED_MODULE_1__.stringPad)(paddedBinary, paddedStringLength, '0');
+  // Stop in case an invalid version number was provided
+  // paddedBinary must be built from sections of 6 bits
+  if (paddedBinary.length % 6 !== 0) {
+    throw 'Version must be smaller than 43.21.26)';
+  }
+  // turn every 6 bits into a character using the base64Map
+  paddedBinary.match(/.{1,6}/g).forEach(bitString => {
+    // console.log(bitString);
+    strResult += _base64Map_js__WEBPACK_IMPORTED_MODULE_2__.base64Map[bitString];
+  });
+  return strResult;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getAnalyticsOptions.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/getAnalyticsOptions.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getAnalyticsOptions": () => (/* binding */ getAnalyticsOptions)
+/* harmony export */ });
+/**
+ * @private
+ * @description Gets the analyticsOptions from options- should include sdkSemver, techVersion, sdkCode, and feature
+ * @param {ITrackedPropertiesThroughAnalytics} options
+ * @returns {IAnalyticsOptions}
+ */
+function getAnalyticsOptions(options) {
+  const analyticsOptions = {
+    sdkSemver: options.sdkSemver,
+    techVersion: options.techVersion,
+    sdkCode: options.sdkCode,
+    feature: '0'
+  };
+  if (options.accessibility) {
+    analyticsOptions.feature = 'D';
+  }
+  if (options.lazyload) {
+    analyticsOptions.feature = 'C';
+  }
+  if (options.responsive) {
+    analyticsOptions.feature = 'A';
+  }
+  if (options.placeholder) {
+    analyticsOptions.feature = 'B';
+  }
+  return analyticsOptions;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getSDKAnalyticsSignature.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/getSDKAnalyticsSignature.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getSDKAnalyticsSignature": () => (/* binding */ getSDKAnalyticsSignature)
+/* harmony export */ });
+/* harmony import */ var _encodeVersion_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./encodeVersion.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/encodeVersion.js");
+/* harmony import */ var _getAnalyticsOptions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getAnalyticsOptions.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getAnalyticsOptions.js");
+/* harmony import */ var _internal_utils_packageVersion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../internal/utils/packageVersion.js */ "./node_modules/@cloudinary/url-gen/internal/utils/packageVersion.js");
+
+
+
+/**
+ * @private
+ * @description Try to get the node version out of process, if browser just return 0.0.0
+ */
+function getNodeVersion() {
+  const failedVersion = '0.0.0';
+  if (typeof window !== 'undefined') {
+    return failedVersion;
+  } else {
+    // node env
+    try {
+      return process.versions.node || failedVersion;
+    } catch (e) {
+      return failedVersion;
+    }
+  }
+}
+/**
+ * @private
+ * @description Ensure that all values ITrackedPropertiesThroughAnalytics are populated.
+ * Accept a partial map of values and returns the complete interface of ITrackedPropertiesThroughAnalytics
+ * @param {ITrackedPropertiesThroughAnalytics} trackedAnalytics
+ * @param {ITrackedPropertiesThroughAnalytics} trackedAnalytics
+ */
+function ensureShapeOfTrackedProperties(trackedAnalytics) {
+  // try to get the process version from node, but if we're on the client return 0.0.0
+  const defaults = {
+    techVersion: getNodeVersion(),
+    sdkCode: 'T',
+    sdkSemver: _internal_utils_packageVersion_js__WEBPACK_IMPORTED_MODULE_0__.packageVersion.split('-')[0],
+    responsive: false,
+    placeholder: false,
+    lazyload: false,
+    accessibility: false
+  };
+  if (!trackedAnalytics) {
+    return defaults;
+  } else {
+    return Object.assign(Object.assign({}, defaults), trackedAnalytics);
+  }
+}
+/**
+ * @private
+ * @description Creates the complete SDK signature by using all the values provided by ITrackedPropertiesThroughAnalytics
+ *              Creation of the signature
+ *              - Set the AlgoVersion of the encoding, this is an internal letter that represents the version
+ *                of our encoding algorithm, it will allow us to perform breaking changes if we'll need them.
+ *              - Take the constant SDK code (Arbitrary letter chosen for each SDK, for Base that letter is 'T')
+ *                this is used to tell apart which SDK is being tracked.
+ *              - Take the {major.minor} versions of the node version (techVersion) (14.2, 16.2 etc.)
+ *              - Take the full semver of the SDK you wish to track
+ *              - Take the features used(lazy, placeholder etc.) and turn them to a letter (for example accessibility -> D)
+ *              - Before appending the string, the Versions must be encoded, see the function `encodeVersion` for more details
+ *              - Append all the variables to a single string
+ *              - In any case of an error, return the single letter 'E'
+ *
+ * @return {string} sdkAnalyticsSignature
+ */
+function getSDKAnalyticsSignature(_trackedAnalytics) {
+  const trackedAnalytics = ensureShapeOfTrackedProperties(_trackedAnalytics);
+  const analyticsOptions = (0,_getAnalyticsOptions_js__WEBPACK_IMPORTED_MODULE_1__.getAnalyticsOptions)(trackedAnalytics);
+  try {
+    const twoPartVersion = removePatchFromSemver(analyticsOptions.techVersion);
+    const encodedSDKVersion = (0,_encodeVersion_js__WEBPACK_IMPORTED_MODULE_2__.encodeVersion)(analyticsOptions.sdkSemver);
+    const encodedTechVersion = (0,_encodeVersion_js__WEBPACK_IMPORTED_MODULE_2__.encodeVersion)(twoPartVersion);
+    const featureCode = analyticsOptions.feature;
+    const SDKCode = analyticsOptions.sdkCode;
+    const algoVersion = 'A'; // The algo version is determined here, it should not be an argument
+    return `${algoVersion}${SDKCode}${encodedSDKVersion}${encodedTechVersion}${featureCode}`;
+  } catch (e) {
+    // Either SDK or Node versions were unparsable
+    return 'E';
+  }
+}
+/**
+ * @private
+ * @description Removes patch version from the semver if it exists
+ *              Turns x.y.z OR x.y into x.y
+ * @param {'x.y.z' | 'x.y' | string} semVerStr
+ */
+function removePatchFromSemver(semVerStr) {
+  const parts = semVerStr.split('.');
+  return `${parts[0]}.${parts[1]}`;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/reverseVersion.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/reverseVersion.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "reverseVersion": () => (/* binding */ reverseVersion)
+/* harmony export */ });
+/* harmony import */ var _stringPad_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./stringPad.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js");
+
+/**
+ * @private
+ * @description Reverses the version positions, x.y.z turns to z.y.x
+ *              Pads each segment with '0' so they have length of 2
+ *              Example: 1.2.3 -> 03.02.01
+ * @param {string} semVer Input can be either x.y.z or x.y
+ * @return {string} in the form of zz.yy.xx (
+ */
+function reverseVersion(semVer) {
+  if (semVer.split('.').length < 2) {
+    throw new Error('invalid semVer, must have at least two segments');
+  }
+  // Split by '.', reverse, create new array with padded values and concat it together
+  return semVer.split('.').reverse().map(segment => {
+    // try to cast to number
+    const asNumber = +segment;
+    if (isNaN(asNumber) || asNumber < 0) {
+      throw 'Invalid version number provided';
+    }
+    return (0,_stringPad_js__WEBPACK_IMPORTED_MODULE_0__.stringPad)(segment, 2, '0');
+  }).join('.');
+}
+
+/***/ }),
+
+/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "stringPad": () => (/* binding */ stringPad)
+/* harmony export */ });
+/**
+ * @private
+ * @description Adds left padding to a string with the desired substring the provided number of times
+ * @example stringPad(foo, 3, 'a'') // -> aaafoo
+ * @param {string} value
+ * @param {number} _targetLength
+ * @param {string} _padString
+ */
+function stringPad(value, _targetLength, _padString) {
+  let targetLength = _targetLength >> 0; //truncate if number or convert non-number to 0;
+  let padString = String(typeof _padString !== 'undefined' ? _padString : ' ');
+  if (value.length > targetLength) {
+    return String(value);
+  } else {
+    targetLength = targetLength - value.length;
+    if (targetLength > padString.length) {
+      padString += repeatStringNumTimes(padString, targetLength / padString.length);
+    }
+    return padString.slice(0, targetLength) + String(value);
+  }
+}
+/**
+ * @description Repeat a string multiple times, cross-browser-safe alternative to string.repeat()
+ * @param string
+ * @param _times
+ */
+function repeatStringNumTimes(string, _times) {
+  let times = _times;
+  let repeatedString = "";
+  while (times > 0) {
+    repeatedString += string;
+    times--;
+  }
+  return repeatedString;
+}
+
+/***/ }),
+
 /***/ "./node_modules/axios/package.json":
 /*!*****************************************!*\
   !*** ./node_modules/axios/package.json ***!
@@ -17563,13 +24914,14 @@ var __webpack_exports__ = {};
   !*** ./client/src/index.jsx ***!
   \******************************/
 __webpack_require__.r(__webpack_exports__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionsAnswers/Questions&Answers.jsx */ "./client/src/QuestionsAnswers/Questions&Answers.jsx");
-/* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
-/* harmony import */ var _Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Reviews/ReviewIndex.jsx */ "./client/src/Reviews/ReviewIndex.jsx");
-/* harmony import */ var _RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RelatedProducts/Lists.jsx */ "./client/src/RelatedProducts/Lists.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var _QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionsAnswers/Questions&Answers.jsx */ "./client/src/QuestionsAnswers/Questions&Answers.jsx");
+/* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
+/* harmony import */ var _Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reviews/ReviewIndex.jsx */ "./client/src/Reviews/ReviewIndex.jsx");
+/* harmony import */ var _RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RelatedProducts/Lists.jsx */ "./client/src/RelatedProducts/Lists.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -17611,23 +24963,23 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
           product_id: this.state.product_id
-        }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("hr", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
           product_id: this.state.product_id,
           changeProduct: this.changeProduct.bind(this)
-        }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("hr", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
           product_id: this.state.product_id
-        }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("hr", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
           product_id: this.state.product_id
         })]
       });
     }
   }]);
   return App;
-}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom/client'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(document.getElementById('root')).render( /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(App, {}));
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+(0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById('root')).render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(App, {}));
 })();
 
 /******/ })()

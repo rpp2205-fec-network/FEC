@@ -100,9 +100,11 @@ render() {
             {count === 0 ?
               <List
               reviews={this.state.reviews}
+              product_id={this.props.product_id}
               /> :
               <List
               reviews={finalArrays}
+              product_id={this.props.product_id}
               />
             }
           </ErrorBoundary>

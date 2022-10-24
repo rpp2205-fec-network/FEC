@@ -219,7 +219,7 @@ app.get('/meta/:product_id', (req, res) => {
     }
   })
   .then((response) => {
-    console.log('SERVER META DATA \n', response.data);
+    //console.log('SERVER META DATA \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {

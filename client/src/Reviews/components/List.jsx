@@ -73,7 +73,7 @@ class List extends React.Component {
           }
             </button>
           <button className="reviewsListButton" onClick={this.addReviewOrCollapse}>Add A Review +</button>
-          {this.state.addReview === true ? <AddRating addReviewOrCollapse={this.addReviewOrCollapse}/> : null}
+          {this.state.addReview === true ? <AddRating product_id={this.props.product_id} addReviewOrCollapse={this.addReviewOrCollapse}/> : null}
         </div>
       )
     }

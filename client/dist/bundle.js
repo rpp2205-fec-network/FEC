@@ -15,6 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -28,6 +29,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var AddToCart = /*#__PURE__*/function (_React$Component) {
   _inherits(AddToCart, _React$Component);
   var _super = _createSuper(AddToCart);
@@ -36,22 +38,87 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, AddToCart);
     _this = _super.call(this, props);
     _this.state = {
-      size: 'Medium',
-      quantity: 1
+      size: '',
+      quantity: -1,
+      totalQuantity: -1,
+      quantityArr: [],
+      data: [{
+        sku: 'no data',
+        quantity: 'no data',
+        size: 'no data'
+      }],
+      currentSku: '-1',
+      sizeSelected: false
     };
     //binds the functions to this component for the 'this' value
-    _this.onchangeData = _this.changeData.bind(_assertThisInitialized(_this));
+    _this.changeData = _this.changeData.bind(_assertThisInitialized(_this));
     _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     _this.onStar = _this.onStar.bind(_assertThisInitialized(_this));
     return _this;
   }
-
-  //Dynamically changes selected option
   _createClass(AddToCart, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      //if new props are received
+      if (prevProps.currentStyleInfo !== this.props.currentStyleInfo) {
+        var data = [];
+        var skusArray = this.props.currentStyleInfo.skus;
+        var quantityArray = [];
+        for (var key in skusArray) {
+          data.push({
+            sku: key,
+            quantity: skusArray[key].quantity,
+            size: skusArray[key].size
+          });
+        }
+        for (var i = 1; i <= this.props.currentStyleInfo.skus[data[0].sku].quantity; i++) {
+          quantityArray.push(i);
+        }
+        if (quantityArray.length > 15) {
+          quantityArray.length = 15;
+        }
+        this.setState({
+          quantity: 1,
+          totalQuantity: this.props.currentStyleInfo.skus[data[0].sku].quantity,
+          quantityArr: quantityArray,
+          data: data,
+          currentSku: data[0].sku
+        });
+        //if state is changed by sizeSelector
+      } else if (this.state.currentSku !== prevState.currentSku) {
+        console.log('second part of componentDidUpdate prevState \n', prevState, '\n current State\n', this.state);
+        console.log('sku', this.props.currentStyleInfo.skus[this.state.currentSku]);
+        var newQuantityTotal = this.props.currentStyleInfo.skus[this.state.currentSku].quantity;
+        var newQuantityArray = [];
+        for (var i = 1; i <= newQuantityTotal; i++) {
+          newQuantityArray.push(i);
+        }
+        if (newQuantityArray.length > 15) {
+          newQuantityArray.length = 15;
+        }
+        this.setState({
+          totalQuantity: newQuantityTotal,
+          quantityArr: newQuantityArray,
+          quantity: 1
+        });
+      }
+    }
+    //Dynamically changes selected option
+  }, {
     key: "changeData",
     value: function changeData(e) {
       var name = e.target.name;
-      //console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value)
+      var splitVal = e.target.value.split(', ');
+      var size = splitVal[0];
+      var sku = splitVal[1];
+      console.log('e.target', e.target.value);
+      if (e.target.name === 'quantity') {
+        this.setState(_defineProperty({}, name, e.target.value));
+      } else {
+        var _this$setState2;
+        this.setState((_this$setState2 = {}, _defineProperty(_this$setState2, name, size), _defineProperty(_this$setState2, "currentSku", sku), _this$setState2));
+      }
+      console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value);
     }
 
     //Handles onClick for addToCart button
@@ -68,42 +135,74 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-        className: "addToCart",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
-          name: "size",
-          value: this.state.size,
-          onChange: this.changeData,
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
-            children: "Extra Small"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
-            children: "Small"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
-            children: "Medium"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
-            children: "Large"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
-            children: "Extra Large"
-          })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
-          name: "quantity",
-          value: this.state.quantity,
-          onChange: this.changeData,
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
-            children: "1"
-          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
-            children: "2"
-          })]
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
-          type: "button",
-          value: "Add To Bag          +",
-          onClick: this.onSubmit
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
-          type: "button",
-          value: "Pretend an image of a star is here",
-          onClick: this.onStar
-        })]
+      //determining whether item is completely out of stock
+      var inStock = this.state.data.map(function (item) {
+        if (item.quantity > 0) {
+          return item;
+        }
       });
+      //if items in stock
+      if (inStock.length > 0) {
+        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "addToCart",
+          children: ["Size: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+            name: "size",
+            onChange: this.changeData,
+            children: this.state.data.map(function (item) {
+              console.log('ITEM', item);
+              if (item.quantity <= 0) {
+                console.log('Item size of ' + item.size + ' is out of stock');
+              } else {
+                return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
+                  value: "".concat(item.size, ", ").concat(item.sku),
+                  children: item.size
+                }, item.sku);
+              }
+            })
+          }), "Quantity: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+            name: "quantity",
+            disabled: !this.state.size,
+            onChange: this.changeData,
+            children: this.state.quantityArr.map(function (number) {
+              return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("option", {
+                value: number,
+                children: number
+              }, number);
+            })
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+            type: "button",
+            value: "Add To Bag          +",
+            onClick: this.onSubmit
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+            type: "button",
+            value: "Pretend an image of a star is here",
+            onClick: this.onStar
+          })]
+        });
+      } else {
+        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "addToCart",
+          children: ["Size: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+            name: "size",
+            onChange: this.changeData,
+            disabled: true,
+            children: "OUT OF STOCK"
+          }), "Quantity: ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("select", {
+            name: "quantity",
+            onChange: this.changeData,
+            disabled: true,
+            children: "-"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+            type: "button",
+            value: "Add To Bag          +",
+            onClick: this.onSubmit
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+            type: "button",
+            value: "Pretend an image of a star is here",
+            onClick: this.onStar
+          })]
+        });
+      }
     }
   }]);
   return AddToCart;
@@ -456,7 +555,6 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
             children: "StyleSelector"
           }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
             children: styleInfo.map(function (style) {
-              //console.log(style)
               if (style === _this2.props.styleInfo[_this2.props.currentStyle]) {
                 return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
                   className: "selected_style",
@@ -502,6 +600,7 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 /* harmony import */ var _components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/addToCart.jsx */ "./client/src/Product Overview/components/addToCart.jsx");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./productOverviewErrorBoundary.jsx */ "./client/src/Product Overview/productOverviewErrorBoundary.jsx");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -522,6 +621,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ProductOverview = /*#__PURE__*/function (_React$Component) {
   _inherits(ProductOverview, _React$Component);
   var _super = _createSuper(ProductOverview);
@@ -531,9 +631,6 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     //default value of an id taken from the API, so that the rest of the code works.
     _this.state = {
-      // productList: [
-      //     {id: 71701}
-      // ],
       currentProduct: {},
       styleInfo: [],
       currentProductId: 71701,
@@ -545,16 +642,11 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     _this.changeStyle = _this.changeStyle.bind(_assertThisInitialized(_this));
     return _this;
   }
+  //get data after component mounts
   _createClass(ProductOverview, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
-      // return this.getAllProductInfo()
-      // .then((data) => {
-      //     this.setState({
-      //         productList: data
-      //     })
-      // })
       return this.getProductInfo(71701).then(function (data) {
         _this2.setState({
           currentProduct: data
@@ -597,6 +689,7 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
         console.log('ERR');
       });
     }
+    //top level function for when user selects different style
   }, {
     key: "changeStyle",
     value: function changeStyle(styleID) {
@@ -615,27 +708,105 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
-          children: "Product Overview"
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          onLoad: this.getProductStyles,
-          styleInfo: this.state.styleInfo,
-          currentStyle: this.state.currentStyle
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          onLoad: this.getProductInfo,
-          productInfo: this.state.currentProduct
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          onLoad: this.getProductStyles,
-          styleInfo: this.state.styleInfo,
-          currentStyle: this.state.currentStyle,
-          onChangeStyle: this.changeStyle
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
-          children: "End of Product Overview"
-        })]
+        children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+            children: "Product Overview"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            onLod: this.getProductStyles,
+            styleInfo: this.state.styleInfo,
+            currentStyle: this.state.currentStyle
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            onLoad: this.getProductInfo,
+            productInfo: this.state.currentProduct
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            onLoad: this.getProductStyles,
+            styleInfo: this.state.styleInfo,
+            currentStyle: this.state.currentStyle,
+            onChangeStyle: this.changeStyle
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+            children: "End of Product Overview"
+          })]
+        })
       });
     }
   }]);
   return ProductOverview;
+}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+
+/***/ }),
+
+/***/ "./client/src/Product Overview/productOverviewErrorBoundary.jsx":
+/*!**********************************************************************!*\
+  !*** ./client/src/Product Overview/productOverviewErrorBoundary.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ProductOverviewErrorBoundary)
+/* harmony export */ });
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var ProductOverviewErrorBoundary = /*#__PURE__*/function (_React$Component) {
+  _inherits(ProductOverviewErrorBoundary, _React$Component);
+  var _super = _createSuper(ProductOverviewErrorBoundary);
+  function ProductOverviewErrorBoundary(props) {
+    var _this;
+    _classCallCheck(this, ProductOverviewErrorBoundary);
+    _this = _super.call(this, props);
+    _this.state = {
+      error: null,
+      errorInfo: null
+    };
+    return _this;
+  }
+  _createClass(ProductOverviewErrorBoundary, [{
+    key: "componentDidCatch",
+    value: function componentDidCatch(error, errorInfo) {
+      // Catch errors in any components below and re-render with error message
+      this.setState({
+        error: error,
+        errorInfo: errorInfo
+      });
+      // You can also log error messages to an error reporting service here
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state.errorInfo) {
+        // Error path
+        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+            children: "Something went wrong."
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("details", {
+            style: {
+              whiteSpace: 'pre-wrap'
+            },
+            children: [this.state.error && this.state.error.toString(), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), this.state.errorInfo.componentStack]
+          })]
+        });
+      }
+      // Normally, just render children
+      return this.props.children;
+    }
+  }]);
+  return ProductOverviewErrorBoundary;
 }(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 
@@ -656,7 +827,7 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var _components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/SearchQuestions.jsx */ "./client/src/QuestionsAnswers/components/SearchQuestions.jsx");
 /* harmony import */ var _components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/QuestionsList.jsx */ "./client/src/QuestionsAnswers/components/QuestionsList.jsx");
-/* harmony import */ var _components_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AddQuestion.jsx */ "./client/src/QuestionsAnswers/components/AddQuestion.jsx");
+/* harmony import */ var _QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuestionsAnswersErrorBoundary.jsx */ "./client/src/QuestionsAnswers/QuestionsAnswersErrorBoundary.jsx");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -687,7 +858,8 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       product_id: '',
       questions: [],
-      sortedQuestions: []
+      sortedQuestions: [],
+      showQuestionModal: false
     };
     _this.sortQuestions = _this.sortQuestions.bind(_assertThisInitialized(_this));
     _this.getQuestions = _this.getQuestions.bind(_assertThisInitialized(_this));
@@ -703,7 +875,6 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     value: function getQuestions() {
       var _this2 = this;
       axios.get('/getQuestions').then(function (questions) {
-        //console.log('Current product questions data', questions.data)
         _this2.setState({
           product_id: questions.data.product_id,
           questions: questions.data.results
@@ -731,12 +902,17 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
         id: "QAwidget",
         children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h1", {
-            children: "Questions and Answers"
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h3", {
+            children: "Questions & Answers"
+          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {})]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              questions: this.state.sortedQuestions,
+              product_id: this.state.product_id
+            })
           })
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          questions: this.state.sortedQuestions
-        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_components_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+        })]
       });
     }
   }]);
@@ -746,10 +922,322 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./client/src/QuestionsAnswers/QuestionsAnswersErrorBoundary.jsx":
+/*!***********************************************************************!*\
+  !*** ./client/src/QuestionsAnswers/QuestionsAnswersErrorBoundary.jsx ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
+  _inherits(ErrorBoundary, _React$Component);
+  var _super = _createSuper(ErrorBoundary);
+  function ErrorBoundary(props) {
+    var _this;
+    _classCallCheck(this, ErrorBoundary);
+    _this = _super.call(this, props);
+    _this.state = {
+      error: null,
+      errorInfo: null
+    };
+    return _this;
+  }
+  _createClass(ErrorBoundary, [{
+    key: "componentDidCatch",
+    value: function componentDidCatch(error, errorInfo) {
+      // Catch errors in any components below and re-render with error message
+      this.setState({
+        error: error,
+        errorInfo: errorInfo
+      });
+      // You can also log error messages to an error reporting service here
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state.errorInfo) {
+        // Error path
+        return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+            children: "Something went wrong friend. Please try again."
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("details", {
+            style: {
+              whiteSpace: 'pre-wrap'
+            },
+            children: [this.state.error && this.state.error.toString(), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), this.state.errorInfo.componentStack]
+          })]
+        });
+      }
+      // Normally, just render children
+      return this.props.children;
+    }
+  }]);
+  return ErrorBoundary;
+}(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ErrorBoundary);
+
+/***/ }),
+
 /***/ "./client/src/QuestionsAnswers/components/AddAnswer.jsx":
 /*!**************************************************************!*\
   !*** ./client/src/QuestionsAnswers/components/AddAnswer.jsx ***!
   \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '@cloudinary/react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '@cloudinary/url-gen'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var AddAnswer = function AddAnswer(_ref) {
+  var show = _ref.show,
+    onClose = _ref.onClose,
+    question = _ref.question,
+    productId = _ref.productId;
+  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(show),
+    _useState2 = _slicedToArray(_useState, 2),
+    modal = _useState2[0],
+    setModal = _useState2[1];
+  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    body = _useState4[0],
+    setBody = _useState4[1];
+  var _useState5 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+    _useState6 = _slicedToArray(_useState5, 2),
+    name = _useState6[0],
+    setName = _useState6[1];
+  var _useState7 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    email = _useState8[0],
+    setEmail = _useState8[1];
+  var _useState9 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())([]),
+    _useState10 = _slicedToArray(_useState9, 2),
+    images = _useState10[0],
+    setImages = _useState10[1];
+  var _useState11 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())([]),
+    _useState12 = _slicedToArray(_useState11, 2),
+    imageURLs = _useState12[0],
+    setImageURLs = _useState12[1];
+  var _useState13 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())([]),
+    _useState14 = _slicedToArray(_useState13, 2),
+    cloudImages = _useState14[0],
+    setCloudImages = _useState14[1];
+  Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(function () {
+    if (images.length < 1 || images.length > 5) return;
+    var currentImg = images[images.length - 1];
+    setImageURLs([].concat(_toConsumableArray(imageURLs), [window.URL.createObjectURL(new Blob(currentImg, {
+      type: "image/jpeg"
+    }))]));
+    // Now convert local urls to cloudinary urls
+    var cloudImgs = [];
+    images.forEach(function (img) {
+      var cld = new Object(function webpackMissingModule() { var e = new Error("Cannot find module '@cloudinary/url-gen'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+        cloud: {
+          cloudName: 'atelier'
+        }
+      });
+      var cloudImage = cld.image(img[0].name);
+      var url = cloudImage.toURL();
+      console.log(url);
+      cloudImgs.push(url);
+    });
+    setCloudImages(cloudImgs);
+  }, [images]);
+  var onImageChange = function onImageChange(e) {
+    setImages(function (prevState) {
+      return [].concat(_toConsumableArray(prevState), [e.target.files]);
+    });
+  };
+  var handleClose = function handleClose(e) {
+    e.preventDefault();
+    onClose(e);
+  };
+  var handleChange = function handleChange(e, field) {
+    if (field === 'body') {
+      setBody(e.target.value);
+    } else if (field === 'name') {
+      setName(e.target.value);
+    } else if (field === 'email') {
+      setEmail(e.target.value);
+    }
+  };
+  var handleSubmit = function handleSubmit() {
+    var question_id = question.question_id;
+    var answer = {
+      body: body,
+      name: name,
+      email: email,
+      photos: cloudImages
+    };
+    var emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailFormat.test(email) || email === '') {
+      alert('You must enter the following: email');
+    } else if (name === '') {
+      alert('You must enter the following: display name');
+    } else if (body === '') {
+      alert('You must enter the following: answer');
+    } else {
+      axios.post('/postAnswer', {
+        question_id: question_id,
+        answer: answer
+      });
+    }
+  };
+  var handleError = function handleError() {
+    alert('Please select a valid image');
+  };
+  if (!show) {
+    return null;
+  } else {
+    return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("form", {
+      className: "answerModal",
+      children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        className: "answerModalContent",
+        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+          children: "Submit your Answer"
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h4", {
+          children: question.question_body
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "youranswer",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              children: " Your Answer * "
+            })
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+            type: "text",
+            maxLength: "1000",
+            required: true,
+            rows: 10,
+            cols: 50,
+            onChange: function onChange(e) {
+              return handleChange(e, 'body');
+            }
+          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {})]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "yournickname",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              children: " What is your nickname? * "
+            })
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+            type: "text",
+            maxLength: "60",
+            placeholder: "Example: jack543!",
+            required: true,
+            rows: 1,
+            cols: 50,
+            onChange: function onChange(e) {
+              return handleChange(e, 'name');
+            }
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              className: "labels",
+              children: " For privacy reasons, do not use your full name or email address"
+            })
+          })]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "youremail",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              children: " What is your email? * "
+            })
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+            type: "email",
+            maxLength: "60",
+            placeholder: "Example: jack@email.com",
+            required: true,
+            rows: 1,
+            cols: 50,
+            onChange: function onChange(e) {
+              return handleChange(e, 'email');
+            }
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              className: "labels",
+              children: " For authentication reasons, you will not be emailed "
+            })
+          })]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "uploadImages",
+          children: imageURLs.map(function (imageSrc, index) {
+            return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("img", {
+              className: "uploadImagePreview",
+              src: imageSrc,
+              onError: handleError
+            }, index);
+          })
+        }), images.length < 5 ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
+          type: "file",
+          accept: "image/*",
+          onChange: function onChange(e) {
+            return onImageChange(e);
+          }
+        }) : null, /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+          type: "Submit",
+          className: "answerSubmit",
+          onClick: handleSubmit,
+          children: "Submit"
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+          type: "Submit",
+          className: "QAbutton",
+          onClick: function onClick(e) {
+            return handleClose(e);
+          },
+          children: "Close"
+        })]
+      })
+    });
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddAnswer);
+
+/***/ }),
+
+/***/ "./client/src/QuestionsAnswers/components/AddQuestion.jsx":
+/*!****************************************************************!*\
+  !*** ./client/src/QuestionsAnswers/components/AddQuestion.jsx ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -770,66 +1258,147 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-var AddAnswer = function AddAnswer(_ref) {
-  var question = _ref.question,
-    helpfulCount = _ref.helpfulCount;
-  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(false),
+var AddQuestion = function AddQuestion(_ref) {
+  var show = _ref.show,
+    onClose = _ref.onClose,
+    product_id = _ref.product_id;
+  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(show),
     _useState2 = _slicedToArray(_useState, 2),
-    disable = _useState2[0],
-    setDisable = _useState2[1];
-  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(question.question_helpfulness),
+    modal = _useState2[0],
+    setModal = _useState2[1];
+  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
     _useState4 = _slicedToArray(_useState3, 2),
-    helpful = _useState4[0],
-    setHelpful = _useState4[1];
-  var wasHelpful = function wasHelpful(e) {
+    body = _useState4[0],
+    setBody = _useState4[1];
+  var _useState5 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+    _useState6 = _slicedToArray(_useState5, 2),
+    name = _useState6[0],
+    setName = _useState6[1];
+  var _useState7 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    email = _useState8[0],
+    setEmail = _useState8[1];
+  var handleClose = function handleClose(e) {
     e.preventDefault();
-    setHelpful(question.question_helpfulness += 1);
-    setDisable(true);
-    axios.put('/putQuestionHelpful', {
-      id: question.question_id
-    }).then(function (response) {
-      console.log('+1 helpful');
-      //setHelpful(question.question_helpfulness += 1);
-    })["catch"](function (err) {
-      return console.log('could not be helpful');
-    });
+    onClose(e);
   };
-  return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-    id: "addAnswer",
-    children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
-      type: "button",
-      value: "Add answer"
-    }), "| Helpful? (", helpful, ")", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
-      type: "Submit",
-      disabled: disable,
-      onClick: wasHelpful,
-      children: "Yes"
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddAnswer);
-
-/***/ }),
-
-/***/ "./client/src/QuestionsAnswers/components/AddQuestion.jsx":
-/*!****************************************************************!*\
-  !*** ./client/src/QuestionsAnswers/components/AddQuestion.jsx ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-
-
-var AddQuestion = function AddQuestion(props) {
-  return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-    id: "addQuestion"
-  });
+  var handleChange = function handleChange(e, field) {
+    if (field === 'body') {
+      setBody(e.target.value);
+    } else if (field === 'name') {
+      setName(e.target.value);
+    } else if (field === 'email') {
+      setEmail(e.target.value);
+    }
+  };
+  var handleSubmit = function handleSubmit() {
+    var question = {
+      body: body,
+      name: name,
+      email: email,
+      product_id: Number(product_id)
+    };
+    var emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailFormat.test(email) || email === '') {
+      alert('You must enter the following: email');
+    } else if (name === '') {
+      alert('You must enter the following: display name');
+    } else if (body === '') {
+      alert('You must enter the following: answer');
+    } else {
+      axios.post('/postQuestion', {
+        question: question
+      });
+    }
+  };
+  if (!show) {
+    return null;
+  } else {
+    return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("form", {
+      className: "questionModal",
+      children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+        className: "questionModalContent",
+        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h2", {
+          children: "Ask Your Question"
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "yourquestion",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              children: " Your Question * "
+            })
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+            type: "text",
+            maxLength: "1000",
+            required: true,
+            rows: 10,
+            cols: 50,
+            onChange: function onChange(e) {
+              return handleChange(e, 'body');
+            }
+          })]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "yournickname",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              children: " What is your nickname? * "
+            })
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+            type: "text",
+            maxLength: "60",
+            placeholder: "Example: jackson11!",
+            required: true,
+            rows: 1,
+            cols: 50,
+            onChange: function onChange(e) {
+              return handleChange(e, 'name');
+            }
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              className: "labels",
+              children: " For privacy reasons, do not use your full name or email address"
+            })
+          })]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "youremail",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              children: " What is your email? * "
+            })
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("textarea", {
+            type: "email",
+            maxLength: "60",
+            placeholder: "Why did you like the product or not?",
+            rows: 1,
+            cols: 50,
+            required: true,
+            onChange: function onChange(e) {
+              return handleChange(e, 'email');
+            }
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("label", {
+              className: "labels",
+              children: " For authentication reasons, you will not be emailed "
+            })
+          })]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "modalCloseSubmit",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+            type: "Submit",
+            className: "questionSubmit",
+            onClick: handleSubmit,
+            children: "Submit"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+            type: "Submit",
+            className: "QAbutton",
+            onClick: function onClick(e) {
+              return handleClose(e);
+            },
+            children: "Close"
+          })]
+        })]
+      })
+    });
+  }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddQuestion);
 
@@ -848,6 +1417,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var _AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnswerHelpfulAndReport.jsx */ "./client/src/QuestionsAnswers/components/AnswerHelpfulAndReport.jsx");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -860,6 +1430,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -908,7 +1479,9 @@ var Answer = /*#__PURE__*/function (_React$Component) {
                       fontWeight: 'bold'
                     },
                     children: answer.answerer_name
-                  }) : answer.answerer_name, ",", answer.date, " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  }) : answer.answerer_name, ",", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+                    children: " "
+                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                     answer: answer
                   })]
                 })]
@@ -917,6 +1490,7 @@ var Answer = /*#__PURE__*/function (_React$Component) {
           }), this.props.answers.length > 2 ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
             type: "button",
             value: "Load more answers",
+            className: "QAinputbutton",
             onClick: function onClick(e) {
               return _this2.showCollapseAnswers(e);
             }
@@ -937,7 +1511,9 @@ var Answer = /*#__PURE__*/function (_React$Component) {
                       fontWeight: 'bold'
                     },
                     children: answer.answerer_name
-                  }) : answer.answerer_name, ",", answer.date, " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  }) : answer.answerer_name, ",", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+                    children: " "
+                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), "  ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                     answer: answer
                   })]
                 })]
@@ -946,6 +1522,7 @@ var Answer = /*#__PURE__*/function (_React$Component) {
           }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
             type: "button",
             value: "Collapse answers",
+            className: "QAinputbutton",
             onClick: function onClick(e) {
               return _this2.showCollapseAnswers(e);
             }
@@ -1019,13 +1596,21 @@ var AnswerHelpfulAndReport = function AnswerHelpfulAndReport(_ref) {
   };
   return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
     className: "answerHelpfulAndReport",
-    children: ["| Helpful? ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+    children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+      className: "bar",
+      children: "|"
+    }), " Helpful? ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
       type: "submit",
+      className: "QAbutton",
       disabled: disable,
       onClick: wasHelpful,
       children: "Yes"
-    }), " (", answer.helpfulness, ") | ", !report ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+    }), " (", answer.helpfulness, ")", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+      className: "bar",
+      children: "|"
+    }), " ", !report ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
       type: "submit",
+      className: "QAbutton",
       onClick: reportAnswer,
       children: "Report"
     }) : /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
@@ -1049,10 +1634,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddAnswer.jsx */ "./client/src/QuestionsAnswers/components/AddAnswer.jsx");
+/* harmony import */ var _QuestionHelpfulAddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionHelpfulAddAnswer.jsx */ "./client/src/QuestionsAnswers/components/QuestionHelpfulAddAnswer.jsx");
 /* harmony import */ var _Answer_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Answer.jsx */ "./client/src/QuestionsAnswers/components/Answer.jsx");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -1113,15 +1704,20 @@ var Question = /*#__PURE__*/function (_React$Component) {
     key: "sortAnswers",
     value: function sortAnswers() {
       var answersCopy = this.state.answers.slice();
-      answersCopy.sort(function (a, b) {
-        if (a.answerer_name === 'Seller' || b.answerer_name === 'Seller') {
-          return -1;
-        } else {
+      var sorted = answersCopy.reduce(function (x, element) {
+        if (element.answerer_name === 'Seller') {
+          return [element].concat(_toConsumableArray(x));
+        }
+        return [].concat(_toConsumableArray(x), [element]);
+      }, []).sort(function (a, b) {
+        if (!a.answerer_name === 'Seller' || !b.answerer_name === 'Seller') {
+          return b.helpfulness - a.helpfulness;
+        } else if (a.answerer_name === 'Seller' && b.answerer_name === 'Seller') {
           return b.helpfulness - a.helpfulness;
         }
       });
       this.setState({
-        sortedAnswers: answersCopy
+        sortedAnswers: sorted
       });
     }
   }, {
@@ -1129,9 +1725,10 @@ var Question = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
         id: "individualQuestion",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_QuestionHelpfulAddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
           helpfulCount: this.state.question.question_helpfulness,
-          question: this.state.question
+          question: this.state.question,
+          productId: this.props.productId
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("h3", {
           id: "question",
           children: ["Q: ", this.state.question.question_body]
@@ -1152,6 +1749,91 @@ var Question = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./client/src/QuestionsAnswers/components/QuestionHelpfulAddAnswer.jsx":
+/*!*****************************************************************************!*\
+  !*** ./client/src/QuestionsAnswers/components/QuestionHelpfulAddAnswer.jsx ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddAnswer.jsx */ "./client/src/QuestionsAnswers/components/AddAnswer.jsx");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var QuestionHelpfulAddAnswer = function QuestionHelpfulAddAnswer(_ref) {
+  var question = _ref.question,
+    helpfulCount = _ref.helpfulCount,
+    productId = _ref.productId;
+  var _useState = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    disable = _useState2[0],
+    setDisable = _useState2[1];
+  var _useState3 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(question.question_helpfulness),
+    _useState4 = _slicedToArray(_useState3, 2),
+    helpful = _useState4[0],
+    setHelpful = _useState4[1];
+  var _useState5 = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    show = _useState6[0],
+    setShow = _useState6[1];
+  var wasHelpful = function wasHelpful(e) {
+    e.preventDefault();
+    setHelpful(question.question_helpfulness += 1);
+    setDisable(true);
+    axios.put('/putQuestionHelpful', {
+      id: question.question_id
+    }).then(function (response) {
+      console.log('+1 helpful');
+    })["catch"](function (err) {
+      return console.log('could not be helpful');
+    });
+  };
+  var showModal = function showModal(e) {
+    setShow(!show);
+  };
+  return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+    id: "addAnswer",
+    children: ["Helpful? ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+      type: "Submit",
+      className: "QAbutton",
+      disabled: disable,
+      onClick: wasHelpful,
+      children: "Yes"
+    }), " (", helpful, ") ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+      className: "bar",
+      children: "|"
+    }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
+      type: "Submit",
+      className: "QAbutton",
+      onClick: showModal,
+      children: "Add answer "
+    }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      show: show,
+      onClose: showModal,
+      question: question,
+      productId: productId
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionHelpfulAddAnswer);
+
+/***/ }),
+
 /***/ "./client/src/QuestionsAnswers/components/QuestionsList.jsx":
 /*!******************************************************************!*\
   !*** ./client/src/QuestionsAnswers/components/QuestionsList.jsx ***!
@@ -1166,6 +1848,7 @@ __webpack_require__.r(__webpack_exports__);
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var _Question_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question.jsx */ "./client/src/QuestionsAnswers/components/Question.jsx");
+/* harmony import */ var _AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddQuestion.jsx */ "./client/src/QuestionsAnswers/components/AddQuestion.jsx");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1178,6 +1861,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -1199,6 +1883,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     };
     _this.showMore = _this.showMore.bind(_assertThisInitialized(_this));
     _this.collapse = _this.collapse.bind(_assertThisInitialized(_this));
+    _this.showModal = _this.showModal.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(QuestionsList, [{
@@ -1227,8 +1912,16 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "showModal",
+    value: function showModal() {
+      this.setState({
+        showQuestionModal: !this.state.showQuestionModal
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
       if (!this.state.showAllItems && this.props.questions.length > 0) {
         return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
           children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
@@ -1236,17 +1929,25 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
             children: this.props.questions.slice(0, this.state.itemsShown).map(function (question) {
               return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Question_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                 question_id: question.question_id,
-                question: question
+                question: question,
+                productId: _this2.props.product_id
               }, question.question_id);
             })
           }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
             children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
               type: "button",
               value: "More answered questions",
+              className: "moreAnsweredQuestions",
               onClick: this.showMore
             }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
               type: "button",
-              value: "Add a question +"
+              value: "Add a question +",
+              className: "addQuestionButton",
+              onClick: this.showModal
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              show: this.state.showQuestionModal,
+              onClose: this.showModal,
+              product_id: this.props.product_id
             })]
           })]
         });
@@ -1257,17 +1958,25 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
             children: this.props.questions.map(function (question) {
               return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_Question_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                 question_id: question.question_id,
-                question: question
+                question: question,
+                productId: _this2.props.product_id
               }, question.question_id);
             })
           }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
             children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
               type: "button",
               value: "Show Less",
+              className: "moreAnsweredQuestions",
               onClick: this.collapse
             }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("input", {
               type: "button",
-              value: "Add a question +"
+              value: "Add a question +",
+              className: "addQuestionButton",
+              onClick: this.showModal
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              show: this.state.showQuestionModal,
+              onClose: this.showModal,
+              product_id: this.props.product_id
             })]
           })]
         });
@@ -1537,7 +2246,7 @@ __webpack_require__.r(__webpack_exports__);
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1613,12 +2322,12 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
               }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
                 id: "productRecInfoPrice",
                 children: ["$", item.default_price]
-              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 rating: item.rating,
                 widgetRatedColors: "black",
                 widgetDimensions: "15px",
                 widgetSpacings: "1px",
-                children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})]
+                children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
               })]
             })]
           }, index);
@@ -1768,9 +2477,9 @@ __webpack_require__.r(__webpack_exports__);
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _ActionButton_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ActionButton.jsx */ "./client/src/RelatedProducts/ActionButton.jsx");
-/* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
+/* harmony import */ var _ActionButton_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ActionButton.jsx */ "./client/src/RelatedProducts/ActionButton.jsx");
+/* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1862,7 +2571,7 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
       var recMap = input.map(function (item, index) {
         return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
           id: "productRec",
-          onClick: _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"],
+          onClick: _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"],
           children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("button", {
             onClick: function onClick() {
               _this3.setState({
@@ -1891,12 +2600,12 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
             }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
               id: "productRecInfoPrice",
               children: ["$", item.default_price]
-            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
               rating: item.rating,
               widgetRatedColors: "black",
               widgetDimensions: "15px",
               widgetSpacings: "1px",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})]
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
             })]
           })]
         }, index);
@@ -2336,9 +3045,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-dom'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2351,6 +3061,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2371,25 +3082,41 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
       rating4: '',
       rating5: '',
       average: '',
+      percent1: '',
+      percent2: '',
+      percent3: '',
+      percent4: '',
+      percent5: '',
       recommended: [],
-      characteristics: []
+      size: '',
+      width: '',
+      comfort: '',
+      quality: '',
+      length: '',
+      fit: ''
     };
     _this.getMetaData = _this.getMetaData.bind(_assertThisInitialized(_this));
-    //this.getAverageRating = this.getAverageRating.bind(this);
+    _this.filterRatingsClick = _this.filterRatingsClick.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(RatingsOverview, [{
+    key: "filterRatingsClick",
+    value: function filterRatingsClick(e) {
+      var ratingNum = Number(e.target.innerText.substr(0, 1));
+      console.log('clicked on ratings!', ratingNum);
+      this.props.filterByRating(ratingNum);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getMetaData();
-      //this.getAverageRating()
     }
   }, {
     key: "getMetaData",
     value: function getMetaData() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/getMetaData/meta/:product_id').then(function (data) {
-        //console.log('FRONT END META DATA \n', data.data)
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get("/meta/".concat(this.props.product_id, "/")).then(function (data) {
+        //console.log('FRONT END META DATA \n', data.data.characteristics)
         _this2.setState({
           rating1: Number(data.data.ratings[1]),
           rating2: Number(data.data.ratings[2]),
@@ -2397,8 +3124,43 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
           rating4: Number(data.data.ratings[4]),
           rating5: Number(data.data.ratings[5]),
           average: ((5 * Number(data.data.ratings[5]) + 4 * Number(data.data.ratings[4]) + 3 * Number(data.data.ratings[3]) + 2 * Number(data.data.ratings[2]) + 1 * Number(data.data.ratings[1])) / (Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3]) + Number(data.data.ratings[2]) + Number(data.data.ratings[1]))).toFixed(1),
-          recommended: (Number(data.data.recommended["true"]) / (Number(data.data.recommended["false"]) + Number(data.data.recommended["true"])) * 100).toFixed(0)
+          recommended: (Number(data.data.recommended["true"]) / (Number(data.data.recommended["false"]) + Number(data.data.recommended["true"])) * 100).toFixed(0),
+          percent1: Number(data.data.ratings[1]) / (Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3]) + Number(data.data.ratings[2]) + Number(data.data.ratings[1])) * 100,
+          percent2: Number(data.data.ratings[2]) / (Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3]) + Number(data.data.ratings[2]) + Number(data.data.ratings[1])) * 100,
+          percent3: Number(data.data.ratings[3]) / (Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3]) + Number(data.data.ratings[2]) + Number(data.data.ratings[1])) * 100,
+          percent4: Number(data.data.ratings[4]) / (Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3]) + Number(data.data.ratings[2]) + Number(data.data.ratings[1])) * 100,
+          percent5: Number(data.data.ratings[5]) / (Number(data.data.ratings[5]) + Number(data.data.ratings[4]) + Number(data.data.ratings[3]) + Number(data.data.ratings[2]) + Number(data.data.ratings[1])) * 100
         });
+        if (data.data.characteristics.Size !== undefined) {
+          _this2.setState({
+            size: Number(data.data.characteristics.Size.value / 5 * 100)
+          });
+        }
+        if (data.data.characteristics.Width !== undefined) {
+          _this2.setState({
+            width: Number(data.data.characteristics.Width.value / 5 * 100)
+          });
+        }
+        if (data.data.characteristics.Comfort !== undefined) {
+          _this2.setState({
+            comfort: Number(data.data.characteristics.Comfort.value / 5 * 100)
+          });
+        }
+        if (data.data.characteristics.Quality !== undefined) {
+          _this2.setState({
+            quality: Number(data.data.characteristics.Quality.value / 5 * 100)
+          });
+        }
+        if (data.data.characteristics.Fit !== undefined) {
+          _this2.setState({
+            fit: Number(data.data.characteristics.Fit.value / 5 * 100)
+          });
+        }
+        if (data.data.characteristics.Length !== undefined) {
+          _this2.setState({
+            length: Number(data.data.characteristics.Length.value / 5 * 100)
+          });
+        }
       })["catch"](function (err) {
         console.log('ERR IN META GET REVIEWS \n', err);
       });
@@ -2411,27 +3173,266 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
           className: "avgRating",
           children: [this.state.average, /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
             className: "ratingStar",
-            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+            children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
               rating: Number(this.state.average),
               widgetRatedColors: "black",
               widgetDimensions: "15px",
               widgetSpacings: "1px",
-              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})]
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
             })
           })]
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
           className: "percentageRecommended",
           children: [this.state.recommended, "% of reviewers recommend this product"]
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: ["5 stars: ", this.state.rating5]
+          className: "ratingsLink",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatLeft",
+            onClick: this.filterRatingsClick,
+            children: "5 stars"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatRight",
+            children: [this.state.rating5, " rating(s)"]
+          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+            percent: this.state.percent5,
+            strokeLinecap: 'square',
+            strokeWidth: 4,
+            trailWidth: 4,
+            trailColor: "#D3D3D3",
+            strokeColor: "black",
+            className: "ratingsBar"
+          })]
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: ["4 stars: ", this.state.rating4]
+          className: "ratingsLink",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatLeft",
+            onClick: this.filterRatingsClick,
+            children: " 4 stars"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatRight",
+            children: [this.state.rating4, " rating(s)"]
+          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+            percent: this.state.percent4,
+            strokeLinecap: 'square',
+            strokeWidth: 4,
+            trailWidth: 4,
+            trailColor: "#D3D3D3",
+            strokeColor: "black",
+            className: "ratingsBar"
+          })]
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: ["3 stars: ", this.state.rating3]
+          className: "ratingsLink",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatLeft",
+            onClick: this.filterRatingsClick,
+            children: " 3 stars"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatRight",
+            children: [this.state.rating3, " rating(s)"]
+          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+            percent: this.state.percent3,
+            strokeLinecap: 'square',
+            strokeWidth: 4,
+            trailWidth: 4,
+            trailColor: "#D3D3D3",
+            strokeColor: "black",
+            className: "ratingsBar"
+          })]
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: ["2 stars: ", this.state.rating2]
+          className: "ratingsLink",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatLeft",
+            onClick: this.filterRatingsClick,
+            children: " 2 stars"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatRight",
+            children: [this.state.rating2, " rating(s)"]
+          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+            percent: this.state.percent2,
+            strokeLinecap: 'square',
+            strokeWidth: 4,
+            trailWidth: 4,
+            trailColor: "#D3D3D3",
+            strokeColor: "black",
+            className: "ratingsBar"
+          })]
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
-          children: ["1 stars: ", this.state.rating1]
+          className: "ratingsLink",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatLeft",
+            onClick: this.filterRatingsClick,
+            children: " 1 star"
+          }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("span", {
+            className: "floatRight",
+            children: [this.state.rating1, " rating(s)"]
+          }), " ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+            percent: this.state.percent1,
+            strokeLinecap: 'square',
+            strokeWidth: 4,
+            trailWidth: 4,
+            trailColor: "#D3D3D3",
+            strokeColor: "black",
+            className: "ratingsBar"
+          })]
+        }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+          className: "characteristicsBreakdown",
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("br", {}), this.state.size !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "characteristics",
+              children: ["Size ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+                percent: [this.state.size, .2],
+                gapPosition: "top",
+                strokeLinecap: 'square',
+                strokeWidth: 4,
+                trailWidth: 4,
+                trailColor: "#D3D3D3",
+                strokeColor: ["#D3D3D3", "black"],
+                className: "ratingsBar"
+              })]
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "charLabel",
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charLeft",
+                children: "Too small"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charMid",
+                children: "Perfect"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charRight",
+                children: "Too large"
+              })]
+            })]
+          }) : null, this.state.width !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "characteristics",
+              children: ["Width ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+                percent: [this.state.width, .2],
+                gapPosition: "top",
+                strokeLinecap: 'square',
+                strokeWidth: 4,
+                trailWidth: 4,
+                trailColor: "#D3D3D3",
+                strokeColor: ["#D3D3D3", "black"],
+                className: "ratingsBar"
+              })]
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "charLabel",
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charLeft",
+                children: "Too narrow"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charMid",
+                children: "Perfect"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charRight",
+                children: "Too wide"
+              })]
+            })]
+          }) : null, this.state.comfort !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "characteristics",
+              children: ["Comfort ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+                percent: [this.state.comfort, .2],
+                gapPosition: "top",
+                strokeLinecap: 'square',
+                strokeWidth: 4,
+                trailWidth: 4,
+                trailColor: "#D3D3D3",
+                strokeColor: ["#D3D3D3", "black"],
+                className: "ratingsBar"
+              })]
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "charLabel",
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charLeft",
+                children: "Uncomfortable"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charMid",
+                children: "Ok"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charRight",
+                children: "Perfect"
+              })]
+            })]
+          }) : null, this.state.quality !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "characteristics",
+              children: ["Quality ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+                percent: [this.state.quality, .2],
+                gapPosition: "top",
+                strokeLinecap: 'square',
+                strokeWidth: 4,
+                trailWidth: 4,
+                trailColor: "#D3D3D3",
+                strokeColor: ["#D3D3D3", "black"],
+                className: "ratingsBar"
+              })]
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "charLabel",
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charLeft",
+                children: "Poor"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charMid",
+                children: "What I expected"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charRight",
+                children: "Great"
+              })]
+            })]
+          }) : null, this.state.length !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "characteristics",
+              children: ["Length ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+                percent: [this.state.length, .2],
+                gapPosition: "top",
+                strokeLinecap: 'square',
+                strokeWidth: 4,
+                trailWidth: 4,
+                trailColor: "#D3D3D3",
+                strokeColor: ["#D3D3D3", "black"],
+                className: "ratingsBar"
+              })]
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "charLabel",
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charLeft",
+                children: "Runs short"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charMid",
+                children: "Perfect"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charRight",
+                children: "Runs long"
+              })]
+            })]
+          }) : null, this.state.fit !== '' ? /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+            children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "characteristics",
+              children: ["Fit ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'rc-progress'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+                percent: [this.state.fit, .2],
+                gapPosition: "top",
+                strokeLinecap: 'square',
+                strokeWidth: 4,
+                trailWidth: 4,
+                trailColor: "#D3D3D3",
+                strokeColor: ["#D3D3D3", "black"],
+                className: "ratingsBar"
+              })]
+            }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+              className: "charLabel",
+              children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charLeft",
+                children: "Runs tight"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charMid",
+                children: "Perfect"
+              }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
+                className: "charRight",
+                children: "Runs long"
+              })]
+            })]
+          }) : null]
         })]
       });
     }
@@ -2454,10 +3455,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2487,7 +3488,7 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "clickHelpful", function (id) {
       console.log('clicked', id, _this.state.helpfulIncrease);
       if (_this.state.helpfulOnce === false) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default().put('/reviewHelpful', {
+        axios__WEBPACK_IMPORTED_MODULE_2___default().put('/reviewHelpful', {
           review_id: id
         }).then(function (data) {
           console.log('Success sending helpful put to server', data);
@@ -2551,16 +3552,16 @@ var Tile = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
       return /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
         className: "tile",
-        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+        children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
           rating: this.props.review.rating,
           widgetRatedColors: "black",
           widgetDimensions: "15px",
           widgetSpacings: "1px",
-          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-ratings-declarative'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {})]
+          children: [/*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
           children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
             className: "userAndDate",
-            children: [this.props.review.reviewer_name, ", ", (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(this.props.review.date), 'MMMM dd, yyyy')]
+            children: [this.props.review.reviewer_name, ", ", (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(this.props.review.date), 'MMMM dd, yyyy')]
           })
         }), /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("div", {
           children: /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("b", {
@@ -2620,7 +3621,10 @@ var Tile = /*#__PURE__*/function (_React$Component) {
               return _this2.clickHelpful(_this2.props.review.review_id);
             },
             children: "Yes"
-          }), " (", this.state.helpfulIncrease, ") \u2002 | \u2002 ", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("u", {
+          }), " (", this.state.helpfulIncrease, ") \u2002 | \u2002", /*#__PURE__*/Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react/jsx-runtime'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())("u", {
+            onClick: function onClick() {
+              alert('This review was reported.');
+            },
             children: "Report"
           })]
         })]
@@ -12307,6 +13311,16 @@ function checkDCE() {
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-dom.development.js */ "./node_modules/react-dom/cjs/react-dom.development.js");
 }
+
+/***/ }),
+
+/***/ "./node_modules/react-ratings-declarative/build/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-ratings-declarative/build/index.js ***!
+  \***************************************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/kenkurita/hackreactor/FEC/node_modules/react-ratings-declarative/build/index.js'");
 
 /***/ }),
 

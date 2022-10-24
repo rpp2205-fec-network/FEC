@@ -13,6 +13,7 @@ class App extends React.Component {
     }
   }
 
+<<<<<<< HEAD
 
   changeProduct(e) {
     this.setState({
@@ -20,11 +21,17 @@ class App extends React.Component {
     })
   }
 
+=======
+>>>>>>> main
 render() {
   return (
     <div>
     <ProductOverview product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
+<<<<<<< HEAD
     <Lists product_id={this.state.product_id} changeProduct={this.changeProduct.bind(this)}/> <br/><br/><hr/><br/><br/>
+=======
+    <Lists product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
+>>>>>>> main
     <QuestionsAnswers product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
     <Reviews product_id={this.state.product_id}/>
     </div>

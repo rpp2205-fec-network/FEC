@@ -15,7 +15,7 @@ body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -220,8 +220,109 @@ main {
 
 .percentageRecommended {
   font-size: 10px;
+  padding-bottom: 6px;
+  padding-top: 8px;
 }
 
+/* Rating Bar */
+
+.ratingsLink {
+  font-size: 12px;
+  overflow: auto;
+}
+.ratingsBar {
+  margin-right: 32px;
+  float: left;
+}
+
+.floatLeft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+
+.floatLeft:hover {
+  text-decoration: underline;
+}
+
+.floatRight {
+ float: left;
+ width: 55%;
+ text-align: right;
+ opacity: 0.5;
+ font-size: 8px;
+ padding-top: 3%;
+ opacity: 0;
+ transition: opacity 0.5s ease;
+}
+
+.floatRight:hover {
+  opacity: 1;
+ }​
+
+/* Characteristics Breakdown */
+.characteristicsBreakdown {
+  padding-top: 500px;
+  margin-top: 400px;
+  text-align: left;
+  display: block;
+}
+
+.characteristics {
+  font-size: 12px;
+}
+
+.charLabel {
+  font-size: 9px;
+  color: rgb(81, 79, 79);
+  padding-right: 31px;
+  padding-bottom: 30px;
+}
+
+.charLeft {
+  float: left;
+  width:33.33333%;
+  text-align:left;
+}
+
+.charMid {
+  float: left;
+  width:33.33333%;
+  text-align:center;
+}
+
+.charRight {
+  float: left;
+  width: 33.3333%;
+  text-align:right;
+}
+
+/* Ratings Filters */
+
+.filterApplied {
+  padding-left: 4px;
+  font-size: 9px;
+  font-weight: normal;
+}
+
+.filtersText {
+  margin-left: 4px;
+}
+
+.removeAllFilters {
+  background-color: white;
+  border: 1px solid black;
+  margin-left: 4px;
+  float: right;
+  margin-top: 6px;
+  padding-left: 10px;
+  padding-right: 9px
+}
+
+.removeAllFilters:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
 
 /* =================== CHELSEA'S CSS END =================== */
 
@@ -312,32 +413,76 @@ li{
    border: 5px solid grey;
  }
 
+ .addQuestionButton {
+  display: inline-block;
+  position: absolute;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.questionModal {
+  overflow: auto;
+  background-color: whitesmoke;
+  z-index: 1;
+  margin:0 auto;
+  position: fixed;
+  width: 600px;
+  height: 800px;
+  left: 0;
+  right:0;
+  top: 50%;
+  clear: left;
+  -webkit-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
+
+.questionModalContent {
+  padding: 20px;
+}
+
+.questionSubmit {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 20px;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
  #questionsViewDefault {
   padding-top: 20px;
-  padding-bottom: 20px;
-  height: 600px;
+  height: 520px;
   margin: 0em;
   overflow-y: auto;
  }
 
  #questionsViewAll {
    padding-top: 20px;
-   padding-bottom: 20px;
-   height: 700px;
+   height: 520px;
    margin: 0em;
    overflow-y: auto;
- }
-
- #addQuestion {
-   float: left;
  }
 
  #individualQuestion {
    padding-bottom: 30px;
  }
 
+ #answerContent {
+   height: 100px;
+ }
+
  #allAnswerContent {
-    height: 300px;
+    height: 200px;
     margin: 0em;
     overflow-y: auto;
  }
@@ -348,7 +493,7 @@ li{
  }
 
  #answererInfo {
-   font-size: small ;
+   font-size: small;
  }
 
  #answerText {
@@ -358,6 +503,106 @@ li{
  .answerHelpfulAndReport {
    display: inline-block;
  }
+
+ .answerModal {
+  overflow: auto;
+  background-color: whitesmoke;
+  z-index: 1;
+  margin:0 auto;
+  position: fixed;
+  width: 600px;
+  height: 800px;
+  left: 0;
+  right:0;
+  top: 50%;
+  clear: left;
+  -webkit-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  transform:translateY(-50%);
+ }
+
+ .answerModal label textarea input {
+    float: left;
+ }
+
+ .answerModalContent {
+   padding: 20px;
+ }
+
+ .bar {
+   padding-left: 4px;
+   padding-right: 4px;
+ }
+
+ .uploadImages {
+  height: 180px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+ }
+
+ .uploadImagePreview {
+   float: left;
+   height: 140px;
+   width: 100px;
+   padding-left: 10px;
+
+ }
+
+ .answerSubmit {
+   display: inline-block;
+   margin-right: 20px;
+   background: none!important;
+   background: none!important;
+   border: none;
+   padding: 0!important;
+   color: black;
+   text-decoration: underline;
+   cursor: pointer;
+ }
+
+ .QAbutton {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+ }
+
+ .QAinputbutton {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  cursor: pointer;
+  margin-right: 20px;
+ }
+
+ .moreAnsweredQuestions {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  cursor: pointer;
+  margin-right: 20px;
+ }
+
+ .modalCloseSubmit {
+   float: right;
+   padding-top: 20px;
+ }
+
+ .yourquestion, .youranswer, .yournickname, .youremail {
+   margin-top: 15px;
+ }
+
+ .labels {
+   font-size: x-small;
+ }
+
+
 /* ZACH CSS */
 
 

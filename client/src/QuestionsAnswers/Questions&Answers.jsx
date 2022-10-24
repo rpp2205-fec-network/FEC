@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchQuestions from './components/SearchQuestions.jsx';
 import QuestionsList from './components/QuestionsList.jsx';
-import AddQuestion from './components/AddQuestion.jsx';
+import ErrorBoundary from './QuestionsAnswersErrorBoundary.jsx';
 const axios = require('axios')
 
 class QuestionsAnswers extends React.Component {
@@ -11,7 +11,8 @@ class QuestionsAnswers extends React.Component {
     this.state = {
       product_id: '',
       questions: [],
-      sortedQuestions: []
+      sortedQuestions: [],
+      showQuestionModal: false
     };
     this.sortQuestions = this.sortQuestions.bind(this);
     this.getQuestions = this.getQuestions.bind(this);
@@ -24,7 +25,6 @@ class QuestionsAnswers extends React.Component {
   getQuestions () {
     axios.get('/getQuestions')
     .then((questions) => {
-      //console.log('Current product questions data', questions.data)
       this.setState({
         product_id: questions.data.product_id,
         questions: questions.data.results,
@@ -45,11 +45,14 @@ class QuestionsAnswers extends React.Component {
     return (
       <div id="QAwidget">
       <div>
-        <h1>Questions and Answers</h1>
+        <h3>Questions & Answers</h3> <br/>
         </div>
-      < SearchQuestions />
-      < QuestionsList questions={this.state.sortedQuestions}/>
-      < AddQuestion />
+        <SearchQuestions />
+        <div>
+        <ErrorBoundary>
+        <QuestionsList questions={this.state.sortedQuestions} product_id={this.state.product_id}/>
+        </ErrorBoundary>
+        </div>
       </div>
     )
   }

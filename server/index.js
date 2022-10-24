@@ -4,6 +4,7 @@ const express = require("express");
 const { get } = require("http");
 const path = require("path");
 const API_KEY = require("../client/src/config/config.js");
+var bodyParser = require('body-parser');
 // const sessionHandler = require("./middleware/session-handler");
 // const logger = require("./middleware/logger");
 
@@ -15,6 +16,8 @@ const app = express();
 
 // Needed to receive json data
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.json())
 
 // Logs the time, session_id, method, and url of incoming requests.
 //app.use(logger);
@@ -69,9 +72,9 @@ app.get('/productOverview/styles/:id', (req, res) => {
 // ========== BECCA ROUTES START ========== //
 
 app.get('/getQuestions', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71798`, options)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71717&count=100`, options)
   .then((questions) => {
-    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
   .catch(err => console.log(err))
@@ -97,7 +100,6 @@ app.put('/putQuestionHelpful', function(req, res) {
 })
 
 app.put('/putAnswerHelpful', function(req, res) {
-  //console.log(req.body);
   var answerId = req.body.id;
   return axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${answerId}/helpful`, {}, options)
   .then((response) => {
@@ -116,6 +118,29 @@ app.put('/reportAnswer', function(req, res) {
     res.status(204);
   })
   .catch(err => console.log(err))
+})
+
+app.post('/postAnswer', function(req, res) {
+  var questionId = req.body.question_id;
+  var body = req.body.answer;
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${questionId}/answers`, body, options)
+  .then((response) => {
+    console.log('ANSWER CREATED')
+    res.status(201);
+  })
+  .catch(err => console.log(err.response.data))
+})
+
+app.post('/postQuestion', function(req, res) {
+  //var productId = req.body.question.product_id;
+  var body = req.body.question;
+  console.log('QUESTION TO POOOOSSSSSST', body)
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions`, body, options)
+  .then((response) => {
+   console.log('QUESTION CREATED', response)
+    res.status(201);
+  })
+  .catch(err => console.log(err.response.data))
 })
 
 
@@ -176,16 +201,19 @@ app.get('/relatedPrdouctsReviews/:id', (req, res) => {
 // ============== CHELSEA ROUTES START ============== //
 
 app.get('/reviews/:product_id/:sort', (req, res) => {
-  console.log('GET PARAMS', req.params, req.params.product_id, req.params.sort)
+  //console.log('GET PARAMS', req.params, req.params.product_id, req.params.sort)
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.params.product_id}&sort=${req.params.sort}`,
     headers: {
       "Authorization": API_KEY
+    },
+    params: {
+      count: 500
     }
   })
   .then((response) => {
-    //console.log('DATA IN REVIEWS GET \n', response);
+    //console.log('DATA IN REVIEWS GET \n', response.data.results);
     res.json(response.data);
   })
   .catch((err) => {
@@ -193,34 +221,23 @@ app.get('/reviews/:product_id/:sort', (req, res) => {
   })
 })
 
-app.get('/getMetaData/meta/:product_id', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71701`, options)
-  .then((response) => {
-    console.log('SERVER META DATA \n', response.data)
-    res.json(response.data)
+app.get('/meta/:product_id', (req, res) => {
+  //console.log('GET META DATA PARAMS', req.params)
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${req.params.product_id}`,
+    headers: {
+      "Authorization": API_KEY
+    }
   })
-  .catch(err => console.log(err))
+  .then((response) => {
+    console.log('SERVER META DATA \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('META ERR ================== \n', err)
+  })
 })
-
-//${req.params.product_id}
-
-// app.get('/reviews/meta/:product_id', (req, res) => {
-//   console.log('META DATA PARAMS', req.params)
-//   axios({
-//     method: 'get',
-//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=71701`,
-//     headers: {
-//       "Authorization": API_KEY
-//     }
-//   })
-//   .then((response) => {
-//     console.log('SERVER META DATA \n', response.data);
-//     res.json(response.data);
-//   })
-//   .catch((err) => {
-//     console.log('META ERR ================== \n', err)
-//   })
-// })
 
 app.put('/reviewHelpful', (req, res) => {
   console.log('REQQQQQQQ', req.body.review_id)

@@ -33,7 +33,7 @@ class RatingsOverview extends React.Component {
 
   filterRatingsClick(e) {
     var ratingNum = Number(e.target.innerText.substr(0, 1))
-    console.log('clicked on ratings!', ratingNum)
+    //console.log('clicked on ratings!', ratingNum)
     this.props.filterByRating(ratingNum)
   }
 

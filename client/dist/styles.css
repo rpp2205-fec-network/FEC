@@ -54,6 +54,15 @@ main {
 /* =================== CHELSEA'S CSS BEGIN =================== */
 
 /* Main */
+.totalContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .Ratings {
   float: left;
   width: 25%;
@@ -159,7 +168,7 @@ main {
   z-index: 100;
   margin:0 auto;
   display:table;
-  position: fixed;
+  position: absolute;
   left: 0;
   right:0;
   top: 50%;
@@ -325,6 +334,25 @@ main {
 .removeAllFilters:hover {
   transition-duration: 0.4s;
   background-color: rgb(210, 223, 234);
+}
+
+/* Add Review Form */
+.addReviewForm {
+  border: solid black 1px;
+  padding: 100px;
+  z-index: 100;
+  /*
+  margin: auto;
+  position: relative; */
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -100px;
+  margin-left: -100px;
 }
 
 /* =================== CHELSEA'S CSS END =================== */

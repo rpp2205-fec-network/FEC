@@ -18,21 +18,14 @@ export default class ReviewIndex extends React.Component {
 }
 
 filterByRating(starRating) {
-  console.log("rating", typeof starRating)
-  console.log("reviewss", this.state.filteredReviews[5])
-
   if (this.state.filteredReviews[starRating].length === 0) {
-    //console.log('this.state.reviews', typeof this.state.reviews[0].rating)
     var result = this.state.reviews.filter(review => review.rating === starRating)
-    //console.log('result', result)
     this.setState({
       filterClicked: true,
       filteredReviews: {...this.state.filteredReviews, [starRating]: result}
       })
-    //console.log('this.state.filteredReviews', this.state.filteredReviews)
   } else {
       //if the clicked rating isn't empty, then reset that number to an empty array
-
       if (this.state.filteredReviews[5] === [] &&
         this.state.filteredReviews[4] === [] &&
         this.state.filteredReviews[3] === [] &&
@@ -46,9 +39,7 @@ filterByRating(starRating) {
           filteredReviews: {...this.state.filteredReviews, [starRating]: []}
           }
         )
-
       }
-
   }
 }
 
@@ -75,6 +66,7 @@ render() {
     count += this.state.filteredReviews[key].length
   }
   return (
+    <div className='totalContainer'>
     <div className='reviewsOverview'>
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
       <div className='mainContainer'>
@@ -95,7 +87,6 @@ render() {
               <option className='dropdownSelect' value='helpful'>helpful</option>
               <option className='dropdownSelect' value='newest'>newest</option>
             </select>
-
                 {this.state.filterClicked && count !== 0 ? <span className='filterApplied'>
                   <span className='filtersText'>[ Filter(s) has been applied ]</span>
                   <button className='removeAllFilters' onClick={() => this.setState({filterClicked: false, filteredReviews: {5: [], 4: [], 3: [], 2: [], 1: []}})}>Remove all filters</button>
@@ -117,6 +108,7 @@ render() {
           </ErrorBoundary>
         </div>
       </div>
+    </div>
     </div>
   )
 }

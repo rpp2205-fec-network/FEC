@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tile from './Tile.jsx'
+import Tile from './Tile.jsx';
+import AddRating from './AddRating.jsx';
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       itemsToShow: 2,
-      fullyExpanded: false
+      fullyExpanded: false,
+      addReview: false
     }
     this.showMoreOrCollapse = this.showMoreOrCollapse.bind(this);
-    this.addReview = this.addReview.bind(this);
+    this.addReviewOrCollapse = this.addReviewOrCollapse.bind(this);
+  }
+
+  addReviewOrCollapse() {
+    if (this.state.addReview === true) {
+      this.setState({addReview: false})
+    } else {
+      this.setState({addReview: true})
+    }
   }
 
   showMoreOrCollapse() {
@@ -25,9 +35,6 @@ class List extends React.Component {
     }
   }
 
-  addReview(e) {
-    console.log('clicked!')
-  }
 
   render() {
     if (this.props.reviews.length === 0) {
@@ -65,7 +72,8 @@ class List extends React.Component {
               )
           }
             </button>
-          <button className="reviewsListButton" onClick={this.addReview}>Add A Review +</button>
+          <button className="reviewsListButton" onClick={this.addReviewOrCollapse}>Add A Review +</button>
+          {this.state.addReview === true ? <AddRating addReviewOrCollapse={this.addReviewOrCollapse}/> : null}
         </div>
       )
     }

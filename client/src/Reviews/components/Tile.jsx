@@ -122,7 +122,9 @@ class Tile extends React.Component {
       {/* ================= REVIEW HELPFUL ================= */}
       <div className="helpful">
         {/* {console.log('props!!!', this.props.review.review_id)} */}
-      Helpful? <u className="helpfulYes" onClick={() => this.clickHelpful(this.props.review.review_id)}>Yes</u> &#40;{this.state.helpfulIncrease}&#41; &ensp; | &ensp; <u>Report</u>
+      Helpful? <u className="helpfulYes" onClick={() => this.clickHelpful(this.props.review.review_id)}>Yes</u> &#40;{this.state.helpfulIncrease}&#41;
+      &ensp; | &ensp;
+      <u onClick={()=>{ alert('This review was reported.'); }}>Report</u>
       </div>
     </div>
     )

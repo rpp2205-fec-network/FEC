@@ -1,5 +1,5 @@
 import React from 'react';
-import AddAnswer from './AddAnswer.jsx';
+import QuestionHelpfulAddAnswer from './QuestionHelpfulAddAnswer.jsx';
 import Answer from './Answer.jsx';
 const axios = require('axios');
 
@@ -19,7 +19,6 @@ class Question extends React.Component {
     this.getAnswersList()
   }
 
-
   getAnswersList() {
     axios.get('/getAnswers', {params: {id: this.state.question.question_id }})
     .then((result) => {
@@ -33,20 +32,25 @@ class Question extends React.Component {
 
   sortAnswers () {
     var answersCopy = this.state.answers.slice();
-    answersCopy.sort((a, b) => {
-      if (a.answerer_name === 'Seller' || b.answerer_name === 'Seller') {
-        return -1;
-      } else {
-        return b.helpfulness - a.helpfulness
+    const sorted = answersCopy.reduce((x, element) => {
+      if (element.answerer_name === 'Seller') {
+        return [element, ...x]
+      }
+      return [...x, element]
+    }, []).sort((a, b) => {
+      if (!a.answerer_name === 'Seller' || !b.answerer_name === 'Seller') {
+        return b.helpfulness - a.helpfulness;
+      } else if (a.answerer_name === 'Seller' && b.answerer_name === 'Seller') {
+        return b.helpfulness - a.helpfulness;
       }
     })
-    this.setState({sortedAnswers: answersCopy})
+    this.setState({sortedAnswers: sorted})
   }
 
   render () {
     return (
       <div id="individualQuestion">
-        < AddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question}/>
+        < QuestionHelpfulAddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question} productId={this.props.productId}/>
        <h3 id="question">Q: {this.state.question.question_body}</h3>
         <div id="answer"> <h3>A: </h3>
         < Answer answers={this.state.sortedAnswers}/>

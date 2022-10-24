@@ -27,7 +27,6 @@ export default class StyleSelector extends React.Component {
                     <h3>StyleSelector</h3>
                     <div>
                         {styleInfo.map((style) => {
-                            console.log(style)
                             if (style === this.props.styleInfo[this.props.currentStyle]) {
                                 return (
                                     <button className='selected_style'onClick={this.onSelectStyle} id={style.style_id} key={style.style_id}>{style.name}</button>

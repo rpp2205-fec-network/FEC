@@ -39,13 +39,13 @@ describe('Your Outfit', function () {
     });
 });
 
-describe('Similar Products page should be a list of items', function() {
-    it('should include more than one item', async () => {
-        let wrapper = mount();
-        console.log(wrapper.state)
-        // const component = render.create(<Recommend />)
-        // let tree = component.toJSON();
-        // console.log(tree)
-        // expect(state.productList.length).toBeGreaterThan(0);
-    })
-})
+// describe('Similar Products page should be a list of items', function() {
+//     it('should include more than one item', async () => {
+//         let wrapper = mount();
+//         console.log(wrapper.state)
+//         const component = render.create(<Recommend />)
+//         let tree = component.toJSON();
+//         console.log(tree)
+//         expect(state.productList.length).toBeGreaterThan(0);
+//     })
+// })

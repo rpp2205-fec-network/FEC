@@ -8,17 +8,25 @@ import Lists from './RelatedProducts/Lists.jsx';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      product_id: 71701
+    }
   }
 
+
+  changeProduct(e) {
+    this.setState({
+      product_id: e
+    })
+  }
 
 render() {
   return (
     <div>
-    <ProductOverview /> <br/><br/><hr/><br/><br/>
-    <Lists /> <br/><br/><hr/><br/><br/>
-    <QuestionsAnswers /> <br/><br/><hr/><br/><br/>
-    <Reviews />
+    <ProductOverview product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
+    <Lists product_id={this.state.product_id} changeProduct={this.changeProduct.bind(this)}/> <br/><br/><hr/><br/><br/>
+    <QuestionsAnswers product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
+    <Reviews product_id={this.state.product_id}/>
     </div>
   )
 }

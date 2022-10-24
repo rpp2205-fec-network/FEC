@@ -1388,7 +1388,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Recommend_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Recommend.jsx */ "./client/src/RelatedProducts/Recommend.jsx");
 /* harmony import */ var _Outfit_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Outfit.jsx */ "./client/src/RelatedProducts/Outfit.jsx");
 /* harmony import */ var _ListsErrorBoundry_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ListsErrorBoundry.jsx */ "./client/src/RelatedProducts/ListsErrorBoundry.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1400,6 +1402,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -1417,88 +1420,32 @@ var Lists = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Lists);
     _this = _super.call(this, props);
     _this.state = {
-      currentItem: {
-        category: 'shoes',
-        images: 'needs image url in state',
-        description: 'red shoes with the steve madden heel',
-        price: 250,
-        size: 10
-      },
-      recList: [],
-      outfitList: [{
-        category: 'socks',
-        images: 'socksOne',
-        description: 'socksTwo',
-        price: 10,
-        size: 10
-      }, {
-        category: 'pants',
-        images: 'needs image url in state',
-        description: 'red shoes with the steve madden heel',
-        price: 250,
-        size: 10
-      }, {
-        category: 'shirt',
-        images: 'needs image url in state',
-        description: 'red shoes with the steve madden heel',
-        price: 250,
-        size: 10
-      }, {
-        category: 'underwear',
-        images: 'needs image url in state',
-        description: 'red shoes with the steve madden heel',
-        price: 250,
-        size: 10
-      }, {
-        category: 'socks',
-        images: 'socksOne',
-        description: 'socksTwo',
-        price: 10,
-        size: 10
-      }, {
-        category: 'pants',
-        images: 'needs image url in state',
-        description: 'red shoes with the steve madden heel',
-        price: 250,
-        size: 10
-      }, {
-        category: 'shirt',
-        images: 'needs image url in state',
-        description: 'red shoes with the steve madden heel',
-        price: 250,
-        size: 10
-      }, {
-        category: 'underwear',
-        images: 'needs image url in state',
-        description: 'red shoes with the steve madden heel',
-        price: 250,
-        size: 10
-      }]
+      currentItem: _this.props.product_id
     };
     return _this;
   }
-
-  // remove the target input from outfitList array when use clicks the minus button in the outfit list
   _createClass(Lists, [{
-    key: "removeOutfit",
-    value: function removeOutfit(input) {
-      var arr = this.state.outfitList;
-      var removeIndex = arr.indexOf(input);
-      arr = arr.splice(removeIndex, 1);
-      this.setState({
-        outfitList: arr
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_ListsErrorBoundry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          children: ["Similar Products", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Recommend_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            recLists: this.state.currentItem
-          }), "Your Outfit", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Outfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            outfitLists: this.state.outfitList,
-            removeOutfits: this.removeOutfit.bind(this)
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_ListsErrorBoundry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            style: {
+              fontSize: '25px',
+              fontWeight: 'bold'
+            },
+            children: "Similar Products"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Recommend_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            currentItem: this.state.currentItem,
+            changeProduct: this.props.changeProduct
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            style: {
+              fontSize: '25px',
+              fontWeight: 'bold'
+            },
+            children: " Your Outfit"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Outfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            currentItem: this.state.currentItem
           })]
         })
       });
@@ -1600,7 +1547,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1614,6 +1564,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
+
+
 // Outfit only reads current outfit state from main List component
 
 
@@ -1624,7 +1576,14 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
     var _this;
     _classCallCheck(this, Outfit);
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      outfitList: [],
+      example: null,
+      currentPosition: 0,
+      storageCount: Object.keys(localStorage).length,
+      displayCount: 5,
+      display: {}
+    };
     return _this;
   }
 
@@ -1633,24 +1592,171 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
   _createClass(Outfit, [{
     key: "element",
     value: function element() {
-      var outfitMap = this.props.outfitLists.map(function (item, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          id: "outfit",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            children: [item.category, ",", item.price]
-          })
-        }, index);
+      var _this2 = this;
+      if (this.state.storageCount > 0) {
+        var values = [],
+          keys = Object.keys(this.state.display),
+          i = keys.length;
+        while (i--) {
+          values.push(this.state.display[keys[i]]);
+        }
+        console.log(values, 'inside element');
+        var outfitMap = values.map(function (item, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            id: "productRec",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              onClick: _this2.removeItem.bind(_this2),
+              style: {
+                position: 'absolute'
+              },
+              value: item.id,
+              children: "-"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              id: "productRecInfo",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                id: "productRecInfoImage",
+                src: item.image
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                id: "productRecInfoCategory",
+                children: item.category
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                id: "productRecInfoName",
+                children: item.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                id: "productRecInfoPrice",
+                children: ["$", item.default_price]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                rating: item.rating,
+                widgetRatedColors: "black",
+                widgetDimensions: "15px",
+                widgetSpacings: "1px",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
+              })]
+            })]
+          }, index);
+        });
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: outfitMap
+        });
+      }
+    }
+
+    //right arrow function
+  }, {
+    key: "rightArrow",
+    value: function rightArrow() {
+      var current = this.state.currentPosition + 1;
+      var arr = this.state.display;
+      arr.shift();
+      //console.log(current)
+      arr.push(this.state.productList[this.state.displayCount - 1 + current]);
+      //console.log(arr)
+      this.setState({
+        display: arr,
+        currentPosition: current
       });
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        id: "outfitScroll",
-        children: outfitMap
+    }
+
+    //left arrow function
+  }, {
+    key: "leftArrow",
+    value: function leftArrow() {
+      var current = this.state.currentPosition - 1;
+      var arr = this.state.display;
+      arr.pop();
+      arr.unshift(this.state.productList[current]);
+      this.setState({
+        display: arr,
+        currentPosition: current
+      });
+    }
+  }, {
+    key: "addItem",
+    value: function addItem() {
+      var _this3 = this;
+      var curr = {};
+      var hook = this;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/' + this.props.currentItem).then(function (response) {
+        curr.category = response.data.category;
+        curr.name = response.data.name;
+        curr.default_price = response.data.default_price;
+        curr.id = _this3.props.currentItem;
+        axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/styles/' + _this3.props.currentItem).then(function (response) {
+          curr.image = response.data.results[0].photos[0].thumbnail_url;
+          axios__WEBPACK_IMPORTED_MODULE_1___default().get('/relatedPrdouctsReviews/' + _this3.props.currentItem).then(function (response) {
+            var arrayOfRatings = [];
+            for (var i = 0; i < response.data.results.length; i++) {
+              arrayOfRatings.push(response.data.results[i].rating);
+            }
+            var average = function average(arrayOfRatings) {
+              return arrayOfRatings.reduce(function (a, b) {
+                return a + b;
+              }) / arrayOfRatings.length;
+            };
+            var avg = average(arrayOfRatings);
+            curr.rating = avg;
+            localStorage.setItem(_this3.props.currentItem, JSON.stringify(curr));
+            var newDisplay = hook.state.display;
+            newDisplay[curr.id] = curr;
+            hook.setState({
+              display: newDisplay
+            });
+          });
+        });
+      })["catch"](function (err) {
+        throw err;
+      });
+    }
+  }, {
+    key: "removeItem",
+    value: function removeItem(e) {
+      var removed = this.state.display;
+      delete removed[e.target.value];
+      this.setState({
+        display: removed
+      });
+      localStorage.removeItem(JSON.parse(e.target.value));
+    }
+
+    // test() {
+    //   localStorage.clear()
+    // }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var values = {},
+        keys = Object.keys(localStorage),
+        i = keys.length;
+      while (i--) {
+        values[keys] = JSON.parse(localStorage.getItem(keys[i]));
+      }
+      this.setState({
+        display: values
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        children: this.element()
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        id: "outfitScroll",
+        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          id: "leftArrow",
+          onClick: this.leftArrow.bind(this),
+          children: "<"
+        }), this.element(), this.state.currentPosition + this.state.displayCount >= this.state.outfitList.length ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          id: "rightArrow",
+          onClick: this.rightArrow.bind(this),
+          children: ">"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          onClick: this.addItem.bind(this),
+          style: {
+            fontSize: '75px',
+            backgroundColor: 'Transparent',
+            backgroundRepeat: 'no-repeat',
+            border: 'none'
+          },
+          children: " +"
+        })]
       });
     }
   }]);
@@ -1680,7 +1786,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -1702,34 +1807,13 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
   _inherits(Recommend, _React$Component);
   var _super = _createSuper(Recommend);
   function Recommend(props) {
-    var _example;
     var _this;
     _classCallCheck(this, Recommend);
     _this = _super.call(this, props);
     _this.state = {
       productList: [],
       productIdList: [],
-      example: (_example = {
-        id: 71701,
-        campus: 'hr-rpp',
-        name: 'Pumped Up Kicks',
-        slogan: 'Faster than a just about anything',
-        description: 'The Pumped Up serves up crisp court style with a m…upple leather upper and a classic rubber cupsole.',
-        features: [{
-          feature: 'Sole',
-          value: 'test'
-        }, {
-          feature: 'Material',
-          value: 'FullControlSkin'
-        }, {
-          feature: 'Mid-Sole',
-          value: 'ControlSupport Arch Bridge'
-        }, {
-          feature: 'Stitching',
-          value: 'Double Stitch'
-        }],
-        image: "https://images.unsplash.com/photo-1477420143023-6a0e0b04b69a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
-      }, _defineProperty(_example, "name", "Pumped Up Kicks"), _defineProperty(_example, "slogan", "Faster than a just about anything"), _defineProperty(_example, "updated_at", "2022-05-11T19:38:15.373Z"), _example),
+      example: null,
       display: [],
       displayCount: 3,
       currentPosition: 0,
@@ -1744,6 +1828,9 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     key: "pull",
     value: function pull() {
       var _this2 = this;
+      if (this.state.example === null) {
+        return;
+      }
       var setDisplay, setProductList, setImage, setRatings;
       axios__WEBPACK_IMPORTED_MODULE_1___default()({
         method: 'get',
@@ -1755,7 +1842,7 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
         setDisplay = [response.data[0], response.data[1], response.data[2]];
         setProductList = response.data;
         setProductList.forEach(function (item) {
-          console.log(item);
+          // console.log(item)
           axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/styles/' + item.id).then(function (response) {
             item.image = response.data.results[0].photos[0].thumbnail_url;
           });
@@ -1786,7 +1873,6 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     value: function element(input) {
       var _this3 = this;
       var recMap = input.map(function (item, index) {
-        //console.log(item)
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           id: "productRec",
           onClick: _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -1804,6 +1890,9 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             id: "productRecInfo",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+              onClick: function onClick() {
+                _this3.props.changeProduct(item.id);
+              },
               id: "productRecInfoImage",
               src: item.image
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -1972,6 +2061,16 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this4 = this;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/' + this.props.currentItem).then(function (response) {
+        _this4.setState({
+          example: response.data
+        }, function () {
+          _this4.pull();
+        });
+      })["catch"](function (err) {
+        throw err;
+      });
       this.pull();
     }
   }, {
@@ -19908,14 +20007,32 @@ var App = /*#__PURE__*/function (_React$Component) {
     var _this;
     _classCallCheck(this, App);
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      product_id: 71701
+    };
     return _this;
   }
   _createClass(App, [{
+    key: "changeProduct",
+    value: function changeProduct(e) {
+      this.setState({
+        product_id: e
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          product_id: this.state.product_id
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          product_id: this.state.product_id,
+          changeProduct: this.changeProduct.bind(this)
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          product_id: this.state.product_id
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          product_id: this.state.product_id
+        })]
       });
     }
   }]);

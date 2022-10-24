@@ -10,17 +10,7 @@ export default class Recommend extends React.Component {
     this.state = {
       productList: [],
       productIdList: [],
-      example: {id: 71701,
-        campus: 'hr-rpp',
-        name: 'Pumped Up Kicks',
-        slogan: 'Faster than a just about anything',
-        description: 'The Pumped Up serves up crisp court style with a m…upple leather upper and a classic rubber cupsole.',
-        features: [{feature: 'Sole', value: 'test'}, {feature: 'Material', value: 'FullControlSkin'}, {feature: 'Mid-Sole', value: 'ControlSupport Arch Bridge'}, {feature: 'Stitching', value: 'Double Stitch'}],
-        image: "https://images.unsplash.com/photo-1477420143023-6a0e0b04b69a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-        name: "Pumped Up Kicks",
-        slogan: "Faster than a just about anything",
-        updated_at: "2022-05-11T19:38:15.373Z"
-      },
+      example: null,
       display: [],
       displayCount: 3,
       currentPosition: 0,
@@ -31,6 +21,9 @@ export default class Recommend extends React.Component {
 
   // pull all related products from server with this category and return an array of mapped items
   pull() {
+    if (this.state.example === null) {
+      return
+    }
     var setDisplay, setProductList,setImage, setRatings;
     axios({
       method: 'get',
@@ -42,7 +35,7 @@ export default class Recommend extends React.Component {
       setDisplay = [response.data[0], response.data[1], response.data[2]]
       setProductList = response.data;
         setProductList.forEach((item) => {
-          console.log(item)
+          // console.log(item)
           axios.get('/productOverview/styles/' + item.id)
           .then((response) => {
             item.image = response.data.results[0].photos[0].thumbnail_url
@@ -69,7 +62,6 @@ export default class Recommend extends React.Component {
   // render items in state and display each as a div
   element(input) {
     let recMap = input.map((item, index) => {
-     //console.log(item)
       return (
         <div key={index} id='productRec' onClick={ ProductOverview }>
           <button onClick={() => {
@@ -79,7 +71,7 @@ export default class Recommend extends React.Component {
               })
             }} style={{position: 'absolute'}}>&#9733;</button>
           <div id='productRecInfo'>
-            <img id='productRecInfoImage' src={item.image}></img>
+            <img onClick={() => {this.props.changeProduct(item.id)}}id='productRecInfoImage' src={item.image}></img>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
@@ -238,6 +230,17 @@ export default class Recommend extends React.Component {
 
   // run async pull request to populate current state of products
   componentDidMount() {
+    axios.get('/productOverview/' + this.props.currentItem)
+        .then((response) => {
+            this.setState({
+              example: response.data
+            }, () => {
+              this.pull()
+            })
+        })
+        .catch((err) => {
+            throw err
+        })
     this.pull()
 
   }

@@ -20,17 +20,29 @@ class AddRating extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(){
+  handleSubmit(event){
     event.preventDefault()
     console.log('submitted!')
-    // axios.post(
-    //   '/glossary',
-    //   {word: this.state.word, definition: this.state.definition}
-    //   )
-    //   .then(this.props.getWords())
-    //   .catch((err)=> console.log('axios submit error', err))
+    var reviewObj = {
+      product_id: this.props.product_id,
+      productName: this.state.productName,
+      rating: this.state.rating,
+      summary: this.state.summary,
+      body: this.state.body,
+      recommended: this.state.recommended,
+      name: this.state.name,
+      email: this.state.email,
+      photos: this.state.photos,
+      characteristcs: this.state.characteristcs
+    }
+    axios.post('/addReview', reviewObj)
+      .then((submit) => {
+        console.log('successfully submitted review!', submit)
+      })
+      .catch((err)=> {
+        console.log('error submitting review', err)
+      })
   }
-
 
   handleClose() {
     this.setState({addReview: false})

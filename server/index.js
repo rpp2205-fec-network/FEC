@@ -245,26 +245,23 @@ app.put('/reviewHelpful', (req, res) => {
   })
 })
 
-// app.post('/addReview', (req, res) => {
-//   //console.log('GET PARAMS', req.params, req.params.product_id, req.params.sort)
-//   axios({
-//     method: 'post',
-//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.params.product_id}`,
-//     headers: {
-//       "Authorization": API_KEY
-//     },
-//     params: {
-//       count: 500
-//     }
-//   })
-//   .then((response) => {
-//     //console.log('DATA IN REVIEWS GET \n', response.data.results);
-//     res.json(response.data);
-//   })
-//   .catch((err) => {
-//     console.log('MAIN GET ERR ================== \n', err.response.data)
-//   })
-// })
+app.post('/addReview', (req, res) => {
+  console.log('ADD REVIEW', req.body.product_id)
+  axios({
+    method: 'post',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.body.product_id}`,
+    headers: {
+      "Authorization": API_KEY
+    }
+  })
+  .then((response) => {
+    console.log('****RESPONSE ADD REVIEW!!! \n', response);
+    res.json(response.body);
+  })
+  .catch((err) => {
+    console.log('ADD REVIEW ERR ================== \n', err.response.data)
+  })
+})
 
 // ============== CHELSEA ROUTES END ============== //
 

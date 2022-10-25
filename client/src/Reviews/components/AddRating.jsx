@@ -18,6 +18,12 @@ class AddRating extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.getProductName = this.getProductName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this);
+  }
+
+  handleFormChange(event) {
+    console.log('check event name', event.target.name)
+    this.setState({[event.target.name]: event.target.value})
   }
 
   handleSubmit(event){
@@ -25,7 +31,6 @@ class AddRating extends React.Component {
     console.log('submitted!')
     var reviewObj = {
       product_id: this.props.product_id,
-      productName: this.state.productName,
       rating: this.state.rating,
       summary: this.state.summary,
       body: this.state.body,
@@ -75,10 +80,22 @@ class AddRating extends React.Component {
         </span>
 
         {/* Form body */}
-        <form className='reviewFormBody'>
+        <form className='reviewFormBody' onSubmit={this.handleSubmit}>
           Rating
+
+          {/* Recommended */}
+          <div>
+            Do you recommend this product?
+            <div>
+              <input type='radio' value='Yes' name='recommended' onChange={this.handleFormChange}/> Yes
+              <input type='radio' value='No' name='recommended' onChange={this.handleFormChange}/> No
+            </div>
+          </div>
+
+          {/* Recommended */}
+
           <div className='submitButtonSpace'>
-          <input className='submitReviewButton' type="submit" value="Submit" onClick={this.handleSubmit}/>
+            <input className='submitReviewButton' type="submit" value="Submit"/>
           </div>
         </form>
       </div>

@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class SearchQuestions extends React.Component {
-  constructor(props) {
-    super (props);
-    this.state = {
+const SearchQuestions = () => {
 
-    }
-  }
 
-  render () {
+
     return (
-      <div id="searchquestions">Have a question? Search for answers...</div>
+      <div id="searchquestions">
+        <textarea type="Search" placeholder="Have a question? Search for answers..." rows={1} cols={100}></textarea>
+        </div>
     )
-  }
 }
 
 export default SearchQuestions;

@@ -25,13 +25,7 @@ class RatingsOverview extends React.Component {
       comfort: '',
       quality: '',
       length: '',
-      fit: '',
-      sizeID: '',
-      widthID: '',
-      comfortID: '',
-      qualityID: '',
-      lengthID: '',
-      fitID: ''
+      fit: ''
     }
     this.getMetaData = this.getMetaData.bind(this);
     this.filterRatingsClick = this.filterRatingsClick.bind(this);
@@ -48,8 +42,8 @@ class RatingsOverview extends React.Component {
   }
 
   getMetaData() {
-    //axios.get(`/meta/${this.props.product_id}/`)
-    axios.get(`/meta/71717/`)
+    axios.get(`/meta/${this.props.product_id}/`)
+    //axios.get(`/meta/71701/`)
     .then((data) => {
       console.log('FRONT END META DATA \n', data.data.characteristics)
         this.setState({
@@ -68,38 +62,32 @@ class RatingsOverview extends React.Component {
         })
         if (data.data.characteristics.Size !== undefined) {
           this.setState({
-            size: Number((data.data.characteristics.Size.value/5)*100),
-            sizeID: data.data.characteristics.Size.id
+            size: Number((data.data.characteristics.Size.value/5)*100)
           })
         }
         if (data.data.characteristics.Width !== undefined) {
           this.setState({
-            width: Number((data.data.characteristics.Width.value/5)*100),
-            widthID: data.data.characteristics.Width.id
+            width: Number((data.data.characteristics.Width.value/5)*100)
           })
         }
         if (data.data.characteristics.Comfort !== undefined) {
           this.setState({
-            comfort: Number((data.data.characteristics.Comfort.value/5)*100),
-            comfortID: data.data.characteristics.Comfort.id
+            comfort: Number((data.data.characteristics.Comfort.value/5)*100)
           })
         }
         if (data.data.characteristics.Quality !== undefined) {
           this.setState({
-            quality: Number((data.data.characteristics.Quality.value/5)*100),
-            qualityID: data.data.characteristics.Quality.id
+            quality: Number((data.data.characteristics.Quality.value/5)*100)
           })
         }
         if (data.data.characteristics.Fit !== undefined) {
           this.setState({
-            fit: Number((data.data.characteristics.Fit.value/5)*100),
-            fitID: data.data.characteristics.Fit.id
+            fit: Number((data.data.characteristics.Fit.value/5)*100)
           })
         }
         if (data.data.characteristics.Length !== undefined) {
           this.setState({
-            length: Number((data.data.characteristics.Length.value/5)*100),
-            lengthID: data.data.characteristics.Width.id
+            length: Number((data.data.characteristics.Length.value/5)*100)
           })
         }
     })

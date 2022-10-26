@@ -339,11 +339,11 @@ main {
 /* Add Review Form */
 .addReviewForm {
   border: solid black 1px;
-  padding: 335px 400px 218px 400px;
+  padding: 370px 400px 218px 400px;
   z-index: 100;
   position: absolute;
   left: 8%;
-  top: 0%;
+  top: -6%;
   display: inline-block;
   vertical-align: top;
   background-color: white;
@@ -474,6 +474,8 @@ main {
   padding-left: 3px;
   font-style: italic;
   text-decoration: underline;
+  position: relative;
+  bottom: 2px;
 }
 
 /* =================== CHELSEA'S CSS END =================== */

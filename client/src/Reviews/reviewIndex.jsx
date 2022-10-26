@@ -12,13 +12,7 @@ export default class ReviewIndex extends React.Component {
       reviews: [],
       filteredReviews: {5: [], 4: [], 3: [], 2: [], 1: []},
       filterClicked: false,
-      characteristics: {},
-      sizeID: '',
-      widthID: '',
-      comfortID: '',
-      qualityID: '',
-      lengthID: '',
-      fitID: ''
+      characteristics: {}
     }
   this.getReviews = this.getReviews.bind(this);
   this.filterByRating = this.filterByRating.bind(this);
@@ -58,7 +52,7 @@ componentDidMount() {
 
 getMetaData() {
   //axios.get(`/meta/${this.props.product_id}/`)
-  axios.get(`/meta/71717/`)
+  axios.get(`/meta/71701/`)
   .then((data) => {
     console.log('check one two one two', data.data.characteristics)
     this.setState({characteristics: data.data.characteristics})
@@ -99,8 +93,8 @@ getMetaData() {
 }
 
 getReviews(sort = 'relevant') {
-  //axios.get(`/reviews/${this.props.product_id}/${sort}`)
-  axios.get(`/reviews/71717/${sort}`)
+  axios.get(`/reviews/${this.props.product_id}/${sort}`)
+  //axios.get(`/reviews/71703/${sort}`)
   .then((data) => {
     //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
     this.setState({reviews: data.data.results})
@@ -134,7 +128,7 @@ render() {
           <div className='sorting'>
           {this.state.reviews.length} reviews, sorted by <span>
             <select className='dropdown' onChange={(e) => this.getReviews(e.target.value)}>
-              <option className='dropdownSelect' value='relevance'>relevance {this.state.sizeID}</option>
+              <option className='dropdownSelect' value='relevance'>relevance</option>
               <option className='dropdownSelect' value='helpful'>helpful</option>
               <option className='dropdownSelect' value='newest'>newest</option>
             </select>
@@ -153,23 +147,11 @@ render() {
               reviews={this.state.reviews}
               product_id={this.props.product_id}
               characteristics={this.state.characteristics}
-              sizeID={this.state.sizeID}
-              widthID={this.state.widthID}
-              comfortID={this.state.comfortID}
-              qualityID={this.state.qualityID}
-              lengthID={this.state.lengthID}
-              fitID={this.state.fitID}
               /> :
               <List
               reviews={finalArrays}
               product_id={this.props.product_id}
               characteristics={this.state.characteristics}
-              sizeID={this.state.sizeID}
-              widthID={this.state.widthID}
-              comfortID={this.state.comfortID}
-              qualityID={this.state.qualityID}
-              lengthID={this.state.lengthID}
-              fitID={this.state.fitID}
               />
             }
           </ErrorBoundary>

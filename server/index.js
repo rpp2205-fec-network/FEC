@@ -246,14 +246,10 @@ app.put('/reviewHelpful', (req, res) => {
 })
 
 app.post('/addReview', (req, res) => {
-  console.log('ADD REVIEW', req.body.product_id)
-  axios({
-    method: 'post',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.body.product_id}`,
-    headers: {
-      "Authorization": API_KEY
-    }
-  })
+  console.log('req.body', req.body)
+  //var product_id = req.body.product_id
+  var bodyObj = req.body
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.body.product_id}`, bodyObj, options)
   .then((response) => {
     console.log('****RESPONSE ADD REVIEW!!! \n', response);
     res.json(response.body);

@@ -40,7 +40,14 @@ class List extends React.Component {
     if (this.props.reviews.length === 0) {
       return (
         <div>
-          <button onClick={this.addReview}>Add A Review</button>
+          <button className="reviewsListButton" onClick={this.addReviewOrCollapse}>Add A Review +</button>
+          {this.state.addReview === true ?
+          <AddReview
+          product_id={this.props.product_id}
+          addReviewOrCollapse={this.addReviewOrCollapse}
+          characteristics={this.props.characteristics}
+          />
+          : null}
         </div>
       )
     } else if (this.props.reviews.length <= 2) {
@@ -51,7 +58,14 @@ class List extends React.Component {
           key={review.review_id}
           review={review}/>
           )}
-          <button onClick={this.addReview}>Add A Review</button>
+          <button className="reviewsListButton" onClick={this.addReviewOrCollapse}>Add A Review +</button>
+          {this.state.addReview === true ?
+          <AddReview
+          product_id={this.props.product_id}
+          addReviewOrCollapse={this.addReviewOrCollapse}
+          characteristics={this.props.characteristics}
+          />
+          : null}
         </div>
       )
     } else {
@@ -78,12 +92,6 @@ class List extends React.Component {
           product_id={this.props.product_id}
           addReviewOrCollapse={this.addReviewOrCollapse}
           characteristics={this.props.characteristics}
-          sizeID={this.props.sizeID}
-          widthID={this.props.widthID}
-          comfortID={this.props.comfortID}
-          qualityID={this.props.qualityID}
-          lengthID={this.props.lengthID}
-          fitID={this.props.fitID}
           />
           : null}
         </div>

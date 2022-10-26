@@ -10,7 +10,7 @@ class AddReview extends React.Component {
       rating: 0,
       summary: '',
       body: '',
-      recommended: '',
+      recommend: '',
       name: '',
       email: '',
       photos: [],
@@ -66,16 +66,17 @@ class AddReview extends React.Component {
       rating: this.state.rating,
       summary: this.state.summary,
       body: this.state.body,
-      recommended: this.state.recommended,
+      recommend: Boolean(this.state.recommend),
       name: this.state.name,
       email: this.state.email,
       photos: this.state.photos,
       characteristics: this.state.characteristics
     }
+    console.log('reviewOBj', reviewObj)
     axios.post('/addReview', reviewObj)
       .then((submit) => {
-        this.handleClose()
         console.log('successfully submitted review!', submit)
+        this.setState({addReview: false})
       })
       .catch((err)=> {
         console.log('error submitting review', err)
@@ -146,8 +147,8 @@ class AddReview extends React.Component {
           <div className='modalRecommended'>
             <span className="modalTitle">Do you recommend this product?</span>
             <div>
-              <input required type='radio' value='Yes' name='recommended' onChange={this.handleFormChange}/> <span className='modalRadio'>Yes</span>
-              <input required type='radio' value='No' name='recommended' onChange={this.handleFormChange}/> No
+              <input required type='radio' value='True' name='recommend' onChange={this.handleFormChange}/> <span className='modalRadio'>Yes</span>
+              <input required type='radio' value='False' name='recommend' onChange={this.handleFormChange}/> No
             </div>
           </div>
 

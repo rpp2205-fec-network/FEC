@@ -1,6 +1,7 @@
 import React from 'react';
 import Ratings from 'react-ratings-declarative';
 import axios from 'axios';
+import {Cloudinary} from "@cloudinary/url-gen";
 
 class AddReview extends React.Component {
   constructor(props) {
@@ -102,6 +103,10 @@ class AddReview extends React.Component {
     })
   }
 
+  uploadImage(files) {
+    console.log(files[0])
+  }
+
   render() {
     return(
       <div className='addReviewForm'>
@@ -173,7 +178,7 @@ class AddReview extends React.Component {
                   }
                 </span>
             </div> : null
-  }
+            }
 
             {this.props.characteristics["Width"] !== undefined ?
             <div>
@@ -289,10 +294,19 @@ class AddReview extends React.Component {
           <div>
           <span className="modalTitle">Review Body</span>
             <div>
-              <input type="textarea" style={{width: '700px', height: '75px'}} name="body" minLength={50} maxLength={1000} required placeholder="Why did you like the product or not?" value={this.state.body} onChange={this.handleFormChange}/>
+              <input type="textarea" style={{width: '700px', height: '61px'}} name="body" minLength={50} maxLength={1000} required placeholder="Why did you like the product or not?" value={this.state.body} onChange={this.handleFormChange}/>
               <div className="modalSubtitle">
               {this.state.body.length <= 49 ? `Minimum characters left: [${50 - this.state.body.length}]` : `Minimum reached \u2713`}
               </div>
+            </div>
+          </div>
+
+          {/* Image Uploads */}
+          <div>
+            <span className="modalTitle">Images</span>
+            <div>
+              {/* <button type={'button'} className='uploadImagesModalButton'>Upload images</button> */}
+              <input type='file' onChange={(event) => {this.uploadImage(event.target.files)}}/>
             </div>
           </div>
 

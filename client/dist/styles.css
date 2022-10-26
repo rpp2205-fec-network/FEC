@@ -478,6 +478,19 @@ main {
   bottom: 2px;
 }
 
+.uploadImagesModalButton {
+  background-color: white;
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+.uploadImagesModalButton:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
 /* =================== CHELSEA'S CSS END =================== */
 
 /* Kens CSS */

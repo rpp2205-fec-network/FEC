@@ -440,8 +440,28 @@ main {
   font-style: italic;
 }
 
-.characteristicTitleModal {
-  padding-right: 5px;
+.characteristicTitleModalSize {
+  padding-right: 34px;
+  text-decoration: underline;
+}
+.characteristicTitleModalWidth {
+  padding-right: 25px;
+  text-decoration: underline;
+}
+.characteristicTitleModalComfort {
+  padding-right: 12px;
+  text-decoration: underline;
+}
+.characteristicTitleModalQuality {
+  padding-right: 19px;
+  text-decoration: underline;
+}
+.characteristicTitleModalLength {
+  padding-right: 20px;
+  text-decoration: underline;
+}
+.characteristicTitleModalFit {
+  padding-right: 45px;
   text-decoration: underline;
 }
 

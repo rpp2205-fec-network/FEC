@@ -32,7 +32,7 @@ class AddReview extends React.Component {
 
   changeChar(event) {
     //console.log('event.target.getAttribute(name)', event.target.getAttribute(name))
-    // console.log('this.props.characteristics', this.props.characteristics["Size"].id)
+    //console.log('this.props.characteristics', this.props.characteristics["Size"] === undefined)
     //console.log('charName', charName)
     console.log('event.target.name', event.target.value)
     var charName = event.target.getAttribute('name')
@@ -70,7 +70,7 @@ class AddReview extends React.Component {
       name: this.state.name,
       email: this.state.email,
       photos: this.state.photos,
-      characteristcs: this.state.characteristcs
+      characteristics: this.state.characteristics
     }
     axios.post('/addReview', reviewObj)
       .then((submit) => {
@@ -154,8 +154,9 @@ class AddReview extends React.Component {
           {/* Characteristics */}
           <div className='modalCharacteristics'>
             <span className='modalTitle'>Characteristics</span>
+            {this.props.characteristics["Size"] !== undefined ?
             <div>
-              <span className='characteristicTitleModal'>Size</span>
+              <span className='characteristicTitleModalSize'>Size</span>
                 <input required type='radio' value='1' name='Size' onChange={this.changeChar}/> <span className='modalRadio'>1</span>
                 <input required type='radio' value='2' name='Size' onChange={this.changeChar}/> <span className='modalRadio'>2</span>
                 <input required type='radio' value='3' name='Size' onChange={this.changeChar}/> <span className='modalRadio'>3</span>
@@ -170,10 +171,12 @@ class AddReview extends React.Component {
                   null
                   }
                 </span>
-            </div>
+            </div> : null
+  }
 
+            {this.props.characteristics["Width"] !== undefined ?
             <div>
-              <span className='characteristicTitleModal'>Width</span>
+              <span className='characteristicTitleModalWidth'>Width</span>
                 <input required type='radio' value='1' name='Width' onChange={this.changeChar}/> <span className='modalRadio'>1</span>
                 <input required type='radio' value='2' name='Width' onChange={this.changeChar}/> <span className='modalRadio'>2</span>
                 <input required type='radio' value='3' name='Width' onChange={this.changeChar}/> <span className='modalRadio'>3</span>
@@ -188,10 +191,11 @@ class AddReview extends React.Component {
                   null
                   }
                 </span>
-            </div>
+            </div> : null}
 
+            {this.props.characteristics["Comfort"] !== undefined ?
             <div>
-              <span className='characteristicTitleModal'>Comfort</span>
+              <span className='characteristicTitleModalComfort'>Comfort</span>
                 <input required type='radio' value='1' name='Comfort' onChange={this.changeChar}/> <span className='modalRadio'>1</span>
                 <input required type='radio' value='2' name='Comfort' onChange={this.changeChar}/> <span className='modalRadio'>2</span>
                 <input required type='radio' value='3' name='Comfort' onChange={this.changeChar}/> <span className='modalRadio'>3</span>
@@ -206,10 +210,12 @@ class AddReview extends React.Component {
                   null
                   }
                 </span>
-            </div>
+            </div> : null
+            }
 
+        {this.props.characteristics["Quality"] !== undefined ?
             <div>
-              <span className='characteristicTitleModal'>Quality</span>
+              <span className='characteristicTitleModalQuality'>Quality</span>
                 <input required type='radio' value='1' name='Quality' onChange={this.changeChar}/> <span className='modalRadio'>1</span>
                 <input required type='radio' value='2' name='Quality' onChange={this.changeChar}/> <span className='modalRadio'>2</span>
                 <input required type='radio' value='3' name='Quality' onChange={this.changeChar}/> <span className='modalRadio'>3</span>
@@ -224,10 +230,13 @@ class AddReview extends React.Component {
                   null
                   }
                 </span>
-            </div>
+            </div> : null
+        }
 
+
+            {this.props.characteristics["Length"] !== undefined ?
             <div>
-              <span className='characteristicTitleModal'>Length</span>
+              <span className='characteristicTitleModalLength'>Length</span>
                 <input required type='radio' value='1' name='Length' onChange={this.changeChar}/> <span className='modalRadio'>1</span>
                 <input required type='radio' value='2' name='Length' onChange={this.changeChar}/> <span className='modalRadio'>2</span>
                 <input required type='radio' value='3' name='Length' onChange={this.changeChar}/> <span className='modalRadio'>3</span>
@@ -242,10 +251,12 @@ class AddReview extends React.Component {
                   null
                   }
                 </span>
-            </div>
+            </div> : null
+              }
 
+          {this.props.characteristics["Fit"] !== undefined ?
             <div>
-              <span className='characteristicTitleModal'>Fit</span>
+              <span className='characteristicTitleModalFit'>Fit</span>
                 <input required type='radio' value='1' name='Fit' onChange={this.changeChar}/> <span className='modalRadio'>1</span>
                 <input required type='radio' value='2' name='Fit' onChange={this.changeChar}/> <span className='modalRadio'>2</span>
                 <input required type='radio' value='3' name='Fit' onChange={this.changeChar}/> <span className='modalRadio'>3</span>
@@ -260,7 +271,8 @@ class AddReview extends React.Component {
                   null
                   }
                 </span>
-            </div>
+            </div> : null
+          }
 
           </div>
 

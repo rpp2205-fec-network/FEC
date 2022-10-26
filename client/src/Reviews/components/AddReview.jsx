@@ -72,11 +72,11 @@ class AddReview extends React.Component {
       photos: this.state.photos,
       characteristics: this.state.characteristics
     }
-    console.log('reviewOBj', reviewObj)
+    //console.log('reviewOBj', reviewObj)
     axios.post('/addReview', reviewObj)
       .then((submit) => {
         console.log('successfully submitted review!', submit)
-        this.setState({addReview: false})
+        this.props.addReviewOrCollapse()
       })
       .catch((err)=> {
         console.log('error submitting review', err)

@@ -339,18 +339,15 @@ main {
 /* Add Review Form */
 .addReviewForm {
   border: solid black 1px;
-  padding: 200px 400px 220px 400px;
+  padding: 335px 400px 218px 400px;
   z-index: 100;
-  /* width: 200px;
-  height: 200px; */
   position: absolute;
   left: 8%;
-  top: 11%;
+  top: 0%;
   display: inline-block;
   vertical-align: top;
-  /* margin-top: -100px;
-  margin-left: -100px; */
   background-color: white;
+  height: 78%;
 }
 
 .closingX {
@@ -375,6 +372,7 @@ main {
   left: 40%;
   position: absolute;
   padding: 8px;
+  font-size: 14px;
 }
 
 .reviewFormSubtitle {
@@ -384,11 +382,15 @@ main {
 
 .reviewFormBody {
   text-align: left;
-  top: 29px;
+  top: 25px;
   left: 0;
   position: absolute;
   padding: 8px;
   font-size: 12px;
+  height: 91%;
+  margin: 0em;
+  overflow-y: auto;
+  padding-right: 457px;
 }
 
 .submitButtonSpace {
@@ -409,6 +411,49 @@ main {
 .submitReviewButton:hover {
   transition-duration: 0.4s;
   background-color: rgb(210, 223, 234);
+}
+
+/* Modal Body */
+.modalRecommended {
+  padding-top: 5px;
+}
+
+.modalCharacteristics {
+  padding-top: 10px;
+}
+
+.modalCharacteristicsTitle {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.modalTitle {
+  font-size: 13px;
+  line-height: 2;
+  font-weight: 430;
+  background: #e3e2e2;
+  color: black;
+}
+
+.modalSubtitle {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.characteristicTitleModal {
+  padding-right: 5px;
+  text-decoration: underline;
+}
+
+.modalRadio {
+  padding-right: 7px;
+}
+
+.charSubtitleModal {
+  font-size: 10px;
+  padding-left: 3px;
+  font-style: italic;
+  text-decoration: underline;
 }
 
 /* =================== CHELSEA'S CSS END =================== */

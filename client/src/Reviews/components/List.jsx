@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tile from './Tile.jsx';
-import AddRating from './AddRating.jsx';
+import AddReview from './AddReview.jsx';
 
 class List extends React.Component {
   constructor(props) {
@@ -73,7 +73,19 @@ class List extends React.Component {
           }
             </button>
           <button className="reviewsListButton" onClick={this.addReviewOrCollapse}>Add A Review +</button>
-          {this.state.addReview === true ? <AddRating product_id={this.props.product_id} addReviewOrCollapse={this.addReviewOrCollapse}/> : null}
+          {this.state.addReview === true ?
+          <AddReview
+          product_id={this.props.product_id}
+          addReviewOrCollapse={this.addReviewOrCollapse}
+          characteristics={this.props.characteristics}
+          sizeID={this.props.sizeID}
+          widthID={this.props.widthID}
+          comfortID={this.props.comfortID}
+          qualityID={this.props.qualityID}
+          lengthID={this.props.lengthID}
+          fitID={this.props.fitID}
+          />
+          : null}
         </div>
       )
     }

@@ -15,22 +15,19 @@ const AddAnswer = ({show, onClose, question, productId}) => {
 
   useEffect(() => {
     if (images.length < 1 || images.length > 5) return;
-    var currentImg = images[images.length-1]
-    setImageURLs([...imageURLs, window.URL.createObjectURL(new Blob(currentImg, {type: "image/jpeg"}))]);
-    // Now convert local urls to cloudinary urls
-    const cloudImgs = [];
-    images.forEach((img) => {
-      const cld = new Cloudinary({
-        cloud: {
-          cloudName: 'atelier'
-        }
-      });
-      const cloudImage = cld.image(img[0].name);
-      const url = cloudImage.toURL();
-      console.log(url);
-      cloudImgs.push(url)
-    })
-    setCloudImages(cloudImgs);
+    var img = images[images.length-1]
+    setImageURLs([...imageURLs, window.URL.createObjectURL(new Blob(img, {type: "image/jpeg"}))]);
+
+      const formData = new FormData();
+      formData.append('file', img[0]);
+      formData.append('upload_preset', 'pdcwltrn');
+      console.log(formData);
+
+      axios.post('https://api.cloudinary.com/v1_1/atelierfec/image/upload', formData)
+      .then((response) => {
+        const url = response.data.url;
+        setCloudImages(prevState => [...prevState, url])
+      })
   }, [images])
 
   const onImageChange = (e) => {

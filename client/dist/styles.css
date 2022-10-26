@@ -477,14 +477,34 @@ li{
  }
 
  #answerContent {
-   height: 100px;
+   min-height: 200px;
  }
 
  #allAnswerContent {
-    height: 200px;
+    height: 250px;
     margin: 0em;
     overflow-y: auto;
  }
+
+ .answerImagesArea {
+   min-height: 5px;
+
+ }
+
+ .eachImage {
+   height: 90px;
+   width: 100px;
+   display: inline-block;
+ }
+
+ .qaPhoto {
+  height: 80px;
+  width: 90px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 
  #addAnswer {
    float: right;
@@ -600,6 +620,7 @@ li{
  .labels {
    font-size: x-small;
  }
+
 
 
 /* ZACH CSS */

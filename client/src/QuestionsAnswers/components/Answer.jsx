@@ -24,6 +24,11 @@ class Answer extends React.Component {
         <div>
         <div id="answerContent"> {this.props.answers.slice(0, 2).map((answer, index) => {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {answer.body}
+          <div className="answerImagesArea">
+          {answer.photos ? answer.photos.map((photo) => {
+            return <div className="eachImage"><img src={photo.url} key={photo.id} className="qaPhoto"/></div>
+          }) : ''}
+          </div>
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
           <span> </span>
           {format(new Date(answer.date), 'MMMM dd, yyyy')} <AnswerHelpfulAndReport answer={answer}/></div>
@@ -37,9 +42,14 @@ class Answer extends React.Component {
         <div>
         <div id="allAnswerContent"> {this.props.answers.map((answer, index) => {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {answer.body}
+          <div className="answerImagesArea">
+          {answer.photos ? answer.photos.map((photo) => {
+            return <div className="eachImage"><img src={photo.url} key={photo.id} className="qaPhoto"/></div>
+          }) : ''}
+          </div>
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
           <span> </span>
-          {format(new Date(answer.date), 'MMMM dd, yyyy')}  <AnswerHelpfulAndReport answer={answer}/></div>
+          {format(new Date(answer.date), 'MMMM dd, yyyy')} <AnswerHelpfulAndReport answer={answer}/></div>
           </li>
         })} </div>
           <input type="button" value="Collapse answers" className="QAinputbutton" onClick={(e) => this.showCollapseAnswers(e)}/>

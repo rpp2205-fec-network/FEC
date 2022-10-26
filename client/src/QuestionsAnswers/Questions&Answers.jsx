@@ -48,7 +48,7 @@ class QuestionsAnswers extends React.Component {
   searchHandler = (e) => {
     var query = e.target.value.toLowerCase();
     this.setState({searchText: query});
-    var posts = this.searchQuestions(this.state.sortedQuestions, this.state.searchText);
+    var posts = this.searchQuestions(this.state.sortedQuestions, query);
     console.log(posts)
     this.setState({searchedQuestions: posts})
   };

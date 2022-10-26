@@ -25,7 +25,7 @@ const QuestionHelpfulAddAnswer = ({question, helpfulCount, productId}) => {
 
   return (
     <div id="addAnswer">
-    Helpful? <button type="Submit" className="QAbutton" disabled={disable} onClick={wasHelpful}>Yes</button> ({helpful}) <span className="bar">|</span>
+    Helpful? <button type="Submit" className="QAbutton" disabled={disable} onClick={wasHelpful}>Yes</button> ({helpful}) <span className="bar">|</span> {' '}
     <button type="Submit" className="QAbutton" onClick={showModal}>Add answer </button>
     <AddAnswer show={show} onClose={showModal} question={question} productId={productId}/>
   </div>

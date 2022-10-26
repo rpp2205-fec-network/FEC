@@ -425,22 +425,36 @@ li{
  }
 
  #searchquestions {
-  padding: 20px;
-   border: 3px solid grey;
+   border: 2px solid black;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-bottom: 20px;
+   padding-top: 25px;
  }
 
  .searchBar {
     width: 100%;
     border: 0;
     height: 30px;
+    resize: none;
+    outline: none;
+    background-color: transparent;
+ }
+
+ textarea::placeholder {
+  font-size: larger;
+ }
+
+ #question {
+   padding-bottom: 20px;
  }
 
  .addQuestionButton {
   display: inline-block;
   position: absolute;
   background: none!important;
-  border: none;
-  padding: 0!important;
+  border: 1px solid black;
+  padding: 10px;
   color: black;
   cursor: pointer;
   margin-right: 20px;
@@ -501,7 +515,7 @@ li{
  }
 
  #answerContent {
-   min-height: 200px;
+   min-height: 30px;
    max-height: 290px;
  }
 
@@ -524,7 +538,7 @@ li{
  }
 
  .qaPhoto {
-  height: 80px;
+  height: 90px;
   width: 90px;
   padding-right: 10px;
   padding-top: 10px;
@@ -627,8 +641,8 @@ li{
 
  .moreAnsweredQuestions {
   background: none!important;
-  border: none;
-  padding: 0!important;
+  border: 1px solid black;
+  padding: 10px;
   color: black;
   cursor: pointer;
   margin-right: 20px;
@@ -645,6 +659,10 @@ li{
 
  .labels {
    font-size: x-small;
+ }
+
+ span.bar {
+   padding-right: 5px;
  }
 
 

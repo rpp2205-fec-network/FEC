@@ -22,7 +22,9 @@ class QuestionsList extends React.Component {
   showMore () {
     if (this.state.itemsShown >= this.props.questions.length) {
       this.setState({showAllItems: true})
-    } else if (this.state.itemsShown < this.props.questions.length && (this.props.questions.length - this.state.itemsShown === 1 || this.props.questions.length - this.state.itemsShown === 0)) {
+    } else if (this.state.itemsShown < this.props.questions.length && (this.props.questions.length - this.state.itemsShown === 1
+      || this.props.questions.length - this.state.itemsShown === 0
+      || this.props.questions.length - this.state.itemsShown === 2 )) {
       this.setState({showAllItems: true})
     } else if (this.state.itemsShown < this.props.questions.length) {
       this.setState({itemsShown: this.state.itemsShown + 2})
@@ -47,8 +49,8 @@ class QuestionsList extends React.Component {
           )}
           </div>
           <div>
-          {<input type="button" value="More answered questions" className="moreAnsweredQuestions" onClick={this.showMore}></input>}
-          <input type="button" value="Add a question +" className="addQuestionButton" onClick={this.showModal}></input>
+          {<input type="button" value="More Answered Questions" className="moreAnsweredQuestions" onClick={this.showMore}></input>}
+          <input type="button" value="Add A Question +" className="addQuestionButton" onClick={this.showModal}></input>
           < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id}/>
           </div>
         </div>
@@ -64,7 +66,7 @@ class QuestionsList extends React.Component {
 
           <div>
           <input type="button" value="Show Less" className="moreAnsweredQuestions" onClick={this.collapse}></input>
-          <input type="button" value="Add a question +" className="addQuestionButton" onClick={this.showModal}></input>
+          <input type="button" value="Add A Question +" className="addQuestionButton" onClick={this.showModal}></input>
           < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id}/>
           </div>
         </div>
@@ -72,7 +74,7 @@ class QuestionsList extends React.Component {
     } else if (this.props.questions.length === 0) {
       return (
         <div id="questionsView">
-        <input type="button" value="Add a question +"></input>
+        <input type="button" value="Add A Question +"></input>
       </div>
       )
     }

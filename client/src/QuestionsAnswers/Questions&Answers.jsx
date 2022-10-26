@@ -73,7 +73,7 @@ class QuestionsAnswers extends React.Component {
         <h3>Questions & Answers</h3> <br/>
         </div>
           <div id="searchquestions">
-          <textarea type="Search" placeholder="Have a question? Search for answers..." onChange={this.searchHandler} rows={1} cols={100}></textarea>
+          <textarea type="Search" className="searchBar" placeholder="Have a question? Search for answers..." onChange={this.searchHandler} rows={1} cols={100}></textarea>
           </div>
         <div>
         <ErrorBoundary>

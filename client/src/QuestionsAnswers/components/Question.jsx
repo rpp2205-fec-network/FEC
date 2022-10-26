@@ -52,7 +52,8 @@ class Question extends React.Component {
       <div id="individualQuestion">
         < QuestionHelpfulAddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question} productId={this.props.productId}/>
        <h3 id="question">Q: {this.state.question.question_body}</h3>
-        <div id="answer"> <h3>A: </h3>
+        <div id="answer">
+        {/* <h3 className="answerHeading">A: </h3> */}
         < Answer answers={this.state.sortedAnswers}/>
         </div>
       </div>

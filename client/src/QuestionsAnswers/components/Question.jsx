@@ -50,7 +50,7 @@ class Question extends React.Component {
   render () {
     return (
       <div id="individualQuestion">
-        < QuestionHelpfulAddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question} productId={this.props.productId}/>
+        < QuestionHelpfulAddAnswer helpfulCount={this.state.question.question_helpfulness} question={this.state.question} productId={this.props.productId} productName={this.props.productName}/>
        <h3 id="question">Q: {this.state.question.question_body}</h3>
         <div id="answer">
         {/* <h3 className="answerHeading">A: </h3> */}

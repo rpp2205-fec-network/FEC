@@ -4,7 +4,7 @@ import {AdvancedImage} from '@cloudinary/react';
 import {Cloudinary} from "@cloudinary/url-gen";
 const axios = require('axios');
 
-const AddAnswer = ({show, onClose, question, productId}) => {
+const AddAnswer = ({show, onClose, question, productId, productName}) => {
   const [modal, setModal] = useState(show);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -80,7 +80,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
       <form className="answerModal">
         <div className="answerModalContent">
         <h2>Submit your Answer</h2>
-        {/* <h3>{Product Name will go here}</h3> */}
+        <h3>{productName}</h3>
         <h4>{question.question_body}</h4>
 
         <div className="youranswer">

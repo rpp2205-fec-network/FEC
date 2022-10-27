@@ -9,7 +9,7 @@ class QuestionsAnswers extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: '',
+      product_id: '71717',
       questions: [],
       sortedQuestions: [],
       showQuestionModal: false,
@@ -46,11 +46,15 @@ class QuestionsAnswers extends React.Component {
   }
 
   searchHandler = (e) => {
-    var query = e.target.value.toLowerCase();
-    this.setState({searchText: query});
-    var posts = this.searchQuestions(this.state.sortedQuestions, query);
-    console.log(posts)
-    this.setState({searchedQuestions: posts})
+    if (e.target.value.length >= 3) {
+      var query = e.target.value.toLowerCase();
+      this.setState({searchText: query});
+      var posts = this.searchQuestions(this.state.sortedQuestions, query);
+      console.log(posts)
+      this.setState({searchedQuestions: posts})
+    } else {
+      this.setState({searchedQuestions: this.state.sortedQuestions})
+    }
   };
 
   searchQuestions = (questions, query) => {

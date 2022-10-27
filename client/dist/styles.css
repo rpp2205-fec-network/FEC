@@ -467,7 +467,7 @@ li{
   margin:0 auto;
   position: fixed;
   width: 600px;
-  height: 800px;
+  height: 600px;
   left: 0;
   right:0;
   top: 50%;
@@ -543,6 +543,7 @@ li{
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  object-fit: cover;
 }
 
 
@@ -570,7 +571,7 @@ li{
   margin:0 auto;
   position: fixed;
   width: 600px;
-  height: 800px;
+  height: 700px;
   left: 0;
   right:0;
   top: 50%;

@@ -9,14 +9,30 @@ class QuestionsList extends React.Component {
     super(props);
     this.state = {
       product_id: '',
+      productName: '',
       itemsShown: 2,
       showAllItems: false,
       totalQuestions: this.props.questions.length,
-
     }
     this.showMore = this.showMore.bind(this);
     this.collapse = this.collapse.bind(this);
     this.showModal = this.showModal.bind(this);
+    this.getProductName = this.getProductName.bind(this);
+  }
+
+  componentDidMount () {
+    this.getProductName();
+  }
+
+  getProductName() {
+    axios.get(`/productOverview/${this.props.product_id}`)
+    .then((data) => {
+      console.log('PRODUCT NAME', data.data.name)
+      this.setState({productName: data.data.name})
+    })
+    .catch((err) => {
+      console.log('ERR IN GET REVIEWS \n', err)
+    })
   }
 
   showMore () {
@@ -45,13 +61,13 @@ class QuestionsList extends React.Component {
         <div>
           <div id="questionsViewDefault">
           {this.props.questions.slice(0, this.state.itemsShown).map(question =>
-            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.product_id}/>
+            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.product_id} productName={this.state.productName}/>
           )}
           </div>
           <div>
           {<input type="button" value="More Answered Questions" className="moreAnsweredQuestions" onClick={this.showMore}></input>}
           <input type="button" value="Add A Question +" className="addQuestionButton" onClick={this.showModal}></input>
-          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id}/>
+          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id} productName={this.state.productName}/>
           </div>
         </div>
       )
@@ -60,14 +76,14 @@ class QuestionsList extends React.Component {
         <div>
           <div id="questionsViewAll">
           {this.props.questions.map(question =>
-            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.product_id}/>
+            <Question key={question.question_id} question_id={question.question_id} question={question} productId={this.props.product_id} productName={this.state.productName}/>
           )}
           </div>
 
           <div>
           <input type="button" value="Show Less" className="moreAnsweredQuestions" onClick={this.collapse}></input>
           <input type="button" value="Add A Question +" className="addQuestionButton" onClick={this.showModal}></input>
-          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id}/>
+          < AddQuestion show={this.state.showQuestionModal} onClose={this.showModal} product_id={this.props.product_id} productName={this.state.productName}/>
           </div>
         </div>
       )

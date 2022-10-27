@@ -71,7 +71,7 @@ export default class Recommend extends React.Component {
               })
             }} style={{position: 'absolute'}}>&#9733;</button>
           <div id='productRecInfo'>
-            <img onClick={() => {this.props.changeProduct(item.id)}}id='productRecInfoImage' src={item.image}></img>
+            <img onClick={() => {this.props.changeProduct(item.id)}} id='productRecInfoImage' src={item.image}></img>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>

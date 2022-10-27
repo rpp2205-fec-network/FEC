@@ -58,6 +58,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, App);
     _this = _super.call(this, props);
     _this.changeProduct = _this.changeProduct.bind(_assertThisInitialized(_this));
+    _this.clickTracking = _this.clickTracking.bind(_assertThisInitialized(_this));
     _this.state = {
       product_id: 71701,
       textId: ''
@@ -73,6 +74,21 @@ var App = /*#__PURE__*/function (_React$Component) {
       //   product_id: e,
       //   textId: text
       // }, () => {console.log(this.state)})
+    }
+  }, {
+    key: "clickTracking",
+    value: function clickTracking(e, widgetName) {
+      var tracking = {
+        element: e.target.outerHTML,
+        widget: widgetName,
+        time: e.timeStamp.toString()
+      };
+      console.log('eeeeee', e, this);
+      axios.post('/interactions', tracking).then(function (data) {
+        console.log('successfully tracked!', data.data);
+      })["catch"](function (err) {
+        console.log('error tracking', err);
+      });
     }
   }, {
     key: "render",

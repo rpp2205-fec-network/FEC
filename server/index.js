@@ -33,6 +33,19 @@ app.post('/', (req, res) => {
   console.log('hello world')
 })
 
+app.post('/interactions', (req, res) => {
+  console.log('req.body', req.body)
+  var tracking = req.body
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions`, tracking, options)
+  .then((response) => {
+    console.log('SENDING CLICK TRACKING!!! \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR SENDING CLICK TRACKING!! ================== \n', err.data)
+  })
+})
+
 // ========== ZACH ROUTES START ========== //
 // Get All Products
 app.get('/productOverview', (req, res) => {

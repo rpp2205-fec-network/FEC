@@ -340,7 +340,7 @@ main {
 /* Add Review Form */
 .addReviewForm {
   border: solid black 1px;
-  padding: 370px 400px 218px 400px;
+  padding: 364px 400px 218px 400px;
   z-index: 100;
   position: absolute;
   left: 8%;
@@ -370,7 +370,7 @@ main {
 .reviewFormTitle {
   text-align: center;
   top: 0;
-  left: 40%;
+  left: 41%;
   position: absolute;
   padding: 8px;
   font-size: 14px;
@@ -492,7 +492,7 @@ main {
   background-color: rgb(210, 223, 234);
 }
 
-.cloudinary-button {
+.cloudinary_button {
   background-color: #fefefe;
   color: #000000;
   font-size: 12px;
@@ -502,6 +502,11 @@ main {
   display: inline-block;
   padding: 10px 14px;
 }
+.cloudinary_button:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
 
 /* =================== CHELSEA'S CSS END =================== */
 

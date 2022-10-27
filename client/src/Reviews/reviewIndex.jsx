@@ -96,7 +96,7 @@ getReviews(sort = 'relevant') {
   axios.get(`/reviews/${this.props.product_id}/${sort}`)
   //axios.get(`/reviews/71703/${sort}`)
   .then((data) => {
-    console.log('DATA IN Reviews COMPONENT \n', data.data.results)
+    //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
     this.setState({reviews: data.data.results})
   })
   .catch((err) => {
@@ -114,7 +114,7 @@ render() {
     <div className='totalContainer'>
     <div className='reviewsOverview'>
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
-      <div className='mainContainer'>
+      <div className='mainContainer' onClick={(e) => this.props.clickTracking(e, 'Reviews')}>
         <div className='Ratings'>
           <ErrorBoundary>
             <RatingsOverview

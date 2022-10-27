@@ -335,7 +335,7 @@ class AddReview extends React.Component {
           <div>
           <span className="modalTitle">Review Body</span>
             <div>
-              <input type="textarea" style={{width: '700px', height: '61px', padding: '1px'}} name="body" minLength={50} maxLength={1000} required placeholder="Why did you like the product or not?" value={this.state.body} onChange={this.handleFormChange}/>
+              <textarea type="textarea" style={{width: '700px', height: '35px', padding: '1px'}} name="body" minLength={50} maxLength={1000} required placeholder="Why did you like the product or not?" value={this.state.body} onChange={this.handleFormChange}></textarea>
               <div className="modalSubtitle">
               {this.state.body.length <= 49 ? `Minimum characters left: [${50 - this.state.body.length}]` : `Minimum reached \u2713`}
               </div>
@@ -346,7 +346,7 @@ class AddReview extends React.Component {
           <div>
             <span className="modalTitle">Images</span>
             <div>
-              <button type={'button'} className='cloudinary-button' onClick={() => this.handleOpenCloudinary()}>Upload images</button>
+              <button type={'button'} buttonclass='cloudinary_button' className='cloudinary_button' onClick={() => this.handleOpenCloudinary()}>Upload image(s)</button>
               <div className="modalSubtitle">
                 {this.state.photos.length === 0 ? `[optional] Add up to 5 photos` :
                 this.state.photos.length === 1 ? `1/5 image uploaded` :

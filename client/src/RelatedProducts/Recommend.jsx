@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Ratings from 'react-ratings-declarative';
 import ActionButton from './ActionButton.jsx';
 import ProductOverview from '../Product Overview/productOverview.jsx'
+import { useNavigate } from 'react-router-dom';
 
-export default class Recommend extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const Recommend = (props) => {
+
+    const [state, setState] = useState({
       productList: [],
       productIdList: [],
       example: null,
@@ -16,12 +16,13 @@ export default class Recommend extends React.Component {
       currentPosition: 0,
       clikedProduct: null,
       popup: false
-    }
-  }
+    })
+    const navigate = useNavigate();
+
 
   // pull all related products from server with this category and return an array of mapped items
-  pull() {
-    if (this.state.example === null) {
+  const pull = () => {
+    if (state.example === null) {
       return
     }
     var setDisplay, setProductList,setImage, setRatings;
@@ -29,7 +30,7 @@ export default class Recommend extends React.Component {
       method: 'get',
       url: '/relatedProducts',
       params: {
-        id: this.state.example.id
+        id: state.example.id
       }
     }).then((response) => {
       setDisplay = [response.data[0], response.data[1], response.data[2]]
@@ -50,28 +51,30 @@ export default class Recommend extends React.Component {
             var avg = average(arrayOfRatings)
 
             item.rating = avg;
-            this.setState({
-              productList: setProductList,
-              display: setDisplay
-            })
+            // this.setState({
+            //   productList: setProductList,
+            //   display: setDisplay
+            // })
           })
         })
     })
   }
 
   // render items in state and display each as a div
-  element(input) {
+  const element = (input) => {
     let recMap = input.map((item, index) => {
       return (
         <div key={index} id='productRec' onClick={ ProductOverview }>
           <button onClick={() => {
-              this.setState({
-                popup: !this.state.popup,
-                clickedProduct: item
-              })
+              // this.setState({
+              //   popup: !state.popup,
+              //   clickedProduct: item
+              // })
             }} style={{position: 'absolute'}}>&#9733;</button>
           <div id='productRecInfo'>
-            <img onClick={() => {this.props.changeProduct(item.id)}}id='productRecInfoImage' src={item.image}></img>
+            <img onClick={() => {navigate(`/${item.id}`)}
+
+          }id='productRecInfoImage' src={item.image}></img>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
@@ -101,34 +104,34 @@ export default class Recommend extends React.Component {
   }
 
   //right arrow function
-  rightArrow() {
-    let current = this.state.currentPosition + 1;
-    let arr = this.state.display;
+  const rightArrow = () => {
+    let current = state.currentPosition + 1;
+    let arr = state.display;
     arr.shift();
     //console.log(current)
-    arr.push(this.state.productList[this.state.displayCount - 1 + current])
+    arr.push(state.productList[state.displayCount - 1 + current])
     //console.log(arr)
-    this.setState({
-      display: arr,
-      currentPosition: current
-    })
+    // this.setState({
+    //   display: arr,
+    //   currentPosition: current
+    // })
   }
 
   //left arrow function
-  leftArrow() {
-    let current = this.state.currentPosition - 1;
-    let arr = this.state.display;
+  const leftArrow = () =>  {
+    let current = state.currentPosition - 1;
+    let arr = state.display;
     arr.pop();
-    arr.unshift(this.state.productList[current])
-    this.setState({
-      display: arr,
-      currentPosition: current
-    })
+    arr.unshift(state.productList[current])
+    // this.setState({
+    //   display: arr,
+    //   currentPosition: current
+    // })
   }
 
 
   // popup when an the state is changed from an image click
-  popupFunc(e) {
+  const popupFunc = (e) => {
 
     // function to return the specific line that includes a check mark, the feature name, and another check mark
     let key = 0; // counter for key reference in html
@@ -169,7 +172,7 @@ export default class Recommend extends React.Component {
     // function to map through list of features and create the table with appropriate check marks if shared features
     // Im so sorry Zach... this is ugly af O(n^n) it feels like
     // the good new is it worked basically the first time I ran it :D
-    var mapFeatures = function() {
+    const mapFeatures = () => {
       let beginning = []
       let beginningFullItem = [];
       let endLeft = [];
@@ -213,9 +216,9 @@ export default class Recommend extends React.Component {
         <table>
           <tbody>
           <tr>
-            <td id='compareName'>{this.state.example.name}</td>
+            <td id='compareName'>{state.example.name}</td>
             <td>    </td>
-            <td id='compareName'>{this.state.clickedProduct.name}</td>
+            <td id='compareName'>{state.clickedProduct.name}</td>
           </tr>
           {mapFeatures()}
           </tbody>
@@ -229,33 +232,36 @@ export default class Recommend extends React.Component {
 
 
   // run async pull request to populate current state of products
-  componentDidMount() {
-    axios.get('/productOverview/' + this.props.currentItem)
+
+  useEffect(() => {
+    axios.get('/productOverview/' + props.currentItem)
         .then((response) => {
-            this.setState({
+          console.log(state)
+            setState({
+              ...state,
               example: response.data
             }, () => {
-              this.pull()
+              pull()
             })
         })
         .catch((err) => {
             throw err
         })
-    this.pull()
-
-  }
-
+    pull()
+  });
 
 
 
-  render() {
+
+
     return (
       <div id='productRecScroll'>
-        {this.state.currentPosition === 0 ? null: <button id='leftArrow' onClick={this.leftArrow.bind(this)}>&lt;</button>}
-        {this.element(this.state.display)}
-        {this.state.popup ? this.popupFunc(this.state): null}
-        {this.state.currentPosition + this.state.displayCount >= this.state.productList.length ? null: <button id='rightArrow' onClick={this.rightArrow.bind(this)}>&gt;</button>}
+        {state.currentPosition === 0 ? null: <button id='leftArrow' onClick={() => leftArrow()}>&lt;</button>}
+        {element(state.display)}
+        {state.popup ? popupFunc(state): null}
+        {state.currentPosition + state.displayCount >= state.productList.length ? null: <button id='rightArrow' onClick={() => rightArrow()}>&gt;</button>}
       </div>
     )
-  }
 }
+
+export default Recommend;

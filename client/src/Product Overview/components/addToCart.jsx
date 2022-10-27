@@ -22,7 +22,7 @@ export default class AddToCart extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         //if new props are received
         if (prevProps.currentStyleInfo !== this.props.currentStyleInfo) {
-            var data = [];  
+            var data = [];
             var skusArray = this.props.currentStyleInfo.skus
             var quantityArray = [];
             for (var key in skusArray) {

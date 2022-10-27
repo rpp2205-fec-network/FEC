@@ -23,11 +23,11 @@ class QuestionsAnswers extends React.Component {
   }
 
   componentDidMount() {
-    this.getQuestions();
+    this.getQuestions(this.state.product_id);
   }
 
-  getQuestions () {
-    axios.get('/getQuestions')
+  getQuestions (product_id) {
+    axios.get(`/getQuestions/${product_id}`)
     .then((questions) => {
       this.setState({
         product_id: questions.data.product_id,

@@ -84,13 +84,14 @@ app.get('/productOverview/styles/:id', (req, res) => {
 
 // ========== BECCA ROUTES START ========== //
 
-app.get('/getQuestions', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71717&count=100`, options)
+app.get('/getQuestions/:product_id', function(req, res) {
+  var product_id = req.params.product_id;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${product_id}&count=100`, options)
   .then((questions) => {
     //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err.data))
 })
 
 app.get('/getAnswers', function(req, res) {

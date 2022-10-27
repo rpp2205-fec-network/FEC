@@ -592,17 +592,54 @@ li{
   list-style-type: none;
  }
 
+ #answer {
+  padding-left: 22px ;
+ }
+
+ .answerHeading {
+   float: left;
+ }
+
+ .firstAnswerBody {
+  text-indent: -22px ;
+ }
+
+ .answerBody {
+  font-size: medium;
+  font-weight:normal;
+ }
+
  #searchquestions {
-   padding: 20px;
-   border: 5px solid grey;
+   border: 2px solid black;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-bottom: 20px;
+   padding-top: 25px;
+ }
+
+ .searchBar {
+    width: 100%;
+    border: 0;
+    height: 30px;
+    resize: none;
+    outline: none;
+    background-color: transparent;
+ }
+
+ textarea::placeholder {
+  font-size: larger;
+ }
+
+ #question {
+   padding-bottom: 20px;
  }
 
  .addQuestionButton {
   display: inline-block;
   position: absolute;
   background: none!important;
-  border: none;
-  padding: 0!important;
+  border: 1px solid black;
+  padding: 10px;
   color: black;
   cursor: pointer;
   margin-right: 20px;
@@ -615,7 +652,7 @@ li{
   margin:0 auto;
   position: fixed;
   width: 600px;
-  height: 800px;
+  height: 600px;
   left: 0;
   right:0;
   top: 50%;
@@ -645,14 +682,15 @@ li{
 
  #questionsViewDefault {
   padding-top: 20px;
-  height: 520px;
+  min-height: 600px;
+  max-height: 700px;
   margin: 0em;
   overflow-y: auto;
  }
 
  #questionsViewAll {
    padding-top: 20px;
-   height: 520px;
+   height: 700px;
    margin: 0em;
    overflow-y: auto;
  }
@@ -662,14 +700,37 @@ li{
  }
 
  #answerContent {
-   height: 100px;
+   min-height: 30px;
+   max-height: 290px;
  }
 
  #allAnswerContent {
-    height: 200px;
-    margin: 0em;
-    overflow-y: auto;
+   min-height: 200px;
+   max-height: 290px;
+   margin: 0em;
+   overflow-y: auto;
  }
+
+ .answerImagesArea {
+   min-height: 5px;
+
+ }
+
+ .eachImage {
+   height: 90px;
+   width: 100px;
+   display: inline-block;
+ }
+
+ .qaPhoto {
+  height: 90px;
+  width: 90px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  object-fit: cover;
+}
+
 
  #addAnswer {
    float: right;
@@ -695,7 +756,7 @@ li{
   margin:0 auto;
   position: fixed;
   width: 600px;
-  height: 800px;
+  height: 700px;
   left: 0;
   right:0;
   top: 50%;
@@ -765,8 +826,8 @@ li{
 
  .moreAnsweredQuestions {
   background: none!important;
-  border: none;
-  padding: 0!important;
+  border: 1px solid black;
+  padding: 10px;
   color: black;
   cursor: pointer;
   margin-right: 20px;
@@ -784,6 +845,11 @@ li{
  .labels {
    font-size: x-small;
  }
+
+ span.bar {
+   padding-right: 5px;
+ }
+
 
 
 /* ZACH CSS */

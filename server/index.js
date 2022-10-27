@@ -85,9 +85,9 @@ app.get('/productOverview/styles/:id', (req, res) => {
 // ========== BECCA ROUTES START ========== //
 
 app.get('/getQuestions', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71698`, options)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71717&count=100`, options)
   .then((questions) => {
-    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
   .catch(err => console.log(err))
@@ -138,7 +138,19 @@ app.post('/postAnswer', function(req, res) {
   var body = req.body.answer;
   axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${questionId}/answers`, body, options)
   .then((response) => {
-    console.log('CREATED')
+    console.log('ANSWER CREATED')
+    res.status(201);
+  })
+  .catch(err => console.log(err.response.data))
+})
+
+app.post('/postQuestion', function(req, res) {
+  //var productId = req.body.question.product_id;
+  var body = req.body.question;
+  console.log('QUESTION TO POOOOSSSSSST', body)
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions`, body, options)
+  .then((response) => {
+   console.log('QUESTION CREATED', response)
     res.status(201);
   })
   .catch(err => console.log(err.response.data))

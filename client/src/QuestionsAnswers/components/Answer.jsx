@@ -29,7 +29,7 @@ class Answer extends React.Component {
           {format(new Date(answer.date), 'MMMM dd, yyyy')} <AnswerHelpfulAndReport answer={answer}/></div>
           </li>
         })} </div>
-          {this.props.answers.length > 2 ?<input type="button" value="Load more answers" onClick={(e) => this.showCollapseAnswers(e)}/> : ''}
+          {this.props.answers.length > 2 ?<input type="button" value="Load more answers" className="QAinputbutton" onClick={(e) => this.showCollapseAnswers(e)}/> : ''}
         </div>
       )
     } else {
@@ -42,7 +42,7 @@ class Answer extends React.Component {
           {format(new Date(answer.date), 'MMMM dd, yyyy')}  <AnswerHelpfulAndReport answer={answer}/></div>
           </li>
         })} </div>
-          <input type="button" value="Collapse answers" onClick={(e) => this.showCollapseAnswers(e)}/>
+          <input type="button" value="Collapse answers" className="QAinputbutton" onClick={(e) => this.showCollapseAnswers(e)}/>
         </div>
       )
     }

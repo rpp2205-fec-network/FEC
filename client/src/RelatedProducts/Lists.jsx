@@ -86,7 +86,7 @@ export default class Lists extends React.Component {
 
   render() {
     return(
-      <div onClick={this.props.clickTracking}>
+      <div onClick={(e) => this.props.clickTracking(e, 'RelatedProducts')}>
         <ListErrorBoundary>
           Similar Products
           <Recommend recLists={this.state.currentItem}/>

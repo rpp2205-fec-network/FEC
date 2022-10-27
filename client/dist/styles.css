@@ -47,7 +47,6 @@ h6 {
 
 main {
   max-width: 1000px;
-  /* 840 */
   padding: 16px;
   margin: auto;
 }
@@ -55,6 +54,15 @@ main {
 /* =================== CHELSEA'S CSS BEGIN =================== */
 
 /* Main */
+.totalContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .Ratings {
   float: left;
   width: 25%;
@@ -81,6 +89,7 @@ main {
 .scrollableReviews {
   height: 450px;
   width: auto;
+  min-width:700px;
   overflow: hidden;
   margin: 0em;
   overflow-y: auto;
@@ -94,6 +103,8 @@ main {
   border: 1px solid black;
   padding: 12px 28px;
   margin-bottom: 40px;
+  font-style: normal;
+  text-decoration: none;
 }
 
 .reviewsToggleButton {
@@ -123,6 +134,7 @@ main {
   background-color: white;
   font-size: 9px;
   border: 1px solid black;
+  text-decoration: none;
 }
 
 .bodyButton:hover {
@@ -157,7 +169,7 @@ main {
   z-index: 100;
   margin:0 auto;
   display:table;
-  position: fixed;
+  position: absolute;
   left: 0;
   right:0;
   top: 50%;
@@ -316,7 +328,8 @@ main {
   float: right;
   margin-top: 6px;
   padding-left: 10px;
-  padding-right: 9px
+  padding-right: 9px;
+  text-decoration: none;
 }
 
 .removeAllFilters:hover {
@@ -324,27 +337,180 @@ main {
   background-color: rgb(210, 223, 234);
 }
 
+/* Add Review Form */
+.addReviewForm {
+  border: solid black 1px;
+  padding: 364px 400px 218px 400px;
+  z-index: 100;
+  position: absolute;
+  left: 8%;
+  top: -6%;
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  height: 78%;
+}
+
+.closingX {
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
+  padding: 0px 7px 1px 6px;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+}
+
+.closingX:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
+.reviewFormTitle {
+  text-align: center;
+  top: 0;
+  left: 41%;
+  position: absolute;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.reviewFormSubtitle {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.reviewFormBody {
+  text-align: left;
+  top: 25px;
+  left: 0;
+  position: absolute;
+  padding: 8px;
+  font-size: 12px;
+  height: 91%;
+  margin: 0em;
+  overflow-y: auto;
+  padding-right: 457px;
+}
+
+.submitButtonSpace {
+  padding-top: 4px;
+}
+
+.submitReviewButton {
+  background-color: white;
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-decoration: none;
+  text-align: center;
+  left: 354px;
+  position: absolute;
+}
+
+.submitReviewButton:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
+/* Modal Body */
+.modalRecommended {
+  padding-top: 5px;
+}
+
+.modalCharacteristics {
+  padding-top: 10px;
+}
+
+.modalCharacteristicsTitle {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.modalTitle {
+  font-size: 13px;
+  line-height: 2;
+  font-weight: 430;
+  background: #e3e2e2;
+  color: black;
+}
+
+.modalSubtitle {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.characteristicTitleModalSize {
+  padding-right: 34px;
+  text-decoration: underline;
+}
+.characteristicTitleModalWidth {
+  padding-right: 25px;
+  text-decoration: underline;
+}
+.characteristicTitleModalComfort {
+  padding-right: 12px;
+  text-decoration: underline;
+}
+.characteristicTitleModalQuality {
+  padding-right: 19px;
+  text-decoration: underline;
+}
+.characteristicTitleModalLength {
+  padding-right: 20px;
+  text-decoration: underline;
+}
+.characteristicTitleModalFit {
+  padding-right: 45px;
+  text-decoration: underline;
+}
+
+.modalRadio {
+  padding-right: 7px;
+}
+
+.charSubtitleModal {
+  font-size: 10px;
+  padding-left: 3px;
+  font-style: italic;
+  text-decoration: underline;
+  position: relative;
+  bottom: 2px;
+}
+
+.uploadImagesModalButton {
+  background-color: white;
+  border: 1px solid black;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+.uploadImagesModalButton:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
+.cloudinary_button {
+  background-color: #fefefe;
+  color: #000000;
+  font-size: 12px;
+  line-height: 0px;
+  height: 28x;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 14px;
+}
+.cloudinary_button:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(210, 223, 234);
+}
+
+
 /* =================== CHELSEA'S CSS END =================== */
 
 /* Kens CSS */
-#outfitScroll {
-  background-color: lightgray;
-  height: 175px;
-  width: 750px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-}
-
-#outfit {
-  background-color: rgb(182, 177, 177);
-  border: 1px solid black;
-  width: 135px;
-  height: 135px;
-  margin: 20px;
-  display: inline-block;
-}
-
 #productRecScroll {
   background-color: white;
   height: 375px;
@@ -357,6 +523,25 @@ main {
   left: 50%;
   margin-left: -25vw;
   margin-right: -25vw;
+}
+
+#outfitScroll {
+  background-color: white;
+  height: 375px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: inline-flex;
+}
+
+#outfitRec {
+  display: inline-block;
+  background-color: rgb(182, 177, 177);
+  outline: 1px solid black;
+  height: 350px;
+  width: 250px;
+  margin: 20px;
+  white-space: nowrap;
 }
 
 #productRec {
@@ -607,7 +792,6 @@ li{
    height: 140px;
    width: 100px;
    padding-left: 10px;
-
  }
 
  .answerSubmit {

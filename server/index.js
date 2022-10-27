@@ -33,6 +33,19 @@ app.post('/', (req, res) => {
   console.log('hello world')
 })
 
+app.post('/interactions', (req, res) => {
+  console.log('req.body', req.body)
+  var tracking = req.body
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions`, tracking, options)
+  .then((response) => {
+    console.log('SENDING CLICK TRACKING!!! \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR SENDING CLICK TRACKING!! ================== \n', err.data)
+  })
+})
+
 // ========== ZACH ROUTES START ========== //
 // Get All Products
 app.get('/productOverview', (req, res) => {
@@ -232,7 +245,7 @@ app.get('/meta/:product_id', (req, res) => {
     }
   })
   .then((response) => {
-    console.log('SERVER META DATA \n', response.data);
+    //console.log('SERVER META DATA \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
@@ -255,6 +268,20 @@ app.put('/reviewHelpful', (req, res) => {
   })
   .catch((err) => {
     console.log('ERR ADDING HELPFUL ================== \n', err)
+  })
+})
+
+app.post('/addReview', (req, res) => {
+  //console.log('req.body', req.body)
+  //var product_id = req.body.product_id
+  var bodyObj = req.body
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.body.product_id}`, bodyObj, options)
+  .then((response) => {
+    //console.log('****RESPONSE ADD REVIEW!!! \n', response);
+    res.json(response.body);
+  })
+  .catch((err) => {
+    console.log('ADD REVIEW ERR ================== \n', err.response.data)
   })
 })
 

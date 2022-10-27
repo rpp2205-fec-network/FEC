@@ -70,7 +70,7 @@ class List extends React.Component {
       )
     } else {
       return (
-        <div>
+        <div className='parentScrollableReviews'>
           <div className="scrollableReviews">
           {this.props.reviews.slice(0, this.state.itemsToShow).map((review) =>
           <Tile

@@ -54,7 +54,7 @@ getMetaData() {
   //axios.get(`/meta/${this.props.product_id}/`)
   axios.get(`/meta/71701/`)
   .then((data) => {
-    console.log('check one two one two', data.data.characteristics)
+    //console.log('check one two one two', data.data.characteristics)
     this.setState({characteristics: data.data.characteristics})
       if (data.data.characteristics.Size !== undefined) {
         this.setState({
@@ -96,7 +96,7 @@ getReviews(sort = 'relevant') {
   axios.get(`/reviews/${this.props.product_id}/${sort}`)
   //axios.get(`/reviews/71703/${sort}`)
   .then((data) => {
-    //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
+    console.log('DATA IN Reviews COMPONENT \n', data.data.results)
     this.setState({reviews: data.data.results})
   })
   .catch((err) => {

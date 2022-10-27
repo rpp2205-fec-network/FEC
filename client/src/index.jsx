@@ -9,16 +9,16 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      product_id: 71796
+      product_id: 71704
     }
   }
 
 render() {
   return (
     <div>
-    {/* <ProductOverview product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
+    <ProductOverview product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
     <Lists product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
-    <QuestionsAnswers product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/> */}
+    <QuestionsAnswers product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
     <Reviews product_id={this.state.product_id}/>
     </div>
   )

@@ -29,6 +29,7 @@ class AddReview extends React.Component {
     this.handleFormChange = this.handleFormChange.bind(this);
     this.changeRating = this.changeRating.bind(this);
     this.changeChar = this.changeChar.bind(this);
+    this.handleOpenCloudinary = this.handleOpenCloudinary.bind(this);
   }
 
   changeChar(event) {
@@ -103,8 +104,48 @@ class AddReview extends React.Component {
     })
   }
 
-  uploadImage(files) {
-    console.log(files[0])
+  handleOpenCloudinary() {
+    var myWidget = window.cloudinary.createUploadWidget({
+      cloudName: 'dgle5fodq',
+      uploadPreset: 'qgy3q6dp',
+      googleApiKey: "<image_search_google_api_key>",
+      showAdvancedOptions: true,
+      multiple: true,
+      defaultSource: "local",
+      styles: {
+          palette: {
+              window: "#F5F5F5",
+              sourceBg: "#FFFFFF",
+              windowBorder: "#90a0b3",
+              tabIcon: "#000000",
+              inactiveTabIcon: "#69778A",
+              menuIcons: "#3946E0",
+              link: "#000000",
+              action: "#000000",
+              inProgress: "#3946E0",
+              complete: "#3946E0",
+              error: "#c43737",
+              textDark: "#968989",
+              textLight: "#FFFFFF"
+          },
+          fonts: {
+              default: null,
+              "'Poppins', sans-serif": {
+                  url: "https://fonts.googleapis.com/css?family=Poppins",
+                  active: true
+              }
+          }
+      },
+    },
+      (error, result) => {
+        if (!error && result && result.event === "success") {
+          console.log('Done! Here is the image info: ', result.info);
+          this.setState({ photos: [...this.state.photos, result.info.secure_url] })
+          console.log('this.state.photos', this.state.photos)
+        }
+      }
+      )
+      myWidget.open()
   }
 
   render() {
@@ -294,7 +335,7 @@ class AddReview extends React.Component {
           <div>
           <span className="modalTitle">Review Body</span>
             <div>
-              <input type="textarea" style={{width: '700px', height: '61px'}} name="body" minLength={50} maxLength={1000} required placeholder="Why did you like the product or not?" value={this.state.body} onChange={this.handleFormChange}/>
+              <input type="textarea" style={{width: '700px', height: '61px', padding: '1px'}} name="body" minLength={50} maxLength={1000} required placeholder="Why did you like the product or not?" value={this.state.body} onChange={this.handleFormChange}/>
               <div className="modalSubtitle">
               {this.state.body.length <= 49 ? `Minimum characters left: [${50 - this.state.body.length}]` : `Minimum reached \u2713`}
               </div>
@@ -305,8 +346,16 @@ class AddReview extends React.Component {
           <div>
             <span className="modalTitle">Images</span>
             <div>
-              {/* <button type={'button'} className='uploadImagesModalButton'>Upload images</button> */}
-              <input type='file' onChange={(event) => {this.uploadImage(event.target.files)}}/>
+              <button type={'button'} className='cloudinary-button' onClick={() => this.handleOpenCloudinary()}>Upload images</button>
+              <div className="modalSubtitle">
+                {this.state.photos.length === 0 ? `[optional] Add up to 5 photos` :
+                this.state.photos.length === 1 ? `1/5 image uploaded` :
+                this.state.photos.length < 5 ? `${this.state.photos.length}/5 images uploaded` :
+                this.state.photos.length === 5 ? `${this.state.photos.length}/5 images uploaded \u2713` :
+                this.state.photos.length > 5 ? `Please remove ${this.state.photos.length - 5} photo(s) before submitting` :
+                null}
+              </div>
+              {/* <input type='file' onChange={(event) => {this.uploadImage(event.target.files)}}/> */}
             </div>
           </div>
 

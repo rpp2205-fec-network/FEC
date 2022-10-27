@@ -33,7 +33,7 @@ class RatingsOverview extends React.Component {
 
   filterRatingsClick(e) {
     var ratingNum = Number(e.target.innerText.substr(0, 1))
-    console.log('clicked on ratings!', ratingNum)
+    //console.log('clicked on ratings!', ratingNum)
     this.props.filterByRating(ratingNum)
   }
 
@@ -43,8 +43,9 @@ class RatingsOverview extends React.Component {
 
   getMetaData() {
     axios.get(`/meta/${this.props.product_id}/`)
+    //axios.get(`/meta/71701/`)
     .then((data) => {
-      //console.log('FRONT END META DATA \n', data.data.characteristics)
+      //console.log('FRONT END META DATA \n', data.data)
         this.setState({
           rating1: Number(data.data.ratings[1]),
           rating2: Number(data.data.ratings[2]),

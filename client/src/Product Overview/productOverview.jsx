@@ -88,12 +88,14 @@ export default class ProductOverview extends React.Component {
         return (
             <div>
                 <ProductOverviewErrorBoundary>
+                    <div onClick={(e) => this.props.clickTracking(e, 'ProductOverview')}>
                     <h2>Product Overview</h2>
                     <ImageGallery onLod={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
                     <ProductInformation onLoad={this.getProductInfo} productInfo={this.state.currentProduct}/>
                     <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}  onChangeStyle={this.changeStyle}/>
                     <AddToCart />
                     <h2>End of Product Overview</h2>
+                    </div>
                 </ProductOverviewErrorBoundary>
             </div>
         )

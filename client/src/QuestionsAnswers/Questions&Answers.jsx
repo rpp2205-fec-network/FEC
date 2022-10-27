@@ -43,7 +43,7 @@ class QuestionsAnswers extends React.Component {
 
   render () {
     return (
-      <div id="QAwidget">
+      <div id="QAwidget" onClick={(e) => this.props.clickTracking(e, 'QuestionAnswers')}>
       <div>
         <h3>Questions & Answers</h3> <br/>
         </div>

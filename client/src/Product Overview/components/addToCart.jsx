@@ -22,7 +22,7 @@ export default class AddToCart extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         //if new props are received
         if (prevProps.currentStyleInfo !== this.props.currentStyleInfo) {
-            var data = [];  
+            var data = [];
             var skusArray = this.props.currentStyleInfo.skus
             var quantityArray = [];
             for (var key in skusArray) {
@@ -102,7 +102,7 @@ export default class AddToCart extends React.Component {
                 <div className="addToCart">
                     Size: <select name="size" onChange={this.changeData} >
                         {this.state.data.map((item) => {
-                            console.log('ITEM', item)
+                            //console.log('ITEM', item)
                             if (item.quantity <= 0) {
                                 console.log('Item size of ' + item.size + ' is out of stock')
                             } else {

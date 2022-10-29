@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Ratings from 'react-ratings-declarative';
 import ActionButton from './ActionButton.jsx';
-import ProductOverview from '../Product Overview/productOverview.jsx'
+import {Link} from 'react-router-dom'
 
 export default class Recommend extends React.Component {
   constructor(props) {
@@ -63,7 +63,7 @@ export default class Recommend extends React.Component {
   element(input) {
     let recMap = input.map((item, index) => {
       return (
-        <div key={index} id='productRec' onClick={ ProductOverview }>
+        <div key={index} id='productRec' >
           <button onClick={() => {
               this.setState({
                 popup: !this.state.popup,
@@ -71,7 +71,7 @@ export default class Recommend extends React.Component {
               })
             }} style={{position: 'absolute'}}>&#9733;</button>
           <div id='productRecInfo'>
-            <img onClick={() => {this.props.changeProduct(item.id)}} id='productRecInfoImage' src={item.image}></img>
+            <img onClick={() => this.props.changeProduct(item.id)} id='productRecInfoImage' src={item.image}></img>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>

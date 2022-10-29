@@ -47,6 +47,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+// import Component from 'react-router-dom'
+
+// function useParams(c) {
+//   return props => <Component {...props} params={useParams()}/>
+// }
 
 
 
@@ -67,13 +72,16 @@ var App = /*#__PURE__*/function (_React$Component) {
   }
   _createClass(App, [{
     key: "changeProduct",
-    value: function changeProduct(e) {
-      var text = e.toString();
+    value: function changeProduct(id) {
+      var _this2 = this;
+      var text = id.toString();
       console.log('here');
-      // this.setState({
-      //   product_id: e,
-      //   textId: text
-      // }, () => {console.log(this.state)})
+      this.setState({
+        product_id: id,
+        textId: text
+      }, function () {
+        console.log(_this2.state);
+      });
     }
   }, {
     key: "clickTracking",
@@ -90,13 +98,16 @@ var App = /*#__PURE__*/function (_React$Component) {
         console.log('error tracking', err);
       });
     }
+
+    // useparems for React Router
+    // {Link} from react-router-dom
   }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-            path: "/",
+            path: "/*",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 product_id: this.state.product_id
@@ -2616,6 +2627,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _this = undefined;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2695,7 +2707,6 @@ var Recommend = function Recommend(props) {
     var recMap = input.map(function (item, index) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         id: "productRec",
-        onClick: _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"],
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           onClick: function onClick() {
             // this.setState({
@@ -2711,7 +2722,7 @@ var Recommend = function Recommend(props) {
           id: "productRecInfo",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             onClick: function onClick() {
-              navigate("/".concat(item.id));
+              _this.props.changeProduct();
             },
             id: "productRecInfoImage",
             src: item.image
@@ -2875,7 +2886,6 @@ var Recommend = function Recommend(props) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/' + props.currentItem).then(function (response) {
-      console.log(state);
       setState(_objectSpread(_objectSpread({}, state), {}, {
         example: response.data
       }), function () {

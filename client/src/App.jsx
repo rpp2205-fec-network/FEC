@@ -12,7 +12,11 @@ import ProductOverview from './Product Overview/productOverview.jsx'
 import Reviews from './Reviews/ReviewIndex.jsx';
 import Lists from './RelatedProducts/Lists.jsx';
 import {BrowserRouter as Router, Route,Routes, Switch} from 'react-router-dom';
+// import Component from 'react-router-dom'
 
+// function useParams(c) {
+//   return props => <Component {...props} params={useParams()}/>
+// }
 
 
 export default class App extends React.Component {
@@ -27,13 +31,13 @@ export default class App extends React.Component {
   }
 
 
-  changeProduct(e) {
-    let text = e.toString()
+  changeProduct(id) {
+    let text = id.toString()
     console.log('here')
-    // this.setState({
-    //   product_id: e,
-    //   textId: text
-    // }, () => {console.log(this.state)})
+    this.setState({
+      product_id: id,
+      textId: text
+    }, () => {console.log(this.state)})
 
   }
 
@@ -53,11 +57,14 @@ export default class App extends React.Component {
     })
   }
 
+  // useparems for React Router
+  // {Link} from react-router-dom
+
 render() {
   return (
     <Router>
         <Routes>
-            <Route path={`/`}
+            <Route path={`/*`}
             element = {
               <>
               <ProductOverview product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>

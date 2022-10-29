@@ -64,7 +64,7 @@ const Recommend = (props) => {
   const element = (input) => {
     let recMap = input.map((item, index) => {
       return (
-        <div key={index} id='productRec' onClick={ ProductOverview }>
+        <div key={index} id='productRec'>
           <button onClick={() => {
               // this.setState({
               //   popup: !state.popup,
@@ -72,7 +72,7 @@ const Recommend = (props) => {
               // })
             }} style={{position: 'absolute'}}>&#9733;</button>
           <div id='productRecInfo'>
-            <img onClick={() => {navigate(`/${item.id}`)}
+            <img onClick={() => {this.props.changeProduct()}
 
           }id='productRecInfoImage' src={item.image}></img>
             <div id='productRecInfoCategory'>{item.category}</div>
@@ -236,7 +236,6 @@ const Recommend = (props) => {
   useEffect(() => {
     axios.get('/productOverview/' + props.currentItem)
         .then((response) => {
-          console.log(state)
             setState({
               ...state,
               example: response.data

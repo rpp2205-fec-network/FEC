@@ -6,4 +6,5 @@ client/dist/bundle.js.map~main
 client/dist/bundle.js~main
 node_modules
 coverage
+*.pem
 

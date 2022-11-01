@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Tile from './Tile.jsx';
 import AddReview from './AddReview.jsx';
 
@@ -98,7 +97,6 @@ class List extends React.Component {
       )
     }
   }
-
 }
 
 export default List;

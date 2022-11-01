@@ -1,7 +1,6 @@
 import React from 'react';
 import Ratings from 'react-ratings-declarative';
 import axios from 'axios';
-import {Cloudinary} from "@cloudinary/url-gen";
 
 class AddReview extends React.Component {
   constructor(props) {
@@ -33,9 +32,6 @@ class AddReview extends React.Component {
   }
 
   changeChar(event) {
-    //console.log('event.target.getAttribute(name)', event.target.getAttribute(name))
-    //console.log('this.props.characteristics', this.props.characteristics["Size"] === undefined)
-    //console.log('charName', charName)
     console.log('event.target.name', event.target.value)
     var charName = event.target.getAttribute('name')
     var charValue = Number(event.target.value)
@@ -74,7 +70,6 @@ class AddReview extends React.Component {
       photos: this.state.photos,
       characteristics: this.state.characteristics
     }
-    //console.log('reviewOBj', reviewObj)
     axios.post('/addReview', reviewObj)
       .then((submit) => {
         console.log('successfully submitted review!', submit)
@@ -96,7 +91,6 @@ class AddReview extends React.Component {
   getProductName() {
     axios.get(`/productOverview/${this.props.product_id}`)
     .then((data) => {
-      //console.log('PRODUCT NAME', data.data.name)
       this.setState({productName: data.data.name})
     })
     .catch((err) => {
@@ -355,7 +349,6 @@ class AddReview extends React.Component {
                 this.state.photos.length > 5 ? `Please remove ${this.state.photos.length - 5} photo(s) before submitting` :
                 null}
               </div>
-              {/* <input type='file' onChange={(event) => {this.uploadImage(event.target.files)}}/> */}
             </div>
           </div>
 

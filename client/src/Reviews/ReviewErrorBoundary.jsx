@@ -15,12 +15,10 @@ class ErrorBoundary extends React.Component {
       error: error,
       errorInfo: errorInfo
     })
-    // You can also log error messages to an error reporting service here
   }
 
   render() {
     if (this.state.errorInfo) {
-      // Error path
       return (
         <div>
           <h2>Something went wrong friend. Please try again.</h2>

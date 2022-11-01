@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import Ratings from 'react-ratings-declarative';
 import ActionButton from './ActionButton.jsx';
-import ProductOverview from '../Product Overview/productOverview.jsx'
-import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
-const Recommend = (props) => {
-
-    const [state, setState] = useState({
+export default class Recommend extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       productList: [],
       productIdList: [],
       example: null,
@@ -16,13 +16,14 @@ const Recommend = (props) => {
       currentPosition: 0,
       clikedProduct: null,
       popup: false
-    })
-    const navigate = useNavigate();
-
+    }
+    console.log(this.props, 'inside recommend')
+   // console.log(typeof(window.location.hash.split('/')[2]))
+  }
 
   // pull all related products from server with this category and return an array of mapped items
-  const pull = () => {
-    if (state.example === null) {
+  pull() {
+    if (this.props.currentItem === null) {
       return
     }
     var setDisplay, setProductList,setImage, setRatings;
@@ -30,9 +31,10 @@ const Recommend = (props) => {
       method: 'get',
       url: '/relatedProducts',
       params: {
-        id: state.example.id
+        id: this.props.currentItem
       }
     }).then((response) => {
+      console.log(response)
       setDisplay = [response.data[0], response.data[1], response.data[2]]
       setProductList = response.data;
         setProductList.forEach((item) => {
@@ -51,30 +53,31 @@ const Recommend = (props) => {
             var avg = average(arrayOfRatings)
 
             item.rating = avg;
-            // this.setState({
-            //   productList: setProductList,
-            //   display: setDisplay
-            // })
+            this.setState({
+              productList: setProductList,
+              display: setDisplay
+            })
           })
         })
     })
   }
 
   // render items in state and display each as a div
-  const element = (input) => {
+  element(input) {
     let recMap = input.map((item, index) => {
+      //console.log(item, item.id, 'inside recommend element map func')
       return (
-        <div key={index} id='productRec'>
+        <div key={index} id='productRec' >
           <button onClick={() => {
-              // this.setState({
-              //   popup: !state.popup,
-              //   clickedProduct: item
-              // })
+              this.setState({
+                popup: !this.state.popup,
+                clickedProduct: item
+              })
             }} style={{position: 'absolute'}}>&#9733;</button>
           <div id='productRecInfo'>
-            <img onClick={() => {this.props.changeProduct()}
-
-          }id='productRecInfoImage' src={item.image}></img>
+            <Link to={`/link/${item.id}`}>
+            <img onClick={() => {this.props.changeProduct(item.id)}} id='productRecInfoImage' src={item.image}></img>
+            </Link>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
@@ -104,34 +107,34 @@ const Recommend = (props) => {
   }
 
   //right arrow function
-  const rightArrow = () => {
-    let current = state.currentPosition + 1;
-    let arr = state.display;
+  rightArrow() {
+    let current = this.state.currentPosition + 1;
+    let arr = this.state.display;
     arr.shift();
     //console.log(current)
-    arr.push(state.productList[state.displayCount - 1 + current])
+    arr.push(this.state.productList[this.state.displayCount - 1 + current])
     //console.log(arr)
-    // this.setState({
-    //   display: arr,
-    //   currentPosition: current
-    // })
+    this.setState({
+      display: arr,
+      currentPosition: current
+    })
   }
 
   //left arrow function
-  const leftArrow = () =>  {
-    let current = state.currentPosition - 1;
-    let arr = state.display;
+  leftArrow() {
+    let current = this.state.currentPosition - 1;
+    let arr = this.state.display;
     arr.pop();
-    arr.unshift(state.productList[current])
-    // this.setState({
-    //   display: arr,
-    //   currentPosition: current
-    // })
+    arr.unshift(this.state.productList[current])
+    this.setState({
+      display: arr,
+      currentPosition: current
+    })
   }
 
 
   // popup when an the state is changed from an image click
-  const popupFunc = (e) => {
+  popupFunc(e) {
 
     // function to return the specific line that includes a check mark, the feature name, and another check mark
     let key = 0; // counter for key reference in html
@@ -172,7 +175,7 @@ const Recommend = (props) => {
     // function to map through list of features and create the table with appropriate check marks if shared features
     // Im so sorry Zach... this is ugly af O(n^n) it feels like
     // the good new is it worked basically the first time I ran it :D
-    const mapFeatures = () => {
+    var mapFeatures = function() {
       let beginning = []
       let beginningFullItem = [];
       let endLeft = [];
@@ -216,9 +219,9 @@ const Recommend = (props) => {
         <table>
           <tbody>
           <tr>
-            <td id='compareName'>{state.example.name}</td>
+            <td id='compareName'>{this.state.example.name}</td>
             <td>    </td>
-            <td id='compareName'>{state.clickedProduct.name}</td>
+            <td id='compareName'>{this.state.clickedProduct.name}</td>
           </tr>
           {mapFeatures()}
           </tbody>
@@ -232,35 +235,58 @@ const Recommend = (props) => {
 
 
   // run async pull request to populate current state of products
+  componentDidMount() {
 
-  useEffect(() => {
-    axios.get('/productOverview/' + props.currentItem)
+    axios.get('/productOverview/' + this.props.currentItem)
         .then((response) => {
-            setState({
-              ...state,
-              example: response.data
-            }, () => {
-              pull()
-            })
+            this.setState({
+              example: response.data.id
+            }
+            , () => {
+              this.pull()
+            }
+            )
         })
         .catch((err) => {
             throw err
         })
-    pull()
-  });
+    //this.pull()
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+
+
+    // console.log('testing inside recommend', prevProps, this.props, this.state)
+    if (this.props.currentItem !== prevProps.currentItem) {
+
+      this.setState({
+        example: this.props.currentItem
+      })
+      this.pull();
+    }
+  }
+
+  // componentDidUpdate(prevState) {
+  //   // Typical usage (don't forget to compare props):
+  //   //console.log('testing inside recommend', prevProps, this.props, this.state)
+
+  //   if (this.state.example !== prevState.example) {
+  //     this.pull();
+  //   }
+  // }
 
 
 
 
-
+  render() {
     return (
       <div id='productRecScroll'>
-        {state.currentPosition === 0 ? null: <button id='leftArrow' onClick={() => leftArrow()}>&lt;</button>}
-        {element(state.display)}
-        {state.popup ? popupFunc(state): null}
-        {state.currentPosition + state.displayCount >= state.productList.length ? null: <button id='rightArrow' onClick={() => rightArrow()}>&gt;</button>}
+        {this.state.currentPosition === 0 ? null: <button id='leftArrow' onClick={this.leftArrow.bind(this)}>&lt;</button>}
+        {this.element(this.state.display)}
+        {this.state.popup ? this.popupFunc(this.state): null}
+        {this.state.currentPosition + this.state.displayCount >= this.state.productList.length ? null: <button id='rightArrow' onClick={this.rightArrow.bind(this)}>&gt;</button>}
       </div>
     )
+  }
 }
-
-export default Recommend;

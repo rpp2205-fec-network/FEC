@@ -19,8 +19,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
 /* harmony import */ var _Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reviews/ReviewIndex.jsx */ "./client/src/Reviews/ReviewIndex.jsx");
 /* harmony import */ var _RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RelatedProducts/Lists.jsx */ "./client/src/RelatedProducts/Lists.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65,22 +65,29 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this.changeProduct = _this.changeProduct.bind(_assertThisInitialized(_this));
     _this.clickTracking = _this.clickTracking.bind(_assertThisInitialized(_this));
     _this.state = {
-      product_id: 71701,
+      product_id: 71710,
       textId: ''
     };
     return _this;
   }
+  // UNSAFE_componentWillReceiveProps() {
+  //   // You don't have to do this check first, but it can help prevent an unneeded render
+  //   console.log(this.props.product_id, this.state.product_id,'kkkkk')
+  //   if (this.props.product_id !== this.state.product_id) {
+
+  //     this.setState({ currentItem: this.props.product_id }, () => console.log(this.state, '55555nd thingy'));
+  //   }
+  // }
   _createClass(App, [{
     key: "changeProduct",
     value: function changeProduct(id) {
       var _this2 = this;
       var text = id.toString();
-      console.log('here');
       this.setState({
         product_id: id,
         textId: text
       }, function () {
-        console.log(_this2.state);
+        return console.log(_this2.state, 'updated state');
       });
     }
   }, {
@@ -102,12 +109,46 @@ var App = /*#__PURE__*/function (_React$Component) {
     // useparems for React Router
     // {Link} from react-router-dom
   }, {
+    key: "navigate",
+    value: function navigate() {
+      (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      //console.log(window.location.hash, 'this is window location', this.state)
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-            path: "/*",
+      // return (
+      //   <>
+      //   <div>This is the product Id: {this.state.product_id}</div>
+      //     <ProductOverview product_id={this.state.product_id} /> <br /><br /><hr /><br /><br />
+      //     <Lists product_id={this.state.product_id} changeProduct={this.changeProduct} /> <br /><br /><hr /><br /><br />
+      //     <QuestionsAnswers product_id={this.state.product_id} /> <br /><br /><hr /><br /><br />
+      //     {/* <Reviews product_id={this.state.product_id}/> */}
+      //   </>
+      // )
+      ///////
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.HashRouter, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Routes, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+            exact: true,
+            path: "/",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                product_id: this.state.product_id
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                product_id: this.state.product_id,
+                changeProduct: this.changeProduct
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                product_id: this.state.product_id
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {})]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+            exact: true,
+            path: "/link/72380",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 product_id: this.state.product_id
@@ -116,11 +157,35 @@ var App = /*#__PURE__*/function (_React$Component) {
                 changeProduct: this.changeProduct
               }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 product_id: this.state.product_id
-              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                product_id: this.state.product_id
-              })]
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {})]
             })
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+            exact: true,
+            path: "/link/72375",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                product_id: this.state.product_id
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                product_id: this.state.product_id,
+                changeProduct: this.changeProduct
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                product_id: this.state.product_id
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {})]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
+            exact: true,
+            path: "/link/*",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                product_id: this.state.product_id
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                product_id: this.state.product_id,
+                changeProduct: this.changeProduct
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                product_id: this.state.product_id
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {})]
+            })
+          })]
         })
       });
     }
@@ -280,7 +345,7 @@ var AddToCart = /*#__PURE__*/function (_React$Component) {
             name: "size",
             onChange: this.changeData,
             children: this.state.data.map(function (item) {
-              console.log('ITEM', item);
+              // console.log('ITEM', item)
               if (item.quantity <= 0) {
                 console.log('Item size of ' + item.size + ' is out of stock');
               } else {
@@ -2261,11 +2326,24 @@ var Lists = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Lists);
     _this = _super.call(this, props);
     _this.state = {
-      currentItem: _this.props.product_id
+      currentItem: _this.props.product_id,
+      clickedItem: parseInt(window.location.hash.split('/')[2])
     };
+    //console.log(this.props.product_id, 'inside lists')
     return _this;
   }
   _createClass(Lists, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      // Typical usage (don't forget to compare props):
+      console.log('inside List componentDidUpdate prevProps', prevProps, this.props, this.state);
+      if (this.props.product_id !== prevProps.product_id) {
+        this.setState({
+          currentItem: this.props.product_id
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -2616,7 +2694,7 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Recommend)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -2624,19 +2702,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
 /* harmony import */ var _ActionButton_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ActionButton.jsx */ "./client/src/RelatedProducts/ActionButton.jsx");
-/* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _this = undefined;
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
 
@@ -2644,9 +2722,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-var Recommend = function Recommend(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+var Recommend = /*#__PURE__*/function (_React$Component) {
+  _inherits(Recommend, _React$Component);
+  var _super = _createSuper(Recommend);
+  function Recommend(props) {
+    var _this;
+    _classCallCheck(this, Recommend);
+    _this = _super.call(this, props);
+    _this.state = {
       productList: [],
       productIdList: [],
       example: null,
@@ -2655,265 +2738,308 @@ var Recommend = function Recommend(props) {
       currentPosition: 0,
       clikedProduct: null,
       popup: false
-    }),
-    _useState2 = _slicedToArray(_useState, 2),
-    state = _useState2[0],
-    setState = _useState2[1];
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
+    };
+    console.log(_this.props, 'inside recommend');
+    // console.log(typeof(window.location.hash.split('/')[2]))
+    return _this;
+  }
 
   // pull all related products from server with this category and return an array of mapped items
-  var pull = function pull() {
-    if (state.example === null) {
-      return;
+  _createClass(Recommend, [{
+    key: "pull",
+    value: function pull() {
+      var _this2 = this;
+      if (this.props.currentItem === null) {
+        return;
+      }
+      var setDisplay, setProductList, setImage, setRatings;
+      axios__WEBPACK_IMPORTED_MODULE_1___default()({
+        method: 'get',
+        url: '/relatedProducts',
+        params: {
+          id: this.props.currentItem
+        }
+      }).then(function (response) {
+        console.log(response);
+        setDisplay = [response.data[0], response.data[1], response.data[2]];
+        setProductList = response.data;
+        setProductList.forEach(function (item) {
+          // console.log(item)
+          axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/styles/' + item.id).then(function (response) {
+            item.image = response.data.results[0].photos[0].thumbnail_url;
+          });
+          axios__WEBPACK_IMPORTED_MODULE_1___default().get('/relatedPrdouctsReviews/' + item.id).then(function (response) {
+            var arrayOfRatings = [];
+            for (var i = 0; i < response.data.results.length; i++) {
+              arrayOfRatings.push(response.data.results[i].rating);
+            }
+            var average = function average(arrayOfRatings) {
+              return arrayOfRatings.reduce(function (a, b) {
+                return a + b;
+              }) / arrayOfRatings.length;
+            };
+            var avg = average(arrayOfRatings);
+            item.rating = avg;
+            _this2.setState({
+              productList: setProductList,
+              display: setDisplay
+            });
+          });
+        });
+      });
     }
-    var setDisplay, setProductList, setImage, setRatings;
-    axios__WEBPACK_IMPORTED_MODULE_1___default()({
-      method: 'get',
-      url: '/relatedProducts',
-      params: {
-        id: state.example.id
-      }
-    }).then(function (response) {
-      setDisplay = [response.data[0], response.data[1], response.data[2]];
-      setProductList = response.data;
-      setProductList.forEach(function (item) {
-        // console.log(item)
-        axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/styles/' + item.id).then(function (response) {
-          item.image = response.data.results[0].photos[0].thumbnail_url;
-        });
-        axios__WEBPACK_IMPORTED_MODULE_1___default().get('/relatedPrdouctsReviews/' + item.id).then(function (response) {
-          var arrayOfRatings = [];
-          for (var i = 0; i < response.data.results.length; i++) {
-            arrayOfRatings.push(response.data.results[i].rating);
-          }
-          var average = function average(arrayOfRatings) {
-            return arrayOfRatings.reduce(function (a, b) {
-              return a + b;
-            }) / arrayOfRatings.length;
-          };
-          var avg = average(arrayOfRatings);
-          item.rating = avg;
-          // this.setState({
-          //   productList: setProductList,
-          //   display: setDisplay
-          // })
-        });
-      });
-    });
-  };
 
-  // render items in state and display each as a div
-  var element = function element(input) {
-    var recMap = input.map(function (item, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        id: "productRec",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-          onClick: function onClick() {
-            // this.setState({
-            //   popup: !state.popup,
-            //   clickedProduct: item
-            // })
-          },
-          style: {
-            position: 'absolute'
-          },
-          children: "\u2605"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          id: "productRecInfo",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+    // render items in state and display each as a div
+  }, {
+    key: "element",
+    value: function element(input) {
+      var _this3 = this;
+      var recMap = input.map(function (item, index) {
+        //console.log(item, item.id, 'inside recommend element map func')
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          id: "productRec",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
             onClick: function onClick() {
-              _this.props.changeProduct();
+              _this3.setState({
+                popup: !_this3.state.popup,
+                clickedProduct: item
+              });
             },
-            id: "productRecInfoImage",
-            src: item.image
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            id: "productRecInfoCategory",
-            children: item.category
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            id: "productRecInfoName",
-            children: item.name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            id: "productRecInfoPrice",
-            children: ["$", item.default_price]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            rating: item.rating,
-            widgetRatedColors: "black",
-            widgetDimensions: "15px",
-            widgetSpacings: "1px",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
+            style: {
+              position: 'absolute'
+            },
+            children: "\u2605"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            id: "productRecInfo",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+              to: "/link/".concat(item.id),
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                onClick: function onClick() {
+                  _this3.props.changeProduct(item.id);
+                },
+                id: "productRecInfoImage",
+                src: item.image
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              id: "productRecInfoCategory",
+              children: item.category
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              id: "productRecInfoName",
+              children: item.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              id: "productRecInfoPrice",
+              children: ["$", item.default_price]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              rating: item.rating,
+              widgetRatedColors: "black",
+              widgetDimensions: "15px",
+              widgetSpacings: "1px",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
+            })]
           })]
-        })]
-      }, index);
-    });
-    //console.log(recMap)
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        children: recMap
-      })
-    });
-  };
+        }, index);
+      });
+      //console.log(recMap)
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: recMap
+        })
+      });
+    }
 
-  //right arrow function
-  var rightArrow = function rightArrow() {
-    var current = state.currentPosition + 1;
-    var arr = state.display;
-    arr.shift();
-    //console.log(current)
-    arr.push(state.productList[state.displayCount - 1 + current]);
-    //console.log(arr)
-    // this.setState({
-    //   display: arr,
-    //   currentPosition: current
-    // })
-  };
+    //right arrow function
+  }, {
+    key: "rightArrow",
+    value: function rightArrow() {
+      var current = this.state.currentPosition + 1;
+      var arr = this.state.display;
+      arr.shift();
+      //console.log(current)
+      arr.push(this.state.productList[this.state.displayCount - 1 + current]);
+      //console.log(arr)
+      this.setState({
+        display: arr,
+        currentPosition: current
+      });
+    }
 
-  //left arrow function
-  var leftArrow = function leftArrow() {
-    var current = state.currentPosition - 1;
-    var arr = state.display;
-    arr.pop();
-    arr.unshift(state.productList[current]);
-    // this.setState({
-    //   display: arr,
-    //   currentPosition: current
-    // })
-  };
+    //left arrow function
+  }, {
+    key: "leftArrow",
+    value: function leftArrow() {
+      var current = this.state.currentPosition - 1;
+      var arr = this.state.display;
+      arr.pop();
+      arr.unshift(this.state.productList[current]);
+      this.setState({
+        display: arr,
+        currentPosition: current
+      });
+    }
 
-  // popup when an the state is changed from an image click
-  var popupFunc = function popupFunc(e) {
-    // function to return the specific line that includes a check mark, the feature name, and another check mark
-    var key = 0; // counter for key reference in html
-    var compareTd = function compareTd(option, feature) {
-      if (option === 'option1') {
-        // returning check to both sides
-        key++;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-            children: "\u2714"
-          }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
-            children: [feature.feature, " : ", feature.value]
-          }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-            children: "\u2714"
-          }, key + 2)]
-        }, key + 3);
-      } else if (option === 'option2') {
-        // returning check to left side only
-        key++;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-            children: "\u2714"
-          }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
-            children: [feature.feature, " : ", feature.value]
-          }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {}, key + 2)]
-        }, key + 3);
-      } else if (option === 'option3') {
-        // returning check to right side only
-        key++;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {}, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
-            children: [feature.feature, " : ", feature.value]
-          }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-            children: "\u2714"
-          }, key + 2)]
-        }, key + 3);
-      }
-    };
+    // popup when an the state is changed from an image click
+  }, {
+    key: "popupFunc",
+    value: function popupFunc(e) {
+      // function to return the specific line that includes a check mark, the feature name, and another check mark
+      var key = 0; // counter for key reference in html
+      var compareTd = function compareTd(option, feature) {
+        if (option === 'option1') {
+          // returning check to both sides
+          key++;
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+              children: "\u2714"
+            }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+              children: [feature.feature, " : ", feature.value]
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+              children: "\u2714"
+            }, key + 2)]
+          }, key + 3);
+        } else if (option === 'option2') {
+          // returning check to left side only
+          key++;
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+              children: "\u2714"
+            }, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+              children: [feature.feature, " : ", feature.value]
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {}, key + 2)]
+          }, key + 3);
+        } else if (option === 'option3') {
+          // returning check to right side only
+          key++;
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {}, key), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+              children: [feature.feature, " : ", feature.value]
+            }, key + 1), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+              children: "\u2714"
+            }, key + 2)]
+          }, key + 3);
+        }
+      };
 
-    // function to map through list of features and create the table with appropriate check marks if shared features
-    // Im so sorry Zach... this is ugly af O(n^n) it feels like
-    // the good new is it worked basically the first time I ran it :D
-    var mapFeatures = function mapFeatures() {
-      var beginning = [];
-      var beginningFullItem = [];
-      var endLeft = [];
-      var endRight = [];
-      //console.log(e.example.features, e.clickedProduct.features)
-      e.example.features.forEach(function (item) {
-        e.clickedProduct.features.forEach(function (item2) {
-          if (item.feature === item2.feature && item.value === item2.value) {
-            beginning.push(item.value);
-            beginningFullItem.push(item);
+      // function to map through list of features and create the table with appropriate check marks if shared features
+      // Im so sorry Zach... this is ugly af O(n^n) it feels like
+      // the good new is it worked basically the first time I ran it :D
+      var mapFeatures = function mapFeatures() {
+        var beginning = [];
+        var beginningFullItem = [];
+        var endLeft = [];
+        var endRight = [];
+        //console.log(e.example.features, e.clickedProduct.features)
+        e.example.features.forEach(function (item) {
+          e.clickedProduct.features.forEach(function (item2) {
+            if (item.feature === item2.feature && item.value === item2.value) {
+              beginning.push(item.value);
+              beginningFullItem.push(item);
+            }
+          });
+        });
+        e.example.features.forEach(function (item) {
+          if (!beginning.includes(item.value)) {
+            endLeft.push(item);
           }
         });
-      });
-      e.example.features.forEach(function (item) {
-        if (!beginning.includes(item.value)) {
-          endLeft.push(item);
-        }
-      });
-      e.clickedProduct.features.forEach(function (item) {
-        if (!beginning.includes(item.value)) {
-          endRight.push(item);
-        }
-      });
-      var arrayOfArrays = [beginningFullItem, endLeft, endRight];
-      var count = 1;
-      var result = [];
-      var _loop = function _loop() {
-        var option = 'option' + count.toString();
-        count++;
-        arrayOfArrays[i].map(function (item) {
-          return result.push(compareTd(option, item));
+        e.clickedProduct.features.forEach(function (item) {
+          if (!beginning.includes(item.value)) {
+            endRight.push(item);
+          }
         });
+        var arrayOfArrays = [beginningFullItem, endLeft, endRight];
+        var count = 1;
+        var result = [];
+        var _loop = function _loop() {
+          var option = 'option' + count.toString();
+          count++;
+          arrayOfArrays[i].map(function (item) {
+            return result.push(compareTd(option, item));
+          });
+        };
+        for (var i = 0; i < arrayOfArrays.length; i++) {
+          _loop();
+        }
+        //console.log(arrayOfArrays)
+        return result;
       };
-      for (var i = 0; i < arrayOfArrays.length; i++) {
-        _loop();
-      }
-      //console.log(arrayOfArrays)
-      return result;
-    };
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      id: "compareBox",
-      children: ["Comparing", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("table", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tbody", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-              id: "compareName",
-              children: state.example.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-              children: "    "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
-              id: "compareName",
-              children: state.clickedProduct.name
-            })]
-          }), mapFeatures()]
-        })
-      })]
-    });
-  };
-
-  // run async pull request to populate current state of products
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/' + props.currentItem).then(function (response) {
-      setState(_objectSpread(_objectSpread({}, state), {}, {
-        example: response.data
-      }), function () {
-        pull();
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        id: "compareBox",
+        children: ["Comparing", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("table", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tbody", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                id: "compareName",
+                children: this.state.example.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                children: "    "
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                id: "compareName",
+                children: this.state.clickedProduct.name
+              })]
+            }), mapFeatures()]
+          })
+        })]
       });
-    })["catch"](function (err) {
-      throw err;
-    });
-    pull();
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    id: "productRecScroll",
-    children: [state.currentPosition === 0 ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-      id: "leftArrow",
-      onClick: function onClick() {
-        return leftArrow();
-      },
-      children: "<"
-    }), element(state.display), state.popup ? popupFunc(state) : null, state.currentPosition + state.displayCount >= state.productList.length ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-      id: "rightArrow",
-      onClick: function onClick() {
-        return rightArrow();
-      },
-      children: ">"
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Recommend);
+    }
+
+    // run async pull request to populate current state of products
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this4 = this;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/' + this.props.currentItem).then(function (response) {
+        _this4.setState({
+          example: response.data.id
+        }, function () {
+          _this4.pull();
+        });
+      })["catch"](function (err) {
+        throw err;
+      });
+      //this.pull()
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      // Typical usage (don't forget to compare props):
+
+      // console.log('testing inside recommend', prevProps, this.props, this.state)
+      if (this.props.currentItem !== prevProps.currentItem) {
+        this.setState({
+          example: this.props.currentItem
+        });
+        this.pull();
+      }
+    }
+
+    // componentDidUpdate(prevState) {
+    //   // Typical usage (don't forget to compare props):
+    //   //console.log('testing inside recommend', prevProps, this.props, this.state)
+
+    //   if (this.state.example !== prevState.example) {
+    //     this.pull();
+    //   }
+    // }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        id: "productRecScroll",
+        children: [this.state.currentPosition === 0 ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          id: "leftArrow",
+          onClick: this.leftArrow.bind(this),
+          children: "<"
+        }), this.element(this.state.display), this.state.popup ? this.popupFunc(this.state) : null, this.state.currentPosition + this.state.displayCount >= this.state.productList.length ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          id: "rightArrow",
+          onClick: this.rightArrow.bind(this),
+          children: ">"
+        })]
+      });
+    }
+  }]);
+  return Recommend;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+
 
 /***/ }),
 

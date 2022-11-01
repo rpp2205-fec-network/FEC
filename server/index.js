@@ -74,7 +74,7 @@ app.get('/productOverview/styles/:id', (req, res) => {
 app.get('/getQuestions', function(req, res) {
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71717&count=100`, options)
   .then((questions) => {
-    console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
+    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
   .catch(err => console.log(err))
@@ -149,7 +149,7 @@ app.post('/postQuestion', function(req, res) {
 
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
-  //console.log(req.query)
+  console.log(req.query)
   let arr = [];
   let result = [];
   //console.log(req.query.id, 'kenTest1')
@@ -196,6 +196,11 @@ app.get('/relatedPrdouctsReviews/:id', (req, res) => {
     console.log('ERR ================== \n', err)
   })
 })
+
+app.get(/link/, (req, res) => {
+  console.log(req, 'testing inside app link')
+  res.status(200).send('slim shady')
+})
 // ============ KEN ROUTES END ============= //
 
 // ============== CHELSEA ROUTES START ============== //
@@ -231,7 +236,7 @@ app.get('/meta/:product_id', (req, res) => {
     }
   })
   .then((response) => {
-    console.log('SERVER META DATA \n', response.data);
+    //console.log('SERVER META DATA \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {

@@ -26,7 +26,7 @@ class Answer extends React.Component {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {index === 0 ? <span className="firstAnswerBody"> <h3>A: <span className="answerBody">{answer.body}</span></h3> </span> : answer.body}
           <div className="answerImagesArea">
           {answer.photos ? answer.photos.map((photo, index) => {
-            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto"/></div>
+            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto" alt/></div>
           }) : ''}
           </div>
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
@@ -44,7 +44,7 @@ class Answer extends React.Component {
           return <li key={answer.answer_id} target="_blank" id="answerText">  {index === 0 ? <span className="firstAnswerBody"> <h3>A: <span className="answerBody">{answer.body}</span></h3> </span> : answer.body}
           <div className="answerImagesArea">
           {answer.photos ? answer.photos.map((photo, index) => {
-            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto"/></div>
+            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto" alt/></div>
           }) : ''}
           </div>
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
 import RatingsOverview from './components/RatingsOverview.jsx';
 import axios from "axios";
@@ -156,6 +155,7 @@ render() {
             }
           </ErrorBoundary>
         </div>
+
       </div>
     </div>
     </div>

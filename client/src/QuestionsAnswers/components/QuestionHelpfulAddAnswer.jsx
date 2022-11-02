@@ -3,7 +3,7 @@ import { useState } from 'react';
 import AddAnswer from './AddAnswer.jsx';
 const axios = require('axios');
 
-const QuestionHelpfulAddAnswer = ({question, helpfulCount, productId}) => {
+const QuestionHelpfulAddAnswer = ({question, helpfulCount, productId, productName}) => {
   const [disable, setDisable] = useState(false);
   const [helpful, setHelpful] = useState(question.question_helpfulness);
   const [show, setShow] = useState(false);
@@ -25,9 +25,9 @@ const QuestionHelpfulAddAnswer = ({question, helpfulCount, productId}) => {
 
   return (
     <div id="addAnswer">
-    Helpful? <button type="Submit" className="QAbutton" disabled={disable} onClick={wasHelpful}>Yes</button> ({helpful}) <span className="bar">|</span>
+    Helpful? <button type="Submit" className="QAbutton" disabled={disable} onClick={wasHelpful}>Yes</button> ({helpful}) <span className="bar">|</span> {' '}
     <button type="Submit" className="QAbutton" onClick={showModal}>Add answer </button>
-    <AddAnswer show={show} onClose={showModal} question={question} productId={productId}/>
+    <AddAnswer show={show} onClose={showModal} question={question} productId={productId} productName={productName}/>
   </div>
   )
 }

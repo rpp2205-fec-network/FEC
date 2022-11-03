@@ -2813,12 +2813,21 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
             id: "productRecInfo",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
               to: "/link/".concat(item.id),
+              style: {
+                textDecoration: 'none',
+                display: 'inline-block'
+              },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                 onClick: function onClick() {
                   _this3.props.changeProduct(item.id);
                 },
                 id: "productRecInfoImage",
-                src: item.image
+                src: item.image,
+                style: {
+                  backgroundColor: 'rgb(161, 161, 161)',
+                  height: '240px',
+                  width: '250px'
+                }
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               id: "productRecInfoCategory",

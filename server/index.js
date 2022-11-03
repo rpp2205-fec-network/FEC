@@ -149,7 +149,7 @@ app.post('/postQuestion', function(req, res) {
 
 // ============ KEN ROUTES START ============= //
 app.get('/relatedProducts', function(req, res) {
-  console.log(req.query)
+  //console.log(req.query)
   let arr = [];
   let result = [];
   //console.log(req.query.id, 'kenTest1')
@@ -198,7 +198,7 @@ app.get('/relatedPrdouctsReviews/:id', (req, res) => {
 })
 
 app.get(/link/, (req, res) => {
-  console.log(req, 'testing inside app link')
+  //console.log(req, 'testing inside app link')
   res.status(200).send('slim shady')
 })
 // ============ KEN ROUTES END ============= //

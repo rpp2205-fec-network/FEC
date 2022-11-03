@@ -631,7 +631,7 @@ li{
  }
 
  #question {
-   padding-bottom: 20px;
+   padding-bottom: 15px;
  }
 
  .addQuestionButton {
@@ -682,7 +682,7 @@ li{
 
  #questionsViewDefault {
   padding-top: 20px;
-  min-height: 600px;
+  min-height: 200px;
   max-height: 700px;
   margin: 0em;
   overflow-y: auto;
@@ -690,7 +690,8 @@ li{
 
  #questionsViewAll {
    padding-top: 20px;
-   height: 700px;
+   min-height: 200px;
+   max-height: 700px;
    margin: 0em;
    overflow-y: auto;
  }
@@ -702,6 +703,8 @@ li{
  #answerContent {
    min-height: 30px;
    max-height: 290px;
+   margin: 0em;
+   margin-top: -20px;
  }
 
  #allAnswerContent {
@@ -709,6 +712,7 @@ li{
    max-height: 290px;
    margin: 0em;
    overflow-y: auto;
+   margin-top: -20px;
  }
 
  .answerImagesArea {
@@ -850,7 +854,15 @@ li{
    padding-right: 5px;
  }
 
+ .qa-ul {
+   padding-left: 0px;
+ }
 
+ .expandedAnswersA {
+   text-indent: -22px;
+   z-index: 2;
+   position: relative;
+ }
 
 /* ZACH CSS */
 

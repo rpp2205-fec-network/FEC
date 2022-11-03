@@ -9,4 +9,5 @@ client/dist/bundle.js.map.gz
 bundle.js.LICENSE.txt
 node_modules
 coverage
+*.pem
 

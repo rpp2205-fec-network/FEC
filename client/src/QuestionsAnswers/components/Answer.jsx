@@ -22,11 +22,12 @@ class Answer extends React.Component {
     if (this.state.showAllItems === false) {
       return (
         <div>
+          <h3 className="expandedAnswersA">A: </h3>
         <div id="answerContent"> {this.props.answers.slice(0, 2).map((answer, index) => {
-          return <li key={answer.answer_id} target="_blank" id="answerText">  {index === 0 ? <span className="firstAnswerBody"> <h3>A: <span className="answerBody">{answer.body}</span></h3> </span> : answer.body}
+          return <li key={answer.answer_id} target="_blank" id="answerText">  {answer.body}
           <div className="answerImagesArea">
           {answer.photos ? answer.photos.map((photo, index) => {
-            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto" alt/></div>
+            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto" alt=""/></div>
           }) : ''}
           </div>
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},
@@ -40,11 +41,12 @@ class Answer extends React.Component {
     } else {
       return (
         <div>
+        <h3 className="expandedAnswersA">A: </h3>
         <div id="allAnswerContent"> {this.props.answers.map((answer, index) => {
-          return <li key={answer.answer_id} target="_blank" id="answerText">  {index === 0 ? <span className="firstAnswerBody"> <h3>A: <span className="answerBody">{answer.body}</span></h3> </span> : answer.body}
+          return <li key={answer.answer_id} target="_blank" id="answerText"> {answer.body}
           <div className="answerImagesArea">
           {answer.photos ? answer.photos.map((photo, index) => {
-            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto" alt/></div>
+            return <div className="eachImage" key={index}><img src={photo.url} key={photo.id} className="qaPhoto" alt=""/></div>
           }) : ''}
           </div>
           <div id="answererInfo">by {answer.answerer_name === 'Seller' ? <span style={{fontWeight: 'bold'}}>{answer.answerer_name}</span> : answer.answerer_name},

@@ -8,7 +8,7 @@ class QuestionsAnswers extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: '71717',
+      product_id: this.props.product_id,
       questions: [],
       sortedQuestions: [],
       showQuestionModal: false,

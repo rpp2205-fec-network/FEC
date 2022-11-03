@@ -13,7 +13,6 @@ export default class ProductOverview extends React.Component {
         this.state = {
             currentProduct: {},
             styleInfo: [],
-            currentProductId: 71701,
             currentStyle: 0
         }
         this.getAllProductInfo = this.getAllProductInfo.bind(this);
@@ -23,14 +22,14 @@ export default class ProductOverview extends React.Component {
     }
     //get data after component mounts
     componentDidMount() {
-        return this.getProductInfo(71701)
+        return this.getProductInfo(this.props.product_id)
         .then((data) => {
             this.setState({
               currentProduct: data
             })
         })
         .then(() => {
-            return this.getProductStyles(71701)
+            return this.getProductStyles(this.props.product_id)
         })
         .then((data) => {
             this.setState({
@@ -89,12 +88,12 @@ export default class ProductOverview extends React.Component {
             <div>
                 <ProductOverviewErrorBoundary>
                     <div onClick={(e) => this.props.clickTracking(e, 'ProductOverview')}>
-                    <h2>Product Overview</h2>
-                    <ImageGallery onLod={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
-                    <ProductInformation onLoad={this.getProductInfo} productInfo={this.state.currentProduct}/>
-                    <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}  onChangeStyle={this.changeStyle}/>
-                    <AddToCart />
-                    <h2>End of Product Overview</h2>
+                        <h2>Product Overview</h2>
+                            <ImageGallery onLod={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
+                            <ProductInformation onLoad={this.getProductInfo} productInfo={this.state.currentProduct}/>
+                            <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}  onChangeStyle={this.changeStyle}/>
+                            <AddToCart currentStyleInfo={this.state.styleInfo[this.state.currentStyle]}/>
+                        <h2>End of Product Overview</h2>
                     </div>
                 </ProductOverviewErrorBoundary>
             </div>

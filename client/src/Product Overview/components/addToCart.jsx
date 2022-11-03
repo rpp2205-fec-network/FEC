@@ -17,6 +17,7 @@ export default class AddToCart extends React.Component {
         this.changeData = this.changeData.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onStar = this.onStar.bind(this)
+        this.selectSizeOption = this.selectSizeOption.bind(this)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -89,6 +90,11 @@ export default class AddToCart extends React.Component {
         //console.log('Starred')
     }
 
+    selectSizeOption() {
+        if (this.state.size.length > 0) {
+            return <option value='select size' disabled={this.state.size.length > 0}></option>
+        }
+    }
     render() {
         //determining whether item is completely out of stock
         var inStock = this.state.data.map((item) => {
@@ -101,6 +107,7 @@ export default class AddToCart extends React.Component {
             return (
                 <div className="addToCart">
                     Size: <select name="size" onChange={this.changeData} >
+                        <option value='select size' disabled={this.state.size.length > 0}>select size</option>
                         {this.state.data.map((item) => {
                             console.log('ITEM', item)
                             if (item.quantity <= 0) {

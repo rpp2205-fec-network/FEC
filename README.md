@@ -5,7 +5,7 @@ Project Atelier comprises a complete redesign of our client's retail portal, des
 ## Overview
 
 #### Product Overview
-
+This section displays the product information, including its description and price, as well as an image gallery showing off the product's various images. It allows the user to scroll through a thumbnail carasoul and select an image to focus on. This section also displays a list of styles to choose from for the product, allowing users to click on a particular style and have the rest of the section updated with that particular style's images and details. Finally, it allows users to select the size and amount of the current product style that they would like to purchase. 
 #### Related Products
 
 #### Questions & Answers

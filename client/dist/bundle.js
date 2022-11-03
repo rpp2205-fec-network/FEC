@@ -1,136 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./client/src/App.jsx":
-/*!****************************!*\
-  !*** ./client/src/App.jsx ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ App)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionsAnswers/Questions&Answers.jsx */ "./client/src/QuestionsAnswers/Questions&Answers.jsx");
-/* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
-/* harmony import */ var _Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reviews/ReviewIndex.jsx */ "./client/src/Reviews/ReviewIndex.jsx");
-/* harmony import */ var _RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RelatedProducts/Lists.jsx */ "./client/src/RelatedProducts/Lists.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import Index from "./index.jsx";
-// import {createRoot} from 'react-dom/client';
-// // createRoot(document.getElementById('root')).render(<App />)
-// ReactDOM.render(<Index />, document.getElementById("root"));
-
-
-
-
-
-
-
-
-// import Component from 'react-router-dom'
-
-// function useParams(c) {
-//   return props => <Component {...props} params={useParams()}/>
-// }
-
-
-
-var App = /*#__PURE__*/function (_React$Component) {
-  _inherits(App, _React$Component);
-  var _super = _createSuper(App);
-  function App(props) {
-    var _this;
-    _classCallCheck(this, App);
-    _this = _super.call(this, props);
-    _this.changeProduct = _this.changeProduct.bind(_assertThisInitialized(_this));
-    _this.clickTracking = _this.clickTracking.bind(_assertThisInitialized(_this));
-    _this.state = {
-      product_id: 71701,
-      textId: ''
-    };
-    return _this;
-  }
-  _createClass(App, [{
-    key: "changeProduct",
-    value: function changeProduct(id) {
-      var _this2 = this;
-      var text = id.toString();
-      console.log('here');
-      this.setState({
-        product_id: id,
-        textId: text
-      }, function () {
-        console.log(_this2.state);
-      });
-    }
-  }, {
-    key: "clickTracking",
-    value: function clickTracking(e, widgetName) {
-      var tracking = {
-        element: e.target.outerHTML,
-        widget: widgetName,
-        time: e.timeStamp.toString()
-      };
-      console.log('eeeeee', e, this);
-      axios.post('/interactions', tracking).then(function (data) {
-        console.log('successfully tracked!', data.data);
-      })["catch"](function (err) {
-        console.log('error tracking', err);
-      });
-    }
-
-    // useparems for React Router
-    // {Link} from react-router-dom
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
-            path: "/*",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                product_id: this.state.product_id
-              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                product_id: this.state.product_id,
-                changeProduct: this.changeProduct
-              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                product_id: this.state.product_id
-              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                product_id: this.state.product_id
-              })]
-            })
-          })
-        })
-      });
-    }
-  }]);
-  return App;
-}((react__WEBPACK_IMPORTED_MODULE_0___default().Component)); // export default withParams(App)
-
-
-/***/ }),
-
 /***/ "./client/src/Product Overview/components/addToCart.jsx":
 /*!**************************************************************!*\
   !*** ./client/src/Product Overview/components/addToCart.jsx ***!
@@ -840,25 +710,31 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
-            children: "Product Overview"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            onLod: this.getProductStyles,
-            styleInfo: this.state.styleInfo,
-            currentStyle: this.state.currentStyle
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            onLoad: this.getProductInfo,
-            productInfo: this.state.currentProduct
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            onLoad: this.getProductStyles,
-            styleInfo: this.state.styleInfo,
-            currentStyle: this.state.currentStyle,
-            onChangeStyle: this.changeStyle
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
-            children: "End of Product Overview"
-          })]
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            onClick: function onClick(e) {
+              return _this3.props.clickTracking(e, 'ProductOverview');
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+              children: "Product Overview"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              onLod: this.getProductStyles,
+              styleInfo: this.state.styleInfo,
+              currentStyle: this.state.currentStyle
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              onLoad: this.getProductInfo,
+              productInfo: this.state.currentProduct
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              onLoad: this.getProductStyles,
+              styleInfo: this.state.styleInfo,
+              currentStyle: this.state.currentStyle,
+              onChangeStyle: this.changeStyle
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+              children: "End of Product Overview"
+            })]
+          })
         })
       });
     }
@@ -975,6 +851,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -990,26 +867,58 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     var _this;
     _classCallCheck(this, QuestionsAnswers);
     _this = _super.call(this, props);
+    _defineProperty(_assertThisInitialized(_this), "searchHandler", function (e) {
+      if (e.target.value.length >= 3) {
+        var query = e.target.value.toLowerCase();
+        _this.setState({
+          searchText: query
+        });
+        var posts = _this.searchQuestions(_this.state.sortedQuestions, query);
+        console.log(posts);
+        _this.setState({
+          searchedQuestions: posts
+        });
+      } else {
+        _this.setState({
+          searchedQuestions: _this.state.sortedQuestions
+        });
+      }
+    });
+    _defineProperty(_assertThisInitialized(_this), "searchQuestions", function (questions, query) {
+      //if no input the return the original
+      if (query === '') {
+        return questions;
+      }
+      return questions.filter(function (question) {
+        var body = question.question_body;
+        var postName = body.toLowerCase();
+        return postName.includes(query);
+      });
+    });
     _this.state = {
-      product_id: '',
+      product_id: '71717',
       questions: [],
       sortedQuestions: [],
-      showQuestionModal: false
+      showQuestionModal: false,
+      searchText: '',
+      searchedQuestions: []
     };
     _this.sortQuestions = _this.sortQuestions.bind(_assertThisInitialized(_this));
     _this.getQuestions = _this.getQuestions.bind(_assertThisInitialized(_this));
+    _this.searchHandler = _this.searchHandler.bind(_assertThisInitialized(_this));
+    _this.searchQuestions = _this.searchQuestions.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(QuestionsAnswers, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.getQuestions();
+      this.getQuestions(this.state.product_id);
     }
   }, {
     key: "getQuestions",
-    value: function getQuestions() {
+    value: function getQuestions(product_id) {
       var _this2 = this;
-      axios.get('/getQuestions').then(function (questions) {
+      axios.get("/getQuestions/".concat(product_id)).then(function (questions) {
         _this2.setState({
           product_id: questions.data.product_id,
           questions: questions.data.results
@@ -1034,16 +943,30 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         id: "QAwidget",
+        onClick: function onClick(e) {
+          return _this3.props.clickTracking(e, 'QuestionAnswers');
+        },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
             children: "Questions & Answers"
           }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {})]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          id: "searchquestions",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+            type: "Search",
+            className: "searchBar",
+            placeholder: "Have a question? Search for answers...",
+            onChange: this.searchHandler,
+            rows: 1,
+            cols: 100
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-              questions: this.state.sortedQuestions,
+              questions: this.state.searchedQuestions.length >= 1 ? this.state.searchedQuestions : this.state.sortedQuestions,
               product_id: this.state.product_id
             })
           })
@@ -1147,7 +1070,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _cloudinary_url_gen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cloudinary/url-gen */ "./node_modules/@cloudinary/url-gen/instance/Cloudinary.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1170,7 +1092,8 @@ var AddAnswer = function AddAnswer(_ref) {
   var show = _ref.show,
     onClose = _ref.onClose,
     question = _ref.question,
-    productId = _ref.productId;
+    productId = _ref.productId,
+    productName = _ref.productName;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(show),
     _useState2 = _slicedToArray(_useState, 2),
     modal = _useState2[0],
@@ -1201,24 +1124,20 @@ var AddAnswer = function AddAnswer(_ref) {
     setCloudImages = _useState14[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (images.length < 1 || images.length > 5) return;
-    var currentImg = images[images.length - 1];
-    setImageURLs([].concat(_toConsumableArray(imageURLs), [window.URL.createObjectURL(new Blob(currentImg, {
+    var img = images[images.length - 1];
+    setImageURLs([].concat(_toConsumableArray(imageURLs), [window.URL.createObjectURL(new Blob(img, {
       type: "image/jpeg"
     }))]));
-    // Now convert local urls to cloudinary urls
-    var cloudImgs = [];
-    images.forEach(function (img) {
-      var cld = new _cloudinary_url_gen__WEBPACK_IMPORTED_MODULE_2__.Cloudinary({
-        cloud: {
-          cloudName: 'atelier'
-        }
+    var formData = new FormData();
+    formData.append('file', img[0]);
+    formData.append('upload_preset', 'pdcwltrn');
+    console.log(formData);
+    axios.post('https://api.cloudinary.com/v1_1/atelierfec/image/upload', formData).then(function (response) {
+      var url = response.data.url;
+      setCloudImages(function (prevState) {
+        return [].concat(_toConsumableArray(prevState), [url]);
       });
-      var cloudImage = cld.image(img[0].name);
-      var url = cloudImage.toURL();
-      console.log(url);
-      cloudImgs.push(url);
     });
-    setCloudImages(cloudImgs);
   }, [images]);
   var onImageChange = function onImageChange(e) {
     setImages(function (prevState) {
@@ -1272,6 +1191,8 @@ var AddAnswer = function AddAnswer(_ref) {
         className: "answerModalContent",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
           children: "Submit your Answer"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+          children: productName
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
           children: question.question_body
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -1398,7 +1319,8 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var AddQuestion = function AddQuestion(_ref) {
   var show = _ref.show,
     onClose = _ref.onClose,
-    product_id = _ref.product_id;
+    product_id = _ref.product_id,
+    productName = _ref.productName;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(show),
     _useState2 = _slicedToArray(_useState, 2),
     modal = _useState2[0],
@@ -1457,6 +1379,8 @@ var AddQuestion = function AddQuestion(_ref) {
         className: "questionModalContent",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
           children: "Ask Your Question"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h3", {
+          children: ["About the ", productName]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "yourquestion",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -1610,7 +1534,26 @@ var Answer = /*#__PURE__*/function (_React$Component) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                children: ["  ", index === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+                  className: "firstAnswerBody",
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+                    children: ["A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                      className: "answerBody",
+                      children: answer.body
+                    })]
+                  }), " "]
+                }) : answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "answerImagesArea",
+                  children: answer.photos ? answer.photos.map(function (photo, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "eachImage",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                        src: photo.url,
+                        className: "qaPhoto"
+                      }, photo.id)
+                    }, index);
+                  }) : ''
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   id: "answererInfo",
                   children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     style: {
@@ -1642,7 +1585,26 @@ var Answer = /*#__PURE__*/function (_React$Component) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                children: ["  ", index === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+                  className: "firstAnswerBody",
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+                    children: ["A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                      className: "answerBody",
+                      children: answer.body
+                    })]
+                  }), " "]
+                }) : answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "answerImagesArea",
+                  children: answer.photos ? answer.photos.map(function (photo, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "eachImage",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                        src: photo.url,
+                        className: "qaPhoto"
+                      }, photo.id)
+                    }, index);
+                  }) : ''
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   id: "answererInfo",
                   children: ["by ", answer.answerer_name === 'Seller' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     style: {
@@ -1651,7 +1613,7 @@ var Answer = /*#__PURE__*/function (_React$Component) {
                     children: answer.answerer_name
                   }) : answer.answerer_name, ",", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     children: " "
-                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(answer.date), 'MMMM dd, yyyy'), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_AnswerHelpfulAndReport_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                     answer: answer
                   })]
                 })]
@@ -1744,7 +1706,7 @@ var AnswerHelpfulAndReport = function AnswerHelpfulAndReport(_ref) {
       disabled: disable,
       onClick: wasHelpful,
       children: "Yes"
-    }), " (", answer.helpfulness, ")", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+    }), " (", answer.helpfulness, ") ", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
       className: "bar",
       children: "|"
     }), " ", !report ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
@@ -1868,17 +1830,16 @@ var Question = /*#__PURE__*/function (_React$Component) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_QuestionHelpfulAddAnswer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
           helpfulCount: this.state.question.question_helpfulness,
           question: this.state.question,
-          productId: this.props.productId
+          productId: this.props.productId,
+          productName: this.props.productName
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
           id: "question",
           children: ["Q: ", this.state.question.question_body]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           id: "answer",
-          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
-            children: "A: "
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Answer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Answer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
             answers: this.state.sortedAnswers
-          })]
+          })
         })]
       });
     }
@@ -1919,7 +1880,8 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var QuestionHelpfulAddAnswer = function QuestionHelpfulAddAnswer(_ref) {
   var question = _ref.question,
     helpfulCount = _ref.helpfulCount,
-    productId = _ref.productId;
+    productId = _ref.productId,
+    productName = _ref.productName;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     disable = _useState2[0],
@@ -1958,7 +1920,7 @@ var QuestionHelpfulAddAnswer = function QuestionHelpfulAddAnswer(_ref) {
     }), " (", helpful, ") ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
       className: "bar",
       children: "|"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+    }), " ", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       type: "Submit",
       className: "QAbutton",
       onClick: showModal,
@@ -1967,7 +1929,8 @@ var QuestionHelpfulAddAnswer = function QuestionHelpfulAddAnswer(_ref) {
       show: show,
       onClose: showModal,
       question: question,
-      productId: productId
+      productId: productId,
+      productName: productName
     })]
   });
 };
@@ -2019,6 +1982,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       product_id: '',
+      productName: '',
       itemsShown: 2,
       showAllItems: false,
       totalQuestions: _this.props.questions.length
@@ -2026,16 +1990,34 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     _this.showMore = _this.showMore.bind(_assertThisInitialized(_this));
     _this.collapse = _this.collapse.bind(_assertThisInitialized(_this));
     _this.showModal = _this.showModal.bind(_assertThisInitialized(_this));
+    _this.getProductName = _this.getProductName.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(QuestionsList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getProductName();
+    }
+  }, {
+    key: "getProductName",
+    value: function getProductName() {
+      var _this2 = this;
+      axios.get("/productOverview/".concat(this.props.product_id)).then(function (data) {
+        _this2.setState({
+          productName: data.data.name
+        });
+      })["catch"](function (err) {
+        console.log('ERR IN GET REVIEWS \n', err);
+      });
+    }
+  }, {
     key: "showMore",
     value: function showMore() {
       if (this.state.itemsShown >= this.props.questions.length) {
         this.setState({
           showAllItems: true
         });
-      } else if (this.state.itemsShown < this.props.questions.length && (this.props.questions.length - this.state.itemsShown === 1 || this.props.questions.length - this.state.itemsShown === 0)) {
+      } else if (this.state.itemsShown < this.props.questions.length && (this.props.questions.length - this.state.itemsShown === 1 || this.props.questions.length - this.state.itemsShown === 0 || this.props.questions.length - this.state.itemsShown === 2)) {
         this.setState({
           showAllItems: true
         });
@@ -2063,7 +2045,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
       if (!this.state.showAllItems && this.props.questions.length > 0) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -2072,24 +2054,26 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 question_id: question.question_id,
                 question: question,
-                productId: _this2.props.product_id
+                productId: _this3.props.product_id,
+                productName: _this3.state.productName
               }, question.question_id);
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "button",
-              value: "More answered questions",
+              value: "More Answered Questions",
               className: "moreAnsweredQuestions",
               onClick: this.showMore
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "button",
-              value: "Add a question +",
+              value: "Add A Question +",
               className: "addQuestionButton",
               onClick: this.showModal
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               show: this.state.showQuestionModal,
               onClose: this.showModal,
-              product_id: this.props.product_id
+              product_id: this.props.product_id,
+              productName: this.state.productName
             })]
           })]
         });
@@ -2101,7 +2085,8 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Question_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 question_id: question.question_id,
                 question: question,
-                productId: _this2.props.product_id
+                productId: _this3.props.product_id,
+                productName: _this3.state.productName
               }, question.question_id);
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -2112,13 +2097,14 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
               onClick: this.collapse
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "button",
-              value: "Add a question +",
+              value: "Add A Question +",
               className: "addQuestionButton",
               onClick: this.showModal
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               show: this.state.showQuestionModal,
               onClose: this.showModal,
-              product_id: this.props.product_id
+              product_id: this.props.product_id,
+              productName: this.state.productName
             })]
           })]
         });
@@ -2127,7 +2113,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
           id: "questionsView",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: "button",
-            value: "Add a question +"
+            value: "Add A Question +"
           })
         });
       }
@@ -2154,41 +2140,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
 
-var SearchQuestions = /*#__PURE__*/function (_React$Component) {
-  _inherits(SearchQuestions, _React$Component);
-  var _super = _createSuper(SearchQuestions);
-  function SearchQuestions(props) {
-    var _this;
-    _classCallCheck(this, SearchQuestions);
-    _this = _super.call(this, props);
-    _this.state = {};
-    return _this;
-  }
-  _createClass(SearchQuestions, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        id: "searchquestions",
-        children: "Have a question? Search for answers..."
-      });
-    }
-  }]);
-  return SearchQuestions;
-}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+var SearchQuestions = function SearchQuestions() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    id: "searchquestions",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+      type: "Search",
+      placeholder: "Have a question? Search for answers...",
+      rows: 1,
+      cols: 100
+    })
+  });
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchQuestions);
 
 /***/ }),
@@ -2268,7 +2233,11 @@ var Lists = /*#__PURE__*/function (_React$Component) {
   _createClass(Lists, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        onClick: function onClick(e) {
+          return _this2.props.clickTracking(e, 'RelatedProducts');
+        },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_ListsErrorBoundry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             style: {
@@ -2441,7 +2410,6 @@ var Outfit = /*#__PURE__*/function (_React$Component) {
         while (i--) {
           values.push(this.state.display[keys[i]]);
         }
-        console.log(values, 'inside element');
         var outfitMap = values.map(function (item, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             id: "productRec",
@@ -2984,13 +2952,11 @@ var ErrorBoundary = /*#__PURE__*/function (_React$Component) {
         error: error,
         errorInfo: errorInfo
       });
-      // You can also log error messages to an error reporting service here
     }
   }, {
     key: "render",
     value: function render() {
       if (this.state.errorInfo) {
-        // Error path
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
             children: "Something went wrong friend. Please try again."
@@ -3025,17 +2991,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_List_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/List.jsx */ "./client/src/Reviews/components/List.jsx");
-/* harmony import */ var _components_RatingsOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/RatingsOverview.jsx */ "./client/src/Reviews/components/RatingsOverview.jsx");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ReviewErrorBoundary.jsx */ "./client/src/Reviews/ReviewErrorBoundary.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_List_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/List.jsx */ "./client/src/Reviews/components/List.jsx");
+/* harmony import */ var _components_RatingsOverview_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RatingsOverview.jsx */ "./client/src/Reviews/components/RatingsOverview.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ReviewErrorBoundary.jsx */ "./client/src/Reviews/ReviewErrorBoundary.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -3046,7 +3011,6 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 
 
 
@@ -3070,31 +3034,27 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
         2: [],
         1: []
       },
-      filterClicked: false
+      filterClicked: false,
+      characteristics: {}
     };
     _this.getReviews = _this.getReviews.bind(_assertThisInitialized(_this));
     _this.filterByRating = _this.filterByRating.bind(_assertThisInitialized(_this));
+    _this.getMetaData = _this.getMetaData.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(ReviewIndex, [{
     key: "filterByRating",
     value: function filterByRating(starRating) {
-      console.log("rating", _typeof(starRating));
-      console.log("reviewss", this.state.filteredReviews[5]);
       if (this.state.filteredReviews[starRating].length === 0) {
-        //console.log('this.state.reviews', typeof this.state.reviews[0].rating)
         var result = this.state.reviews.filter(function (review) {
           return review.rating === starRating;
         });
-        //console.log('result', result)
         this.setState({
           filterClicked: true,
           filteredReviews: _objectSpread(_objectSpread({}, this.state.filteredReviews), {}, _defineProperty({}, starRating, result))
         });
-        //console.log('this.state.filteredReviews', this.state.filteredReviews)
       } else {
         //if the clicked rating isn't empty, then reset that number to an empty array
-
         if (this.state.filteredReviews[5] === [] && this.state.filteredReviews[4] === [] && this.state.filteredReviews[3] === [] && this.state.filteredReviews[2] === [] && this.state.filteredReviews[1] === []) {
           this.setState({
             filterClicked: false
@@ -3111,16 +3071,62 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getReviews('relevant');
+      this.getMetaData();
+    }
+  }, {
+    key: "getMetaData",
+    value: function getMetaData() {
+      var _this2 = this;
+      //axios.get(`/meta/${this.props.product_id}/`)
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get("/meta/71701/").then(function (data) {
+        //console.log('check one two one two', data.data.characteristics)
+        _this2.setState({
+          characteristics: data.data.characteristics
+        });
+        if (data.data.characteristics.Size !== undefined) {
+          _this2.setState({
+            sizeID: data.data.characteristics.Size.id
+          });
+        }
+        if (data.data.characteristics.Width !== undefined) {
+          _this2.setState({
+            widthID: data.data.characteristics.Width.id
+          });
+        }
+        if (data.data.characteristics.Comfort !== undefined) {
+          _this2.setState({
+            comfortID: data.data.characteristics.Comfort.id
+          });
+        }
+        if (data.data.characteristics.Quality !== undefined) {
+          _this2.setState({
+            qualityID: data.data.characteristics.Quality.id
+          });
+        }
+        if (data.data.characteristics.Fit !== undefined) {
+          _this2.setState({
+            fitID: data.data.characteristics.Fit.id
+          });
+        }
+        if (data.data.characteristics.Length !== undefined) {
+          _this2.setState({
+            lengthID: data.data.characteristics.Width.id
+          });
+        }
+      })["catch"](function (err) {
+        console.log('ERR IN META GET REVIEWS \n', err);
+      });
     }
   }, {
     key: "getReviews",
     value: function getReviews() {
-      var _this2 = this;
+      var _this3 = this;
       var sort = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'relevant';
-      //axios.get(`/reviews/${this.props.product_id}/${sort}`)
-      axios__WEBPACK_IMPORTED_MODULE_4___default().get("/reviews/71717/".concat(sort)).then(function (data) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get("/reviews/".concat(this.props.product_id, "/").concat(sort))
+      //axios.get(`/reviews/71703/${sort}`)
+      .then(function (data) {
         //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
-        _this2.setState({
+        _this3.setState({
           reviews: data.data.results
         });
       })["catch"](function (err) {
@@ -3130,88 +3136,813 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
       var finalArrays = this.state.filteredReviews[5].concat(this.state.filteredReviews[4], this.state.filteredReviews[3], this.state.filteredReviews[2], this.state.filteredReviews[1]);
       var count = 0;
       for (var key in this.state.filteredReviews) {
         count += this.state.filteredReviews[key].length;
       }
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "reviewsOverview",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-          className: "reviewsTitle",
-          children: "RATINGS & REVIEWS"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "mainContainer",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "Ratings",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_RatingsOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                filterByRating: this.filterByRating,
-                product_id: this.props.product_id
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "totalContainer",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "reviewsOverview",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "reviewsTitle",
+            children: "RATINGS & REVIEWS"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "mainContainer",
+            onClick: function onClick(e) {
+              return _this4.props.clickTracking(e, 'Reviews');
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "Ratings",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_RatingsOverview_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  filterByRating: this.filterByRating,
+                  product_id: this.props.product_id
+                })
               })
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "Reviews",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "sorting",
-              children: [this.state.reviews.length, " reviews, sorted by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
-                  className: "dropdown",
-                  onChange: function onChange(e) {
-                    return _this3.getReviews(e.target.value);
-                  },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
-                    className: "dropdownSelect",
-                    value: "relevance",
-                    children: "relevance"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
-                    className: "dropdownSelect",
-                    value: "helpful",
-                    children: "helpful"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
-                    className: "dropdownSelect",
-                    value: "newest",
-                    children: "newest"
-                  })]
-                }), this.state.filterClicked && count !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                  className: "filterApplied",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                    className: "filtersText",
-                    children: "[ Filter(s) has been applied ]"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-                    className: "removeAllFilters",
-                    onClick: function onClick() {
-                      return _this3.setState({
-                        filterClicked: false,
-                        filteredReviews: {
-                          5: [],
-                          4: [],
-                          3: [],
-                          2: [],
-                          1: []
-                        }
-                      });
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "Reviews",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "sorting",
+                children: [this.state.reviews.length, " reviews, sorted by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
+                    className: "dropdown",
+                    onChange: function onChange(e) {
+                      return _this4.getReviews(e.target.value);
                     },
-                    children: "Remove all filters"
-                  })]
-                }) : null]
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                      className: "dropdownSelect",
+                      value: "relevance",
+                      children: "relevance"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                      className: "dropdownSelect",
+                      value: "helpful",
+                      children: "helpful"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                      className: "dropdownSelect",
+                      value: "newest",
+                      children: "newest"
+                    })]
+                  }), this.state.filterClicked && count !== 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                    className: "filterApplied",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      className: "filtersText",
+                      children: "[ Filter(s) has been applied ]"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                      className: "removeAllFilters",
+                      onClick: function onClick() {
+                        return _this4.setState({
+                          filterClicked: false,
+                          filteredReviews: {
+                            5: [],
+                            4: [],
+                            3: [],
+                            2: [],
+                            1: []
+                          }
+                        });
+                      },
+                      children: "Remove all filters"
+                    })]
+                  }) : null]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: count === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  reviews: this.state.reviews,
+                  product_id: this.props.product_id,
+                  characteristics: this.state.characteristics
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  reviews: finalArrays,
+                  product_id: this.props.product_id,
+                  characteristics: this.state.characteristics
+                })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ReviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              children: count === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                reviews: this.state.reviews
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_List_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                reviews: finalArrays
-              })
             })]
           })]
-        })]
+        })
       });
     }
   }]);
   return ReviewIndex;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
+
+/***/ }),
+
+/***/ "./client/src/Reviews/components/AddReview.jsx":
+/*!*****************************************************!*\
+  !*** ./client/src/Reviews/components/AddReview.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var AddReview = /*#__PURE__*/function (_React$Component) {
+  _inherits(AddReview, _React$Component);
+  var _super = _createSuper(AddReview);
+  function AddReview(props) {
+    var _this;
+    _classCallCheck(this, AddReview);
+    _this = _super.call(this, props);
+    _this.state = {
+      productName: '',
+      rating: 0,
+      summary: '',
+      body: '',
+      recommend: '',
+      name: '',
+      email: '',
+      photos: [],
+      characteristics: {},
+      Size: '',
+      Width: '',
+      Comfort: '',
+      Quality: '',
+      Length: '',
+      Fit: ''
+    };
+    _this.handleClose = _this.handleClose.bind(_assertThisInitialized(_this));
+    _this.getProductName = _this.getProductName.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleFormChange = _this.handleFormChange.bind(_assertThisInitialized(_this));
+    _this.changeRating = _this.changeRating.bind(_assertThisInitialized(_this));
+    _this.changeChar = _this.changeChar.bind(_assertThisInitialized(_this));
+    _this.handleOpenCloudinary = _this.handleOpenCloudinary.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+  _createClass(AddReview, [{
+    key: "changeChar",
+    value: function changeChar(event) {
+      var _this2 = this;
+      console.log('event.target.name', event.target.value);
+      var charName = event.target.getAttribute('name');
+      var charValue = Number(event.target.value);
+      var charId = JSON.stringify(this.props.characteristics[charName].id);
+      console.log('charID', _typeof(charId));
+      this.setState(_defineProperty({
+        characteristics: _objectSpread(_objectSpread({}, this.state.characteristics), {}, _defineProperty({}, charId, charValue))
+      }, event.target.name, event.target.value), function () {
+        console.log('this.state.characteristics', _this2.state.characteristics);
+      });
+    }
+  }, {
+    key: "changeRating",
+    value: function changeRating(newRating) {
+      this.setState({
+        rating: newRating
+      });
+    }
+  }, {
+    key: "handleFormChange",
+    value: function handleFormChange(event) {
+      console.log('check event name', event.target.name);
+      this.setState(_defineProperty({}, event.target.name, event.target.value));
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      var _this3 = this;
+      event.preventDefault();
+      console.log('submitted!');
+      var reviewObj = {
+        product_id: this.props.product_id,
+        rating: this.state.rating,
+        summary: this.state.summary,
+        body: this.state.body,
+        recommend: Boolean(this.state.recommend),
+        name: this.state.name,
+        email: this.state.email,
+        photos: this.state.photos,
+        characteristics: this.state.characteristics
+      };
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post('/addReview', reviewObj).then(function (submit) {
+        console.log('successfully submitted review!', submit);
+        _this3.props.addReviewOrCollapse();
+      })["catch"](function (err) {
+        console.log('error submitting review', err);
+      });
+    }
+  }, {
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState({
+        addReview: false
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getProductName();
+    }
+  }, {
+    key: "getProductName",
+    value: function getProductName() {
+      var _this4 = this;
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get("/productOverview/".concat(this.props.product_id)).then(function (data) {
+        _this4.setState({
+          productName: data.data.name
+        });
+      })["catch"](function (err) {
+        console.log('ERR IN GET REVIEWS \n', err);
+      });
+    }
+  }, {
+    key: "handleOpenCloudinary",
+    value: function handleOpenCloudinary() {
+      var _this5 = this;
+      var myWidget = window.cloudinary.createUploadWidget({
+        cloudName: 'dgle5fodq',
+        uploadPreset: 'qgy3q6dp',
+        googleApiKey: "<image_search_google_api_key>",
+        showAdvancedOptions: true,
+        multiple: true,
+        defaultSource: "local",
+        styles: {
+          palette: {
+            window: "#F5F5F5",
+            sourceBg: "#FFFFFF",
+            windowBorder: "#90a0b3",
+            tabIcon: "#000000",
+            inactiveTabIcon: "#69778A",
+            menuIcons: "#3946E0",
+            link: "#000000",
+            action: "#000000",
+            inProgress: "#3946E0",
+            complete: "#3946E0",
+            error: "#c43737",
+            textDark: "#968989",
+            textLight: "#FFFFFF"
+          },
+          fonts: {
+            "default": null,
+            "'Poppins', sans-serif": {
+              url: "https://fonts.googleapis.com/css?family=Poppins",
+              active: true
+            }
+          }
+        }
+      }, function (error, result) {
+        if (!error && result && result.event === "success") {
+          console.log('Done! Here is the image info: ', result.info);
+          _this5.setState({
+            photos: [].concat(_toConsumableArray(_this5.state.photos), [result.info.secure_url])
+          });
+          console.log('this.state.photos', _this5.state.photos);
+        }
+      });
+      myWidget.open();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this6 = this;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "addReviewForm",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "closingX",
+          onClick: this.props.addReviewOrCollapse,
+          children: " x "
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+          className: "reviewFormTitle",
+          children: ["Write your review", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "reviewFormSubtitle",
+            children: ["About the ", this.state.productName]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+          className: "reviewFormBody",
+          onSubmit: this.handleSubmit,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "modalTitle",
+            children: "Rating"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              rating: this.state.rating,
+              changeRating: this.changeRating,
+              widgetRatedColors: "black",
+              widgetDimensions: "15px",
+              widgetSpacings: "1px",
+              widgetHoverColors: "black",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {
+                onClick: function onClick() {
+                  return _this6.changeRating(1);
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {
+                onClick: function onClick() {
+                  return _this6.changeRating(2);
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {
+                onClick: function onClick() {
+                  return _this6.changeRating(3);
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {
+                onClick: function onClick() {
+                  return _this6.changeRating(4);
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {
+                onClick: function onClick() {
+                  return _this6.changeRating(5);
+                }
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "modalSubtitle",
+            children: [this.state.rating === 0 ? 'Select your rating' : null, this.state.rating === 1 ? 'Poor' : null, this.state.rating === 2 ? 'Fair' : null, this.state.rating === 3 ? 'Average' : null, this.state.rating === 4 ? 'Good' : null, this.state.rating === 5 ? 'Great' : null]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "modalRecommended",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "modalTitle",
+              children: "Do you recommend this product?"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "True",
+                name: "recommend",
+                onChange: this.handleFormChange
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "Yes"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "False",
+                name: "recommend",
+                onChange: this.handleFormChange
+              }), " No"]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "modalCharacteristics",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "modalTitle",
+              children: "Characteristics"
+            }), this.props.characteristics["Size"] !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "characteristicTitleModalSize",
+                children: "Size"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "1",
+                name: "Size",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "2",
+                name: "Size",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "3",
+                name: "Size",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "4",
+                name: "Size",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "5",
+                name: "Size",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "5"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "charSubtitleModal",
+                children: this.state.Size === '1' ? "A size too small" : this.state.Size === '2' ? "\xBD a size too small" : this.state.Size === '3' ? "Perfect" : this.state.Size === '4' ? "\xBD a size too big" : this.state.Size === '5' ? "A size too wide" : null
+              })]
+            }) : null, this.props.characteristics["Width"] !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "characteristicTitleModalWidth",
+                children: "Width"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "1",
+                name: "Width",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "2",
+                name: "Width",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "3",
+                name: "Width",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "4",
+                name: "Width",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "5",
+                name: "Width",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "5"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "charSubtitleModal",
+                children: this.state.Width === '1' ? "Too narrow" : this.state.Width === '2' ? "Slightly narrow" : this.state.Width === '3' ? "Perfect" : this.state.Width === '4' ? "Slightly wide" : this.state.Width === '5' ? "Too wide" : null
+              })]
+            }) : null, this.props.characteristics["Comfort"] !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "characteristicTitleModalComfort",
+                children: "Comfort"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "1",
+                name: "Comfort",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "2",
+                name: "Comfort",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "3",
+                name: "Comfort",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "4",
+                name: "Comfort",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "5",
+                name: "Comfort",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "5"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "charSubtitleModal",
+                children: this.state.Comfort === '1' ? "Uncomfortable" : this.state.Comfort === '2' ? "Slightly uncomfortable" : this.state.Comfort === '3' ? "Ok" : this.state.Comfort === '4' ? "Comfortable" : this.state.Comfort === '5' ? "Perfect" : null
+              })]
+            }) : null, this.props.characteristics["Quality"] !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "characteristicTitleModalQuality",
+                children: "Quality"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "1",
+                name: "Quality",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "2",
+                name: "Quality",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "3",
+                name: "Quality",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "4",
+                name: "Quality",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "5",
+                name: "Quality",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "5"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "charSubtitleModal",
+                children: this.state.Quality === '1' ? "Poor" : this.state.Quality === '2' ? "Below average" : this.state.Quality === '3' ? "What I expected" : this.state.Quality === '4' ? "Pretty great" : this.state.Quality === '5' ? "Perfect" : null
+              })]
+            }) : null, this.props.characteristics["Length"] !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "characteristicTitleModalLength",
+                children: "Length"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "1",
+                name: "Length",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "2",
+                name: "Length",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "3",
+                name: "Length",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "4",
+                name: "Length",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "5",
+                name: "Length",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "5"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "charSubtitleModal",
+                children: this.state.Length === '1' ? "Runs Short" : this.state.Length === '2' ? "Runs slightly short" : this.state.Length === '3' ? "Perfect" : this.state.Length === '4' ? "Runs slightly long" : this.state.Length === '5' ? "Runs long" : null
+              })]
+            }) : null, this.props.characteristics["Fit"] !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "characteristicTitleModalFit",
+                children: "Fit"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "1",
+                name: "Fit",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "2",
+                name: "Fit",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "3",
+                name: "Fit",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "4",
+                name: "Fit",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                required: true,
+                type: "radio",
+                value: "5",
+                name: "Fit",
+                onChange: this.changeChar
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "modalRadio",
+                children: "5"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "charSubtitleModal",
+                children: this.state.Fit === '1' ? "Runs tight" : this.state.Fit === '2' ? "Runs slightly tight" : this.state.Fit === '3' ? "Perfect" : this.state.Fit === '4' ? "Runs slightly loose" : this.state.Fit === '5' ? "Runs loose" : null
+              })]
+            }) : null]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "reviewSummary",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "modalTitle",
+              children: "Review Summary"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                className: "reviewSummaryInput",
+                style: {
+                  width: "284px"
+                },
+                type: "text",
+                name: "summary",
+                maxLength: 60,
+                required: true,
+                placeholder: "Example: Best purchase ever!",
+                value: this.state.summary,
+                onChange: this.handleFormChange
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "modalTitle",
+              children: "Review Body"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+                type: "textarea",
+                style: {
+                  width: '700px',
+                  height: '35px',
+                  padding: '1px'
+                },
+                name: "body",
+                minLength: 50,
+                maxLength: 1000,
+                required: true,
+                placeholder: "Why did you like the product or not?",
+                value: this.state.body,
+                onChange: this.handleFormChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "modalSubtitle",
+                children: this.state.body.length <= 49 ? "Minimum characters left: [".concat(50 - this.state.body.length, "]") : "Minimum reached \u2713"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "modalTitle",
+              children: "Images"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                type: 'button',
+                buttonclass: "cloudinary_button",
+                className: "cloudinary_button",
+                onClick: function onClick() {
+                  return _this6.handleOpenCloudinary();
+                },
+                children: "Upload image(s)"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "modalSubtitle",
+                children: this.state.photos.length === 0 ? "[optional] Add up to 5 photos" : this.state.photos.length === 1 ? "1/5 image uploaded" : this.state.photos.length < 5 ? "".concat(this.state.photos.length, "/5 images uploaded") : this.state.photos.length === 5 ? "".concat(this.state.photos.length, "/5 images uploaded \u2713") : this.state.photos.length > 5 ? "Please remove ".concat(this.state.photos.length - 5, " photo(s) before submitting") : null
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "modalTitle",
+              children: "Nickname"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: "text",
+                name: "name",
+                maxLength: 60,
+                required: true,
+                placeholder: "Example: jackson11",
+                value: this.state.name,
+                onChange: this.handleFormChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "modalSubtitle",
+                children: "For privacy reasons, do not use your full name or email address"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "modalTitle",
+              children: "Email Address"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: "text",
+                name: "email",
+                maxLength: 60,
+                required: true,
+                placeholder: "Example: jackson11@email.com",
+                value: this.state.email,
+                onChange: this.handleFormChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "modalSubtitle",
+                children: "For authentication reasons only -- you will not be emailed"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "submitButtonSpace",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              className: "submitReviewButton",
+              type: "submit",
+              value: "Submit"
+            })
+          })]
+        })]
+      });
+    }
+  }]);
+  return AddReview;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddReview);
 
 /***/ }),
 
@@ -3228,8 +3959,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _Tile_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Tile.jsx */ "./client/src/Reviews/components/Tile.jsx");
+/* harmony import */ var _Tile_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tile.jsx */ "./client/src/Reviews/components/Tile.jsx");
+/* harmony import */ var _AddReview_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddReview.jsx */ "./client/src/Reviews/components/AddReview.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3256,12 +3987,27 @@ var List = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       itemsToShow: 2,
-      fullyExpanded: false
+      fullyExpanded: false,
+      addReview: false
     };
     _this.showMoreOrCollapse = _this.showMoreOrCollapse.bind(_assertThisInitialized(_this));
+    _this.addReviewOrCollapse = _this.addReviewOrCollapse.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(List, [{
+    key: "addReviewOrCollapse",
+    value: function addReviewOrCollapse() {
+      if (this.state.addReview === true) {
+        this.setState({
+          addReview: false
+        });
+      } else {
+        this.setState({
+          addReview: true
+        });
+      }
+    }
+  }, {
     key: "showMoreOrCollapse",
     value: function showMoreOrCollapse() {
       if (this.state.fullyExpanded === true) {
@@ -3285,27 +4031,40 @@ var List = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.reviews.length === 0) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            children: "Add A Review"
-          })
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "reviewsListButton",
+            onClick: this.addReviewOrCollapse,
+            children: "Add A Review +"
+          }), this.state.addReview === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddReview_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            product_id: this.props.product_id,
+            addReviewOrCollapse: this.addReviewOrCollapse,
+            characteristics: this.props.characteristics
+          }) : null]
         });
       } else if (this.props.reviews.length <= 2) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           children: [this.props.reviews.slice(0, this.state.itemsToShow).map(function (review) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tile_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tile_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
               review: review
             }, review.review_id);
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            children: "Add A Review"
-          })]
+            className: "reviewsListButton",
+            onClick: this.addReviewOrCollapse,
+            children: "Add A Review +"
+          }), this.state.addReview === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddReview_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            product_id: this.props.product_id,
+            addReviewOrCollapse: this.addReviewOrCollapse,
+            characteristics: this.props.characteristics
+          }) : null]
         });
       } else {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "parentScrollableReviews",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "scrollableReviews",
             children: this.props.reviews.slice(0, this.state.itemsToShow).map(function (review) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tile_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tile_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
                 review: review
               }, review.review_id);
             })
@@ -3321,8 +4080,13 @@ var List = /*#__PURE__*/function (_React$Component) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             className: "reviewsListButton",
+            onClick: this.addReviewOrCollapse,
             children: "Add A Review +"
-          })]
+          }), this.state.addReview === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AddReview_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            product_id: this.props.product_id,
+            addReviewOrCollapse: this.addReviewOrCollapse,
+            characteristics: this.props.characteristics
+          }) : null]
         });
       }
     }
@@ -3346,12 +4110,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var rc_progress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-progress */ "./node_modules/rc-progress/es/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-ratings-declarative */ "./node_modules/react-ratings-declarative/build/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rc_progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-progress */ "./node_modules/rc-progress/es/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3363,7 +4126,6 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 
 
 
@@ -3405,7 +4167,6 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
     key: "filterRatingsClick",
     value: function filterRatingsClick(e) {
       var ratingNum = Number(e.target.innerText.substr(0, 1));
-      console.log('clicked on ratings!', ratingNum);
       this.props.filterByRating(ratingNum);
     }
   }, {
@@ -3417,8 +4178,9 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
     key: "getMetaData",
     value: function getMetaData() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_3___default().get("/meta/".concat(this.props.product_id, "/")).then(function (data) {
-        //console.log('FRONT END META DATA \n', data.data.characteristics)
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get("/meta/".concat(this.props.product_id, "/"))
+      //axios.get(`/meta/71701/`)
+      .then(function (data) {
         _this2.setState({
           rating1: Number(data.data.ratings[1]),
           rating2: Number(data.data.ratings[2]),
@@ -3470,32 +4232,32 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "avgRating",
-          children: [this.state.average, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: [this.state.average, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "ratingStar",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"], {
               rating: Number(this.state.average),
               widgetRatedColors: "black",
               widgetDimensions: "15px",
               widgetSpacings: "1px",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_2__["default"].Widget, {})]
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_ratings_declarative__WEBPACK_IMPORTED_MODULE_1__["default"].Widget, {})]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "percentageRecommended",
           children: [this.state.recommended, "% of reviewers recommend this product"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: "5 stars"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating5, " rating(s)"]
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
             percent: this.state.percent5,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3504,16 +4266,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 4 stars"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating4, " rating(s)"]
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
             percent: this.state.percent4,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3522,16 +4284,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 3 stars"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating3, " rating(s)"]
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
             percent: this.state.percent3,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3540,16 +4302,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 2 stars"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating2, " rating(s)"]
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
             percent: this.state.percent2,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3558,16 +4320,16 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "ratingsLink",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "floatLeft",
             onClick: this.filterRatingsClick,
             children: " 1 star"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
             className: "floatRight",
             children: [this.state.rating1, " rating(s)"]
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
             percent: this.state.percent1,
             strokeLinecap: 'square',
             strokeWidth: 4,
@@ -3576,12 +4338,12 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
             strokeColor: "black",
             className: "ratingsBar"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "characteristicsBreakdown",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), this.state.size !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), this.state.size !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "characteristics",
-              children: ["Size ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+              children: ["Size ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
                 percent: [this.state.size, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3591,23 +4353,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charLeft",
                 children: "Too small"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charRight",
                 children: "Too large"
               })]
             })]
-          }) : null, this.state.width !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }) : null, this.state.width !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "characteristics",
-              children: ["Width ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+              children: ["Width ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
                 percent: [this.state.width, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3617,23 +4379,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charLeft",
                 children: "Too narrow"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charRight",
                 children: "Too wide"
               })]
             })]
-          }) : null, this.state.comfort !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }) : null, this.state.comfort !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "characteristics",
-              children: ["Comfort ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+              children: ["Comfort ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
                 percent: [this.state.comfort, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3643,23 +4405,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charLeft",
                 children: "Uncomfortable"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charMid",
                 children: "Ok"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charRight",
                 children: "Perfect"
               })]
             })]
-          }) : null, this.state.quality !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }) : null, this.state.quality !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "characteristics",
-              children: ["Quality ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+              children: ["Quality ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
                 percent: [this.state.quality, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3669,23 +4431,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charLeft",
                 children: "Poor"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charMid",
                 children: "What I expected"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charRight",
                 children: "Great"
               })]
             })]
-          }) : null, this.state.length !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }) : null, this.state.length !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "characteristics",
-              children: ["Length ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+              children: ["Length ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
                 percent: [this.state.length, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3695,23 +4457,23 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charLeft",
                 children: "Runs short"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charRight",
                 children: "Runs long"
               })]
             })]
-          }) : null, this.state.fit !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }) : null, this.state.fit !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "characteristics",
-              children: ["Fit ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_4__.Line, {
+              children: ["Fit ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Line, {
                 percent: [this.state.fit, .2],
                 gapPosition: "top",
                 strokeLinecap: 'square',
@@ -3721,15 +4483,15 @@ var RatingsOverview = /*#__PURE__*/function (_React$Component) {
                 strokeColor: ["#D3D3D3", "black"],
                 className: "ratingsBar"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "charLabel",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charLeft",
                 children: "Runs tight"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charMid",
                 children: "Perfect"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "charRight",
                 children: "Runs long"
               })]
@@ -3955,6 +4717,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IDLE_FETCHER": () => (/* binding */ IDLE_FETCHER),
 /* harmony export */   "IDLE_NAVIGATION": () => (/* binding */ IDLE_NAVIGATION),
 /* harmony export */   "UNSAFE_convertRoutesToDataRoutes": () => (/* binding */ convertRoutesToDataRoutes),
+/* harmony export */   "UNSAFE_getPathContributingMatches": () => (/* binding */ getPathContributingMatches),
 /* harmony export */   "createBrowserHistory": () => (/* binding */ createBrowserHistory),
 /* harmony export */   "createHashHistory": () => (/* binding */ createHashHistory),
 /* harmony export */   "createMemoryHistory": () => (/* binding */ createMemoryHistory),
@@ -3980,7 +4743,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "warning": () => (/* binding */ warning)
 /* harmony export */ });
 /**
- * @remix-run/router v1.0.2
+ * @remix-run/router v1.0.3
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -4082,6 +4845,9 @@ function createMemoryHistory(options) {
     },
     createHref(to) {
       return typeof to === "string" ? to : createPath(to);
+    },
+    encodeLocation(location) {
+      return location;
     },
     push(to, state) {
       action = Action.Push;
@@ -4288,6 +5054,14 @@ function parsePath(path) {
   }
   return parsedPath;
 }
+function createURL(location) {
+  // window.location.origin is "null" (the literal string value) in Firefox
+  // under certain conditions, notably when serving from a local HTML file
+  // See https://bugzilla.mozilla.org/show_bug.cgi?id=878297
+  let base = typeof window !== "undefined" && typeof window.location !== "undefined" && window.location.origin !== "null" ? window.location.origin : "unknown://unknown";
+  let href = typeof location === "string" ? location : createPath(location);
+  return new URL(href, base);
+}
 function getUrlBasedHistory(getLocation, createHref, validateLocation, options) {
   if (options === void 0) {
     options = {};
@@ -4325,7 +5099,7 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
     if (v5Compat && listener) {
       listener({
         action,
-        location
+        location: history.location
       });
     }
   }
@@ -4339,7 +5113,7 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
     if (v5Compat && listener) {
       listener({
         action,
-        location: location
+        location: history.location
       });
     }
   }
@@ -4363,6 +5137,15 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
     },
     createHref(to) {
       return createHref(window, to);
+    },
+    encodeLocation(location) {
+      // Encode a Location the same way window.location would
+      let url = createURL(createPath(location));
+      return _extends({}, location, {
+        pathname: url.pathname,
+        search: url.search,
+        hash: url.hash
+      });
     },
     push,
     replace,
@@ -4431,7 +5214,14 @@ function matchRoutes(routes, locationArg, basename) {
   rankRouteBranches(branches);
   let matches = null;
   for (let i = 0; matches == null && i < branches.length; ++i) {
-    matches = matchRouteBranch(branches[i], pathname);
+    matches = matchRouteBranch(branches[i],
+    // Incoming pathnames are generally encoded from either window.location
+    // or from router.navigate, but we want to match against the unencoded
+    // paths in the route definitions.  Memory router locations won't be
+    // encoded here but there also shouldn't be anything to decode so this
+    // should be a safe operation.  This avoids needing matchRoutes to be
+    // history-aware.
+    safelyDecodeURI(pathname));
   }
   return matches;
 }
@@ -4645,6 +5435,14 @@ function compilePath(path, caseSensitive, end) {
   let matcher = new RegExp(regexpSource, caseSensitive ? undefined : "i");
   return [matcher, paramNames];
 }
+function safelyDecodeURI(value) {
+  try {
+    return decodeURI(value);
+  } catch (error) {
+    warning(false, "The URL path \"" + value + "\" could not be decoded because it is is a " + "malformed URL segment. This is probably due to a bad percent " + ("encoding (" + error + ")."));
+    return value;
+  }
+}
 function safelyDecodeURIComponent(value, paramName) {
   try {
     return decodeURIComponent(value);
@@ -4732,6 +5530,33 @@ function resolvePathname(relativePath, fromPathname) {
 }
 function getInvalidPathError(char, field, dest, path) {
   return "Cannot include a '" + char + "' character in a manually specified " + ("`to." + field + "` field [" + JSON.stringify(path) + "].  Please separate it out to the ") + ("`to." + dest + "` field. Alternatively you may provide the full path as ") + "a string in <Link to=\"...\"> and the router will parse it for you.";
+}
+/**
+ * @private
+ *
+ * When processing relative navigation we want to ignore ancestor routes that
+ * do not contribute to the path, such that index/pathless layout routes don't
+ * interfere.
+ *
+ * For example, when moving a route element into an index route and/or a
+ * pathless layout route, relative link behavior contained within should stay
+ * the same.  Both of the following examples should link back to the root:
+ *
+ *   <Route path="/">
+ *     <Route path="accounts" element={<Link to=".."}>
+ *   </Route>
+ *
+ *   <Route path="/">
+ *     <Route path="accounts">
+ *       <Route element={<AccountsLayout />}>       // <-- Does not contribute
+ *         <Route index element={<Link to=".."} />  // <-- Does not contribute
+ *       </Route
+ *     </Route>
+ *   </Route>
+ */
+
+function getPathContributingMatches(matches) {
+  return matches.filter((match, index) => index === 0 || match.route.path && match.route.path.length > 0);
 }
 /**
  * @private
@@ -5014,7 +5839,9 @@ const IDLE_FETCHER = {
   formAction: undefined,
   formEncType: undefined,
   formData: undefined
-}; //#endregion
+};
+const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+const isServer = !isBrowser; //#endregion
 ////////////////////////////////////////////////////////////////////////////////
 //#region createRouter
 ////////////////////////////////////////////////////////////////////////////////
@@ -5209,7 +6036,13 @@ function createRouter(init) {
       submission,
       error
     } = normalizeNavigateOptions(to, opts);
-    let location = createLocation(state.location, path, opts && opts.state);
+    let location = createLocation(state.location, path, opts && opts.state); // When using navigate as a PUSH/REPLACE we aren't reading an already-encoded
+    // URL from window.location, so we need to encode it here so the behavior
+    // remains the same as POP and non-data-router usages.  new URL() does all
+    // the same encoding we'd get from a history.pushState/window.location read
+    // without having to touch history
+
+    location = init.history.encodeLocation(location);
     let historyAction = (opts && opts.replace) === true || submission != null ? Action.Replace : Action.Push;
     let preventScrollReset = opts && "preventScrollReset" in opts ? opts.preventScrollReset === true : undefined;
     return await startNavigation(historyAction, location, {
@@ -5358,7 +6191,7 @@ function createRouter(init) {
     if (!actionMatch.route.action) {
       result = getMethodNotAllowedResult(location);
     } else {
-      result = await callLoaderOrAction("action", request, actionMatch);
+      result = await callLoaderOrAction("action", request, actionMatch, matches, router.basename);
       if (request.signal.aborted) {
         return {
           shortCircuited: true
@@ -5442,7 +6275,7 @@ function createRouter(init) {
     if (!isUninterruptedRevalidation) {
       revalidatingFetchers.forEach(_ref2 => {
         let [key] = _ref2;
-        const fetcher = state.fetchers.get(key);
+        let fetcher = state.fetchers.get(key);
         let revalidatingFetcher = {
           state: "loading",
           data: fetcher && fetcher.data,
@@ -5469,7 +6302,7 @@ function createRouter(init) {
       results,
       loaderResults,
       fetcherResults
-    } = await callLoadersAndMaybeResolveData(state.matches, matchesToLoad, revalidatingFetchers, request);
+    } = await callLoadersAndMaybeResolveData(state.matches, matches, matchesToLoad, revalidatingFetchers, request);
     if (request.signal.aborted) {
       return {
         shortCircuited: true
@@ -5521,7 +6354,7 @@ function createRouter(init) {
   } // Trigger a fetcher load/submit for the given fetcher key
 
   function fetch(key, routeId, href, opts) {
-    if (typeof AbortController === "undefined") {
+    if (isServer) {
       throw new Error("router.fetch() was called during the server render, but it shouldn't be. " + "You are likely calling a useFetcher() method in the body of your component. " + "Try moving it to a useEffect or a callback.");
     }
     if (fetchControllers.has(key)) abortFetcher(key);
@@ -5536,17 +6369,17 @@ function createRouter(init) {
     } = normalizeNavigateOptions(href, opts, true);
     let match = getTargetMatch(matches, path);
     if (submission) {
-      handleFetcherAction(key, routeId, path, match, submission);
+      handleFetcherAction(key, routeId, path, match, matches, submission);
       return;
     } // Store off the match so we can call it's shouldRevalidate on subsequent
     // revalidations
 
-    fetchLoadMatches.set(key, [path, match]);
-    handleFetcherLoader(key, routeId, path, match);
+    fetchLoadMatches.set(key, [path, match, matches]);
+    handleFetcherLoader(key, routeId, path, match, matches);
   } // Call the action for the matched fetcher.submit(), and then handle redirects,
   // errors, and revalidation
 
-  async function handleFetcherAction(key, routeId, path, match, submission) {
+  async function handleFetcherAction(key, routeId, path, match, requestMatches, submission) {
     interruptActiveLoads();
     fetchLoadMatches.delete(key);
     if (!match.route.action) {
@@ -5571,7 +6404,7 @@ function createRouter(init) {
     let abortController = new AbortController();
     let fetchRequest = createRequest(path, abortController.signal, submission);
     fetchControllers.set(key, abortController);
-    let actionResult = await callLoaderOrAction("action", fetchRequest, match);
+    let actionResult = await callLoaderOrAction("action", fetchRequest, match, requestMatches, router.basename);
     if (fetchRequest.signal.aborted) {
       // We can delete this so long as we weren't aborted by ou our own fetcher
       // re-submit which would have put _new_ controller is in fetchControllers
@@ -5652,7 +6485,7 @@ function createRouter(init) {
       results,
       loaderResults,
       fetcherResults
-    } = await callLoadersAndMaybeResolveData(state.matches, matchesToLoad, revalidatingFetchers, revalidationRequest);
+    } = await callLoadersAndMaybeResolveData(state.matches, matches, matchesToLoad, revalidatingFetchers, revalidationRequest);
     if (abortController.signal.aborted) {
       return;
     }
@@ -5709,7 +6542,7 @@ function createRouter(init) {
     }
   } // Call the matched loader for fetcher.load(), handling redirects, errors, etc.
 
-  async function handleFetcherLoader(key, routeId, path, match) {
+  async function handleFetcherLoader(key, routeId, path, match, matches) {
     let existingFetcher = state.fetchers.get(key); // Put this fetcher into it's loading state
 
     let loadingFetcher = {
@@ -5728,7 +6561,7 @@ function createRouter(init) {
     let abortController = new AbortController();
     let fetchRequest = createRequest(path, abortController.signal);
     fetchControllers.set(key, abortController);
-    let result = await callLoaderOrAction("loader", fetchRequest, match); // Deferred isn't supported or fetcher loads, await everything and treat it
+    let result = await callLoaderOrAction("loader", fetchRequest, match, matches, router.basename); // Deferred isn't supported or fetcher loads, await everything and treat it
     // as a normal load.  resolveDeferredData will return undefined if this
     // fetcher gets aborted, so we just leave result untouched and short circuit
     // below if that happens
@@ -5813,13 +6646,13 @@ function createRouter(init) {
       overrideNavigation: navigation
     });
   }
-  async function callLoadersAndMaybeResolveData(currentMatches, matchesToLoad, fetchersToLoad, request) {
+  async function callLoadersAndMaybeResolveData(currentMatches, matches, matchesToLoad, fetchersToLoad, request) {
     // Call all navigation loaders and revalidating fetcher loaders in parallel,
     // then slice off the results into separate arrays so we can handle them
     // accordingly
-    let results = await Promise.all([...matchesToLoad.map(m => callLoaderOrAction("loader", request, m)), ...fetchersToLoad.map(_ref8 => {
-      let [, href, match] = _ref8;
-      return callLoaderOrAction("loader", createRequest(href, request.signal), match);
+    let results = await Promise.all([...matchesToLoad.map(match => callLoaderOrAction("loader", request, match, matches, router.basename)), ...fetchersToLoad.map(_ref8 => {
+      let [, href, match, fetchMatches] = _ref8;
+      return callLoaderOrAction("loader", createRequest(href, request.signal), match, fetchMatches, router.basename);
     })]);
     let loaderResults = results.slice(0, matchesToLoad.length);
     let fetcherResults = results.slice(matchesToLoad.length);
@@ -5984,7 +6817,9 @@ function createRouter(init) {
     navigate,
     fetch,
     revalidate,
-    createHref,
+    // Passthrough to history-aware createHref used by useHref so we get proper
+    // hash-aware URLs in DOM paths
+    createHref: to => init.history.createHref(to),
     getFetcher,
     deleteFetcher,
     dispose,
@@ -5997,14 +6832,73 @@ function createRouter(init) {
 //#region createStaticHandler
 ////////////////////////////////////////////////////////////////////////////////
 
+const validActionMethods = new Set(["POST", "PUT", "PATCH", "DELETE"]);
+const validRequestMethods = new Set(["GET", "HEAD", ...validActionMethods]);
 function unstable_createStaticHandler(routes) {
   invariant(routes.length > 0, "You must provide a non-empty routes array to unstable_createStaticHandler");
   let dataRoutes = convertRoutesToDataRoutes(routes);
+  /**
+   * The query() method is intended for document requests, in which we want to
+   * call an optional action and potentially multiple loaders for all nested
+   * routes.  It returns a StaticHandlerContext object, which is very similar
+   * to the router state (location, loaderData, actionData, errors, etc.) and
+   * also adds SSR-specific information such as the statusCode and headers
+   * from action/loaders Responses.
+   *
+   * It _should_ never throw and should report all errors through the
+   * returned context.errors object, properly associating errors to their error
+   * boundary.  Additionally, it tracks _deepestRenderedBoundaryId which can be
+   * used to emulate React error boundaries during SSr by performing a second
+   * pass only down to the boundaryId.
+   *
+   * The one exception where we do not return a StaticHandlerContext is when a
+   * redirect response is returned or thrown from any action/loader.  We
+   * propagate that out and return the raw Response so the HTTP server can
+   * return it directly.
+   */
+
   async function query(request) {
-    let {
-      location,
-      result
-    } = await queryImpl(request);
+    let url = new URL(request.url);
+    let location = createLocation("", createPath(url), null, "default");
+    let matches = matchRoutes(dataRoutes, location);
+    if (!validRequestMethods.has(request.method)) {
+      let {
+        matches: methodNotAllowedMatches,
+        route,
+        error
+      } = getMethodNotAllowedMatches(dataRoutes);
+      return {
+        location,
+        matches: methodNotAllowedMatches,
+        loaderData: {},
+        actionData: null,
+        errors: {
+          [route.id]: error
+        },
+        statusCode: error.status,
+        loaderHeaders: {},
+        actionHeaders: {}
+      };
+    } else if (!matches) {
+      let {
+        matches: notFoundMatches,
+        route,
+        error
+      } = getNotFoundMatches(dataRoutes);
+      return {
+        location,
+        matches: notFoundMatches,
+        loaderData: {},
+        actionData: null,
+        errors: {
+          [route.id]: error
+        },
+        statusCode: error.status,
+        loaderHeaders: {},
+        actionHeaders: {}
+      };
+    }
+    let result = await queryImpl(request, location, matches);
     if (result instanceof Response) {
       return result;
     } // When returning StaticHandlerContext, we patch back in the location here
@@ -6015,78 +6909,88 @@ function unstable_createStaticHandler(routes) {
       location
     }, result);
   }
+  /**
+   * The queryRoute() method is intended for targeted route requests, either
+   * for fetch ?_data requests or resource route requests.  In this case, we
+   * are only ever calling a single action or loader, and we are returning the
+   * returned value directly.  In most cases, this will be a Response returned
+   * from the action/loader, but it may be a primitive or other value as well -
+   * and in such cases the calling context should handle that accordingly.
+   *
+   * We do respect the throw/return differentiation, so if an action/loader
+   * throws, then this method will throw the value.  This is important so we
+   * can do proper boundary identification in Remix where a thrown Response
+   * must go to the Catch Boundary but a returned Response is happy-path.
+   *
+   * One thing to note is that any Router-initiated thrown Response (such as a
+   * 404 or 405) will have a custom X-Remix-Router-Error: "yes" header on it
+   * in order to differentiate from responses thrown from user actions/loaders.
+   */
+
   async function queryRoute(request, routeId) {
-    let {
-      result
-    } = await queryImpl(request, routeId);
+    let url = new URL(request.url);
+    let location = createLocation("", createPath(url), null, "default");
+    let matches = matchRoutes(dataRoutes, location);
+    if (!validRequestMethods.has(request.method)) {
+      throw createRouterErrorResponse(null, {
+        status: 405,
+        statusText: "Method Not Allowed"
+      });
+    } else if (!matches) {
+      throw createRouterErrorResponse(null, {
+        status: 404,
+        statusText: "Not Found"
+      });
+    }
+    let match = routeId ? matches.find(m => m.route.id === routeId) : getTargetMatch(matches, location);
+    if (!match) {
+      throw createRouterErrorResponse(null, {
+        status: 404,
+        statusText: "Not Found"
+      });
+    }
+    let result = await queryImpl(request, location, matches, match);
     if (result instanceof Response) {
       return result;
     }
     let error = result.errors ? Object.values(result.errors)[0] : undefined;
     if (error !== undefined) {
-      // While we always re-throw Responses returned from loaders/actions
-      // directly for route requests and prevent the unwrapping into an
-      // ErrorResponse, we still need this for error cases _prior_ the
-      // execution of the loader/action, such as a 404/405 error.
-      if (isRouteErrorResponse(error)) {
-        return new Response(error.data, {
-          status: error.status,
-          statusText: error.statusText
-        });
-      } // If we got back result.errors, that means the loader/action threw
+      // If we got back result.errors, that means the loader/action threw
       // _something_ that wasn't a Response, but it's not guaranteed/required
       // to be an `instanceof Error` either, so we have to use throw here to
       // preserve the "error" state outside of queryImpl.
-
       throw error;
     } // Pick off the right state value to return
 
     let routeData = [result.actionData, result.loaderData].find(v => v);
-    let value = Object.values(routeData || {})[0];
-    if (isRouteErrorResponse(value)) {
-      return new Response(value.data, {
-        status: value.status,
-        statusText: value.statusText
-      });
-    }
-    return value;
+    return Object.values(routeData || {})[0];
   }
-  async function queryImpl(request, routeId) {
-    invariant(request.method !== "HEAD", "query()/queryRoute() do not support HEAD requests");
+  async function queryImpl(request, location, matches, routeMatch) {
     invariant(request.signal, "query()/queryRoute() requests must contain an AbortController signal");
-    let {
-      location,
-      matches,
-      shortCircuitState
-    } = matchRequest(request, routeId);
     try {
-      if (shortCircuitState) {
-        return {
-          location,
-          result: shortCircuitState
-        };
+      if (validActionMethods.has(request.method)) {
+        let result = await submit(request, matches, routeMatch || getTargetMatch(matches, location), routeMatch != null);
+        return result;
       }
-      if (request.method !== "GET") {
-        let result = await submit(request, matches, getTargetMatch(matches, location), routeId != null);
-        return {
-          location,
-          result
-        };
-      }
-      let result = await loadRouteData(request, matches, routeId != null);
-      return {
-        location,
-        result: _extends({}, result, {
-          actionData: null,
-          actionHeaders: {}
-        })
-      };
+      let result = await loadRouteData(request, matches, routeMatch);
+      return result instanceof Response ? result : _extends({}, result, {
+        actionData: null,
+        actionHeaders: {}
+      });
     } catch (e) {
-      if (e instanceof Response) {
-        return {
-          location,
-          result: e
-        };
+      // If the user threw/returned a Response in callLoaderOrAction, we throw
+      // it to bail out and then return or throw here based on whether the user
+      // returned or threw
+      if (isQueryRouteResponse(e)) {
+        if (e.type === ResultType.error && !isRedirectResponse(e.response)) {
+          throw e.response;
+        }
+        return e.response;
+      } // Redirects are always returned since they don't propagate to catch
+      // boundaries
+
+      if (isRedirectResponse(e)) {
+        return e;
       }
       throw e;
     }
@@ -6094,10 +6998,17 @@ function unstable_createStaticHandler(routes) {
   async function submit(request, matches, actionMatch, isRouteRequest) {
     let result;
     if (!actionMatch.route.action) {
-      let href = createHref(new URL(request.url));
-      result = getMethodNotAllowedResult(href);
+      if (isRouteRequest) {
+        throw createRouterErrorResponse(null, {
+          status: 405,
+          statusText: "Method Not Allowed"
+        });
+      }
+      result = getMethodNotAllowedResult(request.url);
     } else {
-      result = await callLoaderOrAction("action", request, actionMatch, true, isRouteRequest);
+      result = await callLoaderOrAction("action", request, actionMatch, matches, undefined,
+      // Basename not currently supported in static handlers
+      true, isRouteRequest);
       if (request.signal.aborted) {
         let method = isRouteRequest ? "queryRoute" : "query";
         throw new Error(method + "() call aborted");
@@ -6105,7 +7016,7 @@ function unstable_createStaticHandler(routes) {
     }
     if (isRedirectResult(result)) {
       // Uhhhh - this should never happen, we should always throw these from
-      // calLoaderOrAction, but the type narrowing here keeps TS happy and we
+      // callLoaderOrAction, but the type narrowing here keeps TS happy and we
       // can get back on the "throw all redirect responses" train here should
       // this ever happen :/
       throw new Response(null, {
@@ -6119,6 +7030,8 @@ function unstable_createStaticHandler(routes) {
       throw new Error("defer() is not supported in actions");
     }
     if (isRouteRequest) {
+      // Note: This should only be non-Response values if we get here, since
+      // isRouteRequest should throw any Response received in callLoaderOrAction
       if (isErrorResult(result)) {
         let boundaryMatch = findNearestBoundary(matches, actionMatch.route.id);
         return {
@@ -6153,7 +7066,7 @@ function unstable_createStaticHandler(routes) {
       // Store off the pending error - we use it to determine which loaders
       // to call and will commit it when we complete the navigation
       let boundaryMatch = findNearestBoundary(matches, actionMatch.route.id);
-      let context = await loadRouteData(request, matches, isRouteRequest, {
+      let context = await loadRouteData(request, matches, undefined, {
         [boundaryMatch.route.id]: result.error
       }); // action status codes take precedence over loader status codes
 
@@ -6165,7 +7078,7 @@ function unstable_createStaticHandler(routes) {
         } : {})
       });
     }
-    let context = await loadRouteData(request, matches, isRouteRequest);
+    let context = await loadRouteData(request, matches);
     return _extends({}, context, result.statusCode ? {
       statusCode: result.statusCode
     } : {}, {
@@ -6177,8 +7090,10 @@ function unstable_createStaticHandler(routes) {
       } : {})
     });
   }
-  async function loadRouteData(request, matches, isRouteRequest, pendingActionError) {
-    let matchesToLoad = getLoaderMatchesUntilBoundary(matches, Object.keys(pendingActionError || {})[0]).filter(m => m.route.loader); // Short circuit if we have no loaders to run
+  async function loadRouteData(request, matches, routeMatch, pendingActionError) {
+    let isRouteRequest = routeMatch != null;
+    let requestMatches = routeMatch ? [routeMatch] : getLoaderMatchesUntilBoundary(matches, Object.keys(pendingActionError || {})[0]);
+    let matchesToLoad = requestMatches.filter(m => m.route.loader); // Short circuit if we have no loaders to run
 
     if (matchesToLoad.length === 0) {
       return {
@@ -6189,7 +7104,9 @@ function unstable_createStaticHandler(routes) {
         loaderHeaders: {}
       };
     }
-    let results = await Promise.all([...matchesToLoad.map(m => callLoaderOrAction("loader", request, m, true, isRouteRequest))]);
+    let results = await Promise.all([...matchesToLoad.map(match => callLoaderOrAction("loader", request, match, matches, undefined,
+    // Basename not currently supported in static handlers
+    true, isRouteRequest))]);
     if (request.signal.aborted) {
       let method = isRouteRequest ? "queryRoute" : "query";
       throw new Error(method + "() call aborted");
@@ -6207,40 +7124,12 @@ function unstable_createStaticHandler(routes) {
       matches
     });
   }
-  function matchRequest(req, routeId) {
-    let url = new URL(req.url);
-    let location = createLocation("", createPath(url), null, "default");
-    let matches = matchRoutes(dataRoutes, location);
-    if (matches && routeId) {
-      matches = matches.filter(m => m.route.id === routeId);
-    } // Short circuit with a 404 if we match nothing
-
-    if (!matches) {
-      let {
-        matches: notFoundMatches,
-        route,
-        error
-      } = getNotFoundMatches(dataRoutes);
-      return {
-        location,
-        matches: notFoundMatches,
-        shortCircuitState: {
-          matches: notFoundMatches,
-          loaderData: {},
-          actionData: null,
-          errors: {
-            [route.id]: error
-          },
-          statusCode: 404,
-          loaderHeaders: {},
-          actionHeaders: {}
-        }
-      };
-    }
-    return {
-      location,
-      matches
-    };
+  function createRouterErrorResponse(body, init) {
+    return new Response(body, _extends({}, init, {
+      headers: _extends({}, init.headers, {
+        "X-Remix-Router-Error": "yes"
+      })
+    }));
   }
   return {
     dataRoutes,
@@ -6285,7 +7174,7 @@ function normalizeNavigateOptions(to, opts, isFetcher) {
       path,
       submission: {
         formMethod: opts.formMethod,
-        formAction: createHref(parsePath(path)),
+        formAction: stripHashFromPath(path),
         formEncType: opts && opts.formEncType || "application/x-www-form-urlencoded",
         formData: opts.formData
       }
@@ -6358,15 +7247,15 @@ function getMatchesToLoad(state, matches, submission, location, isRevalidationRe
 
   let revalidatingFetchers = [];
   fetchLoadMatches && fetchLoadMatches.forEach((_ref10, key) => {
-    let [href, match] = _ref10;
+    let [href, match, fetchMatches] = _ref10;
 
     // This fetcher was cancelled from a prior action submission - force reload
     if (cancelledFetcherLoads.includes(key)) {
-      revalidatingFetchers.push([key, href, match]);
+      revalidatingFetchers.push([key, href, match, fetchMatches]);
     } else if (isRevalidationRequired) {
       let shouldRevalidate = shouldRevalidateLoader(href, match, submission, href, match, isRevalidationRequired, actionResult);
       if (shouldRevalidate) {
-        revalidatingFetchers.push([key, href, match]);
+        revalidatingFetchers.push([key, href, match, fetchMatches]);
       }
     }
   });
@@ -6428,9 +7317,9 @@ function shouldRevalidateLoader(currentLocation, currentMatch, submission, locat
   }
   return defaultShouldRevalidate;
 }
-async function callLoaderOrAction(type, request, match, skipRedirects, isRouteRequest) {
-  if (skipRedirects === void 0) {
-    skipRedirects = false;
+async function callLoaderOrAction(type, request, match, matches, basename, isStaticRequest, isRouteRequest) {
+  if (isStaticRequest === void 0) {
+    isStaticRequest = false;
   }
   if (isRouteRequest === void 0) {
     isRouteRequest = false;
@@ -6456,19 +7345,29 @@ async function callLoaderOrAction(type, request, match, skipRedirects, isRouteRe
     request.signal.removeEventListener("abort", onReject);
   }
   if (result instanceof Response) {
-    // Process redirects
-    let status = result.status;
-    let location = result.headers.get("Location"); // For SSR single-route requests, we want to hand Responses back directly
-    // without unwrapping
+    let status = result.status; // Process redirects
 
-    if (isRouteRequest) {
-      throw result;
-    }
-    if (status >= 300 && status <= 399 && location != null) {
-      // Don't process redirects in the router during SSR document requests.
+    if (status >= 300 && status <= 399) {
+      let location = result.headers.get("Location");
+      invariant(location, "Redirects returned/thrown from loaders/actions must have a Location header"); // Support relative routing in redirects
+
+      let activeMatches = matches.slice(0, matches.indexOf(match) + 1);
+      let routePathnames = getPathContributingMatches(activeMatches).map(match => match.pathnameBase);
+      let requestPath = createURL(request.url).pathname;
+      let resolvedLocation = resolveTo(location, routePathnames, requestPath);
+      invariant(createPath(resolvedLocation), "Unable to resolve redirect location: " + result.headers.get("Location")); // Prepend the basename to the redirect location if we have one
+
+      if (basename) {
+        let path = resolvedLocation.pathname;
+        resolvedLocation.pathname = path === "/" ? basename : joinPaths([basename, path]);
+      }
+      location = createPath(resolvedLocation); // Don't process redirects in the router during static requests requests.
       // Instead, throw the Response and let the server handle it with an HTTP
-      // redirect
-      if (skipRedirects) {
+      // redirect.  We also update the Location header in place in this flow so
+      // basename and relative routing is taken into account
+
+      if (isStaticRequest) {
+        result.headers.set("Location", location);
         throw result;
       }
       return {
@@ -6476,6 +7375,16 @@ async function callLoaderOrAction(type, request, match, skipRedirects, isRouteRe
         status,
         location,
         revalidate: result.headers.get("X-Remix-Revalidate") !== null
+      };
+    } // For SSR single-route requests, we want to hand Responses back directly
+    // without unwrapping.  We do this with the QueryRouteResponse wrapper
+    // interface so we can know whether it was returned or thrown
+
+    if (isRouteRequest) {
+      // eslint-disable-next-line no-throw-literal
+      throw {
+        type: resultType || ResultType.data,
+        response: result
       };
     }
     let data;
@@ -6517,7 +7426,7 @@ async function callLoaderOrAction(type, request, match, skipRedirects, isRouteRe
   };
 }
 function createRequest(location, signal, submission) {
-  let url = createURL(location).toString();
+  let url = createURL(stripHashFromPath(location)).toString();
   let init = {
     signal
   };
@@ -6664,10 +7573,10 @@ function findNearestBoundary(matches, routeId) {
   let eligibleMatches = routeId ? matches.slice(0, matches.findIndex(m => m.route.id === routeId) + 1) : [...matches];
   return eligibleMatches.reverse().find(m => m.route.hasErrorBoundary === true) || matches[0];
 }
-function getNotFoundMatches(routes) {
+function getShortCircuitMatches(routes, status, statusText) {
   // Prefer a root layout route if present, otherwise shim in a route object
-  let route = routes.find(r => r.index || r.path === "" || r.path === "/") || {
-    id: "__shim-404-route__"
+  let route = routes.find(r => r.index || !r.path || r.path === "/") || {
+    id: "__shim-" + status + "-route__"
   };
   return {
     matches: [{
@@ -6677,15 +7586,21 @@ function getNotFoundMatches(routes) {
       route
     }],
     route,
-    error: new ErrorResponse(404, "Not Found", null)
+    error: new ErrorResponse(status, statusText, null)
   };
 }
+function getNotFoundMatches(routes) {
+  return getShortCircuitMatches(routes, 404, "Not Found");
+}
+function getMethodNotAllowedMatches(routes) {
+  return getShortCircuitMatches(routes, 405, "Method Not Allowed");
+}
 function getMethodNotAllowedResult(path) {
-  let href = typeof path === "string" ? path : createHref(path);
+  let href = typeof path === "string" ? path : createPath(path);
   console.warn("You're trying to submit to a route that does not have an action.  To " + "fix this, please add an `action` function to the route for " + ("[" + href + "]"));
   return {
     type: ResultType.error,
-    error: new ErrorResponse(405, "Method Not Allowed", "No action found for [" + href + "]")
+    error: new ErrorResponse(405, "Method Not Allowed", "")
   };
 } // Find any returned redirect errors, starting from the lowest match
 
@@ -6696,10 +7611,12 @@ function findRedirect(results) {
       return result;
     }
   }
-} // Create an href to represent a "server" URL without the hash
-
-function createHref(location) {
-  return (location.pathname || "") + (location.search || "");
+}
+function stripHashFromPath(path) {
+  let parsedPath = typeof path === "string" ? parsePath(path) : path;
+  return createPath(_extends({}, parsedPath, {
+    hash: ""
+  }));
 }
 function isHashChangeOnly(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash !== b.hash;
@@ -6712,6 +7629,17 @@ function isErrorResult(result) {
 }
 function isRedirectResult(result) {
   return (result && result.type) === ResultType.redirect;
+}
+function isRedirectResponse(result) {
+  if (!(result instanceof Response)) {
+    return false;
+  }
+  let status = result.status;
+  let location = result.headers.get("Location");
+  return status >= 300 && status <= 399 && location != null;
+}
+function isQueryRouteResponse(obj) {
+  return obj && obj.response instanceof Response && (obj.type === ResultType.data || ResultType.error);
 }
 async function resolveDeferredResults(currentMatches, matchesToLoad, results, signal, isFetcher, currentLoaderData) {
   for (let index = 0; index < results.length; index++) {
@@ -6779,15 +7707,14 @@ function createUseMatchesMatch(match, loaderData) {
 }
 function getTargetMatch(matches, location) {
   let search = typeof location === "string" ? parsePath(location).search : location.search;
-  if (matches[matches.length - 1].route.index && !hasNakedIndexQuery(search || "")) {
-    return matches.slice(-2)[0];
-  }
-  return matches.slice(-1)[0];
-}
-function createURL(location) {
-  let base = typeof window !== "undefined" && typeof window.location !== "undefined" ? window.location.origin : "unknown://unknown";
-  let href = typeof location === "string" ? location : createHref(location);
-  return new URL(href, base);
+  if (matches[matches.length - 1].route.index && hasNakedIndexQuery(search || "")) {
+    // Return the leaf index route when index is present
+    return matches[matches.length - 1];
+  } // Otherwise grab the deepest "path contributing" match (ignoring index and
+  // pathless layout routes)
+
+  let pathMatches = getPathContributingMatches(matches);
+  return pathMatches[pathMatches.length - 1];
 } //#endregion
 
 
@@ -20405,7 +21332,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @remix-run/router */ "./node_modules/@remix-run/router/dist/router.js");
 /**
- * React Router DOM v6.4.2
+ * React Router DOM v6.4.3
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -20753,22 +21680,21 @@ const NavLink = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(funct
       children
     } = _ref5,
     rest = _objectWithoutPropertiesLoose(_ref5, _excluded2);
-  let path = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useResolvedPath)(to);
-  let match = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useMatch)({
-    path: path.pathname,
-    end,
-    caseSensitive
+  let path = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useResolvedPath)(to, {
+    relative: rest.relative
   });
+  let location = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
   let routerState = react__WEBPACK_IMPORTED_MODULE_0__.useContext(react_router__WEBPACK_IMPORTED_MODULE_2__.UNSAFE_DataRouterStateContext);
-  let nextLocation = routerState == null ? void 0 : routerState.navigation.location;
-  let nextPath = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useResolvedPath)(nextLocation || "");
-  let nextMatch = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(() => nextLocation ? (0,react_router__WEBPACK_IMPORTED_MODULE_1__.matchPath)({
-    path: path.pathname,
-    end,
-    caseSensitive
-  }, nextPath.pathname) : null, [nextLocation, path.pathname, caseSensitive, end, nextPath.pathname]);
-  let isPending = nextMatch != null;
-  let isActive = match != null;
+  let toPathname = path.pathname;
+  let locationPathname = location.pathname;
+  let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
+  if (!caseSensitive) {
+    locationPathname = locationPathname.toLowerCase();
+    nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
+    toPathname = toPathname.toLowerCase();
+  }
+  let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/";
+  let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
   let ariaCurrent = isActive ? ariaCurrentProp : undefined;
   let className;
   if (typeof classNameProp === "function") {
@@ -21286,7 +22212,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /**
- * React Router v6.4.2
+ * React Router v6.4.3
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -21620,36 +22546,11 @@ function useMatch(pattern) {
  */
 
 /**
- * When processing relative navigation we want to ignore ancestor routes that
- * do not contribute to the path, such that index/pathless layout routes don't
- * interfere.
- *
- * For example, when moving a route element into an index route and/or a
- * pathless layout route, relative link behavior contained within should stay
- * the same.  Both of the following examples should link back to the root:
- *
- *   <Route path="/">
- *     <Route path="accounts" element={<Link to=".."}>
- *   </Route>
- *
- *   <Route path="/">
- *     <Route path="accounts">
- *       <Route element={<AccountsLayout />}>       // <-- Does not contribute
- *         <Route index element={<Link to=".."} />  // <-- Does not contribute
- *       </Route
- *     </Route>
- *   </Route>
- */
-function getPathContributingMatches(matches) {
-  return matches.filter((match, index) => index === 0 || !match.route.index && match.pathnameBase !== matches[index - 1].pathnameBase);
-}
-/**
  * Returns an imperative method for changing the location. Used by <Link>s, but
  * may also be used by other elements to change the location.
  *
  * @see https://reactrouter.com/docs/en/v6/hooks/use-navigate
  */
-
 function useNavigate() {
   !useInRouterContext() ?  true ? (0,_remix_run_router__WEBPACK_IMPORTED_MODULE_0__.invariant)(false,
   // TODO: This error is probably because they somehow have 2 versions of the
@@ -21665,7 +22566,7 @@ function useNavigate() {
   let {
     pathname: locationPathname
   } = useLocation();
-  let routePathnamesJson = JSON.stringify(getPathContributingMatches(matches).map(match => match.pathnameBase));
+  let routePathnamesJson = JSON.stringify((0,_remix_run_router__WEBPACK_IMPORTED_MODULE_0__.UNSAFE_getPathContributingMatches)(matches).map(match => match.pathnameBase));
   let activeRef = react__WEBPACK_IMPORTED_MODULE_1__.useRef(false);
   react__WEBPACK_IMPORTED_MODULE_1__.useEffect(() => {
     activeRef.current = true;
@@ -21748,7 +22649,7 @@ function useResolvedPath(to, _temp2) {
   let {
     pathname: locationPathname
   } = useLocation();
-  let routePathnamesJson = JSON.stringify(getPathContributingMatches(matches).map(match => match.pathnameBase));
+  let routePathnamesJson = JSON.stringify((0,_remix_run_router__WEBPACK_IMPORTED_MODULE_0__.UNSAFE_getPathContributingMatches)(matches).map(match => match.pathnameBase));
   return react__WEBPACK_IMPORTED_MODULE_1__.useMemo(() => (0,_remix_run_router__WEBPACK_IMPORTED_MODULE_0__.resolveTo)(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
 }
 /**
@@ -21825,7 +22726,7 @@ function useRoutes(routes, locationArg) {
   // be wrapped in a new `LocationContext.Provider` in order for `useLocation`
   // to use the scoped location instead of the global location.
 
-  if (locationArg) {
+  if (locationArg && renderedMatches) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(LocationContext.Provider, {
       value: {
         location: _extends({
@@ -26953,3090 +27854,6 @@ function _unsupportedIterableToArray(o, minLen) {
 
 /***/ }),
 
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/actions/background/actions/BackgroundColor.js":
-/*!***********************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/actions/background/actions/BackgroundColor.js ***!
-  \***********************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BackgroundColor": () => (/* binding */ BackgroundColor)
-/* harmony export */ });
-/* harmony import */ var _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../internal/Action.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js");
-/* harmony import */ var _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../internal/qualifier/QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
-/* harmony import */ var _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../internal/qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
-
-
-
-/**
- * @extends SDK.Action
- * @description A class for background transformations.
- */
-class BackgroundColor extends _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__.Action {
-  constructor(color) {
-    super();
-    this.addQualifier(new _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_1__.Qualifier('b', new _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_2__.QualifierValue(color).setDelimiter('_')));
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryAction.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryAction.js ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DeliveryAction": () => (/* binding */ DeliveryAction)
-/* harmony export */ });
-/* harmony import */ var _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../internal/Action.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js");
-/* harmony import */ var _qualifiers_format_FormatQualifier_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../qualifiers/format/FormatQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/format/FormatQualifier.js");
-/* harmony import */ var _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../internal/qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
-/* harmony import */ var _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../internal/internalConstants.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/internalConstants.js");
-
-
-
-
-/**
- * @description Qualifies the delivery of an asset.
- * @memberOf Actions.Delivery
- * @extends SDK.Action
- */
-class DeliveryAction extends _internal_Action_js__WEBPACK_IMPORTED_MODULE_0__.Action {
-  /**
-   * @param {string} deliveryKey A generic Delivery Action Key (such as q, f, dn, etc.)
-   * @param {string} deliveryType A Format Qualifiers for the action, such as Quality.auto()
-   * @param {string} modelProperty internal model property of the action, for example quality uses `level` while dpr uses `density`
-   * @see Visit {@link Actions.Delivery|Delivery} for an example
-   */
-  constructor(deliveryKey, deliveryType, modelProperty) {
-    super();
-    this._actionModel = {};
-    let deliveryTypeValue;
-    if (deliveryType instanceof _qualifiers_format_FormatQualifier_js__WEBPACK_IMPORTED_MODULE_1__.FormatQualifier) {
-      deliveryTypeValue = deliveryType.getValue();
-    } else {
-      deliveryTypeValue = deliveryType;
-    }
-    this._actionModel.actionType = _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_2__.DELIVERY_MODE_TO_ACTION_TYPE_MAP[deliveryKey];
-    this._actionModel[modelProperty] = deliveryTypeValue;
-    this.addQualifier(new _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__.Qualifier(deliveryKey, deliveryType));
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js ***!
-  \******************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DeliveryFormatAction": () => (/* binding */ DeliveryFormatAction)
-/* harmony export */ });
-/* harmony import */ var _qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../qualifiers/flag.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag.js");
-/* harmony import */ var _DeliveryAction_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeliveryAction.js */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryAction.js");
-/* harmony import */ var _qualifiers_progressive_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../qualifiers/progressive.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/progressive.js");
-
-
-
-/**
- * @memberOf Actions.Delivery
- * @extends {Actions.Delivery.DeliveryAction}
- * @see Visit {@link Actions.Delivery|Delivery} for an example
- */
-class DeliveryFormatAction extends _DeliveryAction_js__WEBPACK_IMPORTED_MODULE_0__.DeliveryAction {
-  constructor(deliveryKey, deliveryType) {
-    super(deliveryKey, deliveryType, 'formatType');
-  }
-  /**
-   * @description Uses lossy compression when delivering animated GIF files.
-   * @return {this}
-   */
-  lossy() {
-    this._actionModel.lossy = true;
-    this.addFlag((0,_qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__.lossy)());
-    return this;
-  }
-  /**
-   * @description Uses progressive compression when delivering JPG file format.
-   * @return {this}
-   */
-  progressive(mode) {
-    if (mode instanceof _qualifiers_progressive_js__WEBPACK_IMPORTED_MODULE_2__.ProgressiveQualifier) {
-      this._actionModel.progressive = {
-        mode: mode.getFlagValue()
-      };
-      this.addFlag(mode);
-    } else {
-      this._actionModel.progressive = {
-        mode: mode
-      };
-      this.addFlag((0,_qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__.progressive)(mode));
-    }
-    return this;
-  }
-  /**
-   * @description Ensures that images with a transparency channel are delivered in PNG format.
-   */
-  preserveTransparency() {
-    this._actionModel.preserveTransparency = true;
-    this.addFlag((0,_qualifiers_flag_js__WEBPACK_IMPORTED_MODULE_1__.preserveTransparency)());
-    return this;
-  }
-  static fromJson(actionModel) {
-    const {
-      formatType,
-      lossy,
-      progressive,
-      preserveTransparency
-    } = actionModel;
-    let result;
-    if (formatType) {
-      result = new this('f', formatType);
-    } else {
-      result = new this('f');
-    }
-    if (progressive) {
-      if (progressive.mode) {
-        result.progressive(progressive.mode);
-      } else {
-        result.progressive();
-      }
-    }
-    lossy && result.lossy();
-    preserveTransparency && result.preserveTransparency();
-    return result;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js ***!
-  \********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Action": () => (/* binding */ Action)
-/* harmony export */ });
-/* harmony import */ var _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../qualifiers/flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
-/* harmony import */ var _qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
-/* harmony import */ var _utils_dataStructureUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/dataStructureUtils.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/dataStructureUtils.js");
-/* harmony import */ var _models_ActionModel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/ActionModel.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/ActionModel.js");
-
-
-
-
-/**
- * @summary SDK
- * @memberOf SDK
- * @description Defines the category of transformation to perform.
- */
-class Action extends _models_ActionModel_js__WEBPACK_IMPORTED_MODULE_0__.ActionModel {
-  constructor() {
-    super(...arguments);
-    // We're using map, to overwrite existing keys. for example:
-    // addParam(w_100).addQualifier(w_200) should result in w_200. and not w_100,w_200
-    this.qualifiers = new Map();
-    // Unlike regular qualifiers, there can be multiple flags in each url component /fl_1,fl_2/
-    // If the falgs are added to the qualifiers map, only a single flag could exist in a component (it's a map)
-    // So flags are stored separately until the very end because of that reason
-    this.flags = [];
-    this.delimiter = ','; // {qualifier}{delimiter}{qualifier} for example: `${'w_100'}${','}${'c_fill'}`
-    this.actionTag = ''; // A custom name tag to identify this action in the future
-  }
-
-  prepareQualifiers() {}
-  /**
-   * @description Returns the custom name tag that was given to this action
-   * @return {string}
-   */
-  getActionTag() {
-    return this.actionTag;
-  }
-  /**
-   * @description Sets the custom name tag for this action
-   * @return {this}
-   */
-  setActionTag(tag) {
-    this.actionTag = tag;
-    return this;
-  }
-  /**
-   * @description Calls toString() on all child qualifiers (implicitly by using .join()).
-   * @return {string}
-   */
-  toString() {
-    this.prepareQualifiers();
-    return (0,_utils_dataStructureUtils_js__WEBPACK_IMPORTED_MODULE_1__.mapToSortedArray)(this.qualifiers, this.flags).join(this.delimiter);
-  }
-  /**
-   * @description Adds the parameter to the action.
-   * @param {SDK.Qualifier} qualifier
-   * @return {this}
-   */
-  addQualifier(qualifier) {
-    // if string, find the key and value
-    if (typeof qualifier === 'string') {
-      const [key, value] = qualifier.toLowerCase().split('_');
-      if (key === 'fl') {
-        // if string qualifier is a flag, store it in the flags arrays
-        this.flags.push(new _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__.FlagQualifier(value));
-      } else {
-        // if the string qualifier is not a flag, create a new qualifier from it
-        this.qualifiers.set(key, new _qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_3__.Qualifier(key, value));
-      }
-    } else {
-      // if a qualifier object, insert to the qualifiers map
-      this.qualifiers.set(qualifier.key, qualifier);
-    }
-    return this;
-  }
-  /**
-   * @description Adds a flag to the current action.
-   * @param {Qualifiers.Flag} flag
-   * @return {this}
-   */
-  addFlag(flag) {
-    if (typeof flag === 'string') {
-      this.flags.push(new _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__.FlagQualifier(flag));
-    } else {
-      if (flag instanceof _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_2__.FlagQualifier) {
-        this.flags.push(flag);
-      }
-    }
-    return this;
-  }
-  addValueToQualifier(qualifierKey, qualifierValue) {
-    this.qualifiers.get(qualifierKey).addValue(qualifierValue);
-    return this;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/RawAction.js":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/RawAction.js ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "RawAction": () => (/* binding */ RawAction)
-/* harmony export */ });
-/* harmony import */ var _utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/unsupportedError.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js");
-
-/**
- * @summary SDK
- * @memberOf SDK
- * @description Defines an action that's a string literal, no validations or manipulations are performed
- */
-class RawAction {
-  constructor(raw) {
-    this.raw = raw;
-  }
-  toString() {
-    return this.raw;
-  }
-  toJson() {
-    return {
-      error: (0,_utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__.createUnsupportedError)(`unsupported action ${this.constructor.name}`)
-    };
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/internalConstants.js":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/internalConstants.js ***!
-  \*******************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ACTION_TYPE_TO_BLEND_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_BLEND_MODE_MAP),
-/* harmony export */   "ACTION_TYPE_TO_CROP_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_CROP_MODE_MAP),
-/* harmony export */   "ACTION_TYPE_TO_DELIVERY_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_DELIVERY_MODE_MAP),
-/* harmony export */   "ACTION_TYPE_TO_EFFECT_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_EFFECT_MODE_MAP),
-/* harmony export */   "ACTION_TYPE_TO_QUALITY_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_QUALITY_MODE_MAP),
-/* harmony export */   "ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP": () => (/* binding */ ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP),
-/* harmony export */   "CHROMA_MODEL_ENUM_TO_CHROMA_VALUE": () => (/* binding */ CHROMA_MODEL_ENUM_TO_CHROMA_VALUE),
-/* harmony export */   "CHROMA_VALUE_TO_CHROMA_MODEL_ENUM": () => (/* binding */ CHROMA_VALUE_TO_CHROMA_MODEL_ENUM),
-/* harmony export */   "COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP": () => (/* binding */ COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP),
-/* harmony export */   "COLOR_SPACE_MODE_TO_COLOR_SPACE_MODEL_MODE_MAP": () => (/* binding */ COLOR_SPACE_MODE_TO_COLOR_SPACE_MODEL_MODE_MAP),
-/* harmony export */   "CONDITIONAL_OPERATORS": () => (/* binding */ CONDITIONAL_OPERATORS),
-/* harmony export */   "CROP_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ CROP_MODE_TO_ACTION_TYPE_MAP),
-/* harmony export */   "DELIVERY_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ DELIVERY_MODE_TO_ACTION_TYPE_MAP),
-/* harmony export */   "EFFECT_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ EFFECT_MODE_TO_ACTION_TYPE_MAP),
-/* harmony export */   "QUALITY_MODE_TO_ACTION_TYPE_MAP": () => (/* binding */ QUALITY_MODE_TO_ACTION_TYPE_MAP),
-/* harmony export */   "RESERVED_NAMES": () => (/* binding */ RESERVED_NAMES),
-/* harmony export */   "STREAMING_PROFILE_TO_ACTION_TYPE_MAP": () => (/* binding */ STREAMING_PROFILE_TO_ACTION_TYPE_MAP)
-/* harmony export */ });
-/* harmony import */ var _utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/objectFlip.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/objectFlip.js");
-/**
- * This file is for internal constants only.
- * It is not intended for public use and is not part of the public API
- */
-
-const CONDITIONAL_OPERATORS = {
-  "=": "eq",
-  "!=": "ne",
-  "<": "lt",
-  ">": "gt",
-  "<=": "lte",
-  ">=": "gte",
-  "&&": "and",
-  "||": "or",
-  "*": "mul",
-  "/": "div",
-  "+": "add",
-  "-": "sub",
-  "^": "pow"
-};
-const RESERVED_NAMES = {
-  "aspect_ratio": "ar",
-  "aspectRatio": "ar",
-  "current_page": "cp",
-  "currentPage": "cp",
-  "duration": "du",
-  "face_count": "fc",
-  "faceCount": "fc",
-  "height": "h",
-  "initial_aspect_ratio": "iar",
-  "initial_height": "ih",
-  "initial_width": "iw",
-  "initialAspectRatio": "iar",
-  "initialHeight": "ih",
-  "initialWidth": "iw",
-  "initial_duration": "idu",
-  "initialDuration": "idu",
-  "page_count": "pc",
-  "page_x": "px",
-  "page_y": "py",
-  "pageCount": "pc",
-  "pageX": "px",
-  "pageY": "py",
-  "tags": "tags",
-  "width": "w",
-  "trimmed_aspect_ratio": "tar",
-  "current_public_id": "cpi",
-  "initial_density": "idn",
-  "page_names": "pgnames"
-};
-const ACTION_TYPE_TO_CROP_MODE_MAP = {
-  limitFit: 'limit',
-  limitFill: 'lfill',
-  minimumFit: 'mfit',
-  thumbnail: 'thumb',
-  limitPad: 'lpad',
-  minimumPad: 'mpad'
-};
-const ACTION_TYPE_TO_DELIVERY_MODE_MAP = {
-  colorSpace: 'cs',
-  dpr: 'dpr',
-  density: 'dn',
-  defaultImage: 'd',
-  format: 'f',
-  quality: 'q'
-};
-const ACTION_TYPE_TO_EFFECT_MODE_MAP = {
-  redEye: 'redeye',
-  advancedRedEye: 'adv_redeye',
-  oilPaint: 'oil_paint',
-  unsharpMask: 'unsharp_mask',
-  makeTransparent: 'make_transparent'
-};
-const ACTION_TYPE_TO_QUALITY_MODE_MAP = {
-  autoBest: 'auto:best',
-  autoEco: 'auto:eco',
-  autoGood: 'auto:good',
-  autoLow: 'auto:low',
-  jpegminiHigh: 'jpegmini:1',
-  jpegminiMedium: 'jpegmini:2',
-  jpegminiBest: 'jpegmini:0'
-};
-const ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP = {
-  fullHd: 'full_hd',
-  fullHdWifi: 'full_hd_wifi',
-  fullHdLean: 'full_hd_lean',
-  hdLean: 'hd_lean'
-};
-const CHROMA_VALUE_TO_CHROMA_MODEL_ENUM = {
-  444: "CHROMA_444",
-  420: "CHROMA_420"
-};
-const COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP = {
-  'noCmyk': 'no_cmyk',
-  'keepCmyk': 'keep_cmyk',
-  'tinySrgb': 'tinysrgb',
-  'srgbTrueColor': 'srgb:truecolor'
-};
-const ACTION_TYPE_TO_BLEND_MODE_MAP = {
-  'antiRemoval': 'anti_removal'
-};
-const CHROMA_MODEL_ENUM_TO_CHROMA_VALUE = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(CHROMA_VALUE_TO_CHROMA_MODEL_ENUM);
-const COLOR_SPACE_MODE_TO_COLOR_SPACE_MODEL_MODE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(COLOR_SPACE_MODEL_MODE_TO_COLOR_SPACE_MODE_MAP);
-const CROP_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_CROP_MODE_MAP);
-const DELIVERY_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_DELIVERY_MODE_MAP);
-const EFFECT_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_EFFECT_MODE_MAP);
-const QUALITY_MODE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_QUALITY_MODE_MAP);
-const STREAMING_PROFILE_TO_ACTION_TYPE_MAP = (0,_utils_objectFlip_js__WEBPACK_IMPORTED_MODULE_0__.objectFlip)(ACTION_TYPE_TO_STREAMING_PROFILE_MODE_MAP);
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/ActionModel.js":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/ActionModel.js ***!
-  \********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ActionModel": () => (/* binding */ ActionModel)
-/* harmony export */ });
-/* harmony import */ var _actionToJson_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionToJson.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/actionToJson.js");
-
-class ActionModel {
-  constructor() {
-    this._actionModel = {};
-  }
-  toJson() {
-    return _actionToJson_js__WEBPACK_IMPORTED_MODULE_0__.actionToJson.apply(this);
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/IErrorObject.js":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/IErrorObject.js ***!
-  \*********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isErrorObject": () => (/* binding */ isErrorObject)
-/* harmony export */ });
-/**
- * Validates obj is an instance of IErrorObject
- * @param obj
- */
-function isErrorObject(obj) {
-  const errorObj = obj;
-  return 'error' in errorObj && !!errorObj.error;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/QualifierModel.js":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/QualifierModel.js ***!
-  \***********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "QualifierModel": () => (/* binding */ QualifierModel)
-/* harmony export */ });
-/* harmony import */ var _qualifierToJson_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./qualifierToJson.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/qualifierToJson.js");
-
-class QualifierModel {
-  constructor() {
-    this._qualifierModel = {};
-  }
-  toJson() {
-    return _qualifierToJson_js__WEBPACK_IMPORTED_MODULE_0__.qualifierToJson.apply(this);
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/actionToJson.js":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/actionToJson.js ***!
-  \*********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "actionToJson": () => (/* binding */ actionToJson)
-/* harmony export */ });
-/* harmony import */ var _utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/unsupportedError.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js");
-
-/**
- * Returns the action's model
- */
-function actionToJson() {
-  const actionModelIsNotEmpty = this._actionModel && Object.keys(this._actionModel).length;
-  if (actionModelIsNotEmpty) {
-    return this._actionModel;
-  }
-  return {
-    error: (0,_utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__.createUnsupportedError)(`unsupported action ${this.constructor.name}`)
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/qualifierToJson.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/models/qualifierToJson.js ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "qualifierToJson": () => (/* binding */ qualifierToJson)
-/* harmony export */ });
-/* harmony import */ var _utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/unsupportedError.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js");
-
-/**
- * Returns the action's model
- */
-function qualifierToJson() {
-  return this._qualifierModel || {
-    error: (0,_utils_unsupportedError_js__WEBPACK_IMPORTED_MODULE_0__.createUnsupportedError)(`unsupported qualifier ${this.constructor.name}`)
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js ***!
-  \*********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Qualifier": () => (/* binding */ Qualifier)
-/* harmony export */ });
-/* harmony import */ var _QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
-/* harmony import */ var _models_QualifierModel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/QualifierModel.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/QualifierModel.js");
-
-
-/**
- * @summary SDK
- * @memberOf SDK
- */
-class Qualifier extends _models_QualifierModel_js__WEBPACK_IMPORTED_MODULE_0__.QualifierModel {
-  constructor(key, qualifierValue) {
-    super();
-    this.delimiter = '_'; // {key}{delimiter}{qualifierValue}
-    this.key = key;
-    if (qualifierValue instanceof _QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__.QualifierValue) {
-      this.qualifierValue = qualifierValue;
-    } else {
-      this.qualifierValue = new _QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__.QualifierValue();
-      this.qualifierValue.addValue(qualifierValue);
-    }
-  }
-  toString() {
-    const {
-      key,
-      delimiter,
-      qualifierValue
-    } = this;
-    return `${key}${delimiter}${qualifierValue.toString()}`;
-  }
-  addValue(value) {
-    this.qualifierValue.addValue(value);
-    return this;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js ***!
-  \**************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "QualifierValue": () => (/* binding */ QualifierValue)
-/* harmony export */ });
-/**
- * @summary SDK
- * @memberOf SDK
- */
-class QualifierValue {
-  /**
-   *
-   * @param {QualifierValue | QualifierValue[] | any[] | string | number}qualifierValue
-   */
-  constructor(qualifierValue) {
-    this.values = [];
-    this.delimiter = ':'; // {value}{delimiter}{value}...
-    if (this.hasValue(qualifierValue)) {
-      this.addValue(qualifierValue);
-    }
-  }
-  /**
-   * @description Joins the provided values with the provided delimiter
-   */
-  toString() {
-    return this.values.join(this.delimiter);
-  }
-  /**
-   * @description Checks if the provided argument has a value
-   * @param {any} v
-   * @private
-   * @return {boolean}
-   */
-  hasValue(v) {
-    return typeof v !== 'undefined' && v !== null && v !== '';
-  }
-  /**
-   * @desc Adds a value for the this qualifier instance
-   * @param {any} value
-   * @return {this}
-   */
-  addValue(value) {
-    // Append value or array of values
-    if (Array.isArray(value)) {
-      this.values = this.values.concat(value);
-    } else {
-      this.values.push(value);
-    }
-    // Remove falsy values
-    this.values = this.values.filter(v => this.hasValue(v));
-    return this;
-  }
-  /**
-   * @description Sets the delimiter for this instance
-   * @param delimiter
-   */
-  setDelimiter(delimiter) {
-    this.delimiter = delimiter;
-    return this;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/dataStructureUtils.js":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/dataStructureUtils.js ***!
-  \**************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isString": () => (/* binding */ isString),
-/* harmony export */   "mapToSortedArray": () => (/* binding */ mapToSortedArray)
-/* harmony export */ });
-/**
- * Sort a map by key
- * @private
- * @param map <string, any>
- * @Return array of map's values sorted by key
- */
-function mapToSortedArray(map, flags) {
-  const array = Array.from(map.entries());
-  // objects from the Array.from() method above are stored in array of arrays:
-  // [[qualifierKey, QualifierObj], [qualifierKey, QualifierObj]]
-  // Flags is an array of FlagQualifierObj
-  // We need to convert it to the same form: [flagQualifier] =>  ['fl', flagQualifier]
-  flags.forEach(flag => {
-    array.push(['fl', flag]); // push ['fl', flagQualifier]
-  });
-
-  return array.sort().map(v => v[1]);
-}
-/**
- * Checks if `value` is a string.
- * @private
- * @param {*} value The value to check.
- * @return {boolean} `true` if `value` is a string, else `false`.
- */
-function isString(value) {
-  return typeof value === 'string' || value instanceof String;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/objectFlip.js":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/objectFlip.js ***!
-  \******************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "objectFlip": () => (/* binding */ objectFlip)
-/* harmony export */ });
-/**
- * Flip keys and values for given object
- * @param obj
- */
-function objectFlip(obj) {
-  const result = {};
-  Object.keys(obj).forEach(key => {
-    result[obj[key]] = key;
-  });
-  return result;
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/prepareColor.js":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/prepareColor.js ***!
-  \********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "prepareColor": () => (/* binding */ prepareColor)
-/* harmony export */ });
-/**
- * Returns RGB or Color
- * @private
- * @param color
- */
-function prepareColor(color) {
-  if (color) {
-    return color.match(/^#/) ? `rgb:${color.substr(1)}` : color;
-  } else {
-    return color;
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/unsupportedError.js ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "UnsupportedError": () => (/* binding */ UnsupportedError),
-/* harmony export */   "createUnsupportedError": () => (/* binding */ createUnsupportedError)
-/* harmony export */ });
-class UnsupportedError extends Error {
-  constructor(message = 'Unsupported') {
-    super(message);
-  }
-}
-/**
- * Creates a new UnsupportedError
- * @param message
- */
-function createUnsupportedError(message) {
-  return new UnsupportedError(message);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag.js":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag.js ***!
-  \********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Flag": () => (/* binding */ Flag),
-/* harmony export */   "animated": () => (/* binding */ animated),
-/* harmony export */   "animatedPng": () => (/* binding */ animatedPng),
-/* harmony export */   "animatedWebP": () => (/* binding */ animatedWebP),
-/* harmony export */   "anyFormat": () => (/* binding */ anyFormat),
-/* harmony export */   "attachment": () => (/* binding */ attachment),
-/* harmony export */   "clip": () => (/* binding */ clip),
-/* harmony export */   "clipEvenOdd": () => (/* binding */ clipEvenOdd),
-/* harmony export */   "custom": () => (/* binding */ custom),
-/* harmony export */   "forceIcc": () => (/* binding */ forceIcc),
-/* harmony export */   "forceStrip": () => (/* binding */ forceStrip),
-/* harmony export */   "getInfo": () => (/* binding */ getInfo),
-/* harmony export */   "hlsv3": () => (/* binding */ hlsv3),
-/* harmony export */   "ignoreInitialAspectRatio": () => (/* binding */ ignoreInitialAspectRatio),
-/* harmony export */   "ignoreMaskChannels": () => (/* binding */ ignoreMaskChannels),
-/* harmony export */   "immutableCache": () => (/* binding */ immutableCache),
-/* harmony export */   "keepAttribution": () => (/* binding */ keepAttribution),
-/* harmony export */   "keepDar": () => (/* binding */ keepDar),
-/* harmony export */   "keepIptc": () => (/* binding */ keepIptc),
-/* harmony export */   "layerApply": () => (/* binding */ layerApply),
-/* harmony export */   "lossy": () => (/* binding */ lossy),
-/* harmony export */   "mono": () => (/* binding */ mono),
-/* harmony export */   "noOverflow": () => (/* binding */ noOverflow),
-/* harmony export */   "noStream": () => (/* binding */ noStream),
-/* harmony export */   "png24": () => (/* binding */ png24),
-/* harmony export */   "png32": () => (/* binding */ png32),
-/* harmony export */   "png8": () => (/* binding */ png8),
-/* harmony export */   "preserveTransparency": () => (/* binding */ preserveTransparency),
-/* harmony export */   "progressive": () => (/* binding */ progressive),
-/* harmony export */   "rasterize": () => (/* binding */ rasterize),
-/* harmony export */   "regionRelative": () => (/* binding */ regionRelative),
-/* harmony export */   "relative": () => (/* binding */ relative),
-/* harmony export */   "sanitize": () => (/* binding */ sanitize),
-/* harmony export */   "splice": () => (/* binding */ splice),
-/* harmony export */   "streamingAttachment": () => (/* binding */ streamingAttachment),
-/* harmony export */   "stripProfile": () => (/* binding */ stripProfile),
-/* harmony export */   "tiff8Lzw": () => (/* binding */ tiff8Lzw),
-/* harmony export */   "tiled": () => (/* binding */ tiled),
-/* harmony export */   "truncateTS": () => (/* binding */ truncateTS),
-/* harmony export */   "waveform": () => (/* binding */ waveform)
-/* harmony export */ });
-/* harmony import */ var _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
-/**
- * @description Defines flags that you can use to alter the default transformation behavior.
- * @namespace Flag
- * @memberOf Qualifiers
- */
-
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Used when delivering a video file as an image format that supports animation, such as animated WebP.
- * Plays all frames rather than just delivering the first one as a static image.
- * Use this flag in addition to the flag or parameter controlling the delivery format,
- * for example f_auto or fl_awebp.
-
- * Note: When delivering a video in GIF format, it is delivered as an animated GIF by default and this flag is not
- * necessary. To deliver a single frame of a video in GIF format, use the page parameter.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function animated() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('animated');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description When converting animated images to WebP format, generate an animated WebP from all the frames in the
- * original
- * animated file instead of only from the first still frame.
- *
- * Note that animated WebPs are not supported in all browsers and versions.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function animatedWebP() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('awebp');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description When used together with automatic quality (q_auto):
- * allow switching to PNG8 encoding if the quality algorithm decides that it's more efficient.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function anyFormat() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('any_format');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description When converting animated images to PNG format, generates an animated PNG from all the frames in the
- * original
- * animated file instead of only from the first still frame.
- *
- * Note that animated PNGs are not supported in all browsers and versions.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function animatedPng() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('apng');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Trims pixels according to a clipping path included in the original image
- * (e.g., manually created using PhotoShop).
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function clip() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('clip');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Trims pixels according to a clipping path included in the original image (e.g., manually created
- * using PhotoShop)
- * using an evenodd clipping rule.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function clipEvenOdd() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('clip_evenodd');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Instructs Cloudinary to clear all image meta-data (IPTC, Exif and XMP) while applying an incoming
- * transformation.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function forceStrip() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('force_strip');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Allows custom flag
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function custom(value) {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier(value);
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Adds ICC color space metadata to the image, even when the original image doesn't contain any ICC data.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function forceIcc() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('force_icc');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Delivers the image as an attachment.
- * @param {string} filename The attachment's filename
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function attachment(filename) {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('attachment', filename);
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Returns metadata of the input asset and of the transformed output asset in JSON instead of the
- * transformed image.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function getInfo() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('getinfo');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Deliver an HLS adaptive bitrate streaming file as HLS v3 instead of the default version (HLS v4).
- * Delivering in this format requires a private CDN configuration.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function hlsv3() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('hlsv3');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Sets the cache-control to immutable for the asset.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function immutableCache() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('immutable_cache');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description * Allows specifying only either width or height so the value of the second axis remains as is, and is not
- * recalculated to maintain the aspect ratio of the original image.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function ignoreInitialAspectRatio() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('ignore_aspect_ratio');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Keeps the copyright related fields when stripping meta-data.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function keepAttribution() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('keep_attribution');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * Keep the Display Aspect Ratio metadata of the uploaded video (if it’s different from the current video
- * dimensions).
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function keepDar() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('keep_dar');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Keeps all meta-data.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function keepIptc() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('keep_iptc');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Applies all chained transformations, until a transformation component that includes this flag, on the last added
- * overlay or underlay instead of applying on the containing image.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function layerApply() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('layer_apply');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Automatically use lossy compression when delivering animated GIF files.
- *
- * This flag can also be used as a conditional flag for delivering PNG files: it tells Cloudinary to deliver the
- * image in PNG format (as requested) unless there is no transparency channel - in which case deliver in JPEG
- * format.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function lossy() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('lossy');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Convert the audio channel to mono
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function mono() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('mono');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Used internally by Position within an Overlay, this flag will tile the overlay across your image.
- *
- * <b>Learn more:</b> {@link https://cloudinary.com/documentation/transformation_reference#fl_no_overflow|Overflow in overlays}
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function noOverflow() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('no_overflow');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Don't stream a video that is currently being generated on the fly. Wait until the video is fully generated.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function noStream() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('no_stream');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Generate PNG images in the png24 format.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function png24() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('png24');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Generate PNG images in the png32 format.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function png32() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('png32');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Generate PNG images in the PNG8 format.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function png8() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('png8');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description When used with automatic fetch_format (f_auto): ensures that images with a transparency channel will be
- * delivered in PNG format.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function preserveTransparency() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('preserve_transparency');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Generates a JPG image using the progressive (interlaced) JPG format.
- *
- * This format allows the browser to quickly show a low-quality rendering of the image until the full-quality
- * image is loaded.
- *
- * @param {string} mode? The mode to determine a specific progressive outcome as follows:
- * * semi - A smart optimization of the decoding time, compression level and progressive rendering
- *          (less iterations). This is the default mode when using q_auto.
- * * steep - Delivers a preview very quickly, and in a single later phase improves the image to
- *           the required resolution.
- * * none  - Use this to deliver a non-progressive image. This is the default mode when setting
- *           a specific value for quality.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function progressive(mode) {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('progressive', mode);
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Modifies percentage-based width & height parameters of overlays and underlays (e.g., 1.0) to be relative to the overlaid region
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function regionRelative() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('region_relative');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Reduces the image to one flat pixelated layer (as opposed to the default vector based graphic) in
- * order to enable
- * PDF resizing and overlay manipulations.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function rasterize() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('rasterize');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Modifies percentage-based width & height parameters of overlays and underlays (e.g., 1.0) to be relative to the containing image instead of the added layer.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function relative() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('relative');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Instructs Cloudinary to run a sanitizer on the image (relevant only for the SVG format).
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function sanitize() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('sanitize');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Splices the video stipulated as an overlay on to the end of the container video instead of adding it as an
- * overlay.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function splice() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('splice');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Instructs Cloudinary to clear all ICC color profile data included with the image.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function stripProfile() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('strip_profile');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description If the requested video transformation has already been generated, this flag works identically to
- * Flag::attachment.
- *
- *  However, if the video transformation is being requested for the first time, this flag causes the video download
- * to begin immediately, streaming it as a fragmented video file.
- *
- * In contrast, if the regular fl_attachment flag is used when a user requests a new video transformation,
- * the download will begin only after the complete transformed video has been generated.
- *
- * Most standard video players successfully play fragmented video files without issue.
- *
- * @param {string} filename The attachment's filename
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function streamingAttachment(filename) {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('streaming_attachment', filename);
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Generates TIFF images using LZW compression and in the TIFF8 format.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function tiff8Lzw() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('tiff8_lzw');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Used internally by Position within an Overlay, this flag will tile the overlay across your image.
- *
- * <b>Learn more:</b> {@link https://cloudinary.com/documentation/layers#automatic_tiling|Tiling overlay}
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function tiled() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('tiled');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Truncate (trim) a video file based on the start time defined in the metadata (relevant only where the metadata
- * includes a directive to play only a section of the video).
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function truncateTS() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('truncate_ts');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description Create a waveform image (in the format specified by the file extension) from the audio or video file.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function waveform() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('waveform');
-}
-/**
- * @summary qualifier
- * @memberOf Qualifiers.Flag
- * @description A qualifier that ensures that an alpha channel is not applied to a TIFF image if it is a mask channel.
- * @return {Qualifiers.Flag.FlagQualifier}
- */
-function ignoreMaskChannels() {
-  return new _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier('ignore_mask_channels');
-}
-const Flag = {
-  animated,
-  anyFormat,
-  animatedPng,
-  animatedWebP,
-  clipEvenOdd,
-  lossy,
-  preserveTransparency,
-  png8,
-  png24,
-  png32,
-  progressive,
-  rasterize,
-  sanitize,
-  stripProfile,
-  tiff8Lzw,
-  attachment,
-  forceIcc,
-  forceStrip,
-  getInfo,
-  immutableCache,
-  keepAttribution,
-  keepIptc,
-  custom,
-  streamingAttachment,
-  hlsv3,
-  keepDar,
-  noStream,
-  mono,
-  layerApply,
-  relative,
-  regionRelative,
-  splice,
-  truncateTS,
-  waveform,
-  ignoreInitialAspectRatio,
-  clip,
-  tiled,
-  noOverflow,
-  ignoreMaskChannels
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FlagQualifier": () => (/* binding */ FlagQualifier)
-/* harmony export */ });
-/* harmony import */ var _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../internal/qualifier/QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
-/* harmony import */ var _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../internal/qualifier/Qualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/Qualifier.js");
-
-
-/**
- * @memberOf Qualifiers.Flag
- * @extends {SDK.Qualifier}
- * @description the FlagQualifier class
- */
-class FlagQualifier extends _internal_qualifier_Qualifier_js__WEBPACK_IMPORTED_MODULE_0__.Qualifier {
-  constructor(flagType, flagValue) {
-    let qualifierValue;
-    if (flagValue) {
-      qualifierValue = new _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_1__.QualifierValue([flagType, `${flagValue}`]).setDelimiter(':');
-    } else {
-      qualifierValue = flagType;
-    }
-    super('fl', qualifierValue);
-    this.flagValue = flagValue;
-  }
-  toString() {
-    return super.toString().replace(/\./, '%2E');
-  }
-  getFlagValue() {
-    return this.flagValue;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/format/FormatQualifier.js":
-/*!**************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/format/FormatQualifier.js ***!
-  \**************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FormatQualifier": () => (/* binding */ FormatQualifier)
-/* harmony export */ });
-/* harmony import */ var _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../internal/qualifier/QualifierValue.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/qualifier/QualifierValue.js");
-
-/**
- * @memberOf Qualifiers.Format
- * @extends {SDK.QualifierValue}
- */
-class FormatQualifier extends _internal_qualifier_QualifierValue_js__WEBPACK_IMPORTED_MODULE_0__.QualifierValue {
-  constructor(val) {
-    super(val);
-    this.val = val;
-  }
-  getValue() {
-    return this.val;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/progressive.js":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/progressive.js ***!
-  \***************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Progressive": () => (/* binding */ Progressive),
-/* harmony export */   "ProgressiveQualifier": () => (/* binding */ ProgressiveQualifier),
-/* harmony export */   "none": () => (/* binding */ none),
-/* harmony export */   "progressive": () => (/* binding */ progressive),
-/* harmony export */   "semi": () => (/* binding */ semi),
-/* harmony export */   "steep": () => (/* binding */ steep)
-/* harmony export */ });
-/* harmony import */ var _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
-/**
- * @description Contains functions to select the mode when using a progressive format.
- * <b>Learn more</b>: {@link https://cloudinary.com/documentation/transformation_reference#fl_progressive|Progressive modes}
- * @memberOf Qualifiers
- * @namespace Progressive
- * @example
- * import {Cloudinary} from "@cloudinary/url-gen";
- * import {format} from "@cloudinary/url-gen/actions/delivery";
- * import {jpg} from "@cloudinary/url-gen/qualifiers/format";
- * import {steep} from "@cloudinary/url-gen/qualifiers/progressive";
- *
- * const yourCldInstance = new Cloudinary({cloud: {cloudName: 'demo'}});
- * const image = yourCldInstance.image('woman');
- * image.delivery(format(jpg()).progressive(steep()))
- */
-
-class ProgressiveQualifier extends _flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_0__.FlagQualifier {
-  constructor(mode) {
-    super('progressive', mode);
-  }
-}
-/**
- * @memberOf Qualifiers.Progressive
- */
-function none() {
-  return new ProgressiveQualifier('none');
-}
-/**
- * @memberOf Qualifiers.Progressive
- */
-function semi() {
-  return new ProgressiveQualifier('semi');
-}
-/**
- * @memberOf Qualifiers.Progressive
- */
-function steep() {
-  return new ProgressiveQualifier('steep');
-}
-/**
- * @memberOf Qualifiers.Progressive
- */
-function progressive() {
-  return new ProgressiveQualifier();
-}
-const Progressive = {
-  semi,
-  none,
-  steep,
-  progressive,
-  ProgressiveQualifier
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/ImageTransformation.js":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/transformation/ImageTransformation.js ***!
-  \***************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ImageTransformation": () => (/* binding */ ImageTransformation)
-/* harmony export */ });
-/* harmony import */ var _Transformation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Transformation.js */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js");
-
-/**
- * @summary SDK
- * @extends {SDK.Transformation}
- * @memberOf SDK
- */
-class ImageTransformation extends _Transformation_js__WEBPACK_IMPORTED_MODULE_0__.Transformation {}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Transformation": () => (/* binding */ Transformation)
-/* harmony export */ });
-/* harmony import */ var _internal_Action_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../internal/Action.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/Action.js");
-/* harmony import */ var _actions_background_actions_BackgroundColor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/background/actions/BackgroundColor.js */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/background/actions/BackgroundColor.js");
-/* harmony import */ var _internal_utils_prepareColor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../internal/utils/prepareColor.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/utils/prepareColor.js");
-/* harmony import */ var _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../qualifiers/flag/FlagQualifier.js */ "./node_modules/@cloudinary/transformation-builder-sdk/qualifiers/flag/FlagQualifier.js");
-/* harmony import */ var _internal_RawAction_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../internal/RawAction.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/RawAction.js");
-/* harmony import */ var _internal_models_IErrorObject_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../internal/models/IErrorObject.js */ "./node_modules/@cloudinary/transformation-builder-sdk/internal/models/IErrorObject.js");
-/* harmony import */ var _actions_delivery_DeliveryFormatAction_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/delivery/DeliveryFormatAction.js */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js");
-
-
-
-
-
-
-
-/**
- * @summary SDK
- * @description - Defines how to transform an asset
- * @memberOf SDK
- */
-class Transformation {
-  constructor() {
-    this.actions = [];
-  }
-  /**
-   * @param {SDK.Action | string} action
-   * @return {this}
-   */
-  addAction(action) {
-    let actionToAdd;
-    if (typeof action === 'string') {
-      if (action.indexOf('/') >= 0) {
-        throw 'addAction cannot accept a string with a forward slash in it - /, use .addTransformation() instead';
-      } else {
-        actionToAdd = new _internal_RawAction_js__WEBPACK_IMPORTED_MODULE_0__.RawAction(action);
-      }
-    } else {
-      actionToAdd = action;
-    }
-    this.actions.push(actionToAdd);
-    return this;
-  }
-  /**
-   * @description Allows the injection of a raw transformation as a string into the transformation, or a Transformation instance that was previously created
-   * @param {string | SDK.Transformation} tx
-   * @example
-   * import {Transformation} from "@cloudinary/url-gen";
-   *
-   * const transformation = new Transformation();
-   * transformation.addTransformation('w_100/w_200/w_300');
-   * @return {this}
-   */
-  addTransformation(tx) {
-    if (tx instanceof Transformation) {
-      // Concat the new actions into the existing actions
-      this.actions = this.actions.concat(tx.actions);
-    } else {
-      this.actions.push(new _internal_RawAction_js__WEBPACK_IMPORTED_MODULE_0__.RawAction(tx));
-    }
-    return this;
-  }
-  /**
-   * @return {string}
-   */
-  toString() {
-    return this.actions.map(action => {
-      return action.toString();
-    }).filter(a => a).join('/');
-  }
-  /**
-   * @description Delivers an animated GIF.
-   * @param {AnimatedAction} animatedAction
-   * @return {this}
-   */
-  animated(animatedAction) {
-    return this.addAction(animatedAction);
-  }
-  /**
-   * @description Adds a border around the image.
-   * @param {Border} borderAction
-   * @return {this}
-   */
-  border(borderAction) {
-    return this.addAction(borderAction);
-  }
-  /**
-   * @description Adjusts the shape of the delivered image. </br>
-   * <b>Learn more:</b> {@link https://cloudinary.com/documentation/effects_and_artistic_enhancements#distort|Shape changes and distortion effects}
-   * @param {IReshape} reshapeAction
-   * @return {this}
-   */
-  reshape(reshapeAction) {
-    return this.addAction(reshapeAction);
-  }
-  /**
-   * @description Resize the asset using provided resize action
-   * @param {ResizeSimpleAction} resizeAction
-   * @return {this}
-   */
-  resize(resizeAction) {
-    return this.addAction(resizeAction);
-  }
-  /**
-   * @desc An alias to Action Delivery.quality
-   * @param {string|number} quality
-   * @return {this}
-   */
-  quality(quality) {
-    this.addAction(new _actions_delivery_DeliveryFormatAction_js__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('q', quality));
-    return this;
-  }
-  /**
-   * @desc An alias to Action Delivery.format
-   * @param {string} format
-   * @return {this}
-   */
-  format(format) {
-    this.addAction(new _actions_delivery_DeliveryFormatAction_js__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('f', format));
-    return this;
-  }
-  /**
-   * @description Rounds the specified corners of an image.
-   * @param roundCornersAction
-   * @return {this}
-   */
-  roundCorners(roundCornersAction) {
-    return this.addAction(roundCornersAction);
-  }
-  /**
-   * @description Adds an overlay over the base image.
-   * @param {LayerAction} overlayAction
-   * @return {this}
-   */
-  overlay(overlayAction) {
-    return this.addAction(overlayAction);
-  }
-  /**
-   * @description Adds an underlay under the base image.
-   * @param {LayerAction} underlayAction
-   * @return {this}
-   */
-  underlay(underlayAction) {
-    underlayAction.setLayerType('u');
-    return this.addAction(underlayAction);
-  }
-  /**
-   * @description Defines an new user variable.
-   * @param {VariableAction} variableAction
-   * @return {this}
-   */
-  addVariable(variableAction) {
-    return this.addAction(variableAction);
-  }
-  /**
-   * @description Specifies a condition to be met before applying a transformation.
-   * @param {ConditionalAction} conditionAction
-   * @return {this}
-   */
-  conditional(conditionAction) {
-    return this.addAction(conditionAction);
-  }
-  /**
-   * @description Applies a filter or an effect on an asset.
-   * @param {SimpleEffectAction} effectAction
-   * @return {this}
-   */
-  effect(effectAction) {
-    return this.addAction(effectAction);
-  }
-  /**
-   * @description Applies adjustment effect on an asset.
-   * @param action
-   * @return {this}
-   */
-  adjust(action) {
-    return this.addAction(action);
-  }
-  /**
-   * @description Rotates the asset by the given angle.
-   * @param {RotateAction} rotateAction
-   * @return {this}
-   */
-  rotate(rotateAction) {
-    return this.addAction(rotateAction);
-  }
-  /**
-   * @description Applies a pre-defined named transformation of the given name.
-   * @param {NamedTransformation} namedTransformation
-   * @return {this}
-   */
-  namedTransformation(namedTransformation) {
-    return this.addAction(namedTransformation);
-  }
-  /**
-   * @description Applies delivery action.
-   * @param deliveryAction
-   * @return {this}
-   */
-  delivery(deliveryAction) {
-    return this.addAction(deliveryAction);
-  }
-  /**
-   * @description Sets the color of the background.
-   * @param {Qualifiers.Color} color
-   * @return {this}
-   */
-  backgroundColor(color) {
-    return this.addAction(new _actions_background_actions_BackgroundColor_js__WEBPACK_IMPORTED_MODULE_2__.BackgroundColor((0,_internal_utils_prepareColor_js__WEBPACK_IMPORTED_MODULE_3__.prepareColor)(color)));
-  }
-  /**
-   * @description Adds a layer in a Photoshop document.
-   * @param action
-   * @return {this}
-   */
-  psdTools(action) {
-    return this.addAction(action);
-  }
-  /**
-   * @description Extracts an image or a page using an index, a range, or a name from a layered media asset.
-   * @param action
-   * @return {this}
-   */
-  extract(action) {
-    return this.addAction(action);
-  }
-  /**
-   * @description Adds a flag as a separate action.
-   * @param {Qualifiers.Flag | string} flagQualifier
-   * @return {this}
-   */
-  addFlag(flagQualifier) {
-    const action = new _internal_Action_js__WEBPACK_IMPORTED_MODULE_4__.Action();
-    let flagToAdd = flagQualifier;
-    if (typeof flagQualifier === 'string') {
-      flagToAdd = new _qualifiers_flag_FlagQualifier_js__WEBPACK_IMPORTED_MODULE_5__.FlagQualifier(flagQualifier);
-    }
-    action.addQualifier(flagToAdd);
-    return this.addAction(action);
-  }
-  /**
-   * @description Inject a custom function into the image transformation pipeline.
-   * @return {this}
-   */
-  customFunction(customFunction) {
-    return this.addAction(customFunction);
-  }
-  /**
-   * Transcodes the video (or audio) to another format.
-   * @param {Action} action
-   * @return {this}
-   */
-  transcode(action) {
-    return this.addAction(action);
-  }
-  /**
-   * Applies the specified video edit action.
-   *
-   * @param {videoEditType} action
-   * @return {this}
-   */
-  videoEdit(action) {
-    return this.addAction(action);
-  }
-  toJson() {
-    const actions = [];
-    for (const action of this.actions) {
-      const json = action.toJson();
-      if ((0,_internal_models_IErrorObject_js__WEBPACK_IMPORTED_MODULE_6__.isErrorObject)(json)) {
-        // Fail early and return an IErrorObject
-        return json;
-      }
-      actions.push(json);
-    }
-    return {
-      actions
-    };
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/VideoTransformation.js":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/transformation-builder-sdk/transformation/VideoTransformation.js ***!
-  \***************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "VideoTransformation": () => (/* binding */ VideoTransformation)
-/* harmony export */ });
-/* harmony import */ var _Transformation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Transformation.js */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/Transformation.js");
-
-/**
- * @summary SDK
- * @extends {SDK.Transformation}
- * @memberOf SDK
- */
-class VideoTransformation extends _Transformation_js__WEBPACK_IMPORTED_MODULE_0__.Transformation {}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryFile.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryFile.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CloudinaryFile": () => (/* binding */ CloudinaryFile),
-/* harmony export */   "SEO_TYPES": () => (/* binding */ SEO_TYPES)
-/* harmony export */ });
-/* harmony import */ var _internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../internal/url/cloudinaryURL.js */ "./node_modules/@cloudinary/url-gen/internal/url/cloudinaryURL.js");
-/* harmony import */ var _config_URLConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/URLConfig.js */ "./node_modules/@cloudinary/url-gen/config/URLConfig.js");
-/* harmony import */ var _sdkAnalytics_getSDKAnalyticsSignature_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sdkAnalytics/getSDKAnalyticsSignature.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getSDKAnalyticsSignature.js");
-
-
-
-/**
- * This const contains all the valid combination of asset/delivery for URL shortening purposes
- * It's exported because it's used in a test, but it's not really shared enough to belong in a separate file
- */
-const SEO_TYPES = {
-  "image/upload": "images",
-  "image/private": "private_images",
-  "image/authenticated": "authenticated_images",
-  "raw/upload": "files",
-  "video/upload": "videos"
-};
-/**
- * @description Cloudinary file without a transformation
- * @summary SDK
- * @memberOf SDK
- */
-class CloudinaryFile {
-  constructor(publicID, cloudConfig = {}, urlConfig) {
-    this.setPublicID(publicID);
-    this.setCloudConfig(cloudConfig);
-    this.setURLConfig(urlConfig);
-  }
-  /**
-   * @description Sets the URL Config for this asset
-   * @param urlConfig
-   * @return {this}
-   */
-  setURLConfig(urlConfig) {
-    this.urlConfig = new _config_URLConfig_js__WEBPACK_IMPORTED_MODULE_0__["default"](urlConfig);
-    return this;
-  }
-  /**
-   * @description Sets the Cloud Config for this asset
-   * @param urlConfig
-   * @return {this}
-   */
-  setCloudConfig(cloudConfig) {
-    this.cloudName = cloudConfig.cloudName;
-    this.apiKey = cloudConfig.apiKey;
-    this.apiSecret = cloudConfig.apiSecret;
-    this.authToken = cloudConfig.authToken;
-    return this;
-  }
-  /**
-   * @description Sets the public ID of the asset.
-   * @param {string} publicID The public ID of the asset.
-   * @return {this}
-   */
-  setPublicID(publicID) {
-    // PublicID must be a string!
-    this.publicID = publicID ? publicID.toString() : '';
-    return this;
-  }
-  /**
-   * @description Sets the delivery type of the asset.
-   * @param {DELIVERY_TYPE | string} newType The type of the asset.
-   * @return {this}
-   */
-  setDeliveryType(newType) {
-    this.deliveryType = newType;
-    return this;
-  }
-  /**
-   * @description Sets the URL SEO suffix of the asset.
-   * @param {string} newSuffix The SEO suffix.
-   * @return {this}
-   */
-  setSuffix(newSuffix) {
-    this.suffix = newSuffix;
-    return this;
-  }
-  /**
-   * @description Sets the signature of the asset.
-   * @param {string} signature The signature.
-   * @return {this}
-   */
-  setSignature(signature) {
-    this.signature = signature;
-    return this;
-  }
-  /**
-   * @description Sets the version of the asset.
-   * @param {string} newVersion The version of the asset.
-   * @return {this}
-   */
-  setVersion(newVersion) {
-    if (newVersion) {
-      this.version = newVersion;
-    }
-    return this;
-  }
-  /**
-   * @description Sets the asset type.
-   * @param {string} newType The type of the asset.
-   * @return {this}
-   */
-  setAssetType(newType) {
-    if (newType) {
-      this.assetType = newType;
-    }
-    return this;
-  }
-  sign() {
-    return this;
-  }
-  /**
-   * @description Serializes to URL string
-   * @param overwriteOptions
-   */
-  toURL(overwriteOptions = {}) {
-    return this.createCloudinaryURL(null, overwriteOptions.trackedAnalytics);
-  }
-  /**
-   * @description Validate various options before attempting to create a URL
-   * The function will throw in case a violation
-   * @throws Validation errors
-   */
-  validateAssetForURLCreation() {
-    if (typeof this.cloudName === 'undefined') {
-      throw 'You must supply a cloudName when initializing the asset';
-    }
-    const suffixContainsDot = this.suffix && this.suffix.indexOf('.') >= 0;
-    const suffixContainsSlash = this.suffix && this.suffix.indexOf('/') >= 0;
-    if (suffixContainsDot || suffixContainsSlash) {
-      throw '`suffix`` should not include . or /';
-    }
-  }
-  /**
-   * @description return an SEO friendly name for a combination of asset/delivery, some examples:
-   * * image/upload -> images
-   * * video/upload -> videos
-   * If no match is found, return `{asset}/{delivery}`
-   */
-  getResourceType() {
-    const assetType = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.handleAssetType)(this.assetType);
-    const deliveryType = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.handleDeliveryType)(this.deliveryType);
-    const hasSuffix = !!this.suffix;
-    const regularSEOType = `${assetType}/${deliveryType}`;
-    const shortSEOType = SEO_TYPES[`${assetType}/${deliveryType}`];
-    const useRootPath = this.urlConfig.useRootPath;
-    const shorten = this.urlConfig.shorten;
-    // Quick exit incase of useRootPath
-    if (useRootPath) {
-      if (regularSEOType === 'image/upload') {
-        return ''; // For image/upload we're done, just return nothing
-      } else {
-        throw new Error(`useRootPath can only be used with assetType: 'image' and deliveryType: 'upload'. Provided: ${regularSEOType} instead`);
-      }
-    }
-    if (shorten && regularSEOType === 'image/upload') {
-      return 'iu';
-    }
-    if (hasSuffix) {
-      if (shortSEOType) {
-        return shortSEOType;
-      } else {
-        throw new Error(`URL Suffix only supported for ${Object.keys(SEO_TYPES).join(', ')}, Provided: ${regularSEOType} instead`);
-      }
-    }
-    // If all else fails, return the regular image/upload combination (asset/delivery)
-    return regularSEOType;
-  }
-  getSignature() {
-    if (this.signature) {
-      return `s--${this.signature}--`;
-    } else {
-      return '';
-    }
-  }
-  /**
-   *
-   * @description Creates a fully qualified CloudinaryURL
-   * @return {string} CloudinaryURL
-   * @throws Validation Errors
-   */
-  createCloudinaryURL(transformation, trackedAnalytics) {
-    // In accordance with the existing implementation, if no publicID exists we should return nothing.
-    if (!this.publicID) {
-      return '';
-    }
-    // Throws if some options are mis-configured
-    // See the function for more information on when it throws
-    this.validateAssetForURLCreation();
-    const prefix = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.getUrlPrefix)(this.cloudName, this.urlConfig);
-    const transformationString = transformation ? transformation.toString() : '';
-    const version = (0,_internal_url_cloudinaryURL_js__WEBPACK_IMPORTED_MODULE_1__.getUrlVersion)(this.publicID, this.version, this.urlConfig.forceVersion);
-    const publicID = this.publicID
-    // Serialize the publicID, but leave slashes alone.
-    // we can't use serializeCloudinaryCharacters because that does both things (, and /)
-    .replace(/,/g, '%2C');
-    // Resource type is a mixture of assetType, deliveryType and various URL Configurations
-    // Note how `suffix` changes both image/upload (resourceType) and also is appended at the end
-    const url = [prefix, this.getResourceType(), this.getSignature(), transformationString, version, publicID, this.suffix].filter(a => a).join('/');
-    if (typeof transformation === 'string') {
-      return url;
-    } else {
-      const safeURL = encodeURI(url).replace(/\?/g, '%3F').replace(/=/g, '%3D');
-      // urlConfig.analytics is true by default, has to be explicitly set to false to overwrite
-      // Don't add analytics when publicId includes a '?' to not risk changing existing query params
-      if (this.urlConfig.analytics !== false && !publicID.includes('?')) {
-        return `${safeURL}?_a=${(0,_sdkAnalytics_getSDKAnalyticsSignature_js__WEBPACK_IMPORTED_MODULE_2__.getSDKAnalyticsSignature)(trackedAnalytics)}`;
-      } else {
-        return safeURL;
-      }
-    }
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryImage.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryImage.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CloudinaryImage": () => (/* binding */ CloudinaryImage)
-/* harmony export */ });
-/* harmony import */ var _cloudinary_transformation_builder_sdk_transformation_ImageTransformation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cloudinary/transformation-builder-sdk/transformation/ImageTransformation */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/ImageTransformation.js");
-/* harmony import */ var _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CloudinaryTransformable.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js");
-
-
-/**
- * @desc Cloudinary image asset, with image-related transformations
- * @summary SDK
- * @memberOf SDK
- */
-class CloudinaryImage extends _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryTransformable {
-  constructor(publicID, cloudConfig, urlConfig) {
-    /* istanbul ignore next */
-    super(publicID, cloudConfig, urlConfig, new _cloudinary_transformation_builder_sdk_transformation_ImageTransformation__WEBPACK_IMPORTED_MODULE_1__.ImageTransformation());
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CloudinaryTransformable": () => (/* binding */ CloudinaryTransformable)
-/* harmony export */ });
-/* harmony import */ var _CloudinaryFile_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CloudinaryFile.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryFile.js");
-/* harmony import */ var _cloudinary_transformation_builder_sdk_actions_delivery_DeliveryFormatAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction */ "./node_modules/@cloudinary/transformation-builder-sdk/actions/delivery/DeliveryFormatAction.js");
-
-
-/**
- * @desc Cloudinary Transformable interface, extended by any class that needs a Transformation Interface
- * @summary SDK
- * @memberOf SDK
- */
-class CloudinaryTransformable extends _CloudinaryFile_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryFile {
-  constructor(publicID, cloudConfig, urlConfig, transformation) {
-    /* istanbul ignore next */
-    super(publicID, cloudConfig, urlConfig);
-    this.transformation = transformation;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Animated} animated
-   * @return {this}
-   */
-  animated(animated) {
-    this.transformation.animated(animated);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Border} border
-   * @return {this}
-   */
-  border(border) {
-    this.transformation.border(border);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Reshape} reshape
-   * @return {this}
-   */
-  reshape(reshape) {
-    this.transformation.reshape(reshape);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Resize} resize
-   * @return {this}
-   */
-  resize(resize) {
-    this.transformation.resize(resize);
-    return this;
-  }
-  /**
-   * @desc An alias to Action Delivery.quality
-   * @param {string|number} quality
-   * @return {this}
-   */
-  quality(quality) {
-    this.addAction(new _cloudinary_transformation_builder_sdk_actions_delivery_DeliveryFormatAction__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('q', quality));
-    return this;
-  }
-  /**
-   * @desc An alias to Action Delivery.format
-   * @param {string} format
-   * @return {this}
-   */
-  format(format) {
-    this.addAction(new _cloudinary_transformation_builder_sdk_actions_delivery_DeliveryFormatAction__WEBPACK_IMPORTED_MODULE_1__.DeliveryFormatAction('f', format));
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.RoundCorners} roundCorners
-   * @return {this}
-   */
-  roundCorners(roundCorners) {
-    this.transformation.roundCorners(roundCorners);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @return {this}
-   */
-  overlay(overlayAction) {
-    this.transformation.overlay(overlayAction);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Variable} variableAction
-   * @return {this}
-   */
-  addVariable(variableAction) {
-    this.transformation.addVariable(variableAction);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Condition} conditionalAction
-   * @return {this}
-   */
-  conditional(conditionalAction) {
-    this.transformation.conditional(conditionalAction);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Effect} effect
-   * @return {this}
-   */
-  effect(effect) {
-    this.transformation.effect(effect);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Adjust} action
-   * @return {this}
-   */
-  adjust(action) {
-    this.transformation.adjust(action);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Rotate} rotate
-   * @return {this}
-   */
-  rotate(rotate) {
-    this.transformation.rotate(rotate);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.NamedTransformation} namedTransformation
-   * @return {this}
-   */
-  namedTransformation(namedTransformation) {
-    this.transformation.namedTransformation(namedTransformation);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Delivery} deliveryAction
-   * @return {this}
-   */
-  delivery(deliveryAction) {
-    this.transformation.delivery(deliveryAction);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Qualifiers.color} color
-   * @return {this}
-   */
-  backgroundColor(color) {
-    this.transformation.backgroundColor(color);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.PSDTools} action
-   * @return {this}
-   */
-  psdTools(action) {
-    this.transformation.psdTools(action);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Extract} action
-   * @return {this}
-   */
-  extract(action) {
-    this.transformation.extract(action);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Qualifiers.Flag | string} flagQualifier
-   * @return {this}
-   */
-  addFlag(flagQualifier) {
-    this.transformation.addFlag(flagQualifier);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.CustomFunction} customFunction
-   * @return {this}
-   */
-  customFunction(customFunction) {
-    this.transformation.customFunction(customFunction);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {SDK.Action | string} action
-   * @return {this}
-   */
-  addAction(action) {
-    this.transformation.addAction(action);
-    return this;
-  }
-  /**
-   * @description Extend your transformation with another transformation
-   * @param { string | SDK.Transformation } tx
-   */
-  addTransformation(tx) {
-    this.transformation.addTransformation(tx);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @return {string}
-   */
-  toString() {
-    return this.transformation.toString();
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @return {this}
-   */
-  underlay(underlayAction) {
-    this.transformation.underlay(underlayAction);
-    return this;
-  }
-  toURL(overwriteOptions = {}) {
-    return this.createCloudinaryURL(this.transformation, overwriteOptions === null || overwriteOptions === void 0 ? void 0 : overwriteOptions.trackedAnalytics);
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/assets/CloudinaryVideo.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/assets/CloudinaryVideo.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CloudinaryVideo": () => (/* binding */ CloudinaryVideo)
-/* harmony export */ });
-/* harmony import */ var _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CloudinaryTransformable.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryTransformable.js");
-/* harmony import */ var _transformation_VideoTransformation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../transformation/VideoTransformation.js */ "./node_modules/@cloudinary/transformation-builder-sdk/transformation/VideoTransformation.js");
-
-
-/**
- * @desc Cloudinary video asset, with video-related transformations
- * @summary SDK
- * @memberOf SDK
- */
-class CloudinaryVideo extends _CloudinaryTransformable_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryTransformable {
-  constructor(publicID, cloudConfig, urlConfig) {
-    /* istanbul ignore next */
-    super(publicID, cloudConfig, urlConfig, new _transformation_VideoTransformation_js__WEBPACK_IMPORTED_MODULE_1__.VideoTransformation());
-    this.assetType = 'video';
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.Transcode} action
-   * @return {this}
-   */
-  transcode(action) {
-    this.transformation.transcode(action);
-    return this;
-  }
-  /**
-   * @desc A proxy to {@link SDK.Transformation| Transformation} - Calls the same method contained in this.transformation
-   * @param {Actions.VideoEdit} action
-   * @return {this}
-   */
-  videoEdit(action) {
-    this.transformation.videoEdit(action);
-    return this;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/config/BaseConfig.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/config/BaseConfig.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/**
- *
- * @private
- * @param {any} a
- */
-function isObject(a) {
-  if (typeof a !== 'object' || a instanceof Array) {
-    return false;
-  } else {
-    return true;
-  }
-}
-class Config {
-  filterOutNonSupportedKeys(userProvidedConfig, validKeys) {
-    const obj = Object.create({});
-    if (isObject(userProvidedConfig)) {
-      Object.keys(userProvidedConfig).forEach(key => {
-        if (validKeys.indexOf(key) >= 0) {
-          obj[key] = userProvidedConfig[key];
-        } else {
-          console.warn('Warning - unsupported key provided to configuration: ', key);
-        }
-      });
-      return obj;
-    } else {
-      return Object.create({});
-    }
-  }
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Config);
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/config/URLConfig.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/config/URLConfig.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _BaseConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseConfig.js */ "./node_modules/@cloudinary/url-gen/config/BaseConfig.js");
-/* harmony import */ var _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../internal/internalConstants.js */ "./node_modules/@cloudinary/url-gen/internal/internalConstants.js");
-
-
-class URLConfig extends _BaseConfig_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  /**
-   * @param {IURLConfig} userURLConfig
-   */
-  constructor(userURLConfig) {
-    super();
-    const urlConfig = this.filterOutNonSupportedKeys(userURLConfig, _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_1__.ALLOWED_URL_CONFIG);
-    Object.assign(this, {
-      secure: true
-    }, urlConfig);
-  }
-  extend(userURLConfig) {
-    const urlConfig = this.filterOutNonSupportedKeys(userURLConfig, _internal_internalConstants_js__WEBPACK_IMPORTED_MODULE_1__.ALLOWED_URL_CONFIG);
-    return new URLConfig(Object.assign({}, this, urlConfig));
-  }
-  /**
-   * @param {string} value Sets the cname
-   */
-  setCname(value) {
-    this.cname = value;
-    return this;
-  }
-  /**
-   * @param {string} value Sets the secureDistribution
-   */
-  setSecureDistribution(value) {
-    this.secureDistribution = value;
-    return this;
-  }
-  /**
-   * @param {boolean} value Sets whether to use a private CDN (Removes cloudName from URL)
-   */
-  setPrivateCdn(value) {
-    this.privateCdn = value;
-    return this;
-  }
-  /**
-   * @param value Sets whether or not to sign the URL
-   */
-  setSignUrl(value) {
-    this.signUrl = value;
-    return this;
-  }
-  /**
-   * @param value Sets whether or not to use a long signature
-   */
-  setLongUrlSignature(value) {
-    this.longUrlSignature = value;
-    return this;
-  }
-  /**
-   * @param value Sets whether or not to shorten the URL
-   */
-  setShorten(value) {
-    this.shorten = value;
-    return this;
-  }
-  /**
-   * @param value Sets whether or not to use a root path
-   */
-  setUseRootPath(value) {
-    this.useRootPath = value;
-    return this;
-  }
-  /**
-   * @param value Sets whether or not to deliver the asset through https
-   */
-  setSecure(value) {
-    this.secure = value;
-    return this;
-  }
-  /**
-   * @param value Sets whether to force a version in the URL
-   */
-  setForceVersion(value) {
-    this.forceVersion = value;
-    return this;
-  }
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (URLConfig);
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/instance/Cloudinary.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/instance/Cloudinary.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Cloudinary": () => (/* binding */ Cloudinary)
-/* harmony export */ });
-/* harmony import */ var _assets_CloudinaryImage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/CloudinaryImage.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryImage.js");
-/* harmony import */ var _assets_CloudinaryVideo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/CloudinaryVideo.js */ "./node_modules/@cloudinary/url-gen/assets/CloudinaryVideo.js");
-
-
-class Cloudinary {
-  constructor(cloudinaryConfig) {
-    if (cloudinaryConfig) {
-      this.cloudinaryConfig = cloudinaryConfig;
-    }
-  }
-  image(publicID) {
-    return new _assets_CloudinaryImage_js__WEBPACK_IMPORTED_MODULE_0__.CloudinaryImage(publicID, this.cloudinaryConfig.cloud, this.cloudinaryConfig.url);
-  }
-  video(publicID) {
-    return new _assets_CloudinaryVideo_js__WEBPACK_IMPORTED_MODULE_1__.CloudinaryVideo(publicID, this.cloudinaryConfig.cloud, this.cloudinaryConfig.url);
-  }
-  setConfig(cloudinaryConfig) {
-    this.cloudinaryConfig = cloudinaryConfig;
-    return this;
-  }
-  getConfig() {
-    return this.cloudinaryConfig;
-  }
-  extendConfig() {
-    // Future implementation
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/internal/internalConstants.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/internal/internalConstants.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ALLOWED_CLOUD_CONFIG": () => (/* binding */ ALLOWED_CLOUD_CONFIG),
-/* harmony export */   "ALLOWED_URL_CONFIG": () => (/* binding */ ALLOWED_URL_CONFIG)
-/* harmony export */ });
-/**
- * This file is for internal constants only.
- * It is not intended for public use and is not part of the public API
- */
-/**
- * @private
- */
-const ALLOWED_URL_CONFIG = ['cname', 'secureDistribution', 'privateCdn', 'signUrl', 'longUrlSignature', 'shorten', 'useRootPath', 'secure', 'forceVersion', 'analytics'];
-/**
- * @private
- */
-const ALLOWED_CLOUD_CONFIG = ['cloudName', 'apiKey', 'apiSecret', 'authToken'];
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/internal/url/cloudinaryURL.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/internal/url/cloudinaryURL.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getUrlPrefix": () => (/* binding */ getUrlPrefix),
-/* harmony export */   "getUrlVersion": () => (/* binding */ getUrlVersion),
-/* harmony export */   "handleAssetType": () => (/* binding */ handleAssetType),
-/* harmony export */   "handleDeliveryType": () => (/* binding */ handleDeliveryType)
-/* harmony export */ });
-/* harmony import */ var _urlUtils_isUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./urlUtils/isUrl.js */ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isUrl.js");
-/* harmony import */ var _urlUtils_isFileName_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./urlUtils/isFileName.js */ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isFileName.js");
-/* harmony import */ var _urlUtils_publicIDContainsVersion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./urlUtils/publicIDContainsVersion.js */ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/publicIDContainsVersion.js");
-
-
-
-/**
- * Create the URL prefix for Cloudinary resources.
- * Available use cases
- * http://res.cloudinary.com/{cloudName}
- * https://res.cloudinary.com/{cloudName}
- * https://{cloudName}-res.cloudinary.com/
- * http://{domain}/${cloudName}
- * https://{domain}/${cloudName}
- * https://{domain}
- * @private
- *
- * @param {string} cloudName
- * @param {IURLConfig} urlConfig
- */
-function getUrlPrefix(cloudName, urlConfig) {
-  const secure = urlConfig.secure;
-  const privateCDN = urlConfig.privateCdn;
-  const cname = urlConfig.cname;
-  const secureDistribution = urlConfig.secureDistribution;
-  if (!secure && !cname) {
-    return `http://res.cloudinary.com/${cloudName}`;
-  }
-  if (secure && !secureDistribution && privateCDN) {
-    return `https://${cloudName}-res.cloudinary.com`;
-  }
-  if (secure && !secureDistribution) {
-    return `https://res.cloudinary.com/${cloudName}`;
-  }
-  if (secure && secureDistribution && privateCDN) {
-    return `https://${secureDistribution}`;
-  }
-  if (secure && secureDistribution) {
-    return `https://${secureDistribution}/${cloudName}`;
-  }
-  if (!secure && cname) {
-    return `http://${cname}/${cloudName}`;
-  } else {
-    return 'ERROR';
-  }
-}
-/**
- * @private
- * @param assetType
- */
-function handleAssetType(assetType) {
-  //default to image
-  if (!assetType) {
-    return 'image';
-  }
-  return assetType;
-}
-/**
- * @private
- * @param deliveryType
- */
-function handleDeliveryType(deliveryType) {
-  //default to upload
-  if (!deliveryType) {
-    return 'upload';
-  }
-  return deliveryType;
-}
-/**
- *
- * @param {string} publicID
- * @param {number} version
- * @param {boolean} forceVersion
- */
-function getUrlVersion(publicID, version, forceVersion) {
-  const shouldForceVersion = forceVersion !== false;
-  if (version) {
-    return `v${version}`;
-  }
-  // In all these conditions we never force a version
-  if ((0,_urlUtils_publicIDContainsVersion_js__WEBPACK_IMPORTED_MODULE_0__.publicIDContainsVersion)(publicID) || (0,_urlUtils_isUrl_js__WEBPACK_IMPORTED_MODULE_1__.isUrl)(publicID) || (0,_urlUtils_isFileName_js__WEBPACK_IMPORTED_MODULE_2__.isFileName)(publicID)) {
-    return '';
-  }
-  return shouldForceVersion ? 'v1' : '';
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isFileName.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isFileName.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isFileName": () => (/* binding */ isFileName)
-/* harmony export */ });
-/**
- *
- * @param publicID
- */
-function isFileName(publicID) {
-  return publicID.indexOf('/') < 0;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isUrl.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/internal/url/urlUtils/isUrl.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isUrl": () => (/* binding */ isUrl)
-/* harmony export */ });
-/**
- *
- * @param publicID
- */
-function isUrl(publicID) {
-  return publicID.match(/^https?:\//);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/internal/url/urlUtils/publicIDContainsVersion.js":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/internal/url/urlUtils/publicIDContainsVersion.js ***!
-  \*******************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "publicIDContainsVersion": () => (/* binding */ publicIDContainsVersion)
-/* harmony export */ });
-/**
- *
- * @param publicID
- */
-function publicIDContainsVersion(publicID) {
-  return publicID.match(/^v[0-9]+/);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/internal/utils/packageVersion.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/internal/utils/packageVersion.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "packageVersion": () => (/* binding */ packageVersion)
-/* harmony export */ });
-const packageVersion = '1.8.6';
-/**
- * Export package version (injected during our build).
- * Reason for this is that If we import values from from package.json,
- * it will cause an error for users who do not have an 'import from json' plugin
- * as part of their build process / bundler.
- */
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/base64Map.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/base64Map.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "base64Map": () => (/* binding */ base64Map)
-/* harmony export */ });
-/* harmony import */ var _stringPad_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./stringPad.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js");
-
-/**
- * This file maps sequences of 6 bit binary digits to a character in base64.
- * 000000 -> A
- * 110011 -> Z
- * 111111 -> /
- */
-const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-const base64Map = {};
-let num = 0;
-chars.split('').forEach(char => {
-  let key = num.toString(2);
-  key = (0,_stringPad_js__WEBPACK_IMPORTED_MODULE_0__.stringPad)(key, 6, '0');
-  base64Map[key] = char;
-  num++;
-});
-/**
- * Map of [six-bit binary codes] -> [Base64 characters]
- */
-
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/encodeVersion.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/encodeVersion.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "encodeVersion": () => (/* binding */ encodeVersion)
-/* harmony export */ });
-/* harmony import */ var _base64Map_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./base64Map.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/base64Map.js");
-/* harmony import */ var _stringPad_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stringPad.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js");
-/* harmony import */ var _reverseVersion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reverseVersion.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/reverseVersion.js");
-
-
-
-/**
- * @private
- * @description Encodes a semVer-like version string
- * @param {string} semVer Input can be either x.y.z or x.y
- * @return {string} A string built from 3 characters of the base64 table that encode the semVer
- */
-function encodeVersion(semVer) {
-  let strResult = '';
-  // support x.y or x.y.z by using 'parts' as a variable
-  const parts = semVer.split('.').length;
-  const paddedStringLength = parts * 6; // we pad to either 12 or 18 characters
-  // reverse (but don't mirror) the version. 1.5.15 -> 15.5.1
-  // Pad to two spaces, 15.5.1 -> 15.05.01
-  const paddedReversedSemver = (0,_reverseVersion_js__WEBPACK_IMPORTED_MODULE_0__.reverseVersion)(semVer);
-  // turn 15.05.01 to a string '150501' then to a number 150501
-  const num = parseInt(paddedReversedSemver.split('.').join(''));
-  // Represent as binary, add left padding to 12 or 18 characters.
-  // 150,501 -> 100100101111100101
-  let paddedBinary = num.toString(2);
-  paddedBinary = (0,_stringPad_js__WEBPACK_IMPORTED_MODULE_1__.stringPad)(paddedBinary, paddedStringLength, '0');
-  // Stop in case an invalid version number was provided
-  // paddedBinary must be built from sections of 6 bits
-  if (paddedBinary.length % 6 !== 0) {
-    throw 'Version must be smaller than 43.21.26)';
-  }
-  // turn every 6 bits into a character using the base64Map
-  paddedBinary.match(/.{1,6}/g).forEach(bitString => {
-    // console.log(bitString);
-    strResult += _base64Map_js__WEBPACK_IMPORTED_MODULE_2__.base64Map[bitString];
-  });
-  return strResult;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getAnalyticsOptions.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/getAnalyticsOptions.js ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getAnalyticsOptions": () => (/* binding */ getAnalyticsOptions)
-/* harmony export */ });
-/**
- * @private
- * @description Gets the analyticsOptions from options- should include sdkSemver, techVersion, sdkCode, and feature
- * @param {ITrackedPropertiesThroughAnalytics} options
- * @returns {IAnalyticsOptions}
- */
-function getAnalyticsOptions(options) {
-  const analyticsOptions = {
-    sdkSemver: options.sdkSemver,
-    techVersion: options.techVersion,
-    sdkCode: options.sdkCode,
-    feature: '0'
-  };
-  if (options.accessibility) {
-    analyticsOptions.feature = 'D';
-  }
-  if (options.lazyload) {
-    analyticsOptions.feature = 'C';
-  }
-  if (options.responsive) {
-    analyticsOptions.feature = 'A';
-  }
-  if (options.placeholder) {
-    analyticsOptions.feature = 'B';
-  }
-  return analyticsOptions;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getSDKAnalyticsSignature.js":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/getSDKAnalyticsSignature.js ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getSDKAnalyticsSignature": () => (/* binding */ getSDKAnalyticsSignature)
-/* harmony export */ });
-/* harmony import */ var _encodeVersion_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./encodeVersion.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/encodeVersion.js");
-/* harmony import */ var _getAnalyticsOptions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getAnalyticsOptions.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/getAnalyticsOptions.js");
-/* harmony import */ var _internal_utils_packageVersion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../internal/utils/packageVersion.js */ "./node_modules/@cloudinary/url-gen/internal/utils/packageVersion.js");
-
-
-
-/**
- * @private
- * @description Try to get the node version out of process, if browser just return 0.0.0
- */
-function getNodeVersion() {
-  const failedVersion = '0.0.0';
-  if (typeof window !== 'undefined') {
-    return failedVersion;
-  } else {
-    // node env
-    try {
-      return process.versions.node || failedVersion;
-    } catch (e) {
-      return failedVersion;
-    }
-  }
-}
-/**
- * @private
- * @description Ensure that all values ITrackedPropertiesThroughAnalytics are populated.
- * Accept a partial map of values and returns the complete interface of ITrackedPropertiesThroughAnalytics
- * @param {ITrackedPropertiesThroughAnalytics} trackedAnalytics
- * @param {ITrackedPropertiesThroughAnalytics} trackedAnalytics
- */
-function ensureShapeOfTrackedProperties(trackedAnalytics) {
-  // try to get the process version from node, but if we're on the client return 0.0.0
-  const defaults = {
-    techVersion: getNodeVersion(),
-    sdkCode: 'T',
-    sdkSemver: _internal_utils_packageVersion_js__WEBPACK_IMPORTED_MODULE_0__.packageVersion.split('-')[0],
-    responsive: false,
-    placeholder: false,
-    lazyload: false,
-    accessibility: false
-  };
-  if (!trackedAnalytics) {
-    return defaults;
-  } else {
-    return Object.assign(Object.assign({}, defaults), trackedAnalytics);
-  }
-}
-/**
- * @private
- * @description Creates the complete SDK signature by using all the values provided by ITrackedPropertiesThroughAnalytics
- *              Creation of the signature
- *              - Set the AlgoVersion of the encoding, this is an internal letter that represents the version
- *                of our encoding algorithm, it will allow us to perform breaking changes if we'll need them.
- *              - Take the constant SDK code (Arbitrary letter chosen for each SDK, for Base that letter is 'T')
- *                this is used to tell apart which SDK is being tracked.
- *              - Take the {major.minor} versions of the node version (techVersion) (14.2, 16.2 etc.)
- *              - Take the full semver of the SDK you wish to track
- *              - Take the features used(lazy, placeholder etc.) and turn them to a letter (for example accessibility -> D)
- *              - Before appending the string, the Versions must be encoded, see the function `encodeVersion` for more details
- *              - Append all the variables to a single string
- *              - In any case of an error, return the single letter 'E'
- *
- * @return {string} sdkAnalyticsSignature
- */
-function getSDKAnalyticsSignature(_trackedAnalytics) {
-  const trackedAnalytics = ensureShapeOfTrackedProperties(_trackedAnalytics);
-  const analyticsOptions = (0,_getAnalyticsOptions_js__WEBPACK_IMPORTED_MODULE_1__.getAnalyticsOptions)(trackedAnalytics);
-  try {
-    const twoPartVersion = removePatchFromSemver(analyticsOptions.techVersion);
-    const encodedSDKVersion = (0,_encodeVersion_js__WEBPACK_IMPORTED_MODULE_2__.encodeVersion)(analyticsOptions.sdkSemver);
-    const encodedTechVersion = (0,_encodeVersion_js__WEBPACK_IMPORTED_MODULE_2__.encodeVersion)(twoPartVersion);
-    const featureCode = analyticsOptions.feature;
-    const SDKCode = analyticsOptions.sdkCode;
-    const algoVersion = 'A'; // The algo version is determined here, it should not be an argument
-    return `${algoVersion}${SDKCode}${encodedSDKVersion}${encodedTechVersion}${featureCode}`;
-  } catch (e) {
-    // Either SDK or Node versions were unparsable
-    return 'E';
-  }
-}
-/**
- * @private
- * @description Removes patch version from the semver if it exists
- *              Turns x.y.z OR x.y into x.y
- * @param {'x.y.z' | 'x.y' | string} semVerStr
- */
-function removePatchFromSemver(semVerStr) {
-  const parts = semVerStr.split('.');
-  return `${parts[0]}.${parts[1]}`;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/reverseVersion.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/reverseVersion.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "reverseVersion": () => (/* binding */ reverseVersion)
-/* harmony export */ });
-/* harmony import */ var _stringPad_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./stringPad.js */ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js");
-
-/**
- * @private
- * @description Reverses the version positions, x.y.z turns to z.y.x
- *              Pads each segment with '0' so they have length of 2
- *              Example: 1.2.3 -> 03.02.01
- * @param {string} semVer Input can be either x.y.z or x.y
- * @return {string} in the form of zz.yy.xx (
- */
-function reverseVersion(semVer) {
-  if (semVer.split('.').length < 2) {
-    throw new Error('invalid semVer, must have at least two segments');
-  }
-  // Split by '.', reverse, create new array with padded values and concat it together
-  return semVer.split('.').reverse().map(segment => {
-    // try to cast to number
-    const asNumber = +segment;
-    if (isNaN(asNumber) || asNumber < 0) {
-      throw 'Invalid version number provided';
-    }
-    return (0,_stringPad_js__WEBPACK_IMPORTED_MODULE_0__.stringPad)(segment, 2, '0');
-  }).join('.');
-}
-
-/***/ }),
-
-/***/ "./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@cloudinary/url-gen/sdkAnalytics/stringPad.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "stringPad": () => (/* binding */ stringPad)
-/* harmony export */ });
-/**
- * @private
- * @description Adds left padding to a string with the desired substring the provided number of times
- * @example stringPad(foo, 3, 'a'') // -> aaafoo
- * @param {string} value
- * @param {number} _targetLength
- * @param {string} _padString
- */
-function stringPad(value, _targetLength, _padString) {
-  let targetLength = _targetLength >> 0; //truncate if number or convert non-number to 0;
-  let padString = String(typeof _padString !== 'undefined' ? _padString : ' ');
-  if (value.length > targetLength) {
-    return String(value);
-  } else {
-    targetLength = targetLength - value.length;
-    if (targetLength > padString.length) {
-      padString += repeatStringNumTimes(padString, targetLength / padString.length);
-    }
-    return padString.slice(0, targetLength) + String(value);
-  }
-}
-/**
- * @description Repeat a string multiple times, cross-browser-safe alternative to string.repeat()
- * @param string
- * @param _times
- */
-function repeatStringNumTimes(string, _times) {
-  let times = _times;
-  let repeatedString = "";
-  while (times > 0) {
-    repeatedString += string;
-    times--;
-  }
-  return repeatedString;
-}
-
-/***/ }),
-
 /***/ "./node_modules/axios/package.json":
 /*!*****************************************!*\
   !*** ./node_modules/axios/package.json ***!
@@ -30138,10 +27955,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.jsx */ "./client/src/App.jsx");
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var _QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionsAnswers/Questions&Answers.jsx */ "./client/src/QuestionsAnswers/Questions&Answers.jsx");
+/* harmony import */ var _Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Product Overview/productOverview.jsx */ "./client/src/Product Overview/productOverview.jsx");
+/* harmony import */ var _Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reviews/ReviewIndex.jsx */ "./client/src/Reviews/ReviewIndex.jsx");
+/* harmony import */ var _RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RelatedProducts/Lists.jsx */ "./client/src/RelatedProducts/Lists.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -30153,76 +27976,83 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-// import React from "react";
-// import {createRoot} from 'react-dom/client';
-// import QuestionsAnswers from './QuestionsAnswers/Questions&Answers.jsx';
-// import ProductOverview from './Product Overview/productOverview.jsx'
-// import Reviews from './Reviews/ReviewIndex.jsx';
-// import Lists from './RelatedProducts/Lists.jsx';
-// import {BrowserRouter as Router, Route,Routes, Switch} from 'react-router-dom';
-
-// class App extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       product_id: 71701,
-//       textId:''
-//     }
-//   }
-
-//   changeProduct(e) {
-//     let text = e.toString()
-//     this.setState({
-//       product_id: e,
-//       textId: text
-//     }, () => {console.log(this.state)})
-
-//   }
-
-// render() {
-//   return (
-//     <Router>
-//         <Routes>
-//             <Route path={'/' + this.state.textId}
-//             element = {
-//               <>
-//               <ProductOverview product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
-//               <Lists product_id={this.state.product_id} changeProduct={this.changeProduct.bind(this)}/> <br/><br/><hr/><br/><br/>
-//               <QuestionsAnswers product_id={this.state.product_id}/> <br/><br/><hr/><br/><br/>
-//               <Reviews product_id={this.state.product_id}/>
-//               </>
-//             }
-//             />
-
-//         </Routes>
-//     </Router>
-//   )
-// }
-// }
-
-//createRoot(document.getElementById('root')).render(<App />)
 
 
 
 
 
 
-var Index = /*#__PURE__*/function (_React$Component) {
-  _inherits(Index, _React$Component);
-  var _super = _createSuper(Index);
-  function Index() {
-    _classCallCheck(this, Index);
-    return _super.apply(this, arguments);
+
+
+
+
+
+var App = /*#__PURE__*/function (_React$Component) {
+  _inherits(App, _React$Component);
+  var _super = _createSuper(App);
+  function App(props) {
+    var _this;
+    _classCallCheck(this, App);
+    _this = _super.call(this, props);
+    _this.changeProduct = _this.changeProduct.bind(_assertThisInitialized(_this));
+    _this.clickTracking = _this.clickTracking.bind(_assertThisInitialized(_this));
+    _this.state = {
+      product_id: 71701
+    };
+    return _this;
   }
-  _createClass(Index, [{
+  _createClass(App, [{
+    key: "changeProduct",
+    value: function changeProduct(id) {
+      this.setState({
+        product_id: id
+      });
+    }
+  }, {
+    key: "clickTracking",
+    value: function clickTracking(e, widgetName) {
+      var tracking = {
+        element: e.target.outerHTML,
+        widget: widgetName,
+        time: e.timeStamp.toString()
+      };
+      axios__WEBPACK_IMPORTED_MODULE_6___default().post('/interactions', tracking).then(function (data) {
+        console.log('successfully tracked!', data.data);
+      })["catch"](function (err) {
+        console.log('error tracking', err);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_App_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {});
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+            path: "/*",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Product_Overview_productOverview_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                product_id: this.state.product_id,
+                clickTracking: this.clickTracking
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_RelatedProducts_Lists_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                product_id: this.state.product_id,
+                changeProduct: this.changeProduct,
+                clickTracking: this.clickTracking
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                product_id: this.state.product_id,
+                clickTracking: this.clickTracking
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                product_id: this.state.product_id,
+                clickTracking: this.clickTracking
+              })]
+            })
+          })
+        })
+      });
     }
   }]);
-  return Index;
+  return App;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
-(0,react_dom_client__WEBPACK_IMPORTED_MODULE_3__.createRoot)(document.getElementById('root')).render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_App_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
+(0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById('root')).render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(App, {}));
 //ReactDOM.render(<App />, document.getElementById("root"));
 })();
 

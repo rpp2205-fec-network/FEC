@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 const axios = require('axios');
 
-const AddQuestion = ({show, onClose, product_id}) => {
+const AddQuestion = ({show, onClose, product_id, productName}) => {
   const [modal, setModal] = useState(show);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -49,7 +49,7 @@ const AddQuestion = ({show, onClose, product_id}) => {
       <form className="questionModal">
         <div className="questionModalContent">
         <h2>Ask Your Question</h2>
-        {/* <h3>About the {product_name}</h3> */}
+        <h3>About the {productName}</h3>
 
         <div className="yourquestion">
           <div><label> Your Question * </label></div>

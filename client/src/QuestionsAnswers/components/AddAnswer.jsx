@@ -4,7 +4,7 @@ import {AdvancedImage} from '@cloudinary/react';
 import {Cloudinary} from "@cloudinary/url-gen";
 const axios = require('axios');
 
-const AddAnswer = ({show, onClose, question, productId}) => {
+const AddAnswer = ({show, onClose, question, productId, productName}) => {
   const [modal, setModal] = useState(show);
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
@@ -15,22 +15,19 @@ const AddAnswer = ({show, onClose, question, productId}) => {
 
   useEffect(() => {
     if (images.length < 1 || images.length > 5) return;
-    var currentImg = images[images.length-1]
-    setImageURLs([...imageURLs, window.URL.createObjectURL(new Blob(currentImg, {type: "image/jpeg"}))]);
-    // Now convert local urls to cloudinary urls
-    const cloudImgs = [];
-    images.forEach((img) => {
-      const cld = new Cloudinary({
-        cloud: {
-          cloudName: 'atelier'
-        }
-      });
-      const cloudImage = cld.image(img[0].name);
-      const url = cloudImage.toURL();
-      console.log(url);
-      cloudImgs.push(url)
-    })
-    setCloudImages(cloudImgs);
+    var img = images[images.length-1]
+    setImageURLs([...imageURLs, window.URL.createObjectURL(new Blob(img, {type: "image/jpeg"}))]);
+
+      const formData = new FormData();
+      formData.append('file', img[0]);
+      formData.append('upload_preset', 'pdcwltrn');
+      console.log(formData);
+
+      axios.post('https://api.cloudinary.com/v1_1/atelierfec/image/upload', formData)
+      .then((response) => {
+        const url = response.data.url;
+        setCloudImages(prevState => [...prevState, url])
+      })
   }, [images])
 
   const onImageChange = (e) => {
@@ -83,7 +80,7 @@ const AddAnswer = ({show, onClose, question, productId}) => {
       <form className="answerModal">
         <div className="answerModalContent">
         <h2>Submit your Answer</h2>
-        {/* <h3>{Product Name will go here}</h3> */}
+        <h3>{productName}</h3>
         <h4>{question.question_body}</h4>
 
         <div className="youranswer">

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import List from './components/List.jsx';
 import RatingsOverview from './components/RatingsOverview.jsx';
 import axios from "axios";
@@ -11,28 +10,23 @@ export default class ReviewIndex extends React.Component {
     this.state = {
       reviews: [],
       filteredReviews: {5: [], 4: [], 3: [], 2: [], 1: []},
-      filterClicked: false
+      filterClicked: false,
+      characteristics: {}
     }
   this.getReviews = this.getReviews.bind(this);
   this.filterByRating = this.filterByRating.bind(this);
+  this.getMetaData = this.getMetaData.bind(this);
 }
 
 filterByRating(starRating) {
-  console.log("rating", typeof starRating)
-  console.log("reviewss", this.state.filteredReviews[5])
-
   if (this.state.filteredReviews[starRating].length === 0) {
-    //console.log('this.state.reviews', typeof this.state.reviews[0].rating)
     var result = this.state.reviews.filter(review => review.rating === starRating)
-    //console.log('result', result)
     this.setState({
       filterClicked: true,
       filteredReviews: {...this.state.filteredReviews, [starRating]: result}
       })
-    //console.log('this.state.filteredReviews', this.state.filteredReviews)
   } else {
       //if the clicked rating isn't empty, then reset that number to an empty array
-
       if (this.state.filteredReviews[5] === [] &&
         this.state.filteredReviews[4] === [] &&
         this.state.filteredReviews[3] === [] &&
@@ -46,19 +40,60 @@ filterByRating(starRating) {
           filteredReviews: {...this.state.filteredReviews, [starRating]: []}
           }
         )
-
       }
-
   }
 }
 
 componentDidMount() {
   this.getReviews('relevant')
+  this.getMetaData()
+}
+
+getMetaData() {
+  //axios.get(`/meta/${this.props.product_id}/`)
+  axios.get(`/meta/71701/`)
+  .then((data) => {
+    //console.log('check one two one two', data.data.characteristics)
+    this.setState({characteristics: data.data.characteristics})
+      if (data.data.characteristics.Size !== undefined) {
+        this.setState({
+          sizeID: data.data.characteristics.Size.id
+        })
+      }
+      if (data.data.characteristics.Width !== undefined) {
+        this.setState({
+          widthID: data.data.characteristics.Width.id
+        })
+      }
+      if (data.data.characteristics.Comfort !== undefined) {
+        this.setState({
+          comfortID: data.data.characteristics.Comfort.id
+        })
+      }
+      if (data.data.characteristics.Quality !== undefined) {
+        this.setState({
+          qualityID: data.data.characteristics.Quality.id
+        })
+      }
+      if (data.data.characteristics.Fit !== undefined) {
+        this.setState({
+          fitID: data.data.characteristics.Fit.id
+        })
+      }
+      if (data.data.characteristics.Length !== undefined) {
+        this.setState({
+          lengthID: data.data.characteristics.Width.id
+        })
+      }
+  })
+  .catch((err) => {
+      console.log('ERR IN META GET REVIEWS \n', err)
+  })
 }
 
 getReviews(sort = 'relevant') {
-  //axios.get(`/reviews/${this.props.product_id}/${sort}`)
-  axios.get(`/reviews/71717/${sort}`)
+  axios.get(`/reviews/${this.props.product_id}/${sort}`)
+  //axios.get(`/reviews/71703/${sort}`)
   .then((data) => {
     //console.log('DATA IN Reviews COMPONENT \n', data.data.results)
     this.setState({reviews: data.data.results})
@@ -75,9 +110,10 @@ render() {
     count += this.state.filteredReviews[key].length
   }
   return (
+    <div className='totalContainer'>
     <div className='reviewsOverview'>
       <p className='reviewsTitle'>RATINGS & REVIEWS</p>
-      <div className='mainContainer'>
+      <div className='mainContainer' onClick={(e) => this.props.clickTracking(e, 'Reviews')}>
         <div className='Ratings'>
           <ErrorBoundary>
             <RatingsOverview
@@ -95,7 +131,6 @@ render() {
               <option className='dropdownSelect' value='helpful'>helpful</option>
               <option className='dropdownSelect' value='newest'>newest</option>
             </select>
-
                 {this.state.filterClicked && count !== 0 ? <span className='filterApplied'>
                   <span className='filtersText'>[ Filter(s) has been applied ]</span>
                   <button className='removeAllFilters' onClick={() => this.setState({filterClicked: false, filteredReviews: {5: [], 4: [], 3: [], 2: [], 1: []}})}>Remove all filters</button>
@@ -109,14 +144,20 @@ render() {
             {count === 0 ?
               <List
               reviews={this.state.reviews}
+              product_id={this.props.product_id}
+              characteristics={this.state.characteristics}
               /> :
               <List
               reviews={finalArrays}
+              product_id={this.props.product_id}
+              characteristics={this.state.characteristics}
               />
             }
           </ErrorBoundary>
         </div>
+
       </div>
+    </div>
     </div>
   )
 }

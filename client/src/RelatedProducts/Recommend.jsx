@@ -17,7 +17,7 @@ export default class Recommend extends React.Component {
       clikedProduct: null,
       popup: false
     }
-    console.log(this.props, 'inside recommend')
+    // console.log(this.props, 'inside recommend')
    // console.log(typeof(window.location.hash.split('/')[2]))
   }
 
@@ -34,7 +34,7 @@ export default class Recommend extends React.Component {
         id: this.props.currentItem
       }
     }).then((response) => {
-      console.log(response)
+      // console.log(response)
       setDisplay = [response.data[0], response.data[1], response.data[2]]
       setProductList = response.data;
         setProductList.forEach((item) => {

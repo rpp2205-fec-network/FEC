@@ -33,6 +33,19 @@ app.post('/', (req, res) => {
   console.log('hello world')
 })
 
+app.post('/interactions', (req, res) => {
+  // console.log('req.body', req.body)
+  var tracking = req.body
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions`, tracking, options)
+  .then((response) => {
+    // console.log('SENDING CLICK TRACKING!!! \n', response.data);
+    res.json(response.data);
+  })
+  .catch((err) => {
+    console.log('ERR SENDING CLICK TRACKING!! ================== \n', err.data)
+  })
+})
+
 // ========== ZACH ROUTES START ========== //
 // Get All Products
 app.get('/productOverview', (req, res) => {
@@ -71,19 +84,21 @@ app.get('/productOverview/styles/:id', (req, res) => {
 
 // ========== BECCA ROUTES START ========== //
 
-app.get('/getQuestions', function(req, res) {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=71717&count=100`, options)
+app.get('/getQuestions/:product_id', function(req, res) {
+  var product_id = req.params.product_id;
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${product_id}&count=100`, options)
   .then((questions) => {
     //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err.data))
 })
 
 app.get('/getAnswers', function(req, res) {
   var answerId = req.query.id;
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${answerId}/answers?count=100`, options)
   .then((answers) => {
+    // console.log(answers.data)
     res.json(answers.data)
   })
   .catch(err => console.log(err))
@@ -259,6 +274,20 @@ app.put('/reviewHelpful', (req, res) => {
   })
   .catch((err) => {
     console.log('ERR ADDING HELPFUL ================== \n', err)
+  })
+})
+
+app.post('/addReview', (req, res) => {
+  //console.log('req.body', req.body)
+  //var product_id = req.body.product_id
+  var bodyObj = req.body
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/?product_id=${req.body.product_id}`, bodyObj, options)
+  .then((response) => {
+    //console.log('****RESPONSE ADD REVIEW!!! \n', response);
+    res.json(response.body);
+  })
+  .catch((err) => {
+    console.log('ADD REVIEW ERR ================== \n', err.response.data)
   })
 })
 

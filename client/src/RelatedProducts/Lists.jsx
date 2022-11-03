@@ -19,7 +19,7 @@ export default class Lists extends React.Component {
 
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):
-    console.log('inside List componentDidUpdate prevProps', prevProps, this.props, this.state)
+    // console.log('inside List componentDidUpdate prevProps', prevProps, this.props, this.state)
     if (this.props.product_id !== prevProps.product_id) {
       this.setState({
         currentItem: this.props.product_id
@@ -30,7 +30,7 @@ export default class Lists extends React.Component {
 
   render() {
     return(
-      <div>
+      <div onClick={(e) => this.props.clickTracking(e, 'RelatedProducts')}>
         <ListErrorBoundary>
           <div style={{fontSize: '25px', fontWeight: 'bold'}}>Similar Products</div>
           {/* <Recommend currentItem={this.state.clickedItem ? this.state.clickedItem: this.state.currentItem} changeProduct={this.props.changeProduct} /> */}

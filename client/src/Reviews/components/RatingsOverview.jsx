@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Ratings from 'react-ratings-declarative';
 import axios from 'axios';
 import { Line } from 'rc-progress';
@@ -33,7 +32,6 @@ class RatingsOverview extends React.Component {
 
   filterRatingsClick(e) {
     var ratingNum = Number(e.target.innerText.substr(0, 1))
-    console.log('clicked on ratings!', ratingNum)
     this.props.filterByRating(ratingNum)
   }
 
@@ -41,10 +39,17 @@ class RatingsOverview extends React.Component {
     this.getMetaData()
   }
 
+   ///////////Kens add////////////////
+ componentDidUpdate(prevProps) {
+    this.getMetaData()
+
+}
+///////////////////////////////////////
+
   getMetaData() {
     axios.get(`/meta/${this.props.product_id}/`)
+    //axios.get(`/meta/71701/`)
     .then((data) => {
-      //console.log('FRONT END META DATA \n', data.data.characteristics)
         this.setState({
           rating1: Number(data.data.ratings[1]),
           rating2: Number(data.data.ratings[2]),

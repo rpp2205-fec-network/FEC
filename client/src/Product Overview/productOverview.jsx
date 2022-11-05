@@ -37,6 +37,25 @@ export default class ProductOverview extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.product_id !== this.props.product_id) {
+            return this.getProductInfo(this.props.product_id)
+        .then((data) => {
+            this.setState({
+              currentProduct: data
+            })
+        })
+        .then(() => {
+            return this.getProductStyles(this.props.product_id)
+        })
+        .then((data) => {
+            this.setState({
+                styleInfo: data
+            })
+        })
+        }
+    }
+
     //all client-side routing done in the main component
     getAllProductInfo() {
         return axios.get('/productOverview')

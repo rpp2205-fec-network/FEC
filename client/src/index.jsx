@@ -13,7 +13,7 @@ class App extends React.Component {
     this.changeProduct = this.changeProduct.bind(this);
     this.clickTracking = this.clickTracking.bind(this);
     this.state = {
-      product_id: 71717
+      product_id: 71699
     }
   }
 

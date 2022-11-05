@@ -4,6 +4,10 @@ client/dist/bundle.js
 client/dist/bundle.js.map
 client/dist/bundle.js.map~main
 client/dist/bundle.js~main
+client/dist/bundle.js.gz
+client/dist/bundle.js.map.gz
+bundle.js.LICENSE.txt
 node_modules
 coverage
+*.pem
 

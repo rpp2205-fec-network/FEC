@@ -88,7 +88,6 @@ app.get('/getQuestions/:product_id', function(req, res) {
   var product_id = req.params.product_id;
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${product_id}&count=100`, options)
   .then((questions) => {
-    //console.log('DATA IN QUESTIONS ROUTE',questions.data.results)
     res.json(questions.data)
   })
   .catch(err => console.log(err.data))
@@ -147,7 +146,6 @@ app.post('/postAnswer', function(req, res) {
 })
 
 app.post('/postQuestion', function(req, res) {
-  //var productId = req.body.question.product_id;
   var body = req.body.question;
   console.log('QUESTION TO POOOOSSSSSST', body)
   axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions`, body, options)

@@ -34,7 +34,6 @@ export default class Recommend extends React.Component {
         id: this.props.currentItem
       }
     }).then((response) => {
-      // console.log(response)
       setDisplay = [response.data[0], response.data[1], response.data[2]]
       setProductList = response.data;
         setProductList.forEach((item) => {
@@ -64,7 +63,13 @@ export default class Recommend extends React.Component {
 
   // render items in state and display each as a div
   element(input) {
-    let recMap = input.map((item, index) => {
+    let removeDup = [];
+    input.forEach((item) => {
+      if (!removeDup.includes(item)) {
+        removeDup.push(item)
+      }
+    })
+    let recMap = removeDup.map((item, index) => {
       //console.log(item, item.id, 'inside recommend element map func')
       return (
         <div key={index} id='productRec' >
@@ -240,7 +245,7 @@ export default class Recommend extends React.Component {
     axios.get('/productOverview/' + this.props.currentItem)
         .then((response) => {
             this.setState({
-              example: response.data.id
+              example: response.data
             }
             , () => {
               this.pull()
@@ -254,29 +259,24 @@ export default class Recommend extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
-
-
-    // console.log('testing inside recommend', prevProps, this.props, this.state)
     if (this.props.currentItem !== prevProps.currentItem) {
-
-      this.setState({
-        example: this.props.currentItem
-      })
-      this.pull();
+      this.pull()
     }
   }
-
-  // componentDidUpdate(prevState) {
+//////////// previous component did update ///////////
+  // componentDidUpdate(prevProps) {
   //   // Typical usage (don't forget to compare props):
-  //   //console.log('testing inside recommend', prevProps, this.props, this.state)
 
-  //   if (this.state.example !== prevState.example) {
+
+  //   // console.log('testing inside recommend', prevProps, this.props, this.state)
+  //   if (this.props.currentItem !== prevProps.currentItem) {
+
+  //     this.setState({
+  //       example: this.props.currentItem
+  //     })
   //     this.pull();
   //   }
   // }
-
-
 
 
   render() {

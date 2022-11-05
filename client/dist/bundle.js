@@ -2680,7 +2680,6 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
           id: this.props.currentItem
         }
       }).then(function (response) {
-        // console.log(response)
         setDisplay = [response.data[0], response.data[1], response.data[2]];
         setProductList = response.data;
         setProductList.forEach(function (item) {
@@ -2714,7 +2713,13 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
     key: "element",
     value: function element(input) {
       var _this3 = this;
-      var recMap = input.map(function (item, index) {
+      var removeDup = [];
+      input.forEach(function (item) {
+        if (!removeDup.includes(item)) {
+          removeDup.push(item);
+        }
+      });
+      var recMap = removeDup.map(function (item, index) {
         //console.log(item, item.id, 'inside recommend element map func')
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           id: "productRec",
@@ -2918,7 +2923,7 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
       var _this4 = this;
       axios__WEBPACK_IMPORTED_MODULE_1___default().get('/productOverview/' + this.props.currentItem).then(function (response) {
         _this4.setState({
-          example: response.data.id
+          example: response.data
         }, function () {
           _this4.pull();
         });
@@ -2930,22 +2935,20 @@ var Recommend = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      // Typical usage (don't forget to compare props):
-
-      // console.log('testing inside recommend', prevProps, this.props, this.state)
       if (this.props.currentItem !== prevProps.currentItem) {
-        this.setState({
-          example: this.props.currentItem
-        });
         this.pull();
       }
     }
-
-    // componentDidUpdate(prevState) {
+    //////////// previous component did update ///////////
+    // componentDidUpdate(prevProps) {
     //   // Typical usage (don't forget to compare props):
-    //   //console.log('testing inside recommend', prevProps, this.props, this.state)
 
-    //   if (this.state.example !== prevState.example) {
+    //   // console.log('testing inside recommend', prevProps, this.props, this.state)
+    //   if (this.props.currentItem !== prevProps.currentItem) {
+
+    //     this.setState({
+    //       example: this.props.currentItem
+    //     })
     //     this.pull();
     //   }
     // }
@@ -28142,13 +28145,7 @@ var App = /*#__PURE__*/function (_React$Component) {
                 product_id: this.state.product_id,
                 changeProduct: this.changeProduct,
                 clickTracking: this.clickTracking
-              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_QuestionsAnswers_Questions_Answers_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                product_id: this.state.product_id.toString(),
-                clickTracking: this.clickTracking
-              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Reviews_ReviewIndex_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                product_id: this.state.product_id,
-                clickTracking: this.clickTracking
-              })]
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {})]
             })
           })
         })

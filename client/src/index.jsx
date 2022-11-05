@@ -49,8 +49,8 @@ render() {
               <>
               <ProductOverview product_id={this.state.product_id} clickTracking={this.clickTracking}/> <br/><br/><hr/><br/><br/>
               <Lists product_id={this.state.product_id} changeProduct={this.changeProduct} clickTracking={this.clickTracking}/> <br/><br/><hr/><br/><br/>
-              <QuestionsAnswers product_id={this.state.product_id.toString()} clickTracking={this.clickTracking}/> <br/><br/><hr/><br/><br/>
-              <Reviews product_id={this.state.product_id} clickTracking={this.clickTracking}/>
+              {/* <QuestionsAnswers product_id={this.state.product_id.toString()} clickTracking={this.clickTracking}/> <br/><br/><hr/><br/><br/> */}
+              {/* <Reviews product_id={this.state.product_id} clickTracking={this.clickTracking}/> */}
               </>
             }
             />

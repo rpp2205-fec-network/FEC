@@ -13,13 +13,8 @@ export default class ProductInformation extends React.Component {
         var productInfo = this.props.productInfo
         return (
             <div className="productInformation">
-                <h3>Product Information</h3>
-                <div>Reviews Info</div>
-                <div>{productInfo.category}</div>
-                <h2>{productInfo.name}</h2>
-                <div>{productInfo.default_price}</div>
-                <h5>{productInfo.slogan}</h5>
-                <div>{productInfo.description}</div>
+
+
             </div>
         );
     }

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchQuestions from './components/SearchQuestions.jsx';
 import QuestionsList from './components/QuestionsList.jsx';
 import ErrorBoundary from './QuestionsAnswersErrorBoundary.jsx';
 const axios = require('axios')
@@ -71,7 +70,6 @@ class QuestionsAnswers extends React.Component {
   };
 
   searchQuestions = (questions, query) => {
-    //if no input the return the original
     if (query === '') {
       return questions;
     }

@@ -107,13 +107,6 @@ export default class AddToCart extends React.Component {
                     <select name="size" onChange={this.changeData} >
                         <option value='select size' disabled={this.state.size.length > 0}>select size</option>
                         {this.state.data.map((item) => {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                            //console.log('ITEM', item)
-=======
->>>>>>> 0cc74eb5ccf15abfec5c3e3b481a41086eb37dcd
->>>>>>> main
                             if (item.quantity <= 0) {
                                 console.log('Item size of ' + item.size + ' is out of stock')
                             } else {

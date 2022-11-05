@@ -49,9 +49,22 @@ componentDidMount() {
   this.getMetaData()
 }
 
+ ///////////Kens add////////////////
+ componentDidUpdate(prevProps) {
+  console.log('review index', prevProps.product_id, this.props.product_id, this.state.reviews)
+  if (prevProps.product_id !== this.props.product_id) {
+    this.setState({
+      product_id: this.props.product_id
+    }, () => this.getReviews('relevant'), this.getMetaData())
+  }
+}
+///////////////////////////////////////
+
+
+
 getMetaData() {
-  //axios.get(`/meta/${this.props.product_id}/`)
-  axios.get(`/meta/71701/`)
+  axios.get(`/meta/${this.props.product_id}/`)
+  // axios.get(`/meta/71701/`)
   .then((data) => {
     //console.log('check one two one two', data.data.characteristics)
     this.setState({characteristics: data.data.characteristics})

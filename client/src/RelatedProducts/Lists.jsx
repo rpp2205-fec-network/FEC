@@ -11,7 +11,19 @@ export default class Lists extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentItem: this.props.product_id
+      currentItem: this.props.product_id,
+      clickedItem: parseInt(window.location.hash.split('/')[2])
+    }
+    //console.log(this.props.product_id, 'inside lists')
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    // console.log('inside List componentDidUpdate prevProps', prevProps, this.props, this.state)
+    if (this.props.product_id !== prevProps.product_id) {
+      this.setState({
+        currentItem: this.props.product_id
+      })
     }
   }
 
@@ -21,6 +33,7 @@ export default class Lists extends React.Component {
       <div onClick={(e) => this.props.clickTracking(e, 'RelatedProducts')}>
         <ListErrorBoundary>
           <div style={{fontSize: '25px', fontWeight: 'bold'}}>Similar Products</div>
+          {/* <Recommend currentItem={this.state.clickedItem ? this.state.clickedItem: this.state.currentItem} changeProduct={this.props.changeProduct} /> */}
           <Recommend currentItem={this.state.currentItem} changeProduct={this.props.changeProduct} />
           <div style={{fontSize: '25px', fontWeight: 'bold'}}> Your Outfit</div>
           <Outfit currentItem={this.state.currentItem}/>

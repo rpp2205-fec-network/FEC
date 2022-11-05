@@ -34,11 +34,11 @@ app.post('/', (req, res) => {
 })
 
 app.post('/interactions', (req, res) => {
-  console.log('req.body', req.body)
+  // console.log('req.body', req.body)
   var tracking = req.body
   axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions`, tracking, options)
   .then((response) => {
-    console.log('SENDING CLICK TRACKING!!! \n', response.data);
+    // console.log('SENDING CLICK TRACKING!!! \n', response.data);
     res.json(response.data);
   })
   .catch((err) => {
@@ -97,7 +97,7 @@ app.get('/getAnswers', function(req, res) {
   var answerId = req.query.id;
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${answerId}/answers?count=100`, options)
   .then((answers) => {
-    console.log(answers.data)
+    // console.log(answers.data)
     res.json(answers.data)
   })
   .catch(err => console.log(err))
@@ -208,6 +208,11 @@ app.get('/relatedPrdouctsReviews/:id', (req, res) => {
   .catch((err) => {
     console.log('ERR ================== \n', err)
   })
+})
+
+app.get(/link/, (req, res) => {
+  //console.log(req, 'testing inside app link')
+  res.status(200).send('slim shady')
 })
 // ============ KEN ROUTES END ============= //
 

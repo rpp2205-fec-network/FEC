@@ -552,6 +552,7 @@ main {
   width: 250px;
   margin: 20px;
   white-space: nowrap;
+  top: 0px;
 }
 
 #productRecInfo > #productRecInfoImage {

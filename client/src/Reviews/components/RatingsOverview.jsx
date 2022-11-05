@@ -39,6 +39,13 @@ class RatingsOverview extends React.Component {
     this.getMetaData()
   }
 
+   ///////////Kens add////////////////
+ componentDidUpdate(prevProps) {
+    this.getMetaData()
+
+}
+///////////////////////////////////////
+
   getMetaData() {
     axios.get(`/meta/${this.props.product_id}/`)
     //axios.get(`/meta/71701/`)

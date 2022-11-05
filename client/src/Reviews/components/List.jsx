@@ -34,6 +34,17 @@ class List extends React.Component {
     }
   }
 
+//    ///////////Kens add////////////////
+//  componentDidUpdate(prevProps) {
+//   console.log('review index', prevProps.product_id, this.props.product_id, this.state.reviews)
+//   if (prevProps.product_id !== this.props.product_id) {
+//     this.setState({
+//       product_id: this.props.product_id
+//     })
+//   }
+// }
+// ///////////////////////////////////////
+
 
   render() {
     if (this.props.reviews.length === 0) {

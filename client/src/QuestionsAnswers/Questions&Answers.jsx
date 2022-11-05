@@ -15,6 +15,7 @@ class QuestionsAnswers extends React.Component {
       searchText: '',
       searchedQuestions: []
     };
+
     this.sortQuestions = this.sortQuestions.bind(this);
     this.getQuestions = this.getQuestions.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
@@ -24,6 +25,18 @@ class QuestionsAnswers extends React.Component {
   componentDidMount() {
     this.getQuestions(this.state.product_id);
   }
+
+  ///////////Kens add////////////////
+  componentDidUpdate(prevProps) {
+    //console.log('questions and answers', prevProps.product_id, this.props.product_id,this.state.questions)
+    if (prevProps.product_id !== this.props.product_id) {
+      this.setState({
+        product_id: this.props.product_id
+      }, () => {this.getQuestions(this.state.product_id)})
+    }
+  }
+///////////////////////////////////////
+
 
   getQuestions (product_id) {
     axios.get(`/getQuestions/${product_id}`)

@@ -28,7 +28,7 @@ export default class Outfit extends React.Component {
       while ( i-- ) {
         values.push( this.state.display[keys[i]] );
       }
-      console.log(values, 'inside element')
+      //console.log(values, 'inside element')
       let outfitMap = values.map((item, index) => {
         return (
           <div key={index} id='productRec' >

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Ratings from 'react-ratings-declarative';
 import ActionButton from './ActionButton.jsx';
-import ProductOverview from '../Product Overview/productOverview.jsx'
+import {Link} from 'react-router-dom'
 
 export default class Recommend extends React.Component {
   constructor(props) {
@@ -17,11 +17,13 @@ export default class Recommend extends React.Component {
       clikedProduct: null,
       popup: false
     }
+    // console.log(this.props, 'inside recommend')
+   // console.log(typeof(window.location.hash.split('/')[2]))
   }
 
   // pull all related products from server with this category and return an array of mapped items
   pull() {
-    if (this.state.example === null) {
+    if (this.props.currentItem === null) {
       return
     }
     var setDisplay, setProductList,setImage, setRatings;
@@ -29,7 +31,7 @@ export default class Recommend extends React.Component {
       method: 'get',
       url: '/relatedProducts',
       params: {
-        id: this.state.example.id
+        id: this.props.currentItem
       }
     }).then((response) => {
       setDisplay = [response.data[0], response.data[1], response.data[2]]
@@ -61,9 +63,16 @@ export default class Recommend extends React.Component {
 
   // render items in state and display each as a div
   element(input) {
-    let recMap = input.map((item, index) => {
+    let removeDup = [];
+    input.forEach((item) => {
+      if (!removeDup.includes(item)) {
+        removeDup.push(item)
+      }
+    })
+    let recMap = removeDup.map((item, index) => {
+      //console.log(item, item.id, 'inside recommend element map func')
       return (
-        <div key={index} id='productRec' onClick={ ProductOverview }>
+        <div key={index} id='productRec' >
           <button onClick={() => {
               this.setState({
                 popup: !this.state.popup,
@@ -71,7 +80,9 @@ export default class Recommend extends React.Component {
               })
             }} style={{position: 'absolute'}}>&#9733;</button>
           <div id='productRecInfo'>
-            <img onClick={() => {this.props.changeProduct(item.id)}}id='productRecInfoImage' src={item.image}></img>
+            <Link to={`/link/${item.id}`} style={{textDecoration: 'none',display: 'inline-block'}}>
+            <img onClick={() => {this.props.changeProduct(item.id)}} id='productRecInfoImage' src={item.image} style={{backgroundColor: 'rgb(161, 161, 161)', height:'240px', width: '250px'}}></img>
+            </Link>
             <div id='productRecInfoCategory'>{item.category}</div>
             <div id='productRecInfoName'>{item.name}</div>
             <div id='productRecInfoPrice'>${item.default_price}</div>
@@ -230,22 +241,42 @@ export default class Recommend extends React.Component {
 
   // run async pull request to populate current state of products
   componentDidMount() {
+
     axios.get('/productOverview/' + this.props.currentItem)
         .then((response) => {
             this.setState({
               example: response.data
-            }, () => {
+            }
+            , () => {
               this.pull()
-            })
+            }
+            )
         })
         .catch((err) => {
             throw err
         })
-    this.pull()
-
+    //this.pull()
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.currentItem !== prevProps.currentItem) {
+      this.pull()
+    }
+  }
+//////////// previous component did update ///////////
+  // componentDidUpdate(prevProps) {
+  //   // Typical usage (don't forget to compare props):
 
+
+  //   // console.log('testing inside recommend', prevProps, this.props, this.state)
+  //   if (this.props.currentItem !== prevProps.currentItem) {
+
+  //     this.setState({
+  //       example: this.props.currentItem
+  //     })
+  //     this.pull();
+  //   }
+  // }
 
 
   render() {

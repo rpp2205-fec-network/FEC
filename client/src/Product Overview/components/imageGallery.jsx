@@ -12,7 +12,6 @@ export default class ImageGallery extends React.Component {
         this.onCycleThumbnail = this.onCycleThumbnail.bind(this);
         this.onSelectThumbnail = this.onSelectThumbnail.bind(this);
         this.onCycleMainImage = this.onCycleMainImage.bind(this);
-        this.onChangeView = this.onChangeView.bind(this);
     }
 
     //should move to next main image, and set the top thumbnail image to the same one.
@@ -71,19 +70,6 @@ export default class ImageGallery extends React.Component {
     }
 
     //changes view style between default and expanded mode
-    onChangeView() {
-        if (this.state.view === 'default') {
-            console.log('Switching to expanded')
-            this.setState({
-                view: 'expanded'
-            })
-        } else {
-            console.log('Switching to default')
-            this.setState({
-                view: 'default'
-            })
-        }
-    }
 
     render() {
         var styleInfo = this.props.styleInfo;
@@ -111,8 +97,7 @@ export default class ImageGallery extends React.Component {
             }
             return (
                 <div className="image_gallery">
-                    <input type="button" value="Enter Fullscreen" onClick={this.onChangeView}></input>
-                    <aside className="thumbnails_list">
+                    <div className="thumbnails_list">
                         <input name="upButton" className="thumnail_button" type="button" value="^" onClick={this.onCycleThumbnail}></input>
 
                         {selectionWheelPhotos.map((image) => {
@@ -126,12 +111,12 @@ export default class ImageGallery extends React.Component {
 
                         <input name="downButton" className="thumnail_button" type="button" value="v" onClick={this.onCycleThumbnail}></input>
 
-                    </aside>
-                    <main className="selected_image">
-                        <input name="leftButton" className="main_image_button" type="button" value="<" onClick={this.onCycleMainImage}></input>
+                    </div>
+                    <div className="selected_image_container">
+                        <input name="leftButton" className="left_button" type="button" value="<" onClick={this.onCycleMainImage}></input>
                         <img className="selected_image" src={styleInfo[currentStyle].photos[currentPhoto].url}></img>
-                        <input name="rightButton" className="main_image_button" type="button" value=">" onClick={this.onCycleMainImage}></input>
-                    </main>
+                        <input name="rightButton" className="right_button" type="button" value=">" onClick={this.onCycleMainImage}></input>
+                    </div>
                 </div>
             )
         }

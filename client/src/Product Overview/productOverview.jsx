@@ -1,6 +1,5 @@
 import React from 'react';
 import ImageGallery from './components/imageGallery.jsx'
-import ProductInformation from './components/productInformation.jsx'
 import StyleSelector from './components/styleSelector.jsx'
 import AddToCart from './components/addToCart.jsx'
 import axios from 'axios';
@@ -13,7 +12,6 @@ export default class ProductOverview extends React.Component {
         this.state = {
             currentProduct: {},
             styleInfo: [],
-            currentProductId: 71701,
             currentStyle: 0
         }
         this.getAllProductInfo = this.getAllProductInfo.bind(this);
@@ -23,14 +21,14 @@ export default class ProductOverview extends React.Component {
     }
     //get data after component mounts
     componentDidMount() {
-        return this.getProductInfo(71701)
+        return this.getProductInfo(this.props.product_id)
         .then((data) => {
             this.setState({
               currentProduct: data
             })
         })
         .then(() => {
-            return this.getProductStyles(71701)
+            return this.getProductStyles(this.props.product_id)
         })
         .then((data) => {
             this.setState({
@@ -67,7 +65,7 @@ export default class ProductOverview extends React.Component {
         })
         .catch((err) => {
             // throw err
-            console.log('ERR')
+            console.log('ERR', err)
         })
     }
     //top level function for when user selects different style
@@ -86,18 +84,29 @@ export default class ProductOverview extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
                 <ProductOverviewErrorBoundary>
-                    <div onClick={(e) => this.props.clickTracking(e, 'ProductOverview')}>
-                    <h2>Product Overview</h2>
-                    <ImageGallery onLod={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
-                    <ProductInformation onLoad={this.getProductInfo} productInfo={this.state.currentProduct}/>
-                    <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}  onChangeStyle={this.changeStyle}/>
-                    <AddToCart />
-                    <h2>End of Product Overview</h2>
+                    <div className='Product-Overview' onClick={(e) => this.props.clickTracking(e, 'ProductOverview')}>
+                            <div className='product_overview_container'>
+                                <div className='image_gallery_container'>
+                                    <ImageGallery onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}/>
+                                </div>
+                                <div className='right_of_image_gallery'>
+                                    <div>{this.state.currentProduct.category}</div>
+                                    <h2>{this.state.currentProduct.name}</h2>
+                                    <div>{this.state.currentProduct.default_price}</div>
+                                    <h3>Select Your Style</h3>
+                                    <StyleSelector onLoad={this.getProductStyles} styleInfo={this.state.styleInfo} currentStyle={this.state.currentStyle}  onChangeStyle={this.changeStyle}/>
+                                    <AddToCart currentStyleInfo={this.state.styleInfo[this.state.currentStyle]}/>
+                                </div>
+                            </div>
+                            <div className='slogan-and-description'>
+                                <h5>{this.state.currentProduct.slogan}</h5>
+                                <div>{this.state.currentProduct.description}</div>
+                            </div>
                     </div>
                 </ProductOverviewErrorBoundary>
-            </div>
+            </>
         )
     }
 

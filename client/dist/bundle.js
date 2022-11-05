@@ -5,210 +5,9 @@
 /*!**************************************************************!*\
   !*** ./client/src/Product Overview/components/addToCart.jsx ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ AddToCart)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var AddToCart = /*#__PURE__*/function (_React$Component) {
-  _inherits(AddToCart, _React$Component);
-  var _super = _createSuper(AddToCart);
-  function AddToCart(props) {
-    var _this;
-    _classCallCheck(this, AddToCart);
-    _this = _super.call(this, props);
-    _this.state = {
-      size: '',
-      quantity: -1,
-      totalQuantity: -1,
-      quantityArr: [],
-      data: [{
-        sku: 'no data',
-        quantity: 'no data',
-        size: 'no data'
-      }],
-      currentSku: '-1',
-      sizeSelected: false
-    };
-    //binds the functions to this component for the 'this' value
-    _this.changeData = _this.changeData.bind(_assertThisInitialized(_this));
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
-    _this.onStar = _this.onStar.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-  _createClass(AddToCart, [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps, prevState) {
-      //if new props are received
-      if (prevProps.currentStyleInfo !== this.props.currentStyleInfo) {
-        var data = [];
-        var skusArray = this.props.currentStyleInfo.skus;
-        var quantityArray = [];
-        for (var key in skusArray) {
-          data.push({
-            sku: key,
-            quantity: skusArray[key].quantity,
-            size: skusArray[key].size
-          });
-        }
-        for (var i = 1; i <= this.props.currentStyleInfo.skus[data[0].sku].quantity; i++) {
-          quantityArray.push(i);
-        }
-        if (quantityArray.length > 15) {
-          quantityArray.length = 15;
-        }
-        this.setState({
-          quantity: 1,
-          totalQuantity: this.props.currentStyleInfo.skus[data[0].sku].quantity,
-          quantityArr: quantityArray,
-          data: data,
-          currentSku: data[0].sku
-        });
-        //if state is changed by sizeSelector
-      } else if (this.state.currentSku !== prevState.currentSku) {
-        console.log('second part of componentDidUpdate prevState \n', prevState, '\n current State\n', this.state);
-        console.log('sku', this.props.currentStyleInfo.skus[this.state.currentSku]);
-        var newQuantityTotal = this.props.currentStyleInfo.skus[this.state.currentSku].quantity;
-        var newQuantityArray = [];
-        for (var i = 1; i <= newQuantityTotal; i++) {
-          newQuantityArray.push(i);
-        }
-        if (newQuantityArray.length > 15) {
-          newQuantityArray.length = 15;
-        }
-        this.setState({
-          totalQuantity: newQuantityTotal,
-          quantityArr: newQuantityArray,
-          quantity: 1
-        });
-      }
-    }
-    //Dynamically changes selected option
-  }, {
-    key: "changeData",
-    value: function changeData(e) {
-      var name = e.target.name;
-      var splitVal = e.target.value.split(', ');
-      var size = splitVal[0];
-      var sku = splitVal[1];
-      console.log('e.target', e.target.value);
-      if (e.target.name === 'quantity') {
-        this.setState(_defineProperty({}, name, e.target.value));
-      } else {
-        var _this$setState2;
-        this.setState((_this$setState2 = {}, _defineProperty(_this$setState2, name, size), _defineProperty(_this$setState2, "currentSku", sku), _this$setState2));
-      }
-      console.log('Name: \n', name, 'Property: \n', this.state[name], 'Value\n', e.target.value);
-    }
-
-    //Handles onClick for addToCart button
-  }, {
-    key: "onSubmit",
-    value: function onSubmit(e) {
-      //console.log('ADD TO CART CLICKED')
-    }
-  }, {
-    key: "onStar",
-    value: function onStar(e) {
-      //console.log('Starred')
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      //determining whether item is completely out of stock
-      var inStock = this.state.data.map(function (item) {
-        if (item.quantity > 0) {
-          return item;
-        }
-      });
-      //if items in stock
-      if (inStock.length > 0) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "addToCart",
-          children: ["Size: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
-            name: "size",
-            onChange: this.changeData,
-            children: this.state.data.map(function (item) {
-              //console.log('ITEM', item)
-              if (item.quantity <= 0) {
-                console.log('Item size of ' + item.size + ' is out of stock');
-              } else {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-                  value: "".concat(item.size, ", ").concat(item.sku),
-                  children: item.size
-                }, item.sku);
-              }
-            })
-          }), "Quantity: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
-            name: "quantity",
-            disabled: !this.state.size,
-            onChange: this.changeData,
-            children: this.state.quantityArr.map(function (number) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
-                value: number,
-                children: number
-              }, number);
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "button",
-            value: "Add To Bag          +",
-            onClick: this.onSubmit
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "button",
-            value: "Pretend an image of a star is here",
-            onClick: this.onStar
-          })]
-        });
-      } else {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "addToCart",
-          children: ["Size: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
-            name: "size",
-            onChange: this.changeData,
-            disabled: true,
-            children: "OUT OF STOCK"
-          }), "Quantity: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
-            name: "quantity",
-            onChange: this.changeData,
-            disabled: true,
-            children: "-"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "button",
-            value: "Add To Bag          +",
-            onClick: this.onSubmit
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "button",
-            value: "Pretend an image of a star is here",
-            onClick: this.onStar
-          })]
-        });
-      }
-    }
-  }]);
-  return AddToCart;
-}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
-
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/kenkurita/hackreactor/FEC/client/src/Product Overview/components/addToCart.jsx: Unexpected token (110:1)\n\n\u001b[0m \u001b[90m 108 |\u001b[39m                         \u001b[33m<\u001b[39m\u001b[33moption\u001b[39m value\u001b[33m=\u001b[39m\u001b[32m'select size'\u001b[39m disabled\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39msize\u001b[33m.\u001b[39mlength \u001b[33m>\u001b[39m \u001b[35m0\u001b[39m}\u001b[33m>\u001b[39mselect size\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33moption\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 109 |\u001b[39m                         {\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39mdata\u001b[33m.\u001b[39mmap((item) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 110 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 111 |\u001b[39m                             \u001b[90m//console.log('ITEM', item)\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 112 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 113 |\u001b[39m \u001b[33m>>>\u001b[39m\u001b[33m>>>\u001b[39m\u001b[33m>\u001b[39m \u001b[35m0\u001b[39mcc74eb5ccf15abfec5c3e3b481a41086eb37dcd\u001b[0m\n    at instantiate (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:367:12)\n    at JSXParserMixin.raise (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:3706:19)\n    at JSXParserMixin.unexpected (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:3744:16)\n    at JSXParserMixin.jsxParseIdentifier (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:7932:12)\n    at JSXParserMixin.jsxParseNamespacedName (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:7941:23)\n    at JSXParserMixin.jsxParseElementName (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:7951:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:8050:22)\n    at JSXParserMixin.jsxParseElementAt (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:8082:33)\n    at JSXParserMixin.jsxParseElement (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:8165:17)\n    at JSXParserMixin.parseExprAtom (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:8179:19)\n    at JSXParserMixin.parseExprSubscripts (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12842:23)\n    at JSXParserMixin.parseUpdate (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12822:21)\n    at JSXParserMixin.parseMaybeUnary (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12793:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12588:61)\n    at JSXParserMixin.parseExprOps (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12594:23)\n    at JSXParserMixin.parseMaybeConditional (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12565:23)\n    at JSXParserMixin.parseMaybeAssign (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12517:21)\n    at JSXParserMixin.parseExpressionBase (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12454:23)\n    at /Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12449:39\n    at JSXParserMixin.allowInAnd (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:14530:16)\n    at JSXParserMixin.parseExpression (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12449:17)\n    at JSXParserMixin.parseStatementContent (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:14981:23)\n    at JSXParserMixin.parseStatement (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:14838:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:15495:25)\n    at JSXParserMixin.parseBlockBody (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:15486:10)\n    at JSXParserMixin.parseBlock (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:15470:10)\n    at JSXParserMixin.parseFunctionBody (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:14136:24)\n    at JSXParserMixin.parseArrowExpression (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:14107:10)\n    at JSXParserMixin.parseParenAndDistinguishExpression (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:13608:12)\n    at JSXParserMixin.parseExprAtom (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:13169:23)\n    at JSXParserMixin.parseExprAtom (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:8184:20)\n    at JSXParserMixin.parseExprSubscripts (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12842:23)\n    at JSXParserMixin.parseUpdate (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12822:21)\n    at JSXParserMixin.parseMaybeUnary (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12793:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12588:61)\n    at JSXParserMixin.parseExprOps (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12594:23)\n    at JSXParserMixin.parseMaybeConditional (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12565:23)\n    at JSXParserMixin.parseMaybeAssign (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12517:21)\n    at /Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12476:39\n    at JSXParserMixin.allowInAnd (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:14536:12)\n    at JSXParserMixin.parseMaybeAssignAllowIn (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12476:17)\n    at JSXParserMixin.parseExprListItem (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:14241:18)\n    at JSXParserMixin.parseCallExpressionArguments (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:13068:22)\n    at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12965:29)\n    at JSXParserMixin.parseSubscript (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12890:19)\n    at JSXParserMixin.parseSubscripts (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12859:19)\n    at JSXParserMixin.parseExprSubscripts (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12848:17)\n    at JSXParserMixin.parseUpdate (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12822:21)\n    at JSXParserMixin.parseMaybeUnary (/Users/kenkurita/hackreactor/FEC/node_modules/@babel/parser/lib/index.js:12793:23)");
 
 /***/ }),
 
@@ -256,7 +55,6 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
     _this.onCycleThumbnail = _this.onCycleThumbnail.bind(_assertThisInitialized(_this));
     _this.onSelectThumbnail = _this.onSelectThumbnail.bind(_assertThisInitialized(_this));
     _this.onCycleMainImage = _this.onCycleMainImage.bind(_assertThisInitialized(_this));
-    _this.onChangeView = _this.onChangeView.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -323,21 +121,6 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
 
     //changes view style between default and expanded mode
   }, {
-    key: "onChangeView",
-    value: function onChangeView() {
-      if (this.state.view === 'default') {
-        console.log('Switching to expanded');
-        this.setState({
-          view: 'expanded'
-        });
-      } else {
-        console.log('Switching to default');
-        this.setState({
-          view: 'default'
-        });
-      }
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -367,11 +150,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
         }
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "image_gallery",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-            type: "button",
-            value: "Enter Fullscreen",
-            onClick: this.onChangeView
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("aside", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "thumbnails_list",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
               name: "upButton",
@@ -395,11 +174,11 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
               value: "v",
               onClick: this.onCycleThumbnail
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("main", {
-            className: "selected_image",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "selected_image_container",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
               name: "leftButton",
-              className: "main_image_button",
+              className: "left_button",
               type: "button",
               value: "<",
               onClick: this.onCycleMainImage
@@ -408,7 +187,7 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
               src: styleInfo[currentStyle].photos[currentPhoto].url
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
               name: "rightButton",
-              className: "main_image_button",
+              className: "right_button",
               type: "button",
               value: ">",
               onClick: this.onCycleMainImage
@@ -419,76 +198,6 @@ var ImageGallery = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return ImageGallery;
-}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
-
-
-/***/ }),
-
-/***/ "./client/src/Product Overview/components/productInformation.jsx":
-/*!***********************************************************************!*\
-  !*** ./client/src/Product Overview/components/productInformation.jsx ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ ProductInformation)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var ProductInformation = /*#__PURE__*/function (_React$Component) {
-  _inherits(ProductInformation, _React$Component);
-  var _super = _createSuper(ProductInformation);
-  function ProductInformation(props) {
-    var _this;
-    _classCallCheck(this, ProductInformation);
-    _this = _super.call(this, props);
-    _this.state = {};
-    return _this;
-  }
-
-  //load product information
-  _createClass(ProductInformation, [{
-    key: "render",
-    value: function render() {
-      var productInfo = this.props.productInfo;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "productInformation",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-          children: "Product Information"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: "Reviews Info"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: productInfo.category
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-          children: productInfo.name
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: productInfo.default_price
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
-          children: productInfo.slogan
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          children: productInfo.description
-        })]
-      });
-    }
-  }]);
-  return ProductInformation;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 
@@ -521,7 +230,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
 var StyleSelector = /*#__PURE__*/function (_React$Component) {
   _inherits(StyleSelector, _React$Component);
   var _super = _createSuper(StyleSelector);
@@ -545,35 +253,32 @@ var StyleSelector = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
       var styleInfo = this.props.styleInfo;
+      console.log('styleInfo', styleInfo);
       if (styleInfo.length === 0) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           children: "NO STYLE INFO FOUND"
         });
         //else load photos based on current selections
       } else {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "styleSelector",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-            children: "StyleSelector"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            children: styleInfo.map(function (style) {
-              if (style === _this2.props.styleInfo[_this2.props.currentStyle]) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                  className: "selected_style",
-                  onClick: _this2.onSelectStyle,
-                  id: style.style_id,
-                  children: style.name
-                }, style.style_id);
-              } else {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                  className: "unselected_style",
-                  onClick: _this2.onSelectStyle,
-                  id: style.style_id,
-                  children: style.name
-                }, style.style_id);
-              }
-            })
-          })]
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "style_selector",
+          children: styleInfo.map(function (style) {
+            if (style === _this2.props.styleInfo[_this2.props.currentStyle]) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                className: "selected_style",
+                onClick: _this2.onSelectStyle,
+                id: style.style_id,
+                src: style.photos[0].thumbnail_url
+              }, style.style_id);
+            } else {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+                className: "unselected_style",
+                onClick: _this2.onSelectStyle,
+                id: style.style_id,
+                src: style.photos[0].thumbnail_url
+              }, style.style_id);
+            }
+          })
         });
       }
     }
@@ -598,13 +303,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/imageGallery.jsx */ "./client/src/Product Overview/components/imageGallery.jsx");
-/* harmony import */ var _components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/productInformation.jsx */ "./client/src/Product Overview/components/productInformation.jsx");
-/* harmony import */ var _components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/styleSelector.jsx */ "./client/src/Product Overview/components/styleSelector.jsx");
-/* harmony import */ var _components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/addToCart.jsx */ "./client/src/Product Overview/components/addToCart.jsx");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./productOverviewErrorBoundary.jsx */ "./client/src/Product Overview/productOverviewErrorBoundary.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/styleSelector.jsx */ "./client/src/Product Overview/components/styleSelector.jsx");
+/* harmony import */ var _components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/addToCart.jsx */ "./client/src/Product Overview/components/addToCart.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./productOverviewErrorBoundary.jsx */ "./client/src/Product Overview/productOverviewErrorBoundary.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -636,7 +340,6 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       currentProduct: {},
       styleInfo: [],
-      currentProductId: 71701,
       currentStyle: 0
     };
     _this.getAllProductInfo = _this.getAllProductInfo.bind(_assertThisInitialized(_this));
@@ -650,12 +353,12 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
-      return this.getProductInfo(71701).then(function (data) {
+      return this.getProductInfo(this.props.product_id).then(function (data) {
         _this2.setState({
           currentProduct: data
         });
       }).then(function () {
-        return _this2.getProductStyles(71701);
+        return _this2.getProductStyles(_this2.props.product_id);
       }).then(function (data) {
         _this2.setState({
           styleInfo: data
@@ -667,7 +370,7 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getAllProductInfo",
     value: function getAllProductInfo() {
-      return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview').then(function (response) {
+      return axios__WEBPACK_IMPORTED_MODULE_4___default().get('/productOverview').then(function (response) {
         return response.data;
       })["catch"](function (err) {
         console.log('ERR IN COMPONENTDIDMOUNT \n', err);
@@ -676,7 +379,7 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductInfo",
     value: function getProductInfo(id) {
-      return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/' + id).then(function (response) {
+      return axios__WEBPACK_IMPORTED_MODULE_4___default().get('/productOverview/' + id).then(function (response) {
         return response.data;
       })["catch"](function (err) {
         throw err;
@@ -685,11 +388,11 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProductStyles",
     value: function getProductStyles(id) {
-      return axios__WEBPACK_IMPORTED_MODULE_5___default().get('/productOverview/styles/' + id).then(function (response) {
+      return axios__WEBPACK_IMPORTED_MODULE_4___default().get('/productOverview/styles/' + id).then(function (response) {
         return response.data.results;
       })["catch"](function (err) {
         // throw err
-        console.log('ERR');
+        console.log('ERR', err);
       });
     }
     //top level function for when user selects different style
@@ -711,28 +414,48 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this3 = this;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_productOverviewErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "Product-Overview",
             onClick: function onClick(e) {
               return _this3.props.clickTracking(e, 'ProductOverview');
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
-              children: "Product Overview"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-              onLod: this.getProductStyles,
-              styleInfo: this.state.styleInfo,
-              currentStyle: this.state.currentStyle
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_productInformation_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-              onLoad: this.getProductInfo,
-              productInfo: this.state.currentProduct
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-              onLoad: this.getProductStyles,
-              styleInfo: this.state.styleInfo,
-              currentStyle: this.state.currentStyle,
-              onChangeStyle: this.changeStyle
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
-              children: "End of Product Overview"
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "product_overview_container",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "image_gallery_container",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_imageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  onLoad: this.getProductStyles,
+                  styleInfo: this.state.styleInfo,
+                  currentStyle: this.state.currentStyle
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "right_of_image_gallery",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  children: this.state.currentProduct.category
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+                  children: this.state.currentProduct.name
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  children: this.state.currentProduct.default_price
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+                  children: "Select Your Style"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_styleSelector_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  onLoad: this.getProductStyles,
+                  styleInfo: this.state.styleInfo,
+                  currentStyle: this.state.currentStyle,
+                  onChangeStyle: this.changeStyle
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_addToCart_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  currentStyleInfo: this.state.styleInfo[this.state.currentStyle]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "slogan-and-description",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                children: this.state.currentProduct.slogan
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                children: this.state.currentProduct.description
+              })]
             })]
           })
         })
@@ -773,6 +496,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ProductOverviewErrorBoundary = /*#__PURE__*/function (_React$Component) {
   _inherits(ProductOverviewErrorBoundary, _React$Component);
   var _super = _createSuper(ProductOverviewErrorBoundary);
@@ -801,7 +525,7 @@ var ProductOverviewErrorBoundary = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (this.state.errorInfo) {
         // Error path
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
             children: "Something went wrong."
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("details", {
@@ -836,10 +560,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_SearchQuestions_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/SearchQuestions.jsx */ "./client/src/QuestionsAnswers/components/SearchQuestions.jsx");
-/* harmony import */ var _components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/QuestionsList.jsx */ "./client/src/QuestionsAnswers/components/QuestionsList.jsx");
-/* harmony import */ var _QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QuestionsAnswersErrorBoundary.jsx */ "./client/src/QuestionsAnswers/QuestionsAnswersErrorBoundary.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/QuestionsList.jsx */ "./client/src/QuestionsAnswers/components/QuestionsList.jsx");
+/* harmony import */ var _QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuestionsAnswersErrorBoundary.jsx */ "./client/src/QuestionsAnswers/QuestionsAnswersErrorBoundary.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -852,7 +575,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -885,7 +607,6 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
       }
     });
     _defineProperty(_assertThisInitialized(_this), "searchQuestions", function (questions, query) {
-      //if no input the return the original
       if (query === '') {
         return questions;
       }
@@ -896,7 +617,7 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
       });
     });
     _this.state = {
-      product_id: '71717',
+      product_id: _this.props.product_id,
       questions: [],
       sortedQuestions: [],
       showQuestionModal: false,
@@ -944,18 +665,18 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this3 = this;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         id: "QAwidget",
         onClick: function onClick(e) {
           return _this3.props.clickTracking(e, 'QuestionAnswers');
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
             children: "Questions & Answers"
-          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {})]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           id: "searchquestions",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
             type: "Search",
             className: "searchBar",
             placeholder: "Have a question? Search for answers...",
@@ -963,9 +684,9 @@ var QuestionsAnswers = /*#__PURE__*/function (_React$Component) {
             rows: 1,
             cols: 100
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_QuestionsAnswersErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
               questions: this.state.searchedQuestions.length >= 1 ? this.state.searchedQuestions : this.state.sortedQuestions,
               product_id: this.state.product_id
             })
@@ -1528,28 +1249,24 @@ var Answer = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
       if (this.state.showAllItems === false) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+            className: "expandedAnswersA",
+            children: "A: "
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             id: "answerContent",
             children: [" ", this.props.answers.slice(0, 2).map(function (answer, index) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", index === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                  className: "firstAnswerBody",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-                    children: ["A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      className: "answerBody",
-                      children: answer.body
-                    })]
-                  }), " "]
-                }) : answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                children: ["  ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "answerImagesArea",
                   children: answer.photos ? answer.photos.map(function (photo, index) {
                     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                       className: "eachImage",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                         src: photo.url,
-                        className: "qaPhoto"
+                        className: "qaPhoto",
+                        alt: ""
                       }, photo.id)
                     }, index);
                   }) : ''
@@ -1579,28 +1296,24 @@ var Answer = /*#__PURE__*/function (_React$Component) {
         });
       } else {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+            className: "expandedAnswersA",
+            children: "A: "
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             id: "allAnswerContent",
             children: [" ", this.props.answers.map(function (answer, index) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 target: "_blank",
                 id: "answerText",
-                children: ["  ", index === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                  className: "firstAnswerBody",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-                    children: ["A: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      className: "answerBody",
-                      children: answer.body
-                    })]
-                  }), " "]
-                }) : answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                children: [" ", answer.body, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "answerImagesArea",
                   children: answer.photos ? answer.photos.map(function (photo, index) {
                     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                       className: "eachImage",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                         src: photo.url,
-                        className: "qaPhoto"
+                        className: "qaPhoto",
+                        alt: ""
                       }, photo.id)
                     }, index);
                   }) : ''
@@ -2122,39 +1835,6 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
   return QuestionsList;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsList);
-
-/***/ }),
-
-/***/ "./client/src/QuestionsAnswers/components/SearchQuestions.jsx":
-/*!********************************************************************!*\
-  !*** ./client/src/QuestionsAnswers/components/SearchQuestions.jsx ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var SearchQuestions = function SearchQuestions() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    id: "searchquestions",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
-      type: "Search",
-      placeholder: "Have a question? Search for answers...",
-      rows: 1,
-      cols: 100
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchQuestions);
 
 /***/ }),
 

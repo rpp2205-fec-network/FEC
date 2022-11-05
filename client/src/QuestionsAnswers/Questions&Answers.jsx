@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchQuestions from './components/SearchQuestions.jsx';
 import QuestionsList from './components/QuestionsList.jsx';
 import ErrorBoundary from './QuestionsAnswersErrorBoundary.jsx';
 const axios = require('axios')
@@ -9,7 +8,7 @@ class QuestionsAnswers extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: '71717',
+      product_id: this.props.product_id,
       questions: [],
       sortedQuestions: [],
       showQuestionModal: false,
@@ -58,7 +57,6 @@ class QuestionsAnswers extends React.Component {
   };
 
   searchQuestions = (questions, query) => {
-    //if no input the return the original
     if (query === '') {
       return questions;
     }

@@ -19,7 +19,7 @@ This section allows the viewing of and submission of reviews for the product sel
 <ul>
 <li>Install dependencies: npm install
 <br/>
-<li>Create a file 'config' and then create a file 'config.js'under the src file. Add the following into the file, with your personal Github token:
+<li>Create a folder 'config' and then create a file 'config.js'under the src folder. Add the following into the file, with your personal Github token:
 <br/>
 <blockquote>var API_KEY = 'INSERT YOUR GITHUB TOKEN HERE'
 
